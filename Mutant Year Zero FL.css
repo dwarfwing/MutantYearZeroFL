@@ -1012,7 +1012,9 @@ input[type="number"].sheet-input {
 }
 
 input[type="text"].sheet-input-number,
-input[type="number"].sheet-input-number {
+input[type="number"].sheet-input-number,
+input[type="select"].sheet-input-number,
+input[type="select"].sheet-input {
   width: 100%;
   max-height: 2.25em;
   text-align: center;
@@ -1021,7 +1023,8 @@ input[type="number"].sheet-input-number {
 
 select.sheet-input {
   width: 100%;
-  min-width: 3em;
+  min-width: 2.5em;
+  height: 2.25em;
   margin: 0;
   color: #000;
   text-align-last: center;
@@ -1038,7 +1041,14 @@ select.sheet-input:hover {
 
 input.sheet-input.sheet-input-number-center {
   display: flex;
-  width: 3em;
+  width: 2.5em;
+  text-align: center;
+  justify-self: center;
+}
+
+input.sheet-input.sheet-input-center {
+  display: flex;
+  min-width: 2.5em;
   text-align: center;
   justify-self: center;
 }
@@ -1127,7 +1137,7 @@ input[type="checkbox"].sheet-input {
   line-height: 1em;
   overflow: hidden;
   width: 100%;
-  height: 1.9em;
+  height: 2.25em;
   min-height: 1.9em;
   margin: 0;
   padding: 0 2px 0 2px;
@@ -1748,14 +1758,20 @@ input.sheet-dice_only:checked
   grid-template-rows: auto auto;
 }
 .sheet-heading-box {
-  padding: 5px; 
-  -justify-self: left;
+  padding: 5px;  
+  -justify-self: right;
+}
+
+.sheet-heading-box .sheet-label {
+  align-self: center;
+  justify-self: right;
+  margin-right: 5px;
 }
 
 .sheet-heading-grid div:nth-child(even),
 .sheet-heading-grid div:nth-child(even) input {
   -width: 11.5em;
-  text-align: left;
+  text-align: center;
 }
 
 .sheet-heading-grid div:nth-child(odd) {
@@ -2953,7 +2969,8 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 }
 
 .sheet-skills-row select.sheet-input, .sheet-skills-row input.sheet-input-number {
-  min-width: 3em;
+  min-width: 2.5em;
+  max-width: 2.5em;
 }
 /* list ordering of skills by attribute group */
 .sheet-skills-grid {

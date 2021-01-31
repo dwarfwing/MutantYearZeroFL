@@ -1196,7 +1196,7 @@ input[type="number"]:not(:hover) {
   position: absolute;
   z-index: 6;
   top: -4px;
-  left: -8px;
+  left: 0;
   width: 18px;
   opacity: 0;
 }
@@ -1207,7 +1207,7 @@ input.sheet-expand + span::before {
   position: absolute;
   z-index: 3;
   top: -5px;
-  left: -6px;
+  left: 0;
   width: 13px;
   height: 16px;
   content: "y";
@@ -1218,7 +1218,7 @@ input.sheet-expand + span::before {
 
 
 
-.sheet-mount-grid input.sheet-expand + span::before {
+.sheet-vehicle-grid input.sheet-expand + span::before {
   margin-top: 2.75em;
 }
 
@@ -1237,8 +1237,8 @@ input.sheet-expand:checked + span::before {
 .sheet-armor-box10-5:hover input.sheet-expand+span::before,
 .sheet-shield-box12:hover input.sheet-expand+span::before,
 .repitem .sheet-gear-grid:hover input.sheet-expand+span::before,
-.sheet-mount-grid:hover input.sheet-expand+span::before,
-.repitem .sheet-mount_gear-grid:hover input.sheet-expand+span::before,
+.sheet-vehicle-grid:hover input.sheet-expand+span::before,
+.repitem .sheet-vehicle_gear-grid:hover input.sheet-expand+span::before,
 .repitem .sheet-spells-grid:hover input.sheet-expand+span::before,
 .sheet-skills-row:hover input.sheet-expand+span::before {
   opacity: 0.85;
@@ -1318,9 +1318,10 @@ input.sheet-expand:checked ~ .sheet-input-textarea {
 }
 
 .sheet-box {
-  padding: 0 5px 0 5px;
+  padding: 0;
+  margin-bottom: 5px;
   text-align: left;
-  border: 1px solid #000;
+  border: 2px solid #000;
   border-radius: 4px;
 }
 
@@ -1380,8 +1381,8 @@ div.sheet-character-weapons div.sheet-header,
 div.sheet-gear-box1,
 div.sheet-gear-box6,
 div.sheet-coins-box .sheet-header,
-div.sheet-mount-box1,
-div.sheet-mount_gear-box1,
+div.sheet-vehicle-box1,
+div.sheet-vehicle_gear-box1,
 div.sheet-consumables-box1,
 div.sheet-coins-box,
 div.sheet-experience-grid,
@@ -1661,6 +1662,7 @@ input.sheet-dice_only:checked
   grid-row: 5/span 8;
   border: none;
   overflow: hidden;
+  -display: flex;
 }
 
 .sheet-character-talents {
@@ -1674,7 +1676,7 @@ input.sheet-dice_only:checked
   overflow: hidden;
 }
 
-.sheet-character-mount {
+.sheet-character-vehicle {
   height: fit-content;
   overflow: hidden;
 }
@@ -1689,10 +1691,10 @@ input.sheet-dice_only:checked
 .sheet-character-coins,
 .sheet-character-consumables {
   grid-column-start: 3;
-  padding: 0 2px 0 2px;
+  padding: 0;
   -border: 7px solid #000;
-  border: 2px solid #000;
-  border-top-width: 0;
+  -border: 2px solid #000;
+  -border-top-width: 0;
   -border-bottom-width: 18px;
   -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20column%20border.png);
   -border-image-slice: 0 25 40 25;
@@ -1704,15 +1706,21 @@ input.sheet-dice_only:checked
 
 .sheet-character-experience {
   height: 2.25em;
-  background: #000;
-  grid-column-start: 3;
+  grid-column-start: 3 / span 1;
   overflow: hidden;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -margin: 5px 0 0 0;
+  color: #fff;
 }
+
 
 .sheet-character-willpower {
   height: fit-content;
   grid-column-start: 3;
-  padding: 0 2px 0 2px;
+  padding: 0;
   -border: 7px solid #000;
   border: 2px solid #000;
   border-top-width: 0;
@@ -1727,7 +1735,7 @@ input.sheet-dice_only:checked
 
 .sheet-willpower-grid .sheet-willpower-box2,
 .sheet-willpower-grid .sheet-willpower-box3 {
-  padding: 0 0 10px 0;
+  -padding: 0 0 10px 0;
 }
 
 .sheet-character-spells {
@@ -1747,6 +1755,7 @@ input.sheet-dice_only:checked
 }
 
 /* ---------------------------------- Heading */
+
 .sheet-heading-grid {
   align-items: left;
   justify-self: left;
@@ -1948,6 +1957,7 @@ input.sheet-dice_only:checked
 }
 
 /* -----------------------------------Monster Tab layout */
+
 input.sheet-monster_only:checked ~ div.sheet-character .sheet-character-grid {
   grid-template-columns: auto auto 22em;
   margin: -4px 0 0 0;
@@ -2000,6 +2010,7 @@ input.sheet-monster_only:checked ~ div.sheet-character .sheet-character-notes {
   grid-row-start: 3;
 }
 /* ---------------------------------- Monster Stats */
+
 .sheet-monster-stat1 > *[class^="sheet-monster-stats-box"] {
   display: flex;
   align-items: center;
@@ -2928,6 +2939,88 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   grid-area: sheet-dice-footer-api;
 }
 
+/*----------------------------------- Column 3 */
+
+.sheet-character-column3 ~ div {
+  margin-bottom: 5px;
+
+}
+
+
+/* ---------------------------------- Experience */
+
+.sheet-experience-grid {
+  display: grid;
+  margin-right: -1px;
+  grid-template-columns: 4.25fr 2.2em 1fr;
+}
+
+.sheet-experience-box1 {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  -width: 104%;
+}
+
+.sheet-experience-box1 h1 {
+  margin: 0 12px 0 0;
+
+}
+
+.sheet-experience-box2 {
+  z-index: 1;
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+
+.sheet-experience-box3 {
+  grid-column-start: 3;
+  grid-row-start: 1;
+}
+
+.sheet-experience-grid .sheet-header > .sheet-input {
+  z-index: 1;
+}
+
+.sheet-experience-grid .sheet-header > h1 {
+  margin: 0;
+}
+
+/* ---------------------------------- Power */
+
+.sheet-willpower-grid {
+  display: grid;
+  grid-template-columns: auto 3em 0;
+  -width: 100%;
+}
+
+.sheet-willpower-box1 {
+  grid-column: 1/3;
+  grid-row-start: 1;
+  margin: 0; 
+}
+
+.sheet-willpower-box2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 3em;
+  grid-column: 1/2;
+  grid-row-start: 2;
+}
+
+.sheet-willpower-box3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.sheet-willpower-box3 span {
+  margin: 0 3px 0 3px;
+}
+
 /* ---------------------------------- Talents */
 
 .sheet-talents-grid {
@@ -2945,6 +3038,7 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 .sheet-talents-box1 {
   grid-column-start: 1;
   grid-row-start: 1;
+  padding-left: 10px;
 }
 
 .sheet-talents-box2 {
@@ -3247,117 +3341,15 @@ span.sheet-armor-box3.sheet-header {
   grid-column: 1/10;
 }
 
-/* ---------------------------------- Shield 
-.sheet-shield-grid {
-  display: grid;
-  grid-column-gap: 2px;
-  grid-row-gap: 2px;
-  grid-row-start: 2;
-  grid-template-columns: 3em 3em auto 3em 3em 3em 3em 3em 3em 1.5em 1.5em 1.5em 1.5em;
-}
 
-.sheet-shield-row2 {
-  grid-column: 1/14;
-  grid-row-start: 2;
-  padding-bottom: 2px;
-  grid-column-gap: 2px;
-  grid-row-gap: 2px;
-  grid-template-columns: 3em 3em 3em 3em 2em 2em 5em auto;
-  justify-items: center;
-  align-items: baseline;
-}
-
-.sheet-shield-box {
-  grid-column: 1/14;
-  grid-row-start: 1;
-}
-
-.sheet-shield-box1 {
-  grid-column-start: 1;
-  grid-row-start: 1;
-}
-
-.sheet-shield-box2 {
-  grid-column-start: 2;
-  grid-row-start: 1;
-}
-
-.sheet-shield-box3 {
-  grid-column-start: 3;
-  grid-row-start: 1;
-}
-
-.sheet-shield-box4 {
-  grid-column-start: 4;
-  grid-row-start: 1;
-}
-
-.sheet-shield-box5 {
-  grid-column-start: 5;
-  grid-row-start: 1;
-}
-
-.sheet-shield-box6 {
-  grid-column-start: 6;
-  grid-row-start: 1;
-  justify-self: right;
-}
-
-.sheet-shield-box7 {
-  grid-column-start: 7;
-  grid-row-start: 1;
-  justify-self: left;
-}
-
-.sheet-shield-box7 span::before {
-  content: "/";
-  padding: 0 2px 0 0;
-}
-
-.sheet-shield-box8 {
-  grid-column-start: 8;
-  grid-row-start: 1;
-  padding-bottom: 3px;
-}
-
-.sheet-shield-box9 {
-  grid-column-start: 9;
-  grid-row-start: 1;
-}
-
-.sheet-shield-box10 {
-  grid-column-start: 10;
-  grid-row-start: 1;
-}
-
-.sheet-shield-box11 {
-  grid-column-start: 11;
-  grid-row-start: 1;
-}
-
-.sheet-shield-box12 {
-  grid-column-start: 12;
-  grid-row-start: 1;
-}
-
-.sheet-shield-box13 {
-  grid-column-start: 13;
-  grid-row-start: 1;
-}
-
-.sheet-shield-box14 {
-  grid-column: 1/14;
-  grid-row-start: 2;
-  position: relative;
-}
-*/
 
 /* ---------------------------------- Consumables */
 
 .sheet-consumables-grid {
   display: grid;
   grid-row-gap: 2px;
-  grid-template-columns: auto 3.75em 3em;
+  grid-template-columns: auto 3.25em 0.2em auto 3.25em 0.2em;
+  padding-bottom: 8px;
 }
 
 .sheet-consumables-grid > div {
@@ -3366,24 +3358,37 @@ span.sheet-armor-box3.sheet-header {
   justify-content: space-around;
 }
 
-.sheet-consumables-box1 {
-  grid-column: 1/4;
+.sheet-consumables-grid ~ span.header-h1 {
+  text-align: right;
+  margin-right: 10px;
+}
+
+.sheet-consumables-box {
+  grid-column: 1/7;
   grid-row-start: 1;
+}
+
+.sheet-consumables-box1 {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  align-content: right;
 }
 
 .sheet-consumables-box2 {
-  grid-column: 2/3;
+  grid-column-start: 5;
   grid-row-start: 1;
+  align-content: right;
 }
-
+/*
 .sheet-consumables-box3 {
-  grid-column-start: 3;
-  grid-row-start: 1;
-}
+  grid-column-start: 1;
+  grid-row-start: 2;
+}*/
 
 .sheet-consumables-box4 {
   grid-column-start: 1;
   grid-row-start: 2;
+  align-content: right;
 }
 
 .sheet-consumables-box5 {
@@ -3396,12 +3401,152 @@ span.sheet-armor-box3.sheet-header {
   grid-row-start: 2;
 }
 
+.sheet-consumables-box7 {
+  grid-column-start: 4;
+  grid-row-start: 2;
+  align-content: right;
+}
+
+.sheet-consumables-box8 {
+  grid-column-start: 5;
+  grid-row-start: 2;
+}
+
+.sheet-consumables-box9 {
+  grid-column-start: 6;
+  grid-row-start: 2;
+}
+
+.sheet-consumables-box10 {
+  grid-column-start: 1;
+  grid-row-start: 3;
+  align-content: right;
+}
+
+.sheet-consumables-box11 {
+  grid-column-start: 2;
+  grid-row-start: 3;
+}
+
+.sheet-consumables-box12 {
+  grid-column-start: 3;
+  grid-row-start: 3;
+}
+
+.sheet-consumables-box13 {
+  grid-column-start: 4;
+  grid-row-start: 3;
+  align-content: right;
+}
+
+.sheet-consumables-box14 {
+  grid-column-start: 5;
+  grid-row-start: 3;
+}
+
+.sheet-consumables-box15 {
+  grid-column-start: 6;
+  grid-row-start: 3;
+}
+
+
+
 .sheet-consumables-grid div:nth-child(even) > span.sheet-header-h1 {
-  margin-left: -25px;
+  -margin-left: -25px;
 }
 
 .sheet-consumables-grid div:nth-child(odd) > span.sheet-header-h1 {
-  margin-right: -25px;
+  -margin-right: -25px;
+}
+
+/* ---------------------------------- Coins */
+
+.sheet-coins-grid {
+  display: grid;
+  margin: 0 0 0 3px;
+  grid-row-gap: 4px;
+  grid-template-columns: 7em repeat(3, 1fr);
+  grid-template-rows: auto;
+  padding-bottom: 8px;
+}
+
+.sheet-coins-grid div[class$="-header"] {
+  margin: 0 -7px 0 -9px;
+}
+
+.sheet-coins-grid > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.sheet-coins-box {
+  grid-column: 1/5;
+  grid-row-start: 1;
+}
+
+.sheet-coins-box1 {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.sheet-coins-box2 {
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+
+.sheet-coins-box3 {
+  grid-column-start: 3;
+  grid-row-start: 1;
+}
+
+.sheet-coins-box4 {
+  grid-column-start: 4;
+  grid-row-start: 1;
+}
+
+.sheet-coins-box5 {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+
+.sheet-coins-box6 {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.sheet-coins-box7 {
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+
+.sheet-coins-box8 {
+  grid-column-start: 2;
+  grid-row-start: 3;
+}
+
+.sheet-coins-box9 {
+  grid-column-start: 1;
+  grid-row-start: 4;
+}
+
+.sheet-coins-box10 {
+  grid-column-start: 2;
+  grid-row-start: 4;
+}
+
+.sheet-coins-box11 {
+  grid-column-start: 3;
+  grid-row-start: 4;
+}
+
+.sheet-coins-box12 {
+  grid-column-start: 4;
+  grid-row-start: 4;
+}
+
+.sheet-coins-box17 {
+  height: 3em;
 }
 
 /* ---------------------------------- Gear */
@@ -3517,9 +3662,9 @@ span.sheet-armor-box3.sheet-header {
   margin-top: 7px;
 }
 
-/* ---------------------------------- Mount */
-.sheet-mount-grid,
-.sheet-mount_gear-box5,
+/* ---------------------------------- Vehicle */
+.sheet-vehicle-grid,
+.sheet-vehicle_gear-box5,
 .sheet-talents-grid .sheet-talents-box4,
 .sheet-gear-box5 {
   padding: 0;
@@ -3534,7 +3679,7 @@ span.sheet-armor-box3.sheet-header {
   background-color: inherit;
 }
 
-.sheet-mount-grid {
+.sheet-vehicle-grid {
   position: relative;
   display: grid;
   grid-row-gap: 2px;
@@ -3542,116 +3687,116 @@ span.sheet-armor-box3.sheet-header {
   grid-template-rows: auto;
 }
 
-.sheet-mount-grid .sheet-header {
+.sheet-vehicle-grid .sheet-header {
   margin: 0 -7px 0 -7px;
 }
 
-.sheet-mount-grid > div {
+.sheet-vehicle-grid > div {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.sheet-mount-box1 {
+.sheet-vehicle-box1 {
   grid-column: 1/6;
   grid-row-start: 1;
 }
 
-.sheet-mount-box2 {
+.sheet-vehicle-box2 {
   grid-column: 1/6;
   grid-row-start: 2;
 }
 
-.sheet-mount-box3 {
+.sheet-vehicle-box3 {
   grid-column-start: 2;
   grid-row-start: 3;
 }
 
-.sheet-mount-box4 {
+.sheet-vehicle-box4 {
   grid-column-start: 3;
   grid-row-start: 3;
 }
 
-.sheet-mount-box5 {
+.sheet-vehicle-box5 {
   grid-column-start: 4;
   grid-row-start: 3;
 }
 
-.sheet-mount-box6 {
+.sheet-vehicle-box6 {
   grid-column-start: 5;
   grid-row-start: 3;
 }
 
-.sheet-mount-box7 {
+.sheet-vehicle-box7 {
   grid-column: 1/6;
   grid-row-start: 4;
 }
 
-/* ---------------------------------- Mount_gear */
+/* ---------------------------------- Vehicle Gear */
 
-.sheet-mount_gear-grid {
+.sheet-vehicle_gear-grid {
   display: grid;
   grid-row-gap: 2px;
   grid-template-columns: auto 3em 2em 3em;
   grid-template-rows: auto;
 }
 
-.sheet-mount_gear-subgrid {
+.sheet-vehicle_gear-subgrid {
   display: grid;
   grid-column-gap: 2px;
   grid-row-gap: 2px;
   grid-template-columns: 4em 3em 9em 3em;
 }
 
-.sheet-mount_gear-subgrid2 {
+.sheet-vehicle_gear-subgrid2 {
   display: grid;
   height: 2em;
   margin-top: 5px;
   grid-template-columns: 2em auto;
 }
 
-.sheet-mount_gear-subgrid > .sheet-mount_gear-box11 {
+.sheet-vehicle_gear-subgrid > .sheet-vehicle_gear-box11 {
   display: block;
   white-space: nowrap;
 }
 
-.sheet-mount_gear-subgrid > div {
+.sheet-vehicle_gear-subgrid > div {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.sheet-mount_gear-box1 {
+.sheet-vehicle_gear-box1 {
   grid-column: 1/5;
   grid-row-start: 1;
 }
 
-.sheet-mount_gear-box2 {
+.sheet-vehicle_gear-box2 {
   grid-column-start: 2;
   grid-row-start: 1;
 }
 
-.sheet-mount_gear-box3 {
+.sheet-vehicle_gear-box3 {
   grid-column-start: 3;
   grid-row-start: 1;
 }
 
-.sheet-mount_gear-box4 {
+.sheet-vehicle_gear-box4 {
   grid-column-start: 4;
   grid-row-start: 1;
 }
 
-.sheet-mount_gear-box5 {
+.sheet-vehicle_gear-box5 {
   grid-column: 1/5;
   grid-row-start: 2;
 }
 
-.sheet-mount_gear-coin {
+.sheet-vehicle_gear-coin {
   grid-column: 1/5;
   grid-row-start: 3;
 }
 
-.sheet-mount_gear-box6 {
+.sheet-vehicle_gear-box6 {
   display: grid;
   justify-content: end;
   height: 4em;
@@ -3662,153 +3807,33 @@ span.sheet-armor-box3.sheet-header {
   grid-template-columns: auto 3em auto 3em;
 }
 
-.sheet-mount_gear-box7 {
+.sheet-vehicle_gear-box7 {
   grid-column: 1/2;
   grid-row-start: 1;
 }
 
-.sheet-mount_gear-box8 {
+.sheet-vehicle_gear-box8 {
   grid-column-start: 2;
   grid-row-start: 1;
 }
 
-.sheet-mount_gear-box9 {
+.sheet-vehicle_gear-box9 {
   grid-column-start: 3;
   grid-row-start: 1;
 }
 
-.sheet-mount_gear-box10 {
+.sheet-vehicle_gear-box10 {
   grid-column-start: 4;
   grid-row-start: 1;
 }
 
-.sheet-mount_gear-box11 {
+.sheet-vehicle_gear-box11 {
   justify-content: left;
   grid-column: 1/5;
   grid-row-start: 2;
 }
 
-/* ---------------------------------- beasts */
 
-.sheet-beasts-grid {
-  display: grid;
-  padding-bottom: 1px;
-  grid-row-gap: 2px;
-  grid-template-columns: 1fr 3em 3em 6em 3.5em 7em 3fr;
-  grid-template-rows: auto;
-}
-
-.sheet-beasts-box {
-  grid-column: 1/8;
-  grid-row-start: 1;
-}
-
-.sheet-beasts-box1 {
-  grid-column-start: 1;
-  grid-row-start: 1;
-}
-
-.sheet-beasts-box2 {
-  grid-column-start: 2;
-  grid-row-start: 1;
-}
-
-.sheet-beasts-box3 {
-  grid-column-start: 3;
-  grid-row-start: 1;
-}
-
-.sheet-beasts-box4 {
-  grid-column-start: 4;
-  grid-row-start: 1;
-}
-
-.sheet-beasts-box5 {
-  grid-column-start: 5;
-  grid-row-start: 1;
-}
-
-.sheet-beasts-box6 {
-  grid-column-start: 6;
-  grid-row-start: 1;
-}
-
-.sheet-beasts-box7 {
-  width: 99%;
-  grid-column-start: 7;
-  grid-row-start: 1;
-}
-
-.sheet-beasts-box8 {
-  grid-column: 1/8;
-  grid-row-start: 2;
-}
-
-/* ---------------------------------- Experience */
-
-.sheet-experience-grid {
-  display: grid;
-  margin-right: -1px;
-  grid-template-columns: 4.25fr 2.2em 1fr;
-}
-
-.sheet-experience-box1 {
-  grid-column-start: 1;
-  grid-row-start: 1;
-}
-
-.sheet-experience-box2 {
-  z-index: 1;
-  grid-column-start: 2;
-  grid-row-start: 1;
-}
-
-.sheet-experience-box3 {
-  grid-column-start: 3;
-  grid-row-start: 1;
-}
-
-.sheet-experience-grid .sheet-header > .sheet-input {
-  z-index: 1;
-}
-
-.sheet-experience-grid .sheet-header > h1 {
-  margin: 0;
-}
-
-/* ---------------------------------- Willpower */
-
-.sheet-willpower-grid {
-  display: grid;
-  grid-template-columns: auto 3em 0;
-}
-
-.sheet-willpower-box1 {
-  grid-column: 1/3;
-  grid-row-start: 1;
-}
-
-.sheet-willpower-box2 {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  height: 3em;
-  grid-column: 1/2;
-  grid-row-start: 2;
-}
-
-.sheet-willpower-box3 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 3em;
-  grid-column-start: 2;
-  grid-row-start: 2;
-}
-
-.sheet-willpower-box3 span {
-  margin: 0 3px 0 3px;
-}
 
 /* ---------------------------------- Relationships */
 .sheet-relationships-grid {
@@ -3890,59 +3915,7 @@ span.sheet-armor-box3.sheet-header {
   grid-row-start: 2;
 }
 
-/* ---------------------------------- Coins */
 
-.sheet-coins-grid {
-  display: grid;
-  margin: 0 0 0 3px;
-  grid-row-gap: 4px;
-  grid-template-columns: 7em repeat(3, 1fr);
-  grid-template-rows: auto;
-}
-
-.sheet-coins-grid div[class$="-header"] {
-  margin: 0 -7px 0 -9px;
-}
-
-.sheet-coins-grid > div {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.sheet-coins-box {
-  grid-column: 1/5;
-  grid-row-start: 1;
-}
-
-.sheet-coins-box1 {
-  grid-column-start: 1;
-  grid-row-start: 1;
-}
-
-.sheet-coins-box2 {
-  grid-column-start: 2;
-  grid-row-start: 1;
-}
-
-.sheet-coins-box3 {
-  grid-column-start: 3;
-  grid-row-start: 1;
-}
-
-.sheet-coins-box4 {
-  grid-column-start: 4;
-  grid-row-start: 1;
-}
-
-.sheet-coins-box5 {
-  grid-column-start: 1;
-  grid-row-start: 2;
-}
-
-.sheet-coins-box17 {
-  height: 3em;
-}
 
 /* ---------------------------------- Spells */
 

@@ -1577,7 +1577,7 @@
       <div class="character-willpower box racetype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
         <div class="willpower-grid">
           <div class="willpower-box1 header">
-            <h1 data-i18n="willpower-u">WILLPOWER</h1>
+            <h1 data-i18n="power-u">POWER POINTS</h1>
           </div>
           <div class="willpower-box2">
             <input type="radio" name="attr_willpower" value="0" data-i18n-title="no-willpower" title="No Willpower" style="margin: 4px 8px 3px 2px; width: 0.95em; height: 0.95em;" checked />
@@ -1685,7 +1685,7 @@
       <div class="character-coins box racetype-background-light toggle-dice-only toggle-monster-only">
         <div class="coins-grid">
           <div class="coins-box header">
-            <h1 data-i18n="coins-u">COINS</h1>
+            <h1 data-i18n="money-u">MONEY</h1>
           </div>
           <!--<div class="coins-box1 column-header"></div>
           <div class="coins-box2 column-header">
@@ -1695,7 +1695,10 @@
             <span data-i18n="silver">Silver</span>
           </div>-->
           <div class="coins-box2 column-header">
-            <span data-i18n="copper">Credits</span>
+            <span data-i18n="credits">Credits</span>
+          </div>
+          <div class="coins-box4 column-header">
+            <span data-i18n="credits">Credits</span>
           </div>
   
           <div class="coins-box5">
@@ -1721,7 +1724,7 @@
             <input class="input-number" type="text" name="attr_silver_vehicle" value="0" title="@{silver_vehicle}" />
           </div>-->
           <div class="coins-box8">
-            <input class="input-number" type="" name="attr_credits_vehicle" value="0" min="0" title="@{credits_vehicle}" />
+            <input class="input-number" type="text" name="attr_credits_vehicle" value="0" min="0" title="@{credits_vehicle}" />
           </div>
   
           <div class="coins-box9">
@@ -1748,12 +1751,12 @@
             <input class="input-number" type="text" name="attr_silver_total" value="0" title="@{silver_total}" readonly />
           </div>-->
           <div class="coins-box12">
-            <input class="input-number" type="text" name="attr_copper_total" value="0" title="@{copper_total}" readonly />
+            <input class="input-number" type="text" name="attr_credits_total" value="0" style="width:5em;" readonly />
           </div>
         </div>
       </div> 
 
-      <div class="gear-grid racetype-background-light">
+      <div class="gear-grid box racetype-background-light">
         <div class="gear-box1 header">
           <h1 data-i18n="gea-u">GEAR</h1>
         </div>
@@ -1805,20 +1808,13 @@
           <div>
             <input class="input-number" type="text" name="attr_armor_shield_encumbrance" value="0" title="@{armor_shield_encumbrance}" readonly />
           </div>
-          <div>
-            <span class="label" data-i18n="coins-carried">Coins Carried</span>
-          </div>
-          <div>
-            <input class="input-number" type="text" name="attr_coins_carried" value="0" title="@{coins_carried}"
-              readonly />
-          </div>
         </div>
         <div class="gear-box6 header">
           <div class="gear">
             <span class="label" data-i18n="carry">Carry</span>
           </div>
           <div class="gear">
-            <input class="input-number" type="text" name="attr_carry" value="(2*(@{strength})+@{pack_rat})" title="@{carry} = 2 x @{strength} + @{pack_rat}" disabled />
+            <input class="input-number" type="text" name="attr_carry" value="((2*(@{strength}))*@{pack_rat})" title="@{carry} = 2 x @{strength} x @{pack_rat}" disabled />
           </div>
           <div class="gear">
             <span class="label" data-i18n="encumbrance">Encumbrance</span>
@@ -1828,111 +1824,140 @@
             <input class="input-number" type="text" name="attr_character_encumbrance" value="0" title="@{character_encumbrance}" readonly />
           </div>
         </div>
-      </div>
-      <div class="gear-subgrid2 racetype-background-light" style="margin-bottom: 1em;">
-        <div class="gear-box12">
-          <span class="label" data-i18n-title="pack-rat-title" data-i18n="pack-rat">Pack Rat Talent?</span>
-        </div>
-        <div class="gear-box13">
-          <select class="input" name="attr_pack_rat">
-            <option value="0" data-i18n="no" selected>No</option>
-            <option value="2" data-i18n="rank-1-pack-rat">Rank 1 (+2)</option>
-            <option value="5" data-i18n="rank-2-pack-rat">Rank 2 (+5)</option>
-            <option value="10" data-i18n="rank-3-pack-rat">Rank 3 (+10)</option>
-          </select>
+        <div class="gear-subgrid2 racetype-background-light" style="margin-bottom: 1em;">
+          <div class="gear-box12">
+            <span class="label" data-i18n-title="pack-rat-title" data-i18n="pack-rat">Pack Rat Talent?&nbsp;</span>
+          </div>
+          <div class="gear-box13">
+            <select class="input" name="attr_pack_rat">
+              <option value="1" data-i18n="no" selected>No</option>
+              <option value="2" data-i18n="yes">Yes</option>
+            </select>
+          </div>
         </div>
       </div>
-      <div class="vehicle-grid racetype-background-light">
+      <div class="vehicle-grid box racetype-background-light">
         <div class="vehicle-box1 header">
-          <h1 data-i18n="vehicle-u">Vehicle</h1>
+          <h1 data-i18n="vehicle-u">VEHICLE</h1>
         </div>
         <input class="expand" type="checkbox" name="attr_expand_vehicle1" value="1" data-i18n-title="show-hide"
           title="show/hide" style="margin-top: 3.35em;" /><span></span>
         <input class="vehicle-box2 input" type="text" name="attr_vehicle_name" value="" title="@{vehicle_name}" data-i18n-placeholder="name" placeholder="name" />
+        <!-- First row of stats -->
         <div class="vehicle-box3">
-          <span class="label" data-i18n="strength-abbr-u">STR</span>
+          <span class="label" data-i18n="bonus">Bonus</span>
         </div>
-        <input class="vehicle-box4 input-number" type="number" name="attr_vehicle_strength" value="1"
-          title="@{vehicle_strength}" />
+        <input class="vehicle-box4 input-number" type="number" name="attr_vehicle_bonus" value="0"
+          title="@{vehicle_bonus}" />
         <div class="vehicle-box5">
-          <span class="label" data-i18n="agility-abbr-u">AGI</span>
+          <span class="label" data-i18n="armor">Armor</span>
         </div>
-        <input class="vehicle-box6 input-number" type="number" name="attr_vehicle_agility" value="1"
-          title="@{vehicle_agility}" />
-        <!-- expand 2nd row -->
-        <textarea class="vehicle-box7 vehicle-row2 input-textarea" name="attr_vehicle_description"
-          title="@{vehicle_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
-      </div>
-      <div class="vehicle_gear-grid racetype-background-light">
-        <div class="vehicle_gear-box1 header">
-          <h1 data-i18n="on-vehicle">Gear on vehicle</h1>
+        <input class="vehicle-box6 input-number" type="number" name="attr_vehicle_armor" value="0"
+          title="@{vehicle_armor}" />
+        <div class="vehicle-box7">
+          <span class="label" data-i18n="resilience">Resilience</span>
         </div>
-        <div class="vehicle_gear-box2 column-header">
-          <span data-i18n="quantity-abbr">Qty</span>
-        </div>
-        <div class="vehicle_gear-box3 column-header">
-          <span data-i18n="carried-abbr">Carr</span>
-        </div>
-        <div class="vehicle_gear-box4 column-header">
-          <span data-i18n="weight-abbr">Wt</span>
-        </div>
-        <div class="vehicle_gear-box5">
-          <fieldset class="repeating_vehicle">
-            <div class="vehicle_gear-grid">
-              <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
-              <input class="vehicle_gear-box1 input" type="text" name="attr_vehicle_gear_name" value="" title="@{repeating_vehicle_gear_$X_vehicle_gear_name}" data-i18n-placeholder="item" placeholder="item" />
-              <input class="vehicle_gear-box2 input-number" type="number" name="attr_vehicle_gear_qty" value="1" title="Quantity @{repeating_vehicle_gear_$X_vehicle_gear_qty}" />
-              <input class="vehicle_gear-box3 input" type="checkbox" name="attr_vehicle_gear_carried" value="1" title="@{repeating_vehicle_gear_$X_vehicle_gear_carried}" checked />
-              <select class="vehicle_gear-box4 input" name="attr_vehicle_gear_weight" title="@{repeating_vehicle_gear_$X_vehicle_gear_weight}">
-                <option data-i18n="tiny-abbr" value="0" selected>T</option>
-                <option data-i18n="light-abbr" value="0.5">L</option>
-                <option data-i18n="normal-abbr" value="1">N</option>
-                <option data-i18n="heavy-abbr" value="2">H</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-              <textarea class="vehicle_gear-box5 input-textarea" name="attr_vehicle_gear_description" title="@{repeating_vehicle_gear_$X_vehicle_gear_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+        <input class="vehicle-box8 input-number" type="number" name="attr_vehicle_resilience" value="0"
+          title="@{vehicle_resilience}" />
+          <div class="vehicle-box9">
+            <span class="label" data-i18n="fuel">Fuel</span>
+          </div>
+          <input class="vehicle-box10 input-number" type="number" name="attr_vehicle_fuel" value="0"
+            title="@{vehicle_fuel}" />
+            <div class="vehicle-box11">
+              <span class="label" data-i18n="fuel-capacity">Fuel Capacity</span>
             </div>
-          </fieldset>
+            <input class="vehicle-box12 input-number" type="number" name="attr_vehicle_fuel_cap" value="0"
+              title="@{vehicle_fuel}" />
+        <div class="vehicle-box13">
+          <span class="label" data-i18n="occupants">Occupants</span>
         </div>
-        <div class="gear-weight">
-          <div><span class="label" data-i18n="gear">Gear</span></div>
-          <div>
-            <input class="input-number" type="text" name="attr_vehicle_gear_encumbrance" value="0" title="@{vehicle_gear_encumbrance}" readonly />
+        <input class="vehicle-box14 input-number" type="number" name="attr_vehicle_occupants" value="0"
+          title="@{vehicle_occupants}" />
+          <div class="vehicle-box15">
+            <span class="label" data-i18n="seats">Seats</span>
           </div>
-          <div>
-            <span class="label" data-i18n="coins-carried">Coins Carried</span>
-          </div>
-          <div>
-            <input class="input-number" type="text" name="attr_coins_carried_vehicle" value="0" title="@{coins_carried_vehicle}" readonly />
-          </div>
-        </div>
-        <div class="vehicle_gear-box6 header">
-          <div class="vehicle_gear">
-            <span class="label" data-i18n="carry">Carry</span>
-          </div>
-          <div class="vehicle_gear">
-            <input class="input-number" type="text" name="attr_vehicle_carry" value="0" title="@{vehicle_carry} = vehicle_strength x2, unvehicleed x4" readonly />
-          </div>
-          <div class="vehicle_gear">
-            <span class="label" data-i18n="encumbrance">Encumbrance</span>
-          </div>
-          <div class="vehicle_gear">
-            <input class="input" type="hidden" name="attr_vehicle_gear_encumbrance" value="1.5" />
-            <input class="input-number" type="text" name="attr_vehicle_encumbrance" value="0" title="@{vehicle_encumbrance}"
-              readonly />
-          </div>
+          <input class="vehicle-box16 input-number" type="number" name="attr_vehicle_seats" value="1"
+            title="@{vehicle_seats}" />
+        <!-- expand 2nd row -->
+        <textarea class="vehicle-box-desc vehicle-row2 input-textarea" name="attr_vehicle_description"
+          title="@{vehicle_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+        <div class="vehicle_gear-box racetype-background-light">
+          <div class="vehicle_gear-grid racetype-background-light">
+            <div class="vehicle_gear-box1 header">
+              <h1 data-i18n="gear-on-vehicle">Gear on vehicle</h1>
+            </div>
+            <div class="vehicle_gear-box2 column-header">
+              <span data-i18n="quantity-abbr">Qty</span>
+            </div>
+            <div class="vehicle_gear-box3 column-header">
+              <span data-i18n="carried-abbr">Carr</span>
+            </div>
+            <div class="vehicle_gear-box4 column-header">
+              <span data-i18n="weight-abbr">Wt</span>
+            </div>
+            <div class="vehicle_gear-box5">
+              <fieldset class="repeating_vehicle_gear">
+                <div class="vehicle_gear-grid">
+                  <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
+                  <input class="vehicle_gear-box1 input" type="text" name="attr_vehicle_gear_name" value="" title="@{repeating_vehicle_gear_$X_vehicle_gear_name}" data-i18n-placeholder="item" placeholder="item" />
+                  <input class="vehicle_gear-box2 input-number" type="number" name="attr_vehicle_gear_qty" value="1" title="Quantity @{repeating_vehicle_gear_$X_vehicle_gear_qty}" />
+                  <input class="vehicle_gear-box3 input" type="checkbox" name="attr_vehicle_gear_carried" value="1" title="@{repeating_vehicle_gear_$X_vehicle_gear_carried}" checked />
+                  <select class="vehicle_gear-box4 input" name="attr_vehicle_gear_weight" title="@{repeating_vehicle_gear_$X_vehicle_gear_weight}">
+                    <option data-i18n="tiny-abbr" value="0" selected>T</option>
+                    <option data-i18n="light-abbr" value="0.5">L</option>
+                    <option data-i18n="normal-abbr" value="1">N</option>
+                    <option data-i18n="heavy-abbr" value="2">H</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                  <textarea class="vehicle_gear-box5 input-textarea" name="attr_vehicle_gear_description" title="@{repeating_vehicle_gear_$X_vehicle_gear_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+                </div>
+              </fieldset>
+            </div>
+            <div class="gear-weight">
+              <div><span class="label" data-i18n="gear">Gear</span></div>
+              <div>
+                <input class="input-number" type="text" name="attr_vehicle_gear_encumberance" value="0" title="@{vehicle_gear_encumbrance}" readonly />
+              </div>
+              <div>
+                <span class="label" data-i18n="occupants">Occupants</span>
+              </div>
+              <div>
+                <input class="input-number" type="text" name="attr_vehicle_occupants_weight" value="0" title="@{vehicle_occupants_weight}" readonly />
+              </div>
+              <div>
+                <span class="label" data-i18n="fuel">Fuel</span>
+              </div>
+              <div>
+                <input class="input-number" type="text" name="attr_vehicle_fuel_weight" value="0" title="@{vehicle_fuel_weight}" readonly />
+              </div>
+            </div>
+            <div class="vehicle_gear-box6 header">
+              <div class="vehicle_gear">
+                <span class="label" data-i18n="carry">Carry</span>
+              </div>
+              <div class="vehicle_gear">
+                <input class="input-number" type="text" name="attr_vehicle_carry" value="0" title="@{vehicle_carry} = vehicle_strength x2, unvehicleed x4" readonly />
+              </div>
+              <div class="vehicle_gear">
+                <span class="label" data-i18n="encumbrance">Encumbrance</span>
+              </div>
+              <div class="vehicle_gear">
+                <input class="input" type="hidden" name="attr_vehicle_gear_encumbrance" value="1.5" />
+                <input class="input-number" type="text" name="attr_vehicle_encumbrance" value="0" title="@{vehicle_encumbrance}"
+                  readonly />
+              </div>
+            </div>
         </div>
       </div>
-      <div class="vehicle_gear-subgrid2 racetype-background-light">
-        <span style="text-align: center; margin-top: -3px;"><input class="input" title="@{vehicleed}" type="checkbox" name="attr_vehicleed" value="1" style="margin: 0;" /></span>
-        <span class="label" data-i18n="vehicleed" style="margin: 0;">vehicleed</span>
+      
       </div>
     </div>
 
@@ -3805,7 +3830,7 @@
     });
   });
   
-  /* coin total */
+  /* coin total 
   on("sheet:opened change:gold change:silver change:copper change:gold_vehicle change:silver_vehicle change:copper_vehicle change:gold_other change:silver_other change:copper_other", function () {
     getAttrs(["gold", "silver", "copper", "gold_vehicle", "silver_vehicle", "copper_vehicle", "gold_other", "silver_other", "copper_other"], function (values) {
       clog("Change Detected: Coin Total");
@@ -3825,6 +3850,21 @@
         gold_total: sum_gold,
         silver_total: sum_silver,
         copper_total: sum_copper,
+      });
+    });
+  });
+  */
+  
+  /* coin total */
+  on("sheet:opened change:credits change:credits_vehicle change:credits_stash", function () {
+    getAttrs(["credits", "credits_vehicle", "credits_stash"], function (values) {
+      clog("Change Detected: Coin Total");
+      const credits = float(values["credits"]),
+        credits_vehicle = float(values["credits_vehicle"]),
+        credit_stash = ifloat(values["ccredits_stash"]),
+        sum_credits = credits + credits_vehicle + credits_stash;
+      setAttrs({
+        credits_total: sum_credits;
       });
     });
   });

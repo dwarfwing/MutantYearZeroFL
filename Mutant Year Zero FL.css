@@ -1019,6 +1019,7 @@ input[type="select"].sheet-input {
   max-height: 2.25em;
   text-align: center;
   color: #000;
+  width: 2.5em;
 }
 
 select.sheet-input {
@@ -1196,7 +1197,7 @@ input[type="number"]:not(:hover) {
   position: absolute;
   z-index: 6;
   top: -4px;
-  left: 0;
+  left: -3px;
   width: 18px;
   opacity: 0;
 }
@@ -1218,7 +1219,7 @@ input.sheet-expand + span::before {
 
 
 
-.sheet-vehicle-grid input.sheet-expand + span::before {
+.sheet-vehicle-grid > input.sheet-expand + span::before {
   margin-top: 2.75em;
 }
 
@@ -1723,7 +1724,7 @@ input.sheet-dice_only:checked
   padding: 0;
   -border: 7px solid #000;
   border: 2px solid #000;
-  border-top-width: 0;
+  -border-top-width: 0;
   -border-bottom-width: 5px;
   -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20small%20column%20border.png);
   -border-image-slice: 0 25 40 25;
@@ -3465,9 +3466,10 @@ span.sheet-armor-box3.sheet-header {
   display: grid;
   margin: 0 0 0 3px;
   grid-row-gap: 4px;
-  grid-template-columns: 7em repeat(3, 1fr);
+  -grid-template-columns: 7em repeat(3, 1fr);
+  grid-template-columns: auto 4em auto 5em;
   grid-template-rows: auto;
-  padding-bottom: 8px;
+  padding: 0px 5px 8px 5px;
 }
 
 .sheet-coins-grid div[class$="-header"] {
@@ -3545,16 +3547,14 @@ span.sheet-armor-box3.sheet-header {
   grid-row-start: 4;
 }
 
-.sheet-coins-box17 {
-  height: 3em;
-}
 
 /* ---------------------------------- Gear */
 
 .sheet-gear-grid {
   display: grid;
   grid-row-gap: 2px;
-  grid-template-columns: auto 3em 2em 3em;
+  grid-column-gap: 1px;
+  grid-template-columns: auto 3em 2em 4em;
   grid-template-rows: auto;
 }
 
@@ -3593,6 +3593,7 @@ span.sheet-armor-box3.sheet-header {
 .sheet-gear-box5 {
   grid-column: 1/5;
   grid-row-start: 2;
+  margin: 0 10px 0 6px;
 }
 
 .sheet-gear-weight {
@@ -3603,6 +3604,7 @@ span.sheet-armor-box3.sheet-header {
   grid-row-start: 3;
   grid-template-columns: auto 3em;
   justify-items: end;
+  padding-left: 5px;
 }
 
 .sheet-gear-weight > div {
@@ -3652,10 +3654,13 @@ span.sheet-armor-box3.sheet-header {
 }
 
 .sheet-gear-subgrid2 {
+  grid-column: 1/span 4;
   display: grid;
   margin-top: 2px;
   grid-column-gap: 2px;
-  grid-template-columns: auto 8em;
+  grid-template-columns: auto 5em;
+  justify-content: end;
+
 }
 
 .sheet-gear-box12 {
@@ -3667,9 +3672,9 @@ span.sheet-armor-box3.sheet-header {
 .sheet-vehicle_gear-box5,
 .sheet-talents-grid .sheet-talents-box4,
 .sheet-gear-box5 {
-  padding: 0;
-  margin: -2px -7px 0 -7px;
-  border: 2px solid #000;
+  -padding: 3px 3px 8px 2px;
+  -margin: -2px -7px 0 -7px;
+  -border: 2px solid #000;
   -border: 10px solid #000;
   -border-top-width: 0;
   -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20wide%20column%20border.png);
@@ -3683,12 +3688,16 @@ span.sheet-armor-box3.sheet-header {
   position: relative;
   display: grid;
   grid-row-gap: 2px;
-  grid-template-columns: auto repeat(4, 2.5em);
+  -grid-column-gap: 2px;
+  grid-template-columns: auto auto auto auto auto auto;
   grid-template-rows: auto;
+  -justify-content: space-around;
+  -padding-bottom: 4px;
 }
 
 .sheet-vehicle-grid .sheet-header {
-  margin: 0 -7px 0 -7px;
+  margin: 0;
+  overflow: hidden;
 }
 
 .sheet-vehicle-grid > div {
@@ -3698,47 +3707,130 @@ span.sheet-armor-box3.sheet-header {
 }
 
 .sheet-vehicle-box1 {
-  grid-column: 1/6;
   grid-row-start: 1;
+  grid-column: 1/span 6;
 }
 
-.sheet-vehicle-box2 {
-  grid-column: 1/6;
+.sheet-vehicle-box2 {  /*Name label*/
   grid-row-start: 2;
+  grid-column: 1/4;
 }
 
-.sheet-vehicle-box3 {
-  grid-column-start: 2;
-  grid-row-start: 3;
+.sheet-vehicle-box3 { /*Bonus label*/
+  grid-row-start: 2;
+  grid-column-start: 4;
+  justify-items: end;
+  margin-right: 3px;
 }
 
 .sheet-vehicle-box4 {
-  grid-column-start: 3;
-  grid-row-start: 3;
+  grid-row-start: 2;
+  grid-column-start: 5;
 }
 
-.sheet-vehicle-box5 {
-  grid-column-start: 4;
+.sheet-vehicle-box5 {  /*Armor label*/
   grid-row-start: 3;
+  grid-column-start: 1;
+  justify-items: end;
+  margin-right: 3px;
 }
 
 .sheet-vehicle-box6 {
-  grid-column-start: 5;
   grid-row-start: 3;
+  grid-column: 2;
 }
 
-.sheet-vehicle-box7 {
-  grid-column: 1/6;
-  grid-row-start: 4;
+
+.sheet-vehicle-box7 { /*Resilience label*/
+  grid-row-start: 3;
+  grid-column: 4/6;
+  justify-items: start;
+  margin-left: 3px;
 }
+
+.sheet-vehicle-box8 {
+  grid-row-start: 3;
+  grid-column: 3;
+}
+
+.sheet-vehicle-box9 { /*Fuel label*/
+  grid-row-start: 5;
+  grid-column-start: 1;
+  justify-items: end;
+  margin-right: 3px;
+}
+
+.sheet-vehicle-box10 {
+  grid-row-start: 5;
+  grid-column: 2;
+}
+
+.sheet-vehicle-box11 {  /*Fuel cap label*/
+  grid-row-start: 5;
+  grid-column: 4/6;
+  justify-items: start;
+  margin-left: 3px;
+}
+
+.sheet-vehicle-box12 {
+  grid-row-start: 5;
+  grid-column-start: 3;
+}
+
+.sheet-vehicle-box13 { /*Occupancy label*/
+  grid-row-start: 4;
+  grid-column-start: 1;
+  justify-items: end;
+  margin-right: 3px;
+}
+
+.sheet-vehicle-box14 {
+  grid-row-start: 4;
+  grid-column: 2;
+}
+
+.sheet-vehicle-box15 {  /*Seats label*/
+  grid-row-start: 4;
+  grid-column: 4/6;
+  justify-items: start;
+  margin-left: 3px;
+}
+
+.sheet-vehicle-box16 {
+  grid-row-start: 4;
+  grid-column-start: 3;
+}
+
+.sheet-vehicle-box-desc {
+  grid-row-start: 6;
+  grid-column: 1/6;
+  display:inline-block;
+}
+/*  
+.sheet-vehicle-box3 > span,
+.sheet-vehicle-box5 > span,
+.sheet-vehicle-box9 > span,
+.sheet-vehicle-box13 > span {
+  justify-self: end;
+}
+*/
+
 
 /* ---------------------------------- Vehicle Gear */
+
+.sheet-vehicle_gear-box {
+  grid-row-start: 7;
+  grid-column: 1/7; 
+  display:flex;
+  width: 100%;
+}
 
 .sheet-vehicle_gear-grid {
   display: grid;
   grid-row-gap: 2px;
   grid-template-columns: auto 3em 2em 3em;
   grid-template-rows: auto;
+  width: 100%;
 }
 
 .sheet-vehicle_gear-subgrid {

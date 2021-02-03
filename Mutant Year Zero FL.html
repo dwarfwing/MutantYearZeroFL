@@ -695,7 +695,7 @@
                 <select class="weapons-box56 input" name="attr_weapon_carried" title="@{repeating_weapons_$X_weapon_carried}">
                   <option data-i18n="yes" value="1" selected>Yes</option>
                   <option data-i18n="no" value="0">No</option>
-                  <option data-i18n="mount" value="0">Mount</option>
+                  <option data-i18n="vehicle" value="0">vehicle</option>
                 </select>
                 <div class="weapons-box57">
                   <span data-i18n="weight-abbr">Wt</span>
@@ -1562,40 +1562,201 @@
       </div>
     </div>
 
-    <div class="character-column3 box racetype-background-light toggle-dice-only toggle-monster-only ">
-      <div class="talents-grid" style="margin-bottom: 1em;">
-        <div class="talents-box header">
-          <h1 data-i18n="talent-u">TALENTS</h1>
-        </div>
-        <div class="talents-box2 column-header">
-          <span data-i18n="type">Type</span>
-        </div>
-        <div class="talents-box3 column-header">
-          <span data-i18n="rank">Rank</span>
-        </div>
-        <div class="talents-box4">
-          <fieldset class="repeating_talents">
-            <div class="talents-grid">
-              <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
-              <input class="talents-box1 input" type="text" name="attr_talent_name" value="" title="@{repeating_talents_$X_talent_name}" data-i18n-placeholder="name" placeholder="Name" />
-              <select class="talents-box2 input" name="attr_talent_type" title="@{repeating_talents_$X_talent_type}">
-                <option value="Kin" data-i18n="kin">Kin</option>
-                <option value="Gen" data-i18n="general-abbrv" selected>Gen</option>
-                <option value="Prof" data-i18n="profession-abbrv">Prof</option>
-              </select>
-              <select class="talents-box3 input" name="attr_talent_rank" title="@{repeating_talents_$X_talent_rank}">
-                <option value="0" select>0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
-              <!-- expand 2nd row -->
-              <textarea class="talents-box4 input-textarea" name="attr_talent_description" title="@{repeating_talents_$X_talent_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
-            </div>
-          </fieldset>
+    <div class="character-column3 box toggle-dice-only toggle-monster-only ">
+      <div class="character-experience box sheet-header toggle-dice-only toggle-monster-only toggle-npc-only">
+        <div class="experience-grid">
+          <div class="experience-box1">
+            <h1 data-i18n="experience-u">EXPERIENCE</h1>
+          </div>
+          <div class="experience-box2">
+            <input class="input-number" type="number" name="attr_experience" value="0" min="0" title="@{experience}" />
+          </div>
+          <div class="experience-box3"></div>
         </div>
       </div>
-      <div class="gear-grid">
+      <div class="character-willpower box racetype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
+        <div class="willpower-grid">
+          <div class="willpower-box1 header">
+            <h1 data-i18n="power-u">POWER POINTS</h1>
+          </div>
+          <div class="willpower-box2">
+            <input type="radio" name="attr_willpower" value="0" data-i18n-title="no-willpower" title="No Willpower" style="margin: 4px 8px 3px 2px; width: 0.95em; height: 0.95em;" checked />
+            <input class="xbox" type="radio" name="attr_willpower" value="1" title="1 @{willpower}" /><span></span> <input
+              class="xbox" type="radio" name="attr_willpower" value="2" title="2 @{willpower}" /><span></span>
+            <input class="xbox" type="radio" name="attr_willpower" value="3" title="3 @{willpower}" /><span></span> <input
+              class="xbox" type="radio" name="attr_willpower" value="4" title="4 @{willpower}" /><span></span>
+            <input class="xbox" type="radio" name="attr_willpower" value="5" title="5 @{willpower}" /><span></span> <input
+              class="xbox" type="radio" name="attr_willpower" value="6" title="6 @{willpower}" /><span></span>
+            <input class="xbox" type="radio" name="attr_willpower" value="7" title="7 @{willpower}" /><span></span> <input
+              class="xbox" type="radio" name="attr_willpower" value="8" title="8 @{willpower}" /><span></span>
+            <input class="xbox" type="radio" name="attr_willpower" value="9" title="9 @{willpower}" /><span></span> <input
+              class="xbox" type="radio" name="attr_willpower" value="10" title="10 @{willpower}" /><span></span>
+            <input type="hidden" name="attr_willpower_max" value="10" />
+          </div>
+          <div class="willpower-box3">
+            <span class="input-span" name="attr_willpower" title="@{willpower}"></span>
+          </div>
+        </div>
+      </div>
+      <div class="character-talents sheet-box racetype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
+        <div class="talents-grid">
+          <div class="talents-box header">
+            <h1 data-i18n="talent-u">TALENTS</h1>
+          </div>
+          <div class="talents-box2 column-header">
+            <span data-i18n="type">Type</span>
+          </div>
+          <div class="talents-box3 column-header">
+            <span data-i18n="rank">Roll</span>
+          </div>
+          <div class="talents-box4">
+            <fieldset class="repeating_talents">
+              <div class="talents-grid">
+                <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
+                <input class="talents-box1 input" type="text" name="attr_talent_name" value="" title="@{repeating_talents_$X_talent_name}" data-i18n-placeholder="name" placeholder="Name" />
+                <select class="talents-box2 input" name="attr_talent_type" title="@{repeating_talents_$X_talent_type}">
+                  <option value="Prof" data-i18n="profession-abbrv">Prof</option>
+                  <option value="Gen" data-i18n="general-abbrv" selected>Gen</option>
+                </select>
+                <span class="talents-box3 input" name="attr_talent_rank" title="@{repeating_talents_$X_talent_rank}">
+                  <button name="act_talent_roll" class="roll-button" type="action">t</button>
+                </span>
+                <!-- expand 2nd row -->
+                <textarea class="talents-box4 input-textarea" name="attr_talent_description" title="@{repeating_talents_$X_talent_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      <div class="character-consumables box racetype-background-light toggle-dice-only toggle-monster-only">
+        <div class="consumables-grid">
+          <div class="consumables-box header">
+            <h1 data-i18n="consumable-u">CONSUMABLES</h1>
+          </div>
+          <div class="consumables-box1 column-header">
+            <span data-i18n="die">Amount</span>
+          </div>
+          <div class="consumables-box2 column-header">
+            <span data-i18n="die">Amount</span>
+          </div>
+          <!--<div class="consumables-box3"><span>&nbsp;</span></div>-->
+          <div class="consumables-box4">
+            <span class="header-h1" data-i18n="food">Food</span>
+          </div>
+          <div class="consumables-box5">
+            <input type="number" class="input-number" name="attr_food" value="0" min="0" title="@{food}"></option>
+          </div>
+          <div class="consumables-box6">
+            <!--<button type="roll" name="roll_food" title="%{food}" value="@{whisper_option} &{template:forbiddenlands} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{food}"></button>
+            -->
+            </div>
+          <div class="consumables-box7">
+            <span class="header-h1" data-i18n="water">Water</span>
+          </div>
+          <div class="consumables-box8">
+            <input type="number" class="input-number" name="attr_water" value="0" min="0" title="@{water}"></option>
+          </div>
+          <div class="consumables-box9">
+            <!--<button type="roll" name="roll_water" title="%{water}" value="@{whisper_option} &{template:forbiddenlands} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{water}"></button>
+            -->
+            </div>
+          <div class="consumables-box10">
+            <span class="header-h1" data-i18n="e-pack">E-pack</span>
+          </div>
+          <div class="consumables-box11">
+            <input type="number" class="input-number" name="attr_epacks" value="0" min="0" title="@{epacks}"></option>
+          </div>
+          <div class="consumables-box12">
+            <!--<button type="roll" name="roll_arrows" title="%{arrows}" value="@{whisper_option} &{template:forbiddenlands} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{arrows}"></button>
+            -->
+          </div>
+          <div class="consumables-box13">
+            <span class="header-h1" data-i18n="bullets">Bullets</span>
+          </div>
+          <div class="consumables-box14">
+            <input type="number" class="input-number" name="attr_bullets" value="0" min="0" title="@{bullets}"></option>
+          </div>
+          <div class="consumables-box15">
+            <!--<button type="roll" name="roll_torches" title="%{torches}" value="@{whisper_option} &{template:forbiddenlands} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{torches}"></button>
+            -->
+          </div>
+        </div>
+      </div>
+      <div class="character-coins box racetype-background-light toggle-dice-only toggle-monster-only">
+        <div class="coins-grid">
+          <div class="coins-box header">
+            <h1 data-i18n="money-u">MONEY</h1>
+          </div>
+          <!--<div class="coins-box1 column-header"></div>
+          <div class="coins-box2 column-header">
+            <span data-i18n="gold">Gold</span>
+          </div>
+          <div class="coins-box3 column-header">
+            <span data-i18n="silver">Silver</span>
+          </div>-->
+          <div class="coins-box2 column-header">
+            <span data-i18n="credits">Credits</span>
+          </div>
+          <div class="coins-box4 column-header">
+            <span data-i18n="credits">Credits</span>
+          </div>
+  
+          <div class="coins-box5">
+            <span class="label" data-i18n="carried">Carried</span>
+          </div>
+          <!--<div class="coins-box6">
+            <input class="input-number" type="text" name="attr_gold" value="0" title="@{gold}" />
+          </div>
+          <div class="coins-box7">
+            <input class="input-number" type="text" name="attr_silver" value="0" title="@{silver}" />
+          </div>-->
+          <div class="coins-box6">
+            <input class="input-number" type="text" name="attr_credits" value="0" min="0" title="@{credits}" />
+          </div>
+  
+          <div class="coins-box7">
+            <span class="label" style="text-align: center;" data-i18n="vehicle-credits">Vehicle</span>
+          </div>
+          <!--<div class="coins-box10">
+            <input class="input-number" type="text" name="attr_gold_vehicle" value="0" title="@{gold_vehicle}" />
+          </div>
+          <div class="coins-box11">
+            <input class="input-number" type="text" name="attr_silver_vehicle" value="0" title="@{silver_vehicle}" />
+          </div>-->
+          <div class="coins-box8">
+            <input class="input-number" type="text" name="attr_credits_vehicle" value="0" min="0" title="@{credits_vehicle}" />
+          </div>
+  
+          <div class="coins-box9">
+            <span class="label" data-i18n="stash">Stash</span>
+          </div>
+          <!--<div class="coins-box14">
+            <input class="input-number" type="text" name="attr_gold_other" value="0" title="@{gold_vehicle}" />
+          </div>
+          <div class="coins-box15">
+            <input class="input-number" type="text" name="attr_silver_other" value="0" title="@{silver_vehicle}" />
+          </div>-->
+          <div class="coins-box10">
+            <input class="input-number" type="text" name="attr_credits_stash" value="0" min="0" title="@{credits_stash}" />
+          </div>
+          <input type="hidden" name="attr_coins_other_total" value="0" />
+  
+          <div class="coins-box11">
+            <span class="label" data-i18n="total">Total</span>
+          </div>
+          <!--<div class="coins-box18">
+            <input class="input-number" type="text" name="attr_gold_total" value="0" title="@{gold_total}" readonly />
+          </div>
+          <div class="coins-box18">
+            <input class="input-number" type="text" name="attr_silver_total" value="0" title="@{silver_total}" readonly />
+          </div>-->
+          <div class="coins-box12">
+            <input class="input-number" type="text" name="attr_credits_total" value="0" style="width:5em;" readonly />
+          </div>
+        </div>
+      </div> 
+
+      <div class="gear-grid box racetype-background-light">
         <div class="gear-box1 header">
           <h1 data-i18n="gea-u">GEAR</h1>
         </div>
@@ -1647,20 +1808,13 @@
           <div>
             <input class="input-number" type="text" name="attr_armor_shield_encumbrance" value="0" title="@{armor_shield_encumbrance}" readonly />
           </div>
-          <div>
-            <span class="label" data-i18n="coins-carried">Coins Carried</span>
-          </div>
-          <div>
-            <input class="input-number" type="text" name="attr_coins_carried" value="0" title="@{coins_carried}"
-              readonly />
-          </div>
         </div>
         <div class="gear-box6 header">
           <div class="gear">
             <span class="label" data-i18n="carry">Carry</span>
           </div>
           <div class="gear">
-            <input class="input-number" type="text" name="attr_carry" value="(2*(@{strength})+@{pack_rat})" title="@{carry} = 2 x @{strength} + @{pack_rat}" disabled />
+            <input class="input-number" type="text" name="attr_carry" value="((2*(@{strength}))*@{pack_rat})" title="@{carry} = 2 x @{strength} x @{pack_rat}" disabled />
           </div>
           <div class="gear">
             <span class="label" data-i18n="encumbrance">Encumbrance</span>
@@ -1670,287 +1824,140 @@
             <input class="input-number" type="text" name="attr_character_encumbrance" value="0" title="@{character_encumbrance}" readonly />
           </div>
         </div>
-      </div>
-      <div class="gear-subgrid2" style="margin-bottom: 1em;">
-        <div class="gear-box12">
-          <span class="label" data-i18n-title="pack-rat-title" data-i18n="pack-rat">Pack Rat Talent?</span>
-        </div>
-        <div class="gear-box13">
-          <select class="input" name="attr_pack_rat">
-            <option value="0" data-i18n="no" selected>No</option>
-            <option value="2" data-i18n="rank-1-pack-rat">Rank 1 (+2)</option>
-            <option value="5" data-i18n="rank-2-pack-rat">Rank 2 (+5)</option>
-            <option value="10" data-i18n="rank-3-pack-rat">Rank 3 (+10)</option>
-          </select>
+        <div class="gear-subgrid2 racetype-background-light" style="margin-bottom: 1em;">
+          <div class="gear-box12">
+            <span class="label" data-i18n-title="pack-rat-title" data-i18n="pack-rat">Pack Rat Talent?&nbsp;</span>
+          </div>
+          <div class="gear-box13">
+            <select class="input" name="attr_pack_rat">
+              <option value="1" data-i18n="no" selected>No</option>
+              <option value="2" data-i18n="yes">Yes</option>
+            </select>
+          </div>
         </div>
       </div>
-      <div class="mount-grid">
-        <div class="mount-box1 header">
-          <h1 data-i18n="moun-u">MOUNT</h1>
+      <div class="vehicle-grid box racetype-background-light">
+        <div class="vehicle-box1 header">
+          <h1 data-i18n="vehicle-u">VEHICLE</h1>
         </div>
-        <input class="expand" type="checkbox" name="attr_expand_mount1" value="1" data-i18n-title="show-hide"
+        <input class="expand" type="checkbox" name="attr_expand_vehicle1" value="1" data-i18n-title="show-hide"
           title="show/hide" style="margin-top: 3.35em;" /><span></span>
-        <input class="mount-box2 input" type="text" name="attr_mount_name" value="" title="@{mount_name}" data-i18n-placeholder="name" placeholder="name" />
-        <div class="mount-box3">
-          <span class="label" data-i18n="strength-abbr-u">STR</span>
+        <input class="vehicle-box2 input" type="text" name="attr_vehicle_name" value="" title="@{vehicle_name}" data-i18n-placeholder="name" placeholder="name" />
+        <!-- First row of stats -->
+        <div class="vehicle-box3">
+          <span class="label" data-i18n="bonus">Bonus</span>
         </div>
-        <input class="mount-box4 input-number" type="number" name="attr_mount_strength" value="1"
-          title="@{mount_strength}" />
-        <div class="mount-box5">
-          <span class="label" data-i18n="agility-abbr-u">AGI</span>
+        <input class="vehicle-box4 input-number" type="number" name="attr_vehicle_bonus" value="0"
+          title="@{vehicle_bonus}" />
+        <div class="vehicle-box5">
+          <span class="label" data-i18n="armor">Armor</span>
         </div>
-        <input class="mount-box6 input-number" type="number" name="attr_mount_agility" value="1"
-          title="@{mount_agility}" />
-        <!-- expand 2nd row -->
-        <textarea class="mount-box7 mount-row2 input-textarea" name="attr_mount_description"
-          title="@{mount_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
-      </div>
-      <div class="mount_gear-grid">
-        <div class="mount_gear-box1 header">
-          <h1 data-i18n="on-mount">Gear on Mount</h1>
+        <input class="vehicle-box6 input-number" type="number" name="attr_vehicle_armor" value="0"
+          title="@{vehicle_armor}" />
+        <div class="vehicle-box7">
+          <span class="label" data-i18n="resilience">Resilience</span>
         </div>
-        <div class="mount_gear-box2 column-header">
-          <span data-i18n="quantity-abbr">Qty</span>
-        </div>
-        <div class="mount_gear-box3 column-header">
-          <span data-i18n="carried-abbr">Carr</span>
-        </div>
-        <div class="mount_gear-box4 column-header">
-          <span data-i18n="weight-abbr">Wt</span>
-        </div>
-        <div class="mount_gear-box5">
-          <fieldset class="repeating_mount">
-            <div class="mount_gear-grid">
-              <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
-              <input class="mount_gear-box1 input" type="text" name="attr_mount_gear_name" value="" title="@{repeating_mount_gear_$X_mount_gear_name}" data-i18n-placeholder="item" placeholder="item" />
-              <input class="mount_gear-box2 input-number" type="number" name="attr_mount_gear_qty" value="1" title="Quantity @{repeating_mount_gear_$X_mount_gear_qty}" />
-              <input class="mount_gear-box3 input" type="checkbox" name="attr_mount_gear_carried" value="1" title="@{repeating_mount_gear_$X_mount_gear_carried}" checked />
-              <select class="mount_gear-box4 input" name="attr_mount_gear_weight" title="@{repeating_mount_gear_$X_mount_gear_weight}">
-                <option data-i18n="tiny-abbr" value="0" selected>T</option>
-                <option data-i18n="light-abbr" value="0.5">L</option>
-                <option data-i18n="normal-abbr" value="1">N</option>
-                <option data-i18n="heavy-abbr" value="2">H</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-              <textarea class="mount_gear-box5 input-textarea" name="attr_mount_gear_description" title="@{repeating_mount_gear_$X_mount_gear_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+        <input class="vehicle-box8 input-number" type="number" name="attr_vehicle_resilience" value="0"
+          title="@{vehicle_resilience}" />
+          <div class="vehicle-box9">
+            <span class="label" data-i18n="fuel">Fuel</span>
+          </div>
+          <input class="vehicle-box10 input-number" type="number" name="attr_vehicle_fuel" value="0"
+            title="@{vehicle_fuel}" />
+            <div class="vehicle-box11">
+              <span class="label" data-i18n="fuel-capacity">Fuel Capacity</span>
             </div>
-          </fieldset>
+            <input class="vehicle-box12 input-number" type="number" name="attr_vehicle_fuel_cap" value="0"
+              title="@{vehicle_fuel}" />
+        <div class="vehicle-box13">
+          <span class="label" data-i18n="occupants">Occupants</span>
         </div>
-        <div class="gear-weight">
-          <div><span class="label" data-i18n="gear">Gear</span></div>
-          <div>
-            <input class="input-number" type="text" name="attr_mount_gear_encumbrance" value="0" title="@{mount_gear_encumbrance}" readonly />
+        <input class="vehicle-box14 input-number" type="number" name="attr_vehicle_occupants" value="0"
+          title="@{vehicle_occupants}" />
+          <div class="vehicle-box15">
+            <span class="label" data-i18n="seats">Seats</span>
           </div>
-          <div>
-            <span class="label" data-i18n="coins-carried">Coins Carried</span>
-          </div>
-          <div>
-            <input class="input-number" type="text" name="attr_coins_carried_mount" value="0" title="@{coins_carried_mount}" readonly />
-          </div>
-        </div>
-        <div class="mount_gear-box6 header">
-          <div class="mount_gear">
-            <span class="label" data-i18n="carry">Carry</span>
-          </div>
-          <div class="mount_gear">
-            <input class="input-number" type="text" name="attr_mount_carry" value="0" title="@{mount_carry} = mount_strength x2, unmounted x4" readonly />
-          </div>
-          <div class="mount_gear">
-            <span class="label" data-i18n="encumbrance">Encumbrance</span>
-          </div>
-          <div class="mount_gear">
-            <input class="input" type="hidden" name="attr_mount_gear_encumbrance" value="1.5" />
-            <input class="input-number" type="text" name="attr_mount_encumbrance" value="0" title="@{mount_encumbrance}"
-              readonly />
-          </div>
-        </div>
-      </div>
-      <div class="mount_gear-subgrid2">
-        <span style="text-align: center; margin-top: -3px;"><input class="input" title="@{mounted}" type="checkbox" name="attr_mounted" value="1" style="margin: 0;" /></span>
-        <span class="label" data-i18n="mounted" style="margin: 0;">Mounted</span>
-      </div>
-      <div class="box toggle-dice-only toggle-monster-only character-consumables">
-        <div class="consumables-grid">
-          <div class="consumables-box1 header">
-            <h1 data-i18n="consumable-u">CONSUMABLES</h1>
-          </div>
-          <div class="consumables-box2 column-header">
-            <span data-i18n="die">Die</span>
-          </div>
-          <div class="consumables-box3 column-header"><span>&nbsp;</span></div>
-          <div class="consumables-box4">
-            <span class="header-h1" data-i18n="food" style="margin-left: 10px;">Food</span>
-          </div>
-          <div class="consumables-box5">
-            <select class="input" name="attr_food" title="@{food}">
-              <option value="{{subtitle=^{out-of-food}}}" selected>0</option>
-              <option value="{{subtitle=^{die-6-u} ^{of-food}}} {{consumable-die-six=[[ 1 ]] }} {{consumable-roll-six=[[ 1d6 ]] }}" data-i18n="die-6">d6</option>
-              <option value="{{subtitle=^{die-8-u} ^{of-food}}} {{consumable-die-eight=[[ 1 ]] }} {{consumable-roll-eight=[[ 1d8 ]] }}" data-i18n="die-8">d8</option>
-              <option value="{{subtitle=^{die-10-u} ^{of-food}}} {{consumable-die-ten=[[ 1 ]] }} {{consumable-roll-ten=[[ 1d10 ]] }}" data-i18n="die-10">d10</option>
-              <option value="{{subtitle=^{die-12-u} ^{of-food}}} {{consumable-die-twelve=[[ 1 ]] }} {{consumable-roll-twelve=[[ 1d12 ]] }}" data-i18n="die-12">d12</option>
-            </select>
-          </div>
-          <div class="consumables-box6">
-            <button type="roll" name="roll_food" title="%{food}" value="@{whisper_option} &{template:forbiddenlands} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{food}"></button>
-          </div>
-          <div class="consumables-box7">
-            <span class="header-h1" data-i18n="water">Water</span>
-          </div>
-          <div class="consumables-box8">
-            <select class="input" name="attr_water" title="@{water}">
-              <option value="{{subtitle=^{out-of-water}}}" selected>0</option>
-              <option value="{{subtitle=^{die-6-u} ^{of-water}}} {{consumable-die-six=[[ 1 ]] }} {{consumable-roll-six=[[ 1d6 ]] }}" data-i18n="die-6">d6</option>
-              <option value="{{subtitle=^{die-8-u} ^{of-water}}} {{consumable-die-eight=[[ 1 ]] }} {{consumable-roll-eight=[[ 1d8 ]] }}" data-i18n="die-8">d8</option>
-              <option value="{{subtitle=^{die-10-u} ^{of-water}}} {{consumable-die-ten=[[ 1 ]] }} {{consumable-roll-ten=[[ 1d10 ]] }}" data-i18n="die-10">d10</option>
-              <option value="{{subtitle=^{die-12-u} ^{of-water}}} {{consumable-die-twelve=[[ 1 ]] }} {{consumable-roll-twelve=[[ 1d12 ]] }}" data-i18n="die-12">d12</option>
-            </select>
-          </div>
-          <div class="consumables-box9">
-            <button type="roll" name="roll_water" title="%{water}" value="@{whisper_option} &{template:forbiddenlands} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{water}"></button>
-          </div>
-          <div class="consumables-box10">
-            <span class="header-h1" data-i18n="arrows">Arrows</span>
-          </div>
-          <div class="consumables-box11">
-            <select class="input" name="attr_arrows" title="@{arrows}">
-              <option value="{{subtitle=^{out-of-arrows}}}" selected>0</option>
-              <option value="{{subtitle=^{die-6-u} ^{of-arrows}}} {{consumable-die-six=[[ 1 ]] }} {{consumable-roll-six=[[ 1d6 ]] }}" data-i18n="die-6">d6</option>
-              <option value="{{subtitle=^{die-8-u} ^{of-arrows}}} {{consumable-die-eight=[[ 1 ]] }} {{consumable-roll-eight=[[ 1d8 ]] }}" data-i18n="die-8">d8</option>
-              <option value="{{subtitle=^{die-10-u} ^{of-arrows}}} {{consumable-die-ten=[[ 1 ]] }} {{consumable-roll-ten=[[ 1d10 ]] }}" data-i18n="die-10">d10</option>
-              <option value="{{subtitle=^{die-12-u} ^{of-arrows}}} {{consumable-die-twelve=[[ 1 ]] }} {{consumable-roll-twelve=[[ 1d12 ]] }}" data-i18n="die-12">d12</option>
-            </select>
-          </div>
-          <div class="consumables-box12">
-            <button type="roll" name="roll_arrows" title="%{arrows}" value="@{whisper_option} &{template:forbiddenlands} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{arrows}"></button>
-          </div>
-          <div class="consumables-box13">
-            <span class="header-h1" data-i18n="torches">Torches</span>
-          </div>
-          <div class="consumables-box14">
-            <select class="input" name="attr_torches" title="@{torches}">
-              <option value="{{subtitle=^{out-of-torches}}}" selected>0</option>
-              <option value="{{subtitle=^{die-6-u} ^{of-torches}}} {{consumable-die-six=[[ 1 ]] }} {{consumable-roll-six=[[ 1d6 ]] }}" data-i18n="die-6">d6</option>
-              <option value="{{subtitle=^{die-8-u} ^{of-torches}}} {{consumable-die-eight=[[ 1 ]] }} {{consumable-roll-eight=[[ 1d8 ]] }}" data-i18n="die-8">d8</option>
-              <option value="{{subtitle=^{die-10-u} ^{of-torches}}} {{consumable-die-ten=[[ 1 ]] }} {{consumable-roll-ten=[[ 1d10 ]] }}" data-i18n="die-10">d10</option>
-              <option value="{{subtitle=^{die-12-u} ^{of-torches}}} {{consumable-die-twelve=[[ 1 ]] }} {{consumable-roll-twelve=[[ 1d12 ]] }}" data-i18n="die-12">d12</option>
-            </select>
-          </div>
-          <div class="consumables-box15">
-            <button type="roll" name="roll_torches" title="%{torches}" value="@{whisper_option} &{template:forbiddenlands} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{torches}"></button>
-          </div>
+          <input class="vehicle-box16 input-number" type="number" name="attr_vehicle_seats" value="1"
+            title="@{vehicle_seats}" />
+        <!-- expand 2nd row -->
+        <textarea class="vehicle-box-desc vehicle-row2 input-textarea" name="attr_vehicle_description"
+          title="@{vehicle_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+        <div class="vehicle_gear-box racetype-background-light">
+          <div class="vehicle_gear-grid racetype-background-light">
+            <div class="vehicle_gear-box1 header">
+              <h1 data-i18n="gear-on-vehicle">Gear on vehicle</h1>
+            </div>
+            <div class="vehicle_gear-box2 column-header">
+              <span data-i18n="quantity-abbr">Qty</span>
+            </div>
+            <div class="vehicle_gear-box3 column-header">
+              <span data-i18n="carried-abbr">Carr</span>
+            </div>
+            <div class="vehicle_gear-box4 column-header">
+              <span data-i18n="weight-abbr">Wt</span>
+            </div>
+            <div class="vehicle_gear-box5">
+              <fieldset class="repeating_vehicle_gear">
+                <div class="vehicle_gear-grid">
+                  <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
+                  <input class="vehicle_gear-box1 input" type="text" name="attr_vehicle_gear_name" value="" title="@{repeating_vehicle_gear_$X_vehicle_gear_name}" data-i18n-placeholder="item" placeholder="item" />
+                  <input class="vehicle_gear-box2 input-number" type="number" name="attr_vehicle_gear_qty" value="1" title="Quantity @{repeating_vehicle_gear_$X_vehicle_gear_qty}" />
+                  <input class="vehicle_gear-box3 input" type="checkbox" name="attr_vehicle_gear_carried" value="1" title="@{repeating_vehicle_gear_$X_vehicle_gear_carried}" checked />
+                  <select class="vehicle_gear-box4 input" name="attr_vehicle_gear_weight" title="@{repeating_vehicle_gear_$X_vehicle_gear_weight}">
+                    <option data-i18n="tiny-abbr" value="0" selected>T</option>
+                    <option data-i18n="light-abbr" value="0.5">L</option>
+                    <option data-i18n="normal-abbr" value="1">N</option>
+                    <option data-i18n="heavy-abbr" value="2">H</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                  <textarea class="vehicle_gear-box5 input-textarea" name="attr_vehicle_gear_description" title="@{repeating_vehicle_gear_$X_vehicle_gear_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+                </div>
+              </fieldset>
+            </div>
+            <div class="gear-weight">
+              <div><span class="label" data-i18n="gear">Gear</span></div>
+              <div>
+                <input class="input-number" type="text" name="attr_vehicle_gear_encumberance" value="0" title="@{vehicle_gear_encumbrance}" readonly />
+              </div>
+              <div>
+                <span class="label" data-i18n="occupants">Occupants</span>
+              </div>
+              <div>
+                <input class="input-number" type="text" name="attr_vehicle_occupants_weight" value="0" title="@{vehicle_occupants_weight}" readonly />
+              </div>
+              <div>
+                <span class="label" data-i18n="fuel">Fuel</span>
+              </div>
+              <div>
+                <input class="input-number" type="text" name="attr_vehicle_fuel_weight" value="0" title="@{vehicle_fuel_weight}" readonly />
+              </div>
+            </div>
+            <div class="vehicle_gear-box6 header">
+              <div class="vehicle_gear">
+                <span class="label" data-i18n="carry">Carry</span>
+              </div>
+              <div class="vehicle_gear">
+                <input class="input-number" type="text" name="attr_vehicle_carry" value="0" title="@{vehicle_carry} = vehicle_strength x2, unvehicleed x4" readonly />
+              </div>
+              <div class="vehicle_gear">
+                <span class="label" data-i18n="encumbrance">Encumbrance</span>
+              </div>
+              <div class="vehicle_gear">
+                <input class="input" type="hidden" name="attr_vehicle_gear_encumbrance" value="1.5" />
+                <input class="input-number" type="text" name="attr_vehicle_encumbrance" value="0" title="@{vehicle_encumbrance}"
+                  readonly />
+              </div>
+            </div>
         </div>
       </div>
-      <div class="box toggle-dice-only toggle-monster-only character-coins">
-        <div class="coins-grid">
-          <div class="coins-box header">
-            <h1 data-i18n="coins-u">COINS</h1>
-          </div>
-          <div class="coins-box1 column-header"></div>
-          <div class="coins-box2 column-header">
-            <span data-i18n="gold">Gold</span>
-          </div>
-          <div class="coins-box3 column-header">
-            <span data-i18n="silver">Silver</span>
-          </div>
-          <div class="coins-box4 column-header">
-            <span data-i18n="copper">Copper</span>
-          </div>
-  
-          <div class="coins-box5">
-            <span class="label" data-i18n="carried">Carried</span>
-          </div>
-          <div class="coins-box6">
-            <input class="input-number" type="text" name="attr_gold" value="0" title="@{gold}" />
-          </div>
-          <div class="coins-box7">
-            <input class="input-number" type="text" name="attr_silver" value="0" title="@{silver}" />
-          </div>
-          <div class="coins-box8">
-            <input class="input-number" type="text" name="attr_copper" value="0" title="@{copper}" />
-          </div>
-  
-          <div class="coins-box9">
-            <span class="label" style="text-align: center;" data-i18n="mounts-gear">Mount's Gear</span>
-          </div>
-          <div class="coins-box10">
-            <input class="input-number" type="text" name="attr_gold_mount" value="0" title="@{gold_mount}" />
-          </div>
-          <div class="coins-box11">
-            <input class="input-number" type="text" name="attr_silver_mount" value="0" title="@{silver_mount}" />
-          </div>
-          <div class="coins-box12">
-            <input class="input-number" type="text" name="attr_copper_mount" value="0" title="@{copper_mount}" />
-          </div>
-  
-          <div class="coins-box13">
-            <span class="label" data-i18n="other">Other</span>
-          </div>
-          <div class="coins-box14">
-            <input class="input-number" type="text" name="attr_gold_other" value="0" title="@{gold_mount}" />
-          </div>
-          <div class="coins-box15">
-            <input class="input-number" type="text" name="attr_silver_other" value="0" title="@{silver_mount}" />
-          </div>
-          <div class="coins-box16">
-            <input class="input-number" type="text" name="attr_copper_other" value="0" title="@{copper_mount}" />
-          </div>
-          <input type="hidden" name="attr_coins_other_total" value="0" />
-  
-          <div class="coins-box17">
-            <span class="label" data-i18n="total">Total</span>
-          </div>
-          <div class="coins-box18">
-            <input class="input-number" type="text" name="attr_gold_total" value="0" title="@{gold_total}" readonly />
-          </div>
-          <div class="coins-box18">
-            <input class="input-number" type="text" name="attr_silver_total" value="0" title="@{silver_total}" readonly />
-          </div>
-          <div class="coins-box19">
-            <input class="input-number" type="text" name="attr_copper_total" value="0" title="@{copper_total}" readonly />
-          </div>
-        </div>
-      </div>
-      <div class="box toggle-dice-only toggle-monster-only toggle-npc-only character-experience">
-        <div class="experience-grid">
-          <div class="experience-box1 header">
-            <h1 data-i18n="experience-u">EXPERIENCE</h1>
-          </div>
-          <div class="experience-box2 header">
-            <input class="input-number" type="number" name="attr_experience" value="0" min="0" title="@{experience}" />
-          </div>
-          <div class="experience-box3 header"></div>
-        </div>
-      </div>
-      <div class="box toggle-dice-only toggle-monster-only toggle-npc-only character-willpower">
-        <div class="willpower-grid">
-          <div class="willpower-box1 header">
-            <h1 data-i18n="willpower-u">WILLPOWER</h1>
-          </div>
-          <div class="willpower-box2">
-            <input type="radio" name="attr_willpower" value="0" data-i18n-title="no-willpower" title="No Willpower" style="margin: 4px 8px 3px 2px; width: 0.95em; height: 0.95em;" checked />
-            <input class="xbox" type="radio" name="attr_willpower" value="1" title="1 @{willpower}" /><span></span> <input
-              class="xbox" type="radio" name="attr_willpower" value="2" title="2 @{willpower}" /><span></span>
-            <input class="xbox" type="radio" name="attr_willpower" value="3" title="3 @{willpower}" /><span></span> <input
-              class="xbox" type="radio" name="attr_willpower" value="4" title="4 @{willpower}" /><span></span>
-            <input class="xbox" type="radio" name="attr_willpower" value="5" title="5 @{willpower}" /><span></span> <input
-              class="xbox" type="radio" name="attr_willpower" value="6" title="6 @{willpower}" /><span></span>
-            <input class="xbox" type="radio" name="attr_willpower" value="7" title="7 @{willpower}" /><span></span> <input
-              class="xbox" type="radio" name="attr_willpower" value="8" title="8 @{willpower}" /><span></span>
-            <input class="xbox" type="radio" name="attr_willpower" value="9" title="9 @{willpower}" /><span></span> <input
-              class="xbox" type="radio" name="attr_willpower" value="10" title="10 @{willpower}" /><span></span>
-            <input type="hidden" name="attr_willpower_max" value="10" />
-          </div>
-          <div class="willpower-box3">
-            <span class="input-span" name="attr_willpower" title="@{willpower}"></span>
-          </div>
-        </div>
+      
       </div>
     </div>
 
@@ -2019,7 +2026,7 @@
               <select class="armor-box12 input" name="attr_armor1_carried" title="@{armor1_carried}">
                 <option data-i18n="yes" value="1" selected>Yes</option>
                 <option data-i18n="no" value="0">No</option>
-                <option data-i18n="mount" value="0">Mount</option>
+                <option data-i18n="vehicle" value="0">vehicle</option>
               </select>
               <span class="armor-box13">
                 <span data-i18n="weight-abbr">Wt</span>
@@ -2167,29 +2174,29 @@
         </div>
 
         <div class="coins-box9">
-          <span class="label" style="text-align: center;" data-i18n="mounts-gear">Mount's Gear</span>
+          <span class="label" style="text-align: center;" data-i18n="vehicles-gear">vehicle's Gear</span>
         </div>
         <div class="coins-box10">
-          <input class="input-number" type="text" name="attr_gold_mount" value="0" title="@{gold_mount}" />
+          <input class="input-number" type="text" name="attr_gold_vehicle" value="0" title="@{gold_vehicle}" />
         </div>
         <div class="coins-box11">
-          <input class="input-number" type="text" name="attr_silver_mount" value="0" title="@{silver_mount}" />
+          <input class="input-number" type="text" name="attr_silver_vehicle" value="0" title="@{silver_vehicle}" />
         </div>
         <div class="coins-box12">
-          <input class="input-number" type="text" name="attr_copper_mount" value="0" title="@{copper_mount}" />
+          <input class="input-number" type="text" name="attr_copper_vehicle" value="0" title="@{copper_vehicle}" />
         </div>
 
         <div class="coins-box13">
           <span class="label" data-i18n="other">Other</span>
         </div>
         <div class="coins-box14">
-          <input class="input-number" type="text" name="attr_gold_other" value="0" title="@{gold_mount}" />
+          <input class="input-number" type="text" name="attr_gold_other" value="0" title="@{gold_vehicle}" />
         </div>
         <div class="coins-box15">
-          <input class="input-number" type="text" name="attr_silver_other" value="0" title="@{silver_mount}" />
+          <input class="input-number" type="text" name="attr_silver_other" value="0" title="@{silver_vehicle}" />
         </div>
         <div class="coins-box16">
-          <input class="input-number" type="text" name="attr_copper_other" value="0" title="@{copper_mount}" />
+          <input class="input-number" type="text" name="attr_copper_other" value="0" title="@{copper_vehicle}" />
         </div>
         <input type="hidden" name="attr_coins_other_total" value="0" />
 
@@ -2258,7 +2265,7 @@
           <span data-i18n="agility-abbr-u">AGI</span>
         </div>
         <div class="beasts-box4 column-header">
-          <span data-i18n="mounted">Mounted</span>
+          <span data-i18n="vehicleed">vehicleed</span>
         </div>
         <div class="beasts-box5 column-header">
           <span data-i18n="carry">Carry</span>
@@ -2275,8 +2282,8 @@
               <input class="beasts-box1 input" type="text" name="attr_beast_type" value="" data-i18n-placeholder="type-name" placeholder="Type/Name" title="@{repeating_beasts_$X_beast_type}" />
               <input class="beasts-box2 input-number" type="number" name="attr_beast_strength" value="0" min="0" title="@{repeating_beasts_$X_beast_strength}" />
               <input class="beasts-box3 input-number" type="number" name="attr_beast_agility" value="0" min="0" title="@{repeating_beasts_$X_beast_agility}" />
-              <input class="beasts-box4 input" type="checkbox" name="attr_beast_mounted" value="1" title="@{repeating_beasts_$X_beast_mounted}" />
-              <span class="beasts-box5 readonly" name="attr_beast_carry" value="0" title="@{repeating_beasts_$X_beast_carry} = mount_strength x2, unmounted x4">0</span>
+              <input class="beasts-box4 input" type="checkbox" name="attr_beast_vehicleed" value="1" title="@{repeating_beasts_$X_beast_vehicleed}" />
+              <span class="beasts-box5 readonly" name="attr_beast_carry" value="0" title="@{repeating_beasts_$X_beast_carry} = vehicle_strength x2, unvehicleed x4">0</span>
               <input class="beasts-box6 input input-number-center" type="number" name="attr_beast_encumbrance" title="@{repeating_beasts_$X_beast_encumbrance}" value="0" min="0" step="0.5" />
               <textarea class="beasts-box7 input-textarea" name="attr_beast_notes" data-i18n-placeholder="gear-notes" placeholder="Gear/Notes" title="@{repeating_beasts_$X_beast_notes}"></textarea>
             </div>
@@ -3727,10 +3734,10 @@
     repeatingSum("character_gear_encumbrance", "gear", ["gear_weight", "gear_qty", "gear_carried"]);
   });
   
-  /* mount encumbrance */
-  on("change:repeating_mount remove:repeating_mount sheet:opened", function () {
-    clog("Change Detected: Mounts Gear Encumbrance");
-    repeatingSum("mount_gear_encumbrance", "mount", ["mount_gear_weight", "mount_gear_qty", "mount_gear_carried"]);
+  /* vehicle encumbrance */
+  on("change:repeating_vehicle remove:repeating_vehicle sheet:opened", function () {
+    clog("Change Detected: vehicles Gear Encumbrance");
+    repeatingSum("vehicle_gear_encumbrance", "vehicle", ["vehicle_gear_weight", "vehicle_gear_qty", "vehicle_gear_carried"]);
   });
   
   /* weapons encumbrance */
@@ -3781,68 +3788,83 @@
   });
   
   /* coin weight */
-  on("sheet:opened change:gold change:silver change:copper change:gold_mount change:silver_mount change:copper_mount", function () {
-    getAttrs(["gold", "silver", "copper", "gold_mount", "silver_mount", "copper_mount"], function (values) {
+  on("sheet:opened change:gold change:silver change:copper change:gold_vehicle change:silver_vehicle change:copper_vehicle", function () {
+    getAttrs(["gold", "silver", "copper", "gold_vehicle", "silver_vehicle", "copper_vehicle"], function (values) {
       clog("Change Detected: Coin Weight");
       const gold = int(values["gold"]),
         silver = int(values["silver"]),
         copper = int(values["copper"]),
         temp_carried = Math.floor((gold + silver + copper) / 100) * 100,
         output_carried = (temp_carried * 0.005).toFixed(1),
-        gold_mount = int(values["gold_mount"]),
-        silver_mount = int(values["silver_mount"]),
-        copper_mount = int(values["copper_mount"]),
-        temp_mount = Math.floor((gold_mount + silver_mount + copper_mount) / 100) * 100,
-        output_mount = (temp_mount * 0.005).toFixed(1);
+        gold_vehicle = int(values["gold_vehicle"]),
+        silver_vehicle = int(values["silver_vehicle"]),
+        copper_vehicle = int(values["copper_vehicle"]),
+        temp_vehicle = Math.floor((gold_vehicle + silver_vehicle + copper_vehicle) / 100) * 100,
+        output_vehicle = (temp_vehicle * 0.005).toFixed(1);
       setAttrs({
         coins_carried: output_carried,
-        coins_carried_mount: output_mount,
+        coins_carried_vehicle: output_vehicle,
       });
     });
   });
   
   /* total encumbrance */
-  on("sheet:opened change:character_gear_encumbrance change:mount_gear_encumbrance change:coins_carried change:coins_carried_mount change:weapons_encumbrance change:armor_encumbrance change:shield_encumbrance", function () {
-    getAttrs(["character_gear_encumbrance", "mount_gear_encumbrance", "coins_carried", "coins_carried_mount", "weapons_encumbrance", "armor_encumbrance", "shield_encumbrance", "armor_shield_encumbrance"], function (values) {
+  on("sheet:opened change:character_gear_encumbrance change:vehicle_gear_encumbrance change:coins_carried change:coins_carried_vehicle change:weapons_encumbrance change:armor_encumbrance change:shield_encumbrance", function () {
+    getAttrs(["character_gear_encumbrance", "vehicle_gear_encumbrance", "coins_carried", "coins_carried_vehicle", "weapons_encumbrance", "armor_encumbrance", "shield_encumbrance", "armor_shield_encumbrance"], function (values) {
       clog("Change Detected: Character Encumbrance");
       const character_gear_encumbrance = float(values["character_gear_encumbrance"]),
-        mount_gear_encumbrance = float(values["mount_gear_encumbrance"]),
+        vehicle_gear_encumbrance = float(values["vehicle_gear_encumbrance"]),
         weapons_encumbrance = float(values["weapons_encumbrance"]),
         armor_encumbrance = float(values["armor_encumbrance"]),
         shield_encumbrance = float(values["shield_encumbrance"]),
         armor_shield_encumbrance = armor_encumbrance + shield_encumbrance,
         coins_carried = float(values["coins_carried"]),
-        coins_carried_mount = float(values["coins_carried_mount"]),
+        coins_carried_vehicle = float(values["coins_carried_vehicle"]),
         sum_character_weight = character_gear_encumbrance + weapons_encumbrance + armor_encumbrance + shield_encumbrance + coins_carried,
-        sum_mount_weight = mount_gear_encumbrance + coins_carried_mount;
+        sum_vehicle_weight = vehicle_gear_encumbrance + coins_carried_vehicle;
       setAttrs({
         armor_shield_encumbrance: armor_shield_encumbrance,
         character_encumbrance: sum_character_weight,
-        mount_encumbrance: sum_mount_weight,
+        vehicle_encumbrance: sum_vehicle_weight,
       });
     });
   });
   
-  /* coin total */
-  on("sheet:opened change:gold change:silver change:copper change:gold_mount change:silver_mount change:copper_mount change:gold_other change:silver_other change:copper_other", function () {
-    getAttrs(["gold", "silver", "copper", "gold_mount", "silver_mount", "copper_mount", "gold_other", "silver_other", "copper_other"], function (values) {
+  /* coin total 
+  on("sheet:opened change:gold change:silver change:copper change:gold_vehicle change:silver_vehicle change:copper_vehicle change:gold_other change:silver_other change:copper_other", function () {
+    getAttrs(["gold", "silver", "copper", "gold_vehicle", "silver_vehicle", "copper_vehicle", "gold_other", "silver_other", "copper_other"], function (values) {
       clog("Change Detected: Coin Total");
       const gold = int(values["gold"]),
         silver = int(values["silver"]),
         copper = int(values["copper"]),
-        gold_mount = int(values["gold_mount"]),
-        silver_mount = int(values["silver_mount"]),
-        copper_mount = int(values["copper_mount"]),
+        gold_vehicle = int(values["gold_vehicle"]),
+        silver_vehicle = int(values["silver_vehicle"]),
+        copper_vehicle = int(values["copper_vehicle"]),
         gold_other = int(values["gold_other"]),
         silver_other = int(values["silver_other"]),
         copper_other = int(values["copper_other"]),
-        sum_gold = gold + gold_mount + gold_other,
-        sum_silver = silver + silver_mount + silver_other,
-        sum_copper = copper + copper_mount + copper_other;
+        sum_gold = gold + gold_vehicle + gold_other,
+        sum_silver = silver + silver_vehicle + silver_other,
+        sum_copper = copper + copper_vehicle + copper_other;
       setAttrs({
         gold_total: sum_gold,
         silver_total: sum_silver,
         copper_total: sum_copper,
+      });
+    });
+  });
+  */
+  
+  /* coin total */
+  on("sheet:opened change:credits change:credits_vehicle change:credits_stash", function () {
+    getAttrs(["credits", "credits_vehicle", "credits_stash"], function (values) {
+      clog("Change Detected: Coin Total");
+      const credits = float(values["credits"]),
+        credits_vehicle = float(values["credits_vehicle"]),
+        credit_stash = ifloat(values["ccredits_stash"]),
+        sum_credits = credits + credits_vehicle + credits_stash;
+      setAttrs({
+        credits_total: sum_credits;
       });
     });
   });
@@ -4680,27 +4702,27 @@
     });
   });
   
-  /* Mount/Beast Carry calcs */
-  const carry = (strength, mounted) => (strength * 4) / (mounted + 1);
+  /* vehicle/Beast Carry calcs */
+  const carry = (strength, vehicleed) => (strength * 4) / (vehicleed + 1);
   
-  on("change:mounted change:mount_strength", function () {
-    clog("Change Detected: Mounted/Unmounted");
-    getAttrs(["mounted", "mount_strength"], function (values) {
-      const mounted = int(values["mounted"]),
-        strength = int(values["mount_strength"]),
-        Carry = carry(strength, mounted);
+  on("change:vehicleed change:vehicle_strength", function () {
+    clog("Change Detected: vehicleed/Unvehicleed");
+    getAttrs(["vehicleed", "vehicle_strength"], function (values) {
+      const vehicleed = int(values["vehicleed"]),
+        strength = int(values["vehicle_strength"]),
+        Carry = carry(strength, vehicleed);
       setAttrs({
-        mount_carry: Carry,
+        vehicle_carry: Carry,
       });
     });
   });
   
   on("change:repeating_beasts", function () {
     clog("Change Detected: Beasts Check Carry Calculation");
-    getAttrs(["repeating_beasts_beast_mounted", "repeating_beasts_beast_strength"], function (values) {
-      const mounted = int(values["repeating_beasts_beast_mounted"]),
+    getAttrs(["repeating_beasts_beast_vehicleed", "repeating_beasts_beast_strength"], function (values) {
+      const vehicleed = int(values["repeating_beasts_beast_vehicleed"]),
         strength = int(values["repeating_beasts_beast_strength"]),
-        Carry = carry(strength, mounted);
+        Carry = carry(strength, vehicleed);
       setAttrs({
         repeating_beasts_beast_carry: Carry,
       });
@@ -4898,7 +4920,7 @@
   });
   
   /* delete empty repeating rows w/out having to close/reopen sheet*/
-  on('remove:repeating_injuries remove:repeating_talents remove:repeating_gear remove:repeating_mount_gear remove:repeating_relationships remove:repeating_spells remove:repeating_beasts remove:repeating_notes remove:repeating_functions remove:repeating_hirelings remove:repeating_monster', function() { 
+  on('remove:repeating_injuries remove:repeating_talents remove:repeating_gear remove:repeating_vehicle_gear remove:repeating_relationships remove:repeating_spells remove:repeating_beasts remove:repeating_notes remove:repeating_functions remove:repeating_hirelings remove:repeating_monster', function() { 
     const timestamp = Number(new Date())
     setAttrs({ repeat_delete: timestamp });
     clog("repeating row has been removed");

@@ -14,24 +14,24 @@
 
 <div class="wrapper tab-content character">
   
-  <input type="hidden" name ="attr_CharacterType" value="@{RaceType}" />    
+  <input type="hidden" name ="attr_CharacterType" value="@{chartype}" />    
 
   <div class="logo" title="MUTANT YEAR ZERO" data-i18n-title="logo-myz">
     <span class="sheet-logo-image lang-sv"></span>
   </div>
   
   Character Type:&nbsp;&nbsp;
-  <input type="radio" class="sheet-character-type sheet-racetype-mutant" name="attr_RaceType" text="Mutant"  value="Mutant" checked="true"/>    
+  <input type="radio" class="sheet-character-type sheet-chartype-mutant" name="attr_chartype" text="Mutant"  value="Mutant" checked="true"/>    
   <span>Mutant&nbsp;&nbsp;</span>
-  <input type="radio" class="sheet-character-type sheet-racetype-animal" name="attr_RaceType" text="Animal"  value="Animal" />                  
+  <input type="radio" class="sheet-character-type sheet-chartype-animal" name="attr_chartype" text="Animal"  value="Animal" />                  
   <span>Animal&nbsp;&nbsp;</span>
-  <input type="radio" class="sheet-character-type sheet-racetype-robot"  name="attr_RaceType" text="Robot"   value="Robot" />                  
+  <input type="radio" class="sheet-character-type sheet-chartype-robot"  name="attr_chartype" text="Robot"   value="Robot" />                  
   <span>Robot&nbsp;&nbsp;</span>
-  <input type="radio" class="sheet-character-type sheet-racetype-human"  name="attr_RaceType" text="Human"   value="Human" />                  
+  <input type="radio" class="sheet-character-type sheet-chartype-human"  name="attr_chartype" text="Human"   value="Human" />                  
   <span>Human</span>
     
   <div class="character-grid">
-    <div class="character-heading box racetype-background-light toggle-dice-only toggle-monster-only ">
+    <div class="character-heading box chartype-background-light toggle-dice-only toggle-monster-only ">
       <div class="heading-grid">
         <div class="heading-box heading-box1">
           <span class="sheet-label" data-i18n="name">Name</span>
@@ -158,7 +158,7 @@
           </button>
         </span>
       </div>
-      <div class="attributes-grid racetype-background-light">
+      <div class="attributes-grid chartype-background-light">
         <!-- Broken Indicators -->
         <input class="broken-str" type="hidden" name="attr_strength_total" />
         <input class="broken-agi" type="hidden" name="attr_agility_total" />
@@ -310,7 +310,7 @@
           <input type="hidden" name="attr_empathy_total_max" value="0" />
         </div>
       </div>
-      <div class="conditions-grid toggle-monster-only racetype-background-light">
+      <div class="conditions-grid toggle-monster-only chartype-background-light">
         <div class="conditions-box2"><input class="input xbox conditions-hungry" type="checkbox" name="attr_hungry" value="1" data-i18n-title="condition-hungry" title="@{hungry}" /><span></span></div>
         <input class="hidden conditions-hungry" type="checkbox" name="attr_hungry" value="1" />
         <div class="conditions-box3">
@@ -383,7 +383,7 @@
       </div>
     </div>
 
-    <div class="character-details box racetype-background-light toggle-dice-only toggle-monster-only toggle-npc-only ">
+    <div class="character-details box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only ">
       <div class="details-grid">
         <div class="details-box1">
           <button class="roll-button-textonly" type="roll" name="roll_pride" title="%{roll_pride}" style="width: 100%; height: 1.2em;" value="@{whisper_option} &{template:forbiddenlands} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{pride-roll}}} {{subtitle=@{pride}}} {{artifact-die-twelve=[[1]] }} {{artifact-roll-twelve=[[1d12]] }}">
@@ -431,7 +431,7 @@
       </div>
     </div>
 
-    <div class="character-appearance box racetype-background-light toggle-dice-only toggle-monster-only ">
+    <div class="character-appearance box chartype-background-light toggle-dice-only toggle-monster-only ">
       <div class="appearance-grid">
         <div class="appearance-box1 header">
           <h1 data-i18n="appearance-u">APPEARANCE</h1>
@@ -457,7 +457,7 @@
       </div>
     </div>
 
-    <div class="character-injuries box racetype-background-light toggle-dice-only toggle-monster-only toggle-npc-only ">
+    <div class="character-injuries box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only ">
       <div class="injuries-grid">
         <div class="injuries-box1 header">
           <h1 data-i18n="critical-u">CRITICAL INJURIES</h1>
@@ -499,7 +499,7 @@
       </div>
     </div>
 
-    <div class="character-weapons box racetype-background-light toggle-dice-only toggle-monster-only ">
+    <div class="character-weapons box chartype-background-light toggle-dice-only toggle-monster-only ">
       <div class="weapons-grid">
         <div class="weapons-box header">
           <h1 data-i18n="weapon-u" style="margin-top: -21px;">WEAPONS</h1>
@@ -732,7 +732,7 @@
       <input type="hidden" name="attr_skill_bonus_misc_gear_selected" value="" readonly />
       <input type="hidden" name="attr_skill_only_selected" value="" readonly />
       <input type="hidden" name="attr_skill_notes_selected" value="" readonly />
-      <div class="box racetype-background-light toggle-dice-only character-skills">
+      <div class="box chartype-background-light toggle-dice-only character-skills">
         <input type="checkbox" class="skill-order-group hidden" name="attr_skill_order_group" value="1" />
         <div class="skills-grid" data-i18n-list="skills-list">
           <span>
@@ -1406,7 +1406,7 @@
 
         </div>
       </div>
-      <div class="box racetype-background-light character-dice_pool">
+      <div class="box chartype-background-light character-dice_pool">
         <div class="dice_pool-grid">
           <div class="dice-header dice_pool-box1 toggle-dice-only header">
             <h1 data-i18n="dice-pool-u">DICE POOL</h1>
@@ -1574,7 +1574,7 @@
           <div class="experience-box3"></div>
         </div>
       </div>
-      <div class="character-willpower box racetype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
+      <div class="character-willpower box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
         <div class="willpower-grid">
           <div class="willpower-box1 header">
             <h1 data-i18n="power-u">POWER POINTS</h1>
@@ -1598,7 +1598,7 @@
           </div>
         </div>
       </div>
-      <div class="character-talents sheet-box racetype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
+      <div class="character-talents sheet-box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
         <div class="talents-grid">
           <div class="talents-box header">
             <h1 data-i18n="talent-u">TALENTS</h1>
@@ -1628,7 +1628,7 @@
           </div>
         </div>
       </div>
-      <div class="character-consumables box racetype-background-light toggle-dice-only toggle-monster-only">
+      <div class="character-consumables box chartype-background-light toggle-dice-only toggle-monster-only">
         <div class="consumables-grid">
           <div class="consumables-box header">
             <h1 data-i18n="consumable-u">CONSUMABLES</h1>
@@ -1682,7 +1682,7 @@
           </div>
         </div>
       </div>
-      <div class="character-coins box racetype-background-light toggle-dice-only toggle-monster-only">
+      <div class="character-coins box chartype-background-light toggle-dice-only toggle-monster-only">
         <div class="coins-grid">
           <div class="coins-box header">
             <h1 data-i18n="money-u">MONEY</h1>
@@ -1756,7 +1756,7 @@
         </div>
       </div> 
 
-      <div class="gear-grid box racetype-background-light">
+      <div class="gear-grid box chartype-background-light">
         <div class="gear-box1 header">
           <h1 data-i18n="gea-u">GEAR</h1>
         </div>
@@ -1824,7 +1824,7 @@
             <input class="input-number" type="text" name="attr_character_encumbrance" value="0" title="@{character_encumbrance}" readonly />
           </div>
         </div>
-        <div class="gear-subgrid2 racetype-background-light" style="margin-bottom: 1em;">
+        <div class="gear-subgrid2 chartype-background-light" style="margin-bottom: 1em;">
           <div class="gear-box12">
             <span class="label" data-i18n-title="pack-rat-title" data-i18n="pack-rat">Pack Rat Talent?&nbsp;</span>
           </div>
@@ -1836,7 +1836,7 @@
           </div>
         </div>
       </div>
-      <div class="vehicle-grid box racetype-background-light">
+      <div class="vehicle-grid box chartype-background-light">
         <div class="vehicle-box1 header">
           <h1 data-i18n="vehicle-u">VEHICLE</h1>
         </div>
@@ -1882,8 +1882,8 @@
         <!-- expand 2nd row -->
         <textarea class="vehicle-box-desc vehicle-row2 input-textarea" name="attr_vehicle_description"
           title="@{vehicle_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
-        <div class="vehicle_gear-box racetype-background-light">
-          <div class="vehicle_gear-grid racetype-background-light">
+        <div class="vehicle_gear-box chartype-background-light">
+          <div class="vehicle_gear-grid chartype-background-light">
             <div class="vehicle_gear-box1 header">
               <h1 data-i18n="gear-on-vehicle">Gear on vehicle</h1>
             </div>
@@ -1961,7 +1961,7 @@
       </div>
     </div>
 
-    <div class="character-armor box racetype-background-light toggle-dice-only toggle-monster-only ">
+    <div class="character-armor box chartype-background-light toggle-dice-only toggle-monster-only ">
       <div class="armor-container">
         <div class="armor-grid">
           <div class="armor-box header">
@@ -1980,80 +1980,71 @@
             <span data-i18n="misc-skill-abbr">Misc Skill</span>
           </div>
           <div class="armor-box5 column-header">
+            <span data-i18n="features">Features</span>
+          </div>
+          <div class="armor-box6 column-header">
             <span data-i18n="total-abbr">Tot</span>
           </div>
-          <!--<div class="armor-box6 column-header">
-            <span data-i18n="die-8-u">D8</span>
-          </div>
-          <div class="armor-box7 column-header">
-            <span data-i18n="die-8-u">D8</span>
-          </div>
-          <div class="armor-box8 column-header">
-            <span data-i18n="die-10-u">D8</span>
-          </div>
-          <div class="armor-box9 column-header">
-            <span data-i18n="die-12-u">D8</span>
-          </div>-->
-          <fieldset class="repeating_armor">
-          <div class="armor-box10 armor-grid r">
-            <input class="armor-box1 input" type="text" name="attr_armor1_name" value="" title="@{armor1_name}" data-i18n-placeholder="name" placeholder="name" />
-            <input class="armor-box2 input-number" type="number" name="attr_armor1_bonus" value="0" min="0" data-i18n-title="armor1-bonus" title="Record the armor's CURRENT bonus up to MAX (adjusts GEAR dice). @{armor1_bonus}" />
-            <input class="armor-box3 input-number" type="number" name="attr_armor1_bonus_max" value="0" min="0" data-i18n-title="armor1-bonus-max" title="Record the armor's UNDAMAGED bonus. @{armor1_bonus_max}" />
-            <select class="armor-box4 input" name="attr_armor1_damage" data-i18n-title="armor1-bonus-misc" title="Miscellaneous bonus modifier (adjusts GEAR dice). @{armor1_damage}">
-              <option value="6">+6</option>
-              <option value="5">+5</option>
-              <option value="4">+4</option>
-              <option value="3">+3</option>
-              <option value="2">+2</option>
-              <option value="1">+1</option>
-              <option value="0" selected>+0</option>
-              <option value="-1">-1</option>
-              <option value="-2">-2</option>
-              <option value="-3">-3</option>
-              <option value="-4">-4</option>
-              <option value="-5">-5</option>
-              <option value="-6">-6</option>
-            </select>
-            <span class="armor-box5 readonly" name="attr_armor1_ar" value="0" data-i18n-title="armor1-bonus-total" title="Total GEAR and SKILL dice included for armor1. @{armor1_ar}">0</span>
+          <div class="armor-box10">
+            <fieldset class="repeating_armor">
+              <div class="armor-grid">
+                <input class="armor-box1 input" type="text" name="attr_armor1_name" value="" title="@{armor1_name}" data-i18n-placeholder="name" placeholder="name" />
+                <input class="armor-box2 input-number" type="number" name="attr_armor1_bonus" value="0" min="0" data-i18n-title="armor1-bonus" title="Record the armor's CURRENT bonus up to MAX (adjusts GEAR dice). @{armor1_bonus}" />
+                <input class="armor-box3 input-number" type="number" name="attr_armor1_bonus_max" value="0" min="0" data-i18n-title="armor1-bonus-max" title="Record the armor's UNDAMAGED bonus. @{armor1_bonus_max}" />
+                <select class="armor-box4 input" name="attr_armor1_damage" data-i18n-title="armor1-bonus-misc" title="Miscellaneous bonus modifier (adjusts GEAR dice). @{armor1_damage}">
+                  <option value="6">+6</option>
+                  <option value="5">+5</option>
+                  <option value="4">+4</option>
+                  <option value="3">+3</option>
+                  <option value="2">+2</option>
+                  <option value="1">+1</option>
+                  <option value="0" selected>+0</option>
+                  <option value="-1">-1</option>
+                  <option value="-2">-2</option>
+                  <option value="-3">-3</option>
+                  <option value="-4">-4</option>
+                  <option value="-5">-5</option>
+                  <option value="-6">-6</option>
+                </select>
+                <input class="armor-box5 input" type="text" name="attr_armor1_features" value="" title="@{armor1_features}" />
+                <span class="armor-box6 readonly" name="attr_armor1_ar" value="0" data-i18n-title="armor1-bonus-total" title="Total GEAR and SKILL dice included for armor1. @{armor1_ar}">0</span>
 
-            <!-- expand 2nd row -->
-            <!--<input class="expand" type="checkbox" name="attr_expand_armor1" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>-->
-            <!-- 2nd row -->
-            <!--<div class="armor-row2">-->
-              <span class="armor-box11">
-                <span data-i18n="carried-abbr">Carr</span>
-              </span>
-              <select class="armor-box12 input" name="attr_armor1_carried" title="@{armor1_carried}">
-                <option data-i18n="yes" value="1" selected>Yes</option>
-                <option data-i18n="no" value="0">No</option>
-                <option data-i18n="vehicle" value="0">vehicle</option>
-              </select>
-              <span class="armor-box13">
-                <span data-i18n="weight-abbr">Wt</span>
-              </span>
-              <select class="armor-box14 input" name="attr_armor1_weight" title="@{armor1_weight}">
-                <option data-i18n="tiny-abbr" value="0" selected>T</option>
-                <option data-i18n="light-abbr" value="0.5">L</option>
-                <option data-i18n="normal-abbr" value="1">N</option>
-                <option data-i18n="heavy-abbr" value="2">H</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-              <span class="armor-box15"><span data-i18n="don">Don</span></span>
-              <input class="armor-box16 input" type="checkbox" name="attr_armor1_equipped" value="1" title="@{armor1_equipped}" checked />
-              <span class="armor-box17">
-                <span data-i18n="features">Features</span>
-              </span>
-              <input class="armor-box18 input" type="text" name="attr_armor1_features" value="" title="@{armor1_features}" />
-            <!--</div>-->
-          </div>
-          </fieldset>
+                <!-- expand 2nd row -->
+                <input class="expand" type="checkbox" name="attr_expand_armor1" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
+                <!-- 2nd row -->
+                <!-- --> 
+                  <div class="armor-row2">               
+                    <span class="armor-box21">
+                      <span data-i18n="carried">Carried</span>
+                    </span>
+                    <select class="armor-box22 input" name="attr_armor1_carried" title="@{armor1_carried}">
+                      <option data-i18n="yes" value="1" selected>Yes</option>
+                      <option data-i18n="no" value="0">No</option>
+                      <option data-i18n="vehicle" value="0">vehicle</option>
+                    </select>
+                    <span class="armor-box23">
+                      <span data-i18n="weight">Weight</span>
+                    </span>
+                    <select class="armor-box24 input" name="attr_armor1_weight" title="@{armor1_weight}">
+                      <option data-i18n="tiny-abbr" value="0" selected>T</option>
+                      <option data-i18n="light-abbr" value="0.5">L</option>
+                      <option data-i18n="normal-abbr" value="1">N</option>
+                      <option data-i18n="heavy-abbr" value="2">H</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                    </select>
+                    <span class="armor-box25"><span data-i18n="donned">Donned</span></span>
+                    <input class="armor-box26 input" type="checkbox" name="attr_armor1_equipped" value="1" title="@{armor1_equipped}" checked />
+                  </div>
+                </div> 
+              </div>       
+            </fieldset>
           <div class="armor-ar">
             <div class="armor-subgrid">
               <span class="armor-box3 header">
@@ -2061,7 +2052,7 @@
                   ARMOR RATING
                 </h1>
               </span>
-              <span class="armor-box4 input-span" name="attr_ar" value="0" data-i18n-title="armor-rating-total" title="Total GEAR dice included for armor1 + armor2. @{ar}"></span>
+              <span class="armor-box4 input-span chartype-border-darkest" name="attr_ar" value="0" data-i18n-title="armor-rating-total" title="Total GEAR dice included for armor1 + armor2. @{ar}"></span>
               <span class="armor-box5">
                 <button type="action" name="act_armor-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice." data-i18n="armor"   style="height: 2em; width: 4em;">
                   Armor
@@ -2292,7 +2283,7 @@
       </div>
     </div>
 
-    <div class="character-relationships box racetype-background-light toggle-dice-only toggle-monster-only toggle-npc-only ">
+    <div class="character-relationships box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only ">
       <div class="relationships-grid">
         <div class="relationships-box1 header">
           <h1 data-i18n="relationships-u">RELATIONSHIPS</h1>
@@ -2367,7 +2358,7 @@
       </div>
     </div>
 
-    <div class="character-notes box racetype-background-light toggle-dice-only ">
+    <div class="character-notes box chartype-background-light toggle-dice-only ">
       <div class="notes-grid">
         <div class="notes-box1 header">
           <h1 data-i18n="notes-u">NOTES</h1>
@@ -3437,8 +3428,8 @@
 
     //object reference for Race specific attribute names
 
-    //Upate sheet labels when RaceType attribute changes
-    on("change:RaceType", function(eventInfo) {
+    //Upate sheet labels when chartype attribute changes
+    on("change:chartype", function(eventInfo) {
         
         var character_types = {
             "Mutant":{strength_name:"Strength",
@@ -3566,11 +3557,11 @@
                         heal_name:"Heal" },
         };   
         
-        getAttrs(["RaceType"], function(values) {
+        getAttrs(["chartype"], function(values) {
                              
             var race_att_names;
-            if (_.has(character_types, values.RaceType) ) {
-              race_att_names = character_types[values.RaceType];
+            if (_.has(character_types, values.chartype) ) {
+              race_att_names = character_types[values.chartype];
             } 
             else {
               race_att_names = character_types["Mutant"];
@@ -3608,8 +3599,8 @@
             setAttrs({heal_name: race_att_names.heal_name});
         });
 
-        //getAttrs(["RaceType","CharacterType"], function(values) {
-        //  setAttrs("CharacterType"="RaceType");
+        //getAttrs(["chartype","CharacterType"], function(values) {
+        //  setAttrs("CharacterType"="chartype");
         //});
     });
 

@@ -86,7 +86,7 @@
       </div>
     </div>
 
-    <div class="character-attributes box toggle-dice-only ">
+    <div class="character-attributes chartype-background-dark box toggle-dice-only ">
       <!--Monster Stats-->
       <div class="monster monster-stat1">
         <span class="header monster-stats-box1">
@@ -158,7 +158,7 @@
           </button>
         </span>
       </div>
-      <div class="attributes-grid chartype-background-light">
+      <div class="attributes-grid">
         <!-- Broken Indicators -->
         <input class="broken-str" type="hidden" name="attr_strength_total" />
         <input class="broken-agi" type="hidden" name="attr_agility_total" />
@@ -310,7 +310,7 @@
           <input type="hidden" name="attr_empathy_total_max" value="0" />
         </div>
       </div>
-      <div class="conditions-grid toggle-monster-only chartype-background-light">
+      <div class="conditions-grid toggle-monster-only chartype-background-dark">
         <div class="conditions-box2"><input class="input xbox conditions-hungry" type="checkbox" name="attr_hungry" value="1" data-i18n-title="condition-hungry" title="@{hungry}" /><span></span></div>
         <input class="hidden conditions-hungry" type="checkbox" name="attr_hungry" value="1" />
         <div class="conditions-box3">
@@ -732,12 +732,15 @@
       <input type="hidden" name="attr_skill_bonus_misc_gear_selected" value="" readonly />
       <input type="hidden" name="attr_skill_only_selected" value="" readonly />
       <input type="hidden" name="attr_skill_notes_selected" value="" readonly />
-      <div class="box chartype-background-light toggle-dice-only character-skills">
+      <div class="character-skills box chartype-background-light toggle-dice-only">
         <input type="checkbox" class="skill-order-group hidden" name="attr_skill_order_group" value="1" />
         <div class="skills-grid" data-i18n-list="skills-list">
           <span>
             <div class="skills-box1 header">
               <h1 data-i18n="skill-u">SKILLS</h1>
+            </div>
+            <div class="skills-box-base column-header">
+              <span data-i18n="base-abbr">Base</span>
             </div>
             <div class="skills-box2 column-header">
               <span data-i18n="lvl-abbr">Lvl</span>
@@ -752,10 +755,9 @@
               <span data-i18n="sum-abbr">Sum</span>
             </div>
           </span>
-          <span class="skills-row" data-i18n-list-item="comprehend">
-            <button type="action" name="act_dice_pool_comprehend" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-              <span data-i18n="comprehend" name="attr_comprehend_name">Comprehend</span>&nbsp;(<span class="small-caps" data-i18n="wits-abbr">Wit</span>&nbsp;<span name="attr_wits_total"></span>)
-            </button>
+          <span class="skills-row chartype-background-dark" data-i18n-list-item="comprehend">
+            <span class="skill-name" data-i18n="comprehend" name="attr_comprehend_name">Comprehend</span>
+            <span class="small-caps skill-name" data-i18n="wits-abbr">(Wit&nbsp;<span name="attr_wits_total"></span>)</span>
             <input class="input-number character-skill-level" type="number" name="attr_comprehend" value="0" min="0" title="@{comprehend}" />
             <select class="input character-skill-mod" name="attr_comprehend_skill_misc" title="@{comprehend_skill_misc}">
               <option value="6">+6</option>
@@ -781,7 +783,9 @@
               <option value="1">+1</option>
               <option value="0" selected>+0</option>
             </select>
-            <span class="readonly character-skill-total" name="attr_comprehend_total" value="0" title="@{comprehend_total}">0</span>
+            <button type="action" name="act_dice_pool_comprehend" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <span class="readonly character-skill-total" name="attr_comprehend_total" value="0" title="@{comprehend_total}">0</span>
+            </button>
             <!-- expand 2nd row -->
             <!--<input class="expand" type="checkbox" name="attr_expand_comprehend" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
 
@@ -795,10 +799,9 @@
             </div>-->
           </span>
           
-          <span class="skills-row" data-i18n-list-item="endure">
-            <button type="action" name="act_dice_pool_endure" class="toggle-monster-only" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-              <span data-i18n="endure" name="attr_endure_name">Endure</span>&nbsp;(<span class="small-caps" data-i18n="strength-abbr">Str</span>&nbsp;<span name="attr_strength_total"></span>)
-            </button>
+          <span class="skills-row chartype-background-dark" data-i18n-list-item="endure">
+            <span class="skill-name" data-i18n="endure" name="attr_endure_name">Endure</span>
+            <span class="small-caps skill-name" data-i18n="strength-abbr">(Str&nbsp;<span name="attr_strength_total"></span>)</span>
             <button type="action" name="act_dice_pool_endure_monster" class="monster" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice."><span data-i18n="endure">endure</span>&nbsp;(<span data-i18n="monster">Monster</span>)</button>
             <input class="input-number character-skill-level toggle-monster-only" type="number" name="attr_endure" value="0" min="0" title="@{endure}" />
             <select class="input character-skill-mod toggle-monster-only" name="attr_endure_skill_misc" title="@{endure_skill_misc}">
@@ -825,7 +828,9 @@
               <option value="1">+1</option>
               <option value="0" selected>+0</option>
             </select>
-            <span class="readonly character-skill-total toggle-monster-only" name="attr_endure_total" value="0" title="@{endure_total}">0</span>
+            <button type="action" name="act_dice_pool_endure" class="toggle-monster-only" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <span class="readonly character-skill-total toggle-monster-only" name="attr_endure_total" value="0" title="@{endure_total}">0</span>
+            </button>
             <!-- monster stats -->
             <select class="input monster" name="attr_endure_monster" title="@{endure_monster}" style="width: 3em; margin: 0;">
               <option value="0" selected>0</option>
@@ -883,10 +888,9 @@
             </div>-->
           </span>
 
-          <span class="skills-row" data-i18n-list-item="fight">
-            <button type="action" name="act_dice_pool_fight" class="toggle-monster-only" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-              <span data-i18n="fight-as-skill" name="attr_fight_name">Fight</span>&nbsp;(<span class="small-caps" data-i18n="strength-abbr">Str</span>&nbsp;<span name="attr_strength_total"></span>)
-            </button>
+          <span class="skills-row chartype-background-dark" chartype-background-dark data-i18n-list-item="fight">
+            <span class="skill-name" data-i18n="fight-as-skill" name="attr_fight_name">Fight</span>
+            <span class="small-caps skill-name" data-i18n="strength-abbr">(Str&nbsp;<span name="attr_strength_total"></span>)</span>
             <button type="action" name="act_dice_pool_fight_monster" class="monster" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice."><span data-i18n="fight-as-skill">fight</span>&nbsp;(<span data-i18n="monster">Monster</span>)</button>
             <input class="input-number character-skill-level toggle-monster-only" type="number" name="attr_fight" value="0" min="0" title="@{fight}" />
             <select class="input character-skill-mod toggle-monster-only" name="attr_fight_skill_misc" title="@{fight_skill_misc}">
@@ -913,7 +917,9 @@
               <option value="1">+1</option>
               <option value="0" selected>+0</option>
             </select>
-            <span class="readonly character-skill-total toggle-monster-only" name="attr_fight_total" value="0" title="@{fight_total}">0</span>
+            <button type="action" name="act_dice_pool_fight" class="toggle-monster-only" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <span class="readonly character-skill-total toggle-monster-only" name="attr_fight_total" value="0" title="@{fight_total}">0</span>
+            </button>
             <!-- monster stats -->
             <select class="input monster" name="attr_fight_monster" title="@{fight_monster}" style="width: 3em; margin: 0;">
               <option value="0" selected>0</option>
@@ -972,10 +978,9 @@
             </div>-->
           </span>
           
-          <span class="skills-row" data-i18n-list-item="force">
-            <button type="action" name="act_dice_pool_force" class="toggle-monster-only" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-              <span data-i18n="force" name="attr_force_name">Force</span>&nbsp;(<span class="small-caps" data-i18n="strength-abbr">Str</span>&nbsp;<span name="attr_strength_total"></span>)
-            </button>
+          <span class="skills-row chartype-background-dark" data-i18n-list-item="force">
+            <span class="skill-name" data-i18n="force" name="attr_force_name">Force</span>
+            <span class="small-caps skill-name" data-i18n="strength-abbr">(Str&nbsp;<span name="attr_strength_total"></span>)</span>
             <button type="action" name="act_dice_pool_force_monster" class="monster" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice."><span data-i18n="force">force</span>&nbsp;(<span data-i18n="monster">Monster</span>)</button>
             <input class="input-number toggle-monster-only" type="number" name="attr_force" value="0" min="0" title="@{force}" />
             <select class="input toggle-monster-only" name="attr_force_skill_misc" title="@{force_skill_misc}">
@@ -1002,8 +1007,10 @@
               <option value="1">+1</option>
               <option value="0" selected>+0</option>
             </select>
-            <span class="readonly toggle-monster-only" name="attr_force_total" value="0" title="@{force_total}">0</span>
-            <!-- monster stats -->
+            <button type="action" name="act_dice_pool_force" class="toggle-monster-only" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <span class="readonly toggle-monster-only" name="attr_force_total" value="0" title="@{force_total}">0</span>
+            </button>
+              <!-- monster stats -->
             <select class="input monster" name="attr_force_monster" title="@{force_monster}" style="width: 3em; margin: 0;">
               <option value="0" selected>0</option>
               <option value="1">1</option>
@@ -1060,10 +1067,9 @@
             </div>-->
           </span>
 
-          <span class="skills-row" data-i18n-list-item="heal">
-            <button type="action" name="act_dice_pool_heal" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-              <span data-i18n="heal" name="attr_heal_name">Heal</span>&nbsp;(<span class="small-caps" data-i18n="empathy-abbr">Emp</span>&nbsp;<span name="attr_empathy_total"></span>)
-            </button>
+          <span class="skills-row chartype-background-dark" data-i18n-list-item="heal">
+            <span class="skill-name" data-i18n="heal" name="attr_heal_name">Heal</span>
+            <span class="small-caps skill-name" data-i18n="empathy-abbr">(Emp&nbsp;<span name="attr_empathy_total"></span>)</span>
             <input class="input-number" type="number" name="attr_heal" value="0" min="0" title="@{heal}" />
             <select class="input" name="attr_heal_skill_misc" title="@{heal_skill_misc}">
               <option value="6">+6</option>
@@ -1089,7 +1095,9 @@
               <option value="1">+1</option>
               <option value="0" selected>+0</option>
             </select>
-            <span class="readonly" name="attr_heal_total" value="0" title="@{heal_total}">0</span>
+            <button type="action" name="act_dice_pool_heal" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <span class="readonly" name="attr_heal_total" value="0" title="@{heal_total}">0</span>
+            </button>
             <!-- expand 2nd row -->
             <!--<input class="expand" type="checkbox" name="attr_expand_heal" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
 
@@ -1103,10 +1111,9 @@
             </div>-->
           </span>
 
-          <span class="skills-row" data-i18n-list-item="know_the_zone">
-            <button type="action" name="act_dice_pool_know_the_zone" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-              <span data-i18n="know_the_zone" name="attr_know_the_zone_name">Know the Zone</span>&nbsp;(<span class="small-caps" data-i18n="wits-abbr">Wit</span>&nbsp;<span name="attr_wits_total"></span>)
-            </button>
+          <span class="skills-row chartype-background-dark" data-i18n-list-item="know_the_zone">
+            <span class="skill-name" data-i18n="know_the_zone" name="attr_know_the_zone_name">Know the Zone</span>
+            <span class="small-caps skill-name" data-i18n="wits-abbr">(Wit&nbsp;<span name="attr_wits_total"></span>)</span>
             <input class="input-number character-skill-level" type="number" name="attr_know_the_zone" value="0" min="0" title="@{know_the_zone}" />
             <select class="input character-skill-mod" name="attr_know_the_zone_skill_misc" title="@{know_the_zone_skill_misc}">
               <option value="6">+6</option>
@@ -1132,7 +1139,9 @@
               <option value="1">+1</option>
               <option value="0" selected>+0</option>
             </select>
-            <span class="readonly character-skill-total" name="attr_know_the_zone_total" value="0" title="@{know_the_zone_total}">0</span>
+            <button type="action" name="act_dice_pool_know_the_zone" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <span class="readonly character-skill-total" name="attr_know_the_zone_total" value="0" title="@{know_the_zone_total}">0</span>
+            </button>
             <!-- expand 2nd row -->
             <!--<input class="expand" type="checkbox" name="attr_expand_know_the_zone" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
 
@@ -1146,10 +1155,9 @@
             </div>-->
           </span>
 
-          <span class="skills-row" data-i18n-list-item="manipulate">
-            <button type="action" name="act_dice_pool_manipulate" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-              <span data-i18n="manipulate" name="attr_manipulate_name">Manipulate</span>&nbsp;(<span class="small-caps" data-i18n="empathy-abbr">Emp</span>&nbsp;<span name="attr_empathy_total"></span>)
-            </button>
+          <span class="skills-row chartype-background-dark" data-i18n-list-item="manipulate">
+            <span class="skill-name" data-i18n="manipulate" name="attr_manipulate_name">Manipulate</span>
+            <span class="small-caps skill-name" data-i18n="empathy-abbr">(Emp&nbsp;<span name="attr_empathy_total"></span>)</span>
             <input class="input-number character-skill-level" type="number" name="attr_manipulate" value="0" min="0" title="@{manipulate}" />
             <select class="input character-skill-mod" name="attr_manipulate_skill_misc" title="@{manipulate_skill_misc}">
               <option value="6">+6</option>
@@ -1175,8 +1183,10 @@
               <option value="1">+1</option>
               <option value="0" selected>+0</option>
             </select>
-            <span class="readonly character-skill-total" name="attr_manipulate_total" value="0" title="@{manipulate_total}">0</span>
-            <!-- expand 2nd row -->
+            <button type="action" name="act_dice_pool_manipulate" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <span class="readonly character-skill-total" name="attr_manipulate_total" value="0" title="@{manipulate_total}">0</span>
+            </button>
+              <!-- expand 2nd row -->
             <!--<input class="expand" type="checkbox" name="attr_expand_manipulate" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
 
             <div class="manipulate-row2 skills-row2">
@@ -1189,10 +1199,9 @@
             </div>-->
           </span>
 
-          <span class="skills-row" data-i18n-list-item="move">
-            <button type="action" name="act_dice_pool_move" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-              <span data-i18n="move" name="attr_move_name">Move</span>&nbsp;(<span class="small-caps" data-i18n="agility-abbr">Agi</span>&nbsp;<span name="attr_agility_total"></span>)
-            </button>
+          <span class="skills-row chartype-background-dark" data-i18n-list-item="move">
+            <span class="skill-name" data-i18n="move" name="attr_move_name">Move</span>
+            <span class="small-caps skill-name" data-i18n="agility-abbr">(Agi&nbsp;<span name="attr_agility_total"></span>)</span>
             <input class="input-number character-skill-level" type="number" name="attr_move" value="0" min="0" title="@{move}" />
             <select class="input character-skill-mod" name="attr_move_skill_misc" title="@{move_skill_misc}">
               <option value="6">+6</option>
@@ -1218,8 +1227,10 @@
               <option value="1">+1</option>
               <option value="0" selected>+0</option>
             </select>
-            <span class="readonly character-skill-total" name="attr_move_total" value="0" title="@{move_total}">0</span>
-            <!-- expand 2nd row -->
+            <button type="action" name="act_dice_pool_move" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <span class="readonly character-skill-total" name="attr_move_total" value="0" title="@{move_total}">0</span>
+            </button>
+              <!-- expand 2nd row -->
             <!--<input class="expand" type="checkbox" name="attr_expand_move" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
 
             <div class="move-row2 skills-row2">
@@ -1232,10 +1243,9 @@
             </div>-->
           </span>
 
-          <span class="skills-row" data-i18n-list-item="scout">
-            <button type="action" name="act_dice_pool_scout" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-              <span data-i18n="scout" name="attr_scout_name">Scout</span>&nbsp;(<span class="small-caps" data-i18n="wits-abbr">Wit</span>&nbsp;<span name="attr_wits_total"></span>)
-            </button>
+          <span class="skills-row chartype-background-dark" data-i18n-list-item="scout">
+            <span class="skill-name" data-i18n="scout" name="attr_scout_name">Scout</span>
+            <span class="small-caps skill-name" data-i18n="wits-abbr">(Wit&nbsp;<span name="attr_wits_total"></span>)</span>
             <input class="input-number character-skill-level" type="number" name="attr_scout" value="0" min="0" title="@{scout}" />
             <select class="input character-skill-mod" name="attr_scout_skill_misc" title="@{scout_skill_misc}">
               <option value="6">+6</option>
@@ -1261,8 +1271,10 @@
               <option value="1">+1</option>
               <option value="0" selected>+0</option>
             </select>
-            <span class="readonly character-skill-total" name="attr_scout_total" value="0" title="@{scout_total}">0</span>
-            <!-- expand 2nd row -->
+            <button type="action" name="act_dice_pool_scout" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <span class="readonly character-skill-total" name="attr_scout_total" value="0" title="@{scout_total}">0</span>
+            </button>
+              <!-- expand 2nd row -->
             <!--<input class="expand" type="checkbox" name="attr_expand_scout" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
 
             <div class="scout-row2 skills-row2">
@@ -1275,53 +1287,9 @@
             </div>-->
           </span>
 
-          <span class="skills-row" data-i18n-list-item="shoot">
-            <button type="action" name="act_dice_pool_shoot" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-              <span data-i18n="shoot" name="attr_shoot_name">Shoot</span>&nbsp;(<span class="small-caps" data-i18n="agility-abbr">Agi</span>&nbsp;<span name="attr_agility_total"></span>)
-            </button>
-            <input class="input-number character-skill-level" type="number" name="attr_shoot" value="0" min="0" title="@{shoot}" />
-            <select class="input character-skill-mod" name="attr_shoot_skill_misc" title="@{shoot_skill_misc}">
-              <option value="6">+6</option>
-              <option value="5">+5</option>
-              <option value="4">+4</option>
-              <option value="3">+3</option>
-              <option value="2">+2</option>
-              <option value="1">+1</option>
-              <option value="0" selected>+0</option>
-              <option value="-1">-1</option>
-              <option value="-2">-2</option>
-              <option value="-3">-3</option>
-              <option value="-4">-4</option>
-              <option value="-5">-5</option>
-              <option value="-6">-6</option>
-            </select>
-            <select class="input character-skill-gear" name="attr_shoot_gear_misc" title="@{shoot_gear_misc}">
-              <option value="6">+6</option>
-              <option value="5">+5</option>
-              <option value="4">+4</option>
-              <option value="3">+3</option>
-              <option value="2">+2</option>
-              <option value="1">+1</option>
-              <option value="0" selected>+0</option>
-            </select>
-            <span class="readonly character-skill-total" name="attr_shoot_total" value="0" title="@{shoot_total}">0</span>
-            <!-- expand 2nd row -->
-            <!--<input class="expand" type="checkbox" name="attr_expand_shoot" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
-
-            <div class="shoot-row2 skills-row2">
-              <div class="skills-row2-header">
-                <div class="skills-box6 column-header"></div>
-              </div>
-              <div class="skills-row2-body">
-                <textarea class="skills-box6 input-textarea" name="attr_shoot_notes" data-i18n-placeholder="notes-text" placeholder="notes..." title="@{shoot_notes}"></textarea>
-              </div>
-            </div>-->
-          </span>
-
-          <span class="skills-row" data-i18n-list-item="sense_emotion">
-            <button type="action" name="act_dice_pool_sense_emotion" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-              <span data-i18n="sense_emotion" name="attr_sense_emotion_name">Sense emotion</span>&nbsp;(<span class="small-caps" data-i18n="empathy-abbr">Emp</span>&nbsp;<span name="attr_empathy_total"></span>)
-            </button>
+          <span class="skills-row chartype-background-dark" data-i18n-list-item="sense_emotion">
+            <span class="skill-name" data-i18n="sense_emotion" name="attr_sense_emotion_name">Sense emotion</span>
+            <span class="small-caps skill-name" data-i18n="empathy-abbr">(Emp&nbsp;<span name="attr_empathy_total"></span>)</span>
             <input class="input-number character-skill-level" type="number" name="attr_sense_emotion" value="0" min="0" title="@{sense_emotion}" />
             <select class="input character-skill-mod" name="attr_sense_emotion_skill_misc" title="@{sense_emotion_skill_misc}">
               <option value="6">+6</option>
@@ -1347,7 +1315,9 @@
               <option value="1">+1</option>
               <option value="0" selected>+0</option>
             </select>
-            <span class="readonly character-skill-total" name="attr_sense_emotion_total" value="0" title="@{sense_emotion_total}">0</span>
+            <button type="action" name="act_dice_pool_sense_emotion" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <span class="readonly character-skill-total" name="attr_sense_emotion_total" value="0" title="@{sense_emotion_total}">0</span>
+            </button>
             <!-- expand 2nd row -->
             <!--<input class="expand" type="checkbox" name="attr_expand_sense_emotion" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
 
@@ -1361,10 +1331,53 @@
             </div>-->
           </span>
 
-          <span class="skills-row" data-i18n-list-item="sneak">
-            <button type="action" name="act_dice_pool_sneak" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-              <span data-i18n="sneak" name="attr_sneak_name">Sneak</span>&nbsp;(<span class="small-caps" data-i18n="agility-abbr">Agi</span>&nbsp;<span name="attr_agility_total"></span>)
+          <span class="skills-row chartype-background-dark" data-i18n-list-item="shoot"> 
+            <span class="skill-name" data-i18n="shoot" name="attr_shoot_name">Shoot</span>
+            <span class="small-caps skill-name" data-i18n="agility-abbr">(Agi&nbsp;<span name="attr_agility_total"></span>)</span>
+            <input class="input-number character-skill-level" type="number" name="attr_shoot" value="0" min="0" title="@{shoot}" />
+            <select class="input character-skill-mod" name="attr_shoot_skill_misc" title="@{shoot_skill_misc}">
+              <option value="6">+6</option>
+              <option value="5">+5</option>
+              <option value="4">+4</option>
+              <option value="3">+3</option>
+              <option value="2">+2</option>
+              <option value="1">+1</option>
+              <option value="0" selected>+0</option>
+              <option value="-1">-1</option>
+              <option value="-2">-2</option>
+              <option value="-3">-3</option>
+              <option value="-4">-4</option>
+              <option value="-5">-5</option>
+              <option value="-6">-6</option>
+            </select>
+            <select class="input character-skill-gear" name="attr_shoot_gear_misc" title="@{shoot_gear_misc}">
+              <option value="6">+6</option>
+              <option value="5">+5</option>
+              <option value="4">+4</option>
+              <option value="3">+3</option>
+              <option value="2">+2</option>
+              <option value="1">+1</option>
+              <option value="0" selected>+0</option>
+            </select>
+            <button type="action" name="act_dice_pool_shoot" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <span class="readonly character-skill-total" name="attr_shoot_total" value="0" title="@{shoot_total}">0</span>
             </button>
+            <!-- expand 2nd row -->
+            <!--<input class="expand" type="checkbox" name="attr_expand_shoot" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
+
+            <div class="shoot-row2 skills-row2">
+              <div class="skills-row2-header">
+                <div class="skills-box6 column-header"></div>
+              </div>
+              <div class="skills-row2-body">
+                <textarea class="skills-box6 input-textarea" name="attr_shoot_notes" data-i18n-placeholder="notes-text" placeholder="notes..." title="@{shoot_notes}"></textarea>
+              </div>
+            </div>-->
+          </span>
+
+          <span class="skills-row chartype-background-dark" data-i18n-list-item="sneak">
+            <span class="skill-name" data-i18n="sneak" name="attr_sneak_name">Sneak</span>
+            <span class="small-caps skill-name" data-i18n="agility-abbr">(Agi&nbsp;<span name="attr_agility_total"></span>)</span>
             <input class="input-number character-skill-level" type="number" name="attr_sneak" value="0" min="0" title="@{sneak}" />
             <select class="input character-skill-mod" name="attr_sneak_skill_misc" title="@{sneak_skill_misc}">
               <option value="6">+6</option>
@@ -1390,7 +1403,9 @@
               <option value="1">+1</option>
               <option value="0" selected>+0</option>
             </select>
-            <span class="readonly character-skill-total" name="attr_sneak_total" value="0" title="@{sneak_total}">0</span>
+            <button type="action" name="act_dice_pool_sneak" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <span class="readonly character-skill-total" name="attr_sneak_total" value="0" title="@{sneak_total}">0</span>
+            </button>  
             <!-- expand 2nd row -->
             <!--<input class="expand" type="checkbox" name="attr_expand_sneak" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
 
@@ -1403,8 +1418,53 @@
               </div>
             </div>-->
           </span>
-
+          
         </div>
+          <fieldset class="repeating_skills">
+            <span class="skills-row chartype-background-light" data-i18n-list-item="sense_emotion">
+              <input class="skill-name chartype-background-light" class="input" type="text" name="attr_repeating_skill$_name" />
+              <span class="small-caps skill-name" data-i18n="empathy-abbr">(Emp&nbsp;<span name="attr_empathy_total" value=@{empathy_total} readonly></span>)</span>
+              <input class="input-number character-skill-level" type="number" name="attr_sense_emotion" value="0" min="0" title="@{sense_emotion}" />
+                <select class="input character-skill-mod" name="attr_sense_emotion_skill_misc" title="@{sense_emotion_skill_misc}">
+                <option value="6">+6</option>
+                <option value="5">+5</option>
+                <option value="4">+4</option>
+                <option value="3">+3</option>
+                <option value="2">+2</option>
+                <option value="1">+1</option>
+                <option value="0" selected>+0</option>
+                <option value="-1">-1</option>
+                <option value="-2">-2</option>
+                <option value="-3">-3</option>
+                <option value="-4">-4</option>
+                <option value="-5">-5</option>
+                <option value="-6">-6</option>
+              </select>
+              <select class="input character-skill-gear" name="attr_sense_emotion_gear_misc" title="@{sense_emotion_gear_misc}">
+                <option value="6">+6</option>
+                <option value="5">+5</option>
+                <option value="4">+4</option>
+                <option value="3">+3</option>
+                <option value="2">+2</option>
+                <option value="1">+1</option>
+                <option value="0" selected>+0</option>
+              </select>
+              <button type="action" name="act_dice_pool_sense_emotion" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+                <span class="readonly character-skill-total" name="attr_sense_emotion_total" value="0" title="@{sense_emotion_total}">0</span>
+              </button>
+              <!-- expand 2nd row -->
+              <!--<input class="expand" type="checkbox" name="attr_expand_sense_emotion" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
+  
+              <div class="sense_emotion-row2 skills-row2">
+                <div class="skills-row2-header">
+                  <div class="skills-box6 column-header"></div>
+                </div>
+                <div class="skills-row2-body">
+                  <textarea class="skills-box6 input-textarea" name="attr_sense_emotion_notes" data-i18n-placeholder="notes-text" placeholder="notes..." title="@{sense_emotion_notes}"></textarea>
+                </div>
+              </div>-->
+            </span>
+          </fieldset>
       </div>
       <div class="box chartype-background-light character-dice_pool">
         <div class="dice_pool-grid">
@@ -1574,7 +1634,7 @@
           <div class="experience-box3"></div>
         </div>
       </div>
-      <div class="character-willpower box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
+      <div class="character-willpower box chartype-background-dark toggle-dice-only toggle-monster-only toggle-npc-only">
         <div class="willpower-grid">
           <div class="willpower-box1 header">
             <h1 data-i18n="power-u">POWER POINTS</h1>
@@ -2063,183 +2123,6 @@
         </div>
       </div>
     </div>
-
-    <!--<div class="box toggle-dice-only toggle-monster-only character-consumables">
-      <div class="consumables-grid">
-        <div class="consumables-box1 header">
-          <h1 data-i18n="consumable-u">CONSUMABLES</h1>
-        </div>
-        <div class="consumables-box2 column-header">
-          <span data-i18n="die">Die</span>
-        </div>
-        <div class="consumables-box3 column-header"><span>&nbsp;</span></div>
-        <div class="consumables-box4">
-          <span class="header-h1" data-i18n="food" style="margin-left: 10px;">Food</span>
-        </div>
-        <div class="consumables-box5">
-          <select class="input" name="attr_food" title="@{food}">
-            <option value="{{subtitle=^{out-of-food}}}" selected>0</option>
-            <option value="{{subtitle=^{die-6-u} ^{of-food}}} {{consumable-die-six=[[ 1 ]] }} {{consumable-roll-six=[[ 1d6 ]] }}" data-i18n="die-6">d6</option>
-            <option value="{{subtitle=^{die-8-u} ^{of-food}}} {{consumable-die-eight=[[ 1 ]] }} {{consumable-roll-eight=[[ 1d8 ]] }}" data-i18n="die-8">d8</option>
-            <option value="{{subtitle=^{die-10-u} ^{of-food}}} {{consumable-die-ten=[[ 1 ]] }} {{consumable-roll-ten=[[ 1d10 ]] }}" data-i18n="die-10">d10</option>
-            <option value="{{subtitle=^{die-12-u} ^{of-food}}} {{consumable-die-twelve=[[ 1 ]] }} {{consumable-roll-twelve=[[ 1d12 ]] }}" data-i18n="die-12">d12</option>
-          </select>
-        </div>
-        <div class="consumables-box6">
-          <button type="roll" name="roll_food" title="%{food}" value="@{whisper_option} &{template:forbiddenlands} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{food}"></button>
-        </div>
-        <div class="consumables-box7">
-          <span class="header-h1" data-i18n="water">Water</span>
-        </div>
-        <div class="consumables-box8">
-          <select class="input" name="attr_water" title="@{water}">
-            <option value="{{subtitle=^{out-of-water}}}" selected>0</option>
-            <option value="{{subtitle=^{die-6-u} ^{of-water}}} {{consumable-die-six=[[ 1 ]] }} {{consumable-roll-six=[[ 1d6 ]] }}" data-i18n="die-6">d6</option>
-            <option value="{{subtitle=^{die-8-u} ^{of-water}}} {{consumable-die-eight=[[ 1 ]] }} {{consumable-roll-eight=[[ 1d8 ]] }}" data-i18n="die-8">d8</option>
-            <option value="{{subtitle=^{die-10-u} ^{of-water}}} {{consumable-die-ten=[[ 1 ]] }} {{consumable-roll-ten=[[ 1d10 ]] }}" data-i18n="die-10">d10</option>
-            <option value="{{subtitle=^{die-12-u} ^{of-water}}} {{consumable-die-twelve=[[ 1 ]] }} {{consumable-roll-twelve=[[ 1d12 ]] }}" data-i18n="die-12">d12</option>
-          </select>
-        </div>
-        <div class="consumables-box9">
-          <button type="roll" name="roll_water" title="%{water}" value="@{whisper_option} &{template:forbiddenlands} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{water}"></button>
-        </div>
-        <div class="consumables-box10">
-          <span class="header-h1" data-i18n="arrows">Arrows</span>
-        </div>
-        <div class="consumables-box11">
-          <select class="input" name="attr_arrows" title="@{arrows}">
-            <option value="{{subtitle=^{out-of-arrows}}}" selected>0</option>
-            <option value="{{subtitle=^{die-6-u} ^{of-arrows}}} {{consumable-die-six=[[ 1 ]] }} {{consumable-roll-six=[[ 1d6 ]] }}" data-i18n="die-6">d6</option>
-            <option value="{{subtitle=^{die-8-u} ^{of-arrows}}} {{consumable-die-eight=[[ 1 ]] }} {{consumable-roll-eight=[[ 1d8 ]] }}" data-i18n="die-8">d8</option>
-            <option value="{{subtitle=^{die-10-u} ^{of-arrows}}} {{consumable-die-ten=[[ 1 ]] }} {{consumable-roll-ten=[[ 1d10 ]] }}" data-i18n="die-10">d10</option>
-            <option value="{{subtitle=^{die-12-u} ^{of-arrows}}} {{consumable-die-twelve=[[ 1 ]] }} {{consumable-roll-twelve=[[ 1d12 ]] }}" data-i18n="die-12">d12</option>
-          </select>
-        </div>
-        <div class="consumables-box12">
-          <button type="roll" name="roll_arrows" title="%{arrows}" value="@{whisper_option} &{template:forbiddenlands} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{arrows}"></button>
-        </div>
-        <div class="consumables-box13">
-          <span class="header-h1" data-i18n="torches">Torches</span>
-        </div>
-        <div class="consumables-box14">
-          <select class="input" name="attr_torches" title="@{torches}">
-            <option value="{{subtitle=^{out-of-torches}}}" selected>0</option>
-            <option value="{{subtitle=^{die-6-u} ^{of-torches}}} {{consumable-die-six=[[ 1 ]] }} {{consumable-roll-six=[[ 1d6 ]] }}" data-i18n="die-6">d6</option>
-            <option value="{{subtitle=^{die-8-u} ^{of-torches}}} {{consumable-die-eight=[[ 1 ]] }} {{consumable-roll-eight=[[ 1d8 ]] }}" data-i18n="die-8">d8</option>
-            <option value="{{subtitle=^{die-10-u} ^{of-torches}}} {{consumable-die-ten=[[ 1 ]] }} {{consumable-roll-ten=[[ 1d10 ]] }}" data-i18n="die-10">d10</option>
-            <option value="{{subtitle=^{die-12-u} ^{of-torches}}} {{consumable-die-twelve=[[ 1 ]] }} {{consumable-roll-twelve=[[ 1d12 ]] }}" data-i18n="die-12">d12</option>
-          </select>
-        </div>
-        <div class="consumables-box15">
-          <button type="roll" name="roll_torches" title="%{torches}" value="@{whisper_option} &{template:forbiddenlands} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{torches}"></button>
-        </div>
-      </div>
-    </div>
-    <div class="box toggle-dice-only toggle-monster-only character-coins">
-      <div class="coins-grid">
-        <div class="coins-box header">
-          <h1 data-i18n="coins-u">COINS</h1>
-        </div>
-        <div class="coins-box1 column-header"></div>
-        <div class="coins-box2 column-header">
-          <span data-i18n="gold">Gold</span>
-        </div>
-        <div class="coins-box3 column-header">
-          <span data-i18n="silver">Silver</span>
-        </div>
-        <div class="coins-box4 column-header">
-          <span data-i18n="copper">Copper</span>
-        </div>
-
-        <div class="coins-box5">
-          <span class="label" data-i18n="carried">Carried</span>
-        </div>
-        <div class="coins-box6">
-          <input class="input-number" type="text" name="attr_gold" value="0" title="@{gold}" />
-        </div>
-        <div class="coins-box7">
-          <input class="input-number" type="text" name="attr_silver" value="0" title="@{silver}" />
-        </div>
-        <div class="coins-box8">
-          <input class="input-number" type="text" name="attr_copper" value="0" title="@{copper}" />
-        </div>
-
-        <div class="coins-box9">
-          <span class="label" style="text-align: center;" data-i18n="vehicles-gear">vehicle's Gear</span>
-        </div>
-        <div class="coins-box10">
-          <input class="input-number" type="text" name="attr_gold_vehicle" value="0" title="@{gold_vehicle}" />
-        </div>
-        <div class="coins-box11">
-          <input class="input-number" type="text" name="attr_silver_vehicle" value="0" title="@{silver_vehicle}" />
-        </div>
-        <div class="coins-box12">
-          <input class="input-number" type="text" name="attr_copper_vehicle" value="0" title="@{copper_vehicle}" />
-        </div>
-
-        <div class="coins-box13">
-          <span class="label" data-i18n="other">Other</span>
-        </div>
-        <div class="coins-box14">
-          <input class="input-number" type="text" name="attr_gold_other" value="0" title="@{gold_vehicle}" />
-        </div>
-        <div class="coins-box15">
-          <input class="input-number" type="text" name="attr_silver_other" value="0" title="@{silver_vehicle}" />
-        </div>
-        <div class="coins-box16">
-          <input class="input-number" type="text" name="attr_copper_other" value="0" title="@{copper_vehicle}" />
-        </div>
-        <input type="hidden" name="attr_coins_other_total" value="0" />
-
-        <div class="coins-box17">
-          <span class="label" data-i18n="total">Total</span>
-        </div>
-        <div class="coins-box18">
-          <input class="input-number" type="text" name="attr_gold_total" value="0" title="@{gold_total}" readonly />
-        </div>
-        <div class="coins-box18">
-          <input class="input-number" type="text" name="attr_silver_total" value="0" title="@{silver_total}" readonly />
-        </div>
-        <div class="coins-box19">
-          <input class="input-number" type="text" name="attr_copper_total" value="0" title="@{copper_total}" readonly />
-        </div>
-      </div>
-    </div>
-    <div class="box toggle-dice-only toggle-monster-only toggle-npc-only character-experience">
-      <div class="experience-grid">
-        <div class="experience-box1 header">
-          <h1 data-i18n="experience-u">EXPERIENCE</h1>
-        </div>
-        <div class="experience-box2 header">
-          <input class="input-number" type="number" name="attr_experience" value="0" min="0" title="@{experience}" />
-        </div>
-        <div class="experience-box3 header"></div>
-      </div>
-    </div>
-    <div class="box toggle-dice-only toggle-monster-only toggle-npc-only character-willpower">
-      <div class="willpower-grid">
-        <div class="willpower-box1 header">
-          <h1 data-i18n="willpower-u">WILLPOWER</h1>
-        </div>
-        <div class="willpower-box2">
-          <input type="radio" name="attr_willpower" value="0" data-i18n-title="no-willpower" title="No Willpower" style="margin: 4px 8px 3px 2px; width: 0.95em; height: 0.95em;" checked />
-          <input class="xbox" type="radio" name="attr_willpower" value="1" title="1 @{willpower}" /><span></span> <input
-            class="xbox" type="radio" name="attr_willpower" value="2" title="2 @{willpower}" /><span></span>
-          <input class="xbox" type="radio" name="attr_willpower" value="3" title="3 @{willpower}" /><span></span> <input
-            class="xbox" type="radio" name="attr_willpower" value="4" title="4 @{willpower}" /><span></span>
-          <input class="xbox" type="radio" name="attr_willpower" value="5" title="5 @{willpower}" /><span></span> <input
-            class="xbox" type="radio" name="attr_willpower" value="6" title="6 @{willpower}" /><span></span>
-          <input class="xbox" type="radio" name="attr_willpower" value="7" title="7 @{willpower}" /><span></span> <input
-            class="xbox" type="radio" name="attr_willpower" value="8" title="8 @{willpower}" /><span></span>
-          <input class="xbox" type="radio" name="attr_willpower" value="9" title="9 @{willpower}" /><span></span> <input
-            class="xbox" type="radio" name="attr_willpower" value="10" title="10 @{willpower}" /><span></span>
-          <input type="hidden" name="attr_willpower_max" value="10" />
-        </div>
-        <div class="willpower-box3">
-          <span class="input-span" name="attr_willpower" title="@{willpower}"></span>
-        </div>
-      </div>
-    </div>-->
 
     <div class="character-beasts box toggle-dice-only toggle-monster-only ">
       <div class="beasts-grid">

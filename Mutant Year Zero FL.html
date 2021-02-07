@@ -21,13 +21,13 @@
   </div>
   
   Character Type:&nbsp;&nbsp;
-  <input type="radio" class="sheet-character-type sheet-chartype-mutant" name="attr_chartype" text="Mutant"  value="Mutant" checked="true"/>    
+  <input type="radio" class="sheet-character-type sheet-chartype-mutant" name="attr_chartype" value="Mutant" checked />    
   <span>Mutant&nbsp;&nbsp;</span>
-  <input type="radio" class="sheet-character-type sheet-chartype-animal" name="attr_chartype" text="Animal"  value="Animal" />                  
+  <input type="radio" class="sheet-character-type sheet-chartype-animal" name="attr_chartype" value="Animal" />                  
   <span>Animal&nbsp;&nbsp;</span>
-  <input type="radio" class="sheet-character-type sheet-chartype-robot"  name="attr_chartype" text="Robot"   value="Robot" />                  
+  <input type="radio" class="sheet-character-type sheet-chartype-robot"  name="attr_chartype" value="Robot" />                  
   <span>Robot&nbsp;&nbsp;</span>
-  <input type="radio" class="sheet-character-type sheet-chartype-human"  name="attr_chartype" text="Human"   value="Human" />                  
+  <input type="radio" class="sheet-character-type sheet-chartype-human"  name="attr_chartype" value="Human" />                  
   <span>Human</span>
     
   <div class="character-grid">
@@ -3852,10 +3852,10 @@
       clog("Change Detected: Coin Total");
       const credits = float(values["credits"]),
         credits_vehicle = float(values["credits_vehicle"]),
-        credit_stash = ifloat(values["ccredits_stash"]),
+        credit_stash = ifloat(values["credits_stash"]),
         sum_credits = credits + credits_vehicle + credits_stash;
       setAttrs({
-        credits_total: sum_credits;
+        credits_total: sum_credits,
       });
     });
   });

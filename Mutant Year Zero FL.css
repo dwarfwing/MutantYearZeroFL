@@ -1016,8 +1016,9 @@ input.sheet-tab.sheet-settings:checked::after {
 
 .sheet-wrapper {
   -font-family: "IM Fell English", "Times New Roman", Times, serif;
-  font-family: Helvetica, Verdana, Arial, sans-serif;
-  /*  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; */
+  -font-family: Helvetica, Verdana, Arial, sans-serif;
+  -font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-family: 'Didact Gothic', Verdana, Helvetica, Arial, sans-serif;
   overflow: hidden;
   box-sizing: border-box;
   width: 100%;

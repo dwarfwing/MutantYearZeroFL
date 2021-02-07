@@ -329,6 +329,8 @@ input.sheet-skull[type="radio"] + span::before {
   text-align: center;
   vertical-align: middle;
   background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/skull_empty.png);
+  -background-image: 'images/skull_dark_empty.png';
+  -background-image: url(https://raw.githubusercontent.com/Dwarfwing/MutantYearZearoFL/master/images/skull_dark_empty.png);
 }
 
 /* Removes skull from all radios _after_ selected one */
@@ -714,7 +716,7 @@ input.sheet-broken-str[value="0"] ~ div .sheet-broken-str */
 input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-background-dark,
 input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div .sheet-chartype-background-dark,
 input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div ~ div .sheet-chartype-background-dark {
-  background-color: #ed9058; 
+  background-color: #cd8b41; 
 }
 input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-background-dark,
 input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div .sheet-chartype-background-dark,
@@ -736,7 +738,7 @@ input[name="attr_chartype"][value="Human"]:checked ~ div ~ div ~ div .sheet-char
 input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-background-light,
 input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div .sheet-chartype-background-light,
 input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div ~ div .sheet-chartype-background-light {
-  background-color: #f4d6c1; 
+  background-color: #efd6b8; 
 }
 input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-background-light,
 input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div .sheet-chartype-background-light,
@@ -763,7 +765,7 @@ input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div ~ div .sheet-hea
 input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-header,
 input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div .sheet-header,
 input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div ~ div .sheet-header {
-  background-color: #1e2626; 
+  background-color: #687569; 
 }
 input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-header,
 input[name="attr_chartype"][value="Robot"]:checked ~ div ~ div .sheet-header,
@@ -780,7 +782,7 @@ input[name="attr_chartype"][value="Human"]:checked ~ div ~ div ~ div .sheet-head
 input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-border-dark,
 input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div .sheet-chartype-border-dark,
 input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div ~ div .sheet-chartype-border-dark {
-  border-color: #ed9058; 
+  border-color: #cd8b41; 
 }
 input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-border-dark,
 input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div .sheet-chartype-border-dark,
@@ -802,7 +804,7 @@ input[name="attr_chartype"][value="Human"]:checked ~ div ~ div ~ div .sheet-char
 input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-border-light,
 input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div .sheet-chartype-border-light,
 input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div ~ div .sheet-chartype-border-light {
-  border-color: #f4d6c1; 
+  border-color: #efd6b8; 
 }
 input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-border-light,
 input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div .sheet-chartype-border-light,
@@ -828,7 +830,7 @@ input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div ~ div .sheet-cha
 input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-border-darkest,
 input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div .sheet-chartype-border-darkest,
 input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div ~ div .sheet-chartype-border-darkest {
-  border-color: #1e2626; 
+  border-color: #687569; 
 }
 input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-chartype-border-darkest,
 input[name="attr_chartype"][value="Robot"]:checked ~ div ~ div .sheet-chartype-border-darkest,
@@ -3141,7 +3143,7 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 
 /* ---------------------------------- Skills */
 .sheet-skills-row {
-  margin: 3px 2px 2px 2px; 
+  margin: 0;
   
 }
 
@@ -3163,20 +3165,25 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 .sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(7) { order: 9;} /* Know the Zone */
 .sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(8) { order: 11;} /* Manipulate */
 .sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(9) { order: 5;} /* Move */
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(10) { order: 6;} /* Scout */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(10) { order: 7;} /* Scout */
 .sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(11) { order: 10;} /* Sense emotion */
 .sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(12) { order: 6;} /* Shoot */
 .sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(13) { order: 4;} /* Sneak */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(14) { order: 13;} /* Profession */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(15) { order: 14;} /* Profession */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(16) { order: 15;} /* Profession */
 
 /* end list order */
 
-.sheet-skills-grid>span {
+.sheet-skills-grid>span,
+.sheet-skills-row {
   position: relative;
   display: grid;
   padding: 1px 0 1px 0;
   grid-column-gap: 2px;
   grid-row-gap: 0;
-  grid-template-columns: auto 2.5em 2.5em 2.5em 2.5em;
+  grid-template-columns: auto 3.5em 2.5em 2.5em 2.5em 2.5em;
+  -align-items: center;
 }
 
 .sheet-skills-grid > span > div {
@@ -3188,6 +3195,15 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   width: 103%;
 }
 
+.sheet-skill-name {
+  align-self: center;
+  margin-left: 4px;
+  max-width: 85px;
+  min-width: 85px;
+  max-height: 2em;
+}
+
+
 .sheet-skills-grid button {
   text-align: left;
   padding-left: 0.8em;
@@ -3198,34 +3214,64 @@ input.sheet-monster_only:checked ~ div.sheet-character .sheet-skills-grid button
 }
 
 .sheet-skills-box1 {
-  grid-column: 1/6;
+  grid-column: 1/7;
   grid-row-start: 1;
   grid-template-columns: auto 2em 2em 2em 2em 2em;
   background-color: #000;
 }
 
-.sheet-skills-box2 {
-  grid-column: 2/3;
+.sheet-skills-box-base {
+  grid-column-start: 2;
   grid-row-start: 1;
 }
 
-.sheet-skills-box3 {
+.sheet-skills-box2 {
   grid-column-start: 3;
   grid-row-start: 1;
 }
 
-.sheet-skills-box4 {
+.sheet-skills-box3 {
   grid-column-start: 4;
   grid-row-start: 1;
 }
 
-.sheet-skills-box5 {
+.sheet-skills-box4 {
   grid-column-start: 5;
   grid-row-start: 1;
 }
 
+.sheet-skills-box5 {
+  grid-column-start: 6;
+  grid-row-start: 1;
+}
+
+div.sheet-repeating-skill-grid {
+  grid-column: 1 / 7;
+  background-color: #ead3b8;
+}
+
+div.sheet-repeating-skill-grid select {
+  width: 100%;
+}
+
+div.sheet-repeating-skill-grid span {
+  -grid-template-columns: auto 2.5em 1em 2.5em 2.5em 2.5em 2.5em;
+  -text-align: center;
+}
+
+div.sheet-repeating-skill-grid button {
+  font-size: 24px;
+    color: #555;
+    justify-self: center;
+    line-height: .85em;
+    width: 1em;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
 .sheet-skills-row .sheet-skills-row2 {
-  grid-column: 1/6;
+  grid-column: 1/7;
   grid-row-start: 2;
   grid-template-columns: 100%;
 }

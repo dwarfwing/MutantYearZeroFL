@@ -293,9 +293,10 @@ hr.sheet-horizontal-rule::before {
 
 span.sheet-readonly,
 input.sheet-monster_only:checked~div.sheet-character .sheet-monster+span.sheet-monster.sheet-readonly {
-  font-size: 24px;
+  font-size: 18px;
   color: #555;
   justify-self: center;
+  align-self: center;
   line-height: .85em;
   width: 1em;
   display: flex;
@@ -1532,9 +1533,9 @@ div.sheet-ark-other-grid h1 {
 }
 
 .sheet-character-heading {
-  padding: 10px;
+  padding: 5px;
   margin-top: 20px;
-  border: none;
+  border: 2px solid #000;
   grid-column: 1/span 3;
   grid-row-start: 1;
   -background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20top%20banner.png);
@@ -1542,7 +1543,7 @@ div.sheet-ark-other-grid h1 {
   -background-size: 100% 110px;
   -background-position-y: top;
   -background-position-x: center;
-  height: 86px;
+  -height: 86px;
   display: flex;
   justify-content: space-evenly;
   justify-self: stretch;
@@ -1843,113 +1844,74 @@ input.sheet-dice_only:checked
 /* ---------------------------------- Heading */
 
 .sheet-heading-grid {
-  align-items: left;
+  align-items: stretch;
   justify-self: left;
-  -justify-content: space-around;
+  justify-content: left;
   width: 100%;
   display: grid;
-  margin: 0px 0 -5px -40px;
-  grid-template-columns: 8em 150px 8em 150px 8em 4em;
-  grid-template-rows: auto auto;
+  -display: flex;
+  margin: 0;
+  -grid-template-columns: 8em 150px 8em 150px 8em 4em;
+  grid-template-columns: auto auto auto auto auto;
+  column-gap: 1em;
+  -grid-template-rows: auto auto;
 }
 .sheet-heading-box {
-  padding: 5px;  
-  -justify-self: right;
+  margin: 5px;  
+  justify-self: center;
+  -margin-top: -5px;
 }
 
 .sheet-heading-box .sheet-label {
   align-self: center;
-  justify-self: right;
-  margin-right: 5px;
+  justify-self: left;
+  padding-left: 1em; 
+  display: inline-block;
+  position: relative;
+  -bottom: -5px;
+  -margin-top: 20px;
 }
+
+.sheet-heading-box .sheet-input-number {
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  min-width: 4em;
+}
+
+input[name="attr_chartype"][value="Mutant"]:checked ~ div.sheet-character-grid .sheet-heading-box3,
+input[name="attr_chartype"][value="Mutant"]:checked ~ div.sheet-character-grid .sheet-heading-box9,
+input[name="attr_chartype"][value="Robot"]:checked ~ div.sheet-character-grid .sheet-heading-box3,
+input[name="attr_chartype"][value="Robot"]:checked ~ div.sheet-character-grid .sheet-heading-box7 {
+  display:none;
+}
+
+.sheet-heading-box7,
+.sheet-heading-box9 {
+  text-align: center;
+  position: relative;
+  bottom: -17px;
+}
+
+.sheet-heading-box7 .sheet-label,
+.sheet-heading-box9 .sheet-label {
+  padding-left: 0;
+  bottom: 0;
+}
+
 
 .sheet-heading-grid div:nth-child(even),
 .sheet-heading-grid div:nth-child(even) input {
   -width: 11.5em;
-  text-align: center;
+  -text-align: left;
+  -align-self: center;
 }
 
 .sheet-heading-grid div:nth-child(odd) {
   -width: 11.5em;
-  text-align: right;
+  -text-align: right;
+  -align-self: center;
 }
-
-.sheet-heading-box1 {
-  -display: flex;
-  -flex-direction: row-reverse;
-  grid-row-start: 1;
-  grid-column-start: 1;
-}
-
-.sheet-heading-box2 {
-  -display: flex;
-  -justify-self: center;
-  -align-self: flex-end;
-  -margin: 0 0 -60px 0;
-  grid-row: 1;
-  grid-column: 2;
-}
-
-.sheet-heading-box3 {
-  -display: flex;
-  -flex-direction: row-reverse;
-  grid-row: 2;
-  grid-column: 1;
-}
-
-.sheet-heading-box4 {
-  -display: flex;
-  -justify-self: center;
-  -align-self: flex-end;
-  -margin: 0 0 -60px 0;
-  grid-row: 2;
-  grid-column: 2;
-}
-
-.sheet-heading-box5 {
-  -display: flex;
-  -justify-self: center;
-  -align-self: flex-end;
-  -margin: 0 0 -40px 0;
-  grid-row: 1;
-  grid-column: 3;
-}
-.sheet-heading-box6 {
-  grid-row: 1;
-  grid-column: 4;
-}
-
-/* raven image*/
-.sheet-heading-box7 {
-  grid-column: 3;
-  grid-row: 3;
-}
-.sheet-raven {
-  display: none;
-}
-
-.sheet-heading-box8 {
-  grid-column-start: 3;
-  grid-row-start: 2;
-}
-
-.sheet-heading-box9 {
-  grid-column: 4;
-  grid-row-start: 2;
-}
-
-.sheet-heading-box10 {
-  grid-column-start: 5;
-  grid-row-start: 2;
-  margin: 0 0 0 -5px;
-}
-
-.sheet-heading-box11 {
-  grid-column-start: 6;
-  grid-row-start: 2;
-  margin: 0 0 0 -5px;
-}
-
 
 /* ---------------------------------- Attributes */
 .sheet-attributes-grid {
@@ -2012,11 +1974,12 @@ input.sheet-dice_only:checked
 }
 
 .sheet-input-span {
-  font-size: 24px;
+  font-size: 18px;
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: center;
   margin: 0 0 0 -3px;
   padding: 0 0 5px 0;
   box-sizing: border-box;
@@ -3399,11 +3362,13 @@ div.sheet-repeating-skill-grid button {
 
 span.sheet-armor-box3.sheet-header {
   justify-self: normal;
+  height: 36px;
 }
 
 .sheet-armor-box4 {
   grid-column-start: 7;
   grid-row-start: 1;
+  height: 36px;
   padding-bottom: 3px;
 }
 
@@ -3422,7 +3387,7 @@ span.sheet-armor-box3.sheet-header {
   border: 2px solid black;
   background-color: #fff;
   padding-bottom: 6px;
-  height: 1.45em;
+  height: 36px;
   width: 2em;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;

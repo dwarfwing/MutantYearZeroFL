@@ -34,54 +34,24 @@
     <div class="character-heading box chartype-background-light toggle-dice-only toggle-monster-only ">
       <div class="heading-grid">
         <div class="heading-box heading-box1">
-          <span class="sheet-label" data-i18n="name">Name</span>
-        </div>
-        <div class="heading-box heading-box2">
+          <span class="sheet-label" data-i18n="name">Name</span><br>
           <input class="input input-center" type="text" name="attr_character_name" value="" title="@{character_name}" />
         </div>
         <div class="heading-box heading-box3">
-          <span class="sheet-label" data-i18n="profession">Profession</span>
-        </div>
-        <div class="heading-box heading-box4">
-          <input class="input input-center" type="text" name="attr_kin" value="" title="@{profession}" />
-        </div>
-        <div class="heading-box heading-box5">
-          <span class="sheet-label data-i18n="name">Kin</span>
-        </div>
-        <div class="heading-box heading-box6">
+          <span class="sheet-label" data-i18n="kin">Kin</span><br>
           <input class="input input-center" type="text" name="attr_profession" value="" title="@{kin}" />
-        </div>
-        <div class="heading-box heading-box8">
+        </div>    
+        <div class="heading-box heading-box5">
+          <span class="sheet-label" data-i18n="profession">Profession</span><br>
+          <input class="input input-center" type="text" name="attr_kin" value="" title="@{profession}" />
+        </div>    
+        <div class="heading-box heading-box7">
           <span class="sheet-label" data-i18n="age">Age</span>
+          <input type="number" class="input-number" name="attr_age" title="@{age}">
         </div>
         <div class="heading-box heading-box9">
-          <select name="attr_age" class="input" title="@{age}">
-            <option value="young" data-i18n="young-1" selected>Young</option>
-            <option value="adult" data-i18n="adult-2">Adult+1</option>
-            <option value="old" data-i18n="old-3">Old+2</option>
-          </select>
-        </div>
-        <div class="heading-box heading-box10">
-          <button type="action" name="act_reputation-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice." data-i18n="reputation" style="height: 1.85em;">
-            Reputation
-          </button>
-        </div>
-        <div class="heading-box heading-box11">
-          <select class="input" name="attr_reputation" data-i18n-title="reputation-bonus" title="How well known are you? @{reputation}">
-            <option value="0" selected>+0</option>
-            <option value="1">+1</option>
-            <option value="2">+2</option>
-            <option value="3">+3</option>
-            <option value="4">+4</option>
-            <option value="5">+5</option>
-            <option value="6">+6</option>
-            <option value="7">+7</option>
-            <option value="8">+8</option>
-          </select>
-          <input type="hidden" name="attr_reputation_total" value="" />
-        </div>
-        <div class="heading-box heading-box7 raven" style="z-index: 1;">
-          <img alt="raven" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20raven1.png" style="height: 6em; margin: -1.125em 0px 0px -6em;" />
+            <span class="sheet-label" data-i18n="reputation">Reputation</span>
+          <input type="number" class="input-number" name="attr_reputation" title="@{reputation}" />
         </div>
       </div>
     </div>
@@ -403,30 +373,14 @@
           <span class="label" data-i18n="age">Age</span>
         </div>
         <div class="details-box6">
-          <select name="attr_age" class="input" title="@{age}">
-            <option value="young" data-i18n="young-1" selected>Young</option>
-            <option value="adult" data-i18n="adult-2">Adult+1</option>
-            <option value="old" data-i18n="old-3">Old+2</option>
+          <input type="number" class="input-number" value="0" min="0" name="attr_age" title="@{age}">
           </select>
         </div>
         <div class="details-box7">
-          <button type="action" name="act_reputation-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice." data-i18n="reputation" style="height: 1.85em;">
-            Reputation
-          </button>
+          <span class="label" data-i18n="reputation">Reputation</span>
         </div>
         <div class="details-box8">
-          <select class="input" name="attr_reputation" data-i18n-title="reputation-bonus" title="How well known are you? @{reputation}">
-            <option value="0" selected>+0</option>
-            <option value="1">+1</option>
-            <option value="2">+2</option>
-            <option value="3">+3</option>
-            <option value="4">+4</option>
-            <option value="5">+5</option>
-            <option value="6">+6</option>
-            <option value="7">+7</option>
-            <option value="8">+8</option>
-          </select>
-          <input type="hidden" name="attr_reputation_total" value="" />
+          <input type="number" class="input-number" name="attr_reputation" value="0" title="@{reputation}" />
         </div>
       </div>
     </div>
@@ -4200,45 +4154,6 @@
       }
       setAttrs({
         api_toggle: buttonState,
-      });
-    });
-  });
-  
-  /* set reputation total */
-  on("sheet:opened change:age change:reputation", function () {
-    clog("Change Detected: Reputation - recalculating total");
-    getAttrs(["age", "reputation", "reputation_total"], function (values) {
-      const age = values.age,
-        reputation = int(values.reputation);
-      let ageNum = 0;
-      if (age === "young") {
-        ageNum = 0;
-      }
-      if (age === "adult") {
-        ageNum = 1;
-      }
-      if (age === "old") {
-        ageNum = 2;
-      }
-      let reputation_total = ageNum + reputation;
-      setAttrs({
-        reputation_total: reputation_total,
-      });
-      clog("reputation_total: " + reputation_total);
-    });
-  });
-  
-  /* set reputation dice pool */
-  on("clicked:reputation-roll", function () {
-    clog("Change Detected: Reputation - button clicked");
-    getAttrs(["reputation_total"], function (values) {
-      const reputation_total = int(values.reputation_total);
-      setAttrs({
-        attribute: 0,
-        skill: reputation_total,
-        gear: 0,
-        current_preset: getTranslationByKey(`reputation-roll`),
-        include_with_roll: "{{attribute-die-one}}", //hides the dice column footer
       });
     });
   });

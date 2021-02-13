@@ -2017,9 +2017,9 @@
             <fieldset class="repeating_armor">
               <div class="armor-grid">
                 <input class="armor-box1 input" type="text" name="attr_armor_name" value="" title="@{armor_name}" data-i18n-placeholder="name" placeholder="name" />
-                <input class="armor-box2 input-number" type="number" name="attr_armor_bonus" value="0" min="0" data-i18n-title="armor-bonus" title="Record the armor's CURRENT bonus up to MAX (adjusts GEAR dice). @{armor_bonus}" />
+                <input class="armor-box2 input-number" type="number" name="attr_armor_bonus" value="0" min="0" max="@{armor-bonus-max}" data-i18n-title="armor-bonus" title="Record the armor's CURRENT bonus up to MAX (adjusts GEAR dice). @{armor_bonus}" />
                 <input class="armor-box3 input-number" type="number" name="attr_armor_bonus_max" value="0" min="0" data-i18n-title="armor-bonus-max" title="Record the armor's UNDAMAGED bonus. @{armor_bonus_max}" />
-                <select class="armor-box4 input" name="attr_armor_damage" data-i18n-title="armor-bonus-misc" title="Miscellaneous bonus modifier (adjusts GEAR dice). @{armor_damage}">
+                <select class="armor-box4 input" name="attr_armor_bonus_misc" data-i18n-title="armor-bonus-misc" title="Miscellaneous bonus modifier (adjusts GEAR dice). @{armor_damage}">
                   <option value="6">+6</option>
                   <option value="5">+5</option>
                   <option value="4">+4</option>
@@ -2035,44 +2035,43 @@
                   <option value="-6">-6</option>
                 </select>
                 <input class="armor-box5 input" type="text" name="attr_armor_features" value="" title="@{armor_features}" />
-                <span class="armor-box6 readonly" name="attr_armor_ar" value="0" data-i18n-title="armor-bonus-total" title="Total GEAR and SKILL dice included for armor1. @{armor_ar}">0</span>
+                <input class="armor-box6 readonly" name="attr_armor_ar" value="0" data-i18n-title="armor-bonus-total" title="Total GEAR and SKILL dice included for armor. @{armor_ar}" readonly />
 
                 <!-- expand 2nd row -->
-                <input class="expand" type="checkbox" name="attr_expand_armor1" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
-                <!-- 2nd row -->
-                <!-- --> 
-                  <div class="armor-row2">               
-                    <span class="armor-box21">
-                      <span data-i18n="carried">Carried</span>
-                    </span>
-                    <select class="armor-box22 input" name="attr_armor_carried" title="@{armor_carried}">
-                      <option data-i18n="yes" value="1" selected>Yes</option>
-                      <option data-i18n="no" value="0">No</option>
-                      <option data-i18n="vehicle" value="2">Vehicle</option>
-                    </select>
-                    <span class="armor-box23">
-                      <span data-i18n="weight">Weight</span>
-                    </span>
-                    <select class="armor-box24 input" name="attr_armor_weight" title="@{armor_weight}">
-                      <option data-i18n="tiny-abbr" value="0" selected>T</option>
-                      <option data-i18n="light-abbr" value="0.5">L</option>
-                      <option data-i18n="normal-abbr" value="1">N</option>
-                      <option data-i18n="heavy-abbr" value="2">H</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                      <option value="7">7</option>
-                      <option value="8">8</option>
-                      <option value="9">9</option>
-                      <option value="10">10</option>
-                    </select>
-                    <span class="armor-box25"><span data-i18n="donned">Donned</span></span>
-                    <input class="armor-box26 input" type="checkbox" name="attr_armor_equipped" value="1" title="@{armor_equipped}" checked />
-                  </div>
-                </div> 
+                <input class="expand" type="checkbox" name="attr_expand_armor" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
+                  <!-- 2nd row -->
+                  <!-- --> 
+                <div class="armor-row2">               
+                  <span class="armor-box21">
+                    <span data-i18n="carried">Carried</span>
+                  </span>
+                  <select class="armor-box22 input" name="attr_armor_carried" title="@{armor_carried}">
+                    <option data-i18n="yes" value="1" selected>Yes</option>
+                    <option data-i18n="no" value="0">No</option>
+                  </select>
+                  <span class="armor-box23">
+                    <span data-i18n="weight">Weight</span>
+                  </span>
+                  <select class="armor-box24 input" name="attr_armor_weight" title="@{armor_weight}">
+                    <option data-i18n="tiny-abbr" value="0" selected>T</option>
+                    <option data-i18n="light-abbr" value="0.5">L</option>
+                    <option data-i18n="normal-abbr" value="1">N</option>
+                    <option data-i18n="heavy-abbr" value="2">H</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                  <span class="armor-box25"><span data-i18n="donned">Donned</span></span>
+                  <input class="armor-box26 input" type="checkbox" name="attr_armor_equipped" value="1" title="@{armor_equipped}" checked />
+                </div>
               </div>       
             </fieldset>
+          </div>
           <div class="armor-ar">
             <div class="armor-subgrid">
               <span class="armor-box3 header">
@@ -2080,12 +2079,21 @@
                   ARMOR RATING
                 </h1>
               </span>
-              <span class="armor-box4 input-span chartype-border-darkest" name="attr_ar" value="0" data-i18n-title="armor-rating-total" title="Total GEAR dice included for armor1 + armor2. @{ar}"></span>
+              <span class="armor-box4 input-span chartype-border-darkest" data-i18n-title="armor-rating-total" title="Total GEAR dice included for all armor. @{ar_total}">
+                <button type="action" class="armor-button" name="act_armor-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+                  <span class="readonly character-skill-total ar-total" name="attr_ar_total" value="0" title="@{ar_total}">0</span>
+                </button>
+              </span>
+              <!--
               <span class="armor-box5">
+                <button type="action" class="armor-button" name="act_armor-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+                  <span class="readonly character-skill-total ar-total" name="attr_ar_total" value="0" title="@{ar_total}">0</span>
+                </button>
                 <button type="action" name="act_armor-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice." data-i18n="armor"   style="height: 2em; width: 4em;">
                   Armor
                 </button>
               </span>
+              -->
             </div>
           </div>
         </div>
@@ -3593,6 +3601,12 @@
     clog("Change Detected: Character Armor Encumbrance");
     repeatingSum("armor_encumbrance", "armor", ["armor_weight", "armor_carried"]);
   });
+  
+  /* armor rating */
+  on("change:repeating_armor remove:repeating_armor sheet:opened", function () {
+    clog("Change Detected: Character Armor Rating");
+    repeatingSum("ar_total", "armor", ["armor_ar", "armor_equipped"]);
+  });
     
   /* coin weight */
   on("sheet:opened change:gold change:silver change:copper change:gold_vehicle change:silver_vehicle change:copper_vehicle", function () {
@@ -3636,13 +3650,13 @@
     });
   });
   
-  /* credits total */
+  /* Credits total */
   on("sheet:opened change:credits change:credits_vehicle change:credits_stash", function () {
     getAttrs(["credits", "credits_vehicle", "credits_stash"], function (values) {
-      clog("Change Detected: Coin Total");
+      clog("Change Detected: Credits Total");
       const credits = float(values["credits"]),
         credits_vehicle = float(values["credits_vehicle"]),
-        credit_stash = ifloat(values["credits_stash"]),
+        credits_stash = ifloat(values["credits_stash"]),
         sum_credits = credits + credits_vehicle + credits_stash;
       setAttrs({
         credits_total: sum_credits,
@@ -3779,6 +3793,24 @@
       });
     });
   });
+    
+  /* set repeating armor rating */
+  on("repeating_armor:armor_bonus change:repeating_armor:armor_bonus_max change:repeating_armor:armor_bonus_misc sheet:opened", function () {
+    clog("Change Detected: Repeating Armor Bonus - recalculating Bonus totals");
+    // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
+    getAttrs(["repeating_armor_armor_bonus", "repeating_armor_armor_bonus_misc", "repeating_armor_armor_bonus_max", "repeating_armor_armor_ar"], function (values) {
+      const armor_bonus_misc = int(values.repeating_armor_armor_bonus_misc),
+      armor_bonus = int(values.repeating_armor_armor_bonus),
+      armor_bonus_max = int(values.repeating_armor_armor_bonus_max);
+      // separate out the basic values read from the sheet from those calculated within the worker
+      const armor_bonus_total = Math.min(armor_bonus, armor_bonus_max) + armor_bonus_misc;
+      clog("armor calculation: armor_bonus " + armor_bonus + " armor_bonus_misc " + armor_bonus_misc + " = armor_bonus_total " +armor_bonus_total);
+      setAttrs({
+        repeating_armor_armor_ar: armor_bonus_total,
+      });
+      clog("armor_rating: " + armor_bonus_total);
+    });
+  });
   
   /* set weapon base_total and skill_total */
   on("change:repeating_weapons:weapon_name change:repeating_weapons:weapon_skill change:repeating_weapons:weapon_skill_misc", function () {
@@ -3808,8 +3840,7 @@
     });
   });
   
-  /* set weapon bonus_total */
-  
+  /* set weapon bonus_total */  
   on("repeating_weapons:weapon_name change:repeating_weapons:weapon_bonus change:repeating_weapons:weapon_bonus_misc  change:repeating_weapons:weapon_bonus_max", function () {
     clog("Change Detected: Weapon Attacks - recalculating Bonus totals");
     // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
@@ -4030,7 +4061,7 @@
   });
   
   on("sheet:opened clicked:dice_pool_clear", function () {
-    clog("Change Detected: Clear Dice Pool - button clicked");
+    clog("Change Detected: Clear Dice Pool - button clicked or sheet loaded");
     setAttrs({
       attribute: 0,
       skill: 0,
@@ -4211,227 +4242,23 @@
     });
   });
   
-  /* set armor and shield calcs */
-  on(
-    "sheet:opened change:fight change:strength_total change:armor1_equipped change:armor1_damage change:armor1_bonus change:armor1_bonus_max change:armor2_equipped change:armor2_damage change:armor2_bonus change:armor2_bonus_max change:armor3_equipped change:armor3_damage change:armor3_bonus change:armor3_bonus_max change:armor4_equipped change:armor4_damage change:armor4_bonus change:armor4_bonus_max change:shield1_equipped change:shield1_bonus change:shield1_bonus_max change:shield1_bonus_misc",
-    function () {
-      clog("Change Detected: Armor/Helmet/Shield");
-      getAttrs(["fight", "strength_total", "armor1_equipped", "armor1_bonus", "armor1_bonus_max", "armor1_damage", "armor2_equipped", "armor2_bonus", "armor2_bonus_max", "armor2_damage", "armor3_equipped", "armor3_bonus", "armor3_bonus_max", "armor3_damage", "armor4_equipped", "armor4_bonus", "armor4_bonus_max", "armor4_damage", "shield1_equipped", "shield1_bonus", "shield1_bonus_misc", "shield1_bonus_max"], function (values) {
-        const armor1_equipped = int(values.armor1_equipped),
-          armor1_bonus = int(values.armor1_bonus),
-          armor1_bonus_max = int(values.armor1_bonus_max),
-          armor1_bonusCap = Math.min(armor1_bonus, armor1_bonus_max), //prevents inputting a higher bonus than the bonus_max value
-          armor1_damage = int(values.armor1_damage),
-          armor2_equipped = int(values.armor2_equipped),
-          armor2_bonus = int(values.armor2_bonus),
-          armor2_bonus_max = int(values.armor2_bonus_max),
-          armor2_bonusCap = Math.min(armor2_bonus, armor2_bonus_max), //prevents inputting a higher bonus than the bonus_max value
-          armor2_damage = int(values.armor2_damage),
-          armor3_equipped = int(values.armor3_equipped),
-          armor3_bonus = int(values.armor3_bonus),
-          armor3_bonus_max = int(values.armor3_bonus_max),
-          armor3_bonusCap = Math.min(armor3_bonus, armor3_bonus_max), //prevents inputting a higher bonus than the bonus_max value
-          armor3_damage = int(values.armor3_damage),
-          armor4_equipped = int(values.armor4_equipped),
-          armor4_bonus = int(values.armor4_bonus),
-          armor4_bonus_max = int(values.armor4_bonus_max),
-          armor4_bonusCap = Math.min(armor4_bonus, armor4_bonus_max), //prevents inputting a higher bonus than the bonus_max value
-          armor4_damage = int(values.armor4_damage),
-          strength_total = int(values.strength_total),
-          fight = int(values.fight),
-          shield1_equipped = int(values.shield1_equipped),
-          shield1_bonus = int(values.shield1_bonus),
-          shield1_bonus_misc = int(values.shield1_bonus_misc),
-          shield1_bonus_max = int(values.shield1_bonus_max),
-          shield1_bonusCap = Math.min(shield1_bonus, shield1_bonus_max), //prevents inputting a higher bonus than the bonus_max value
-          shield1_bonus_total = Math.max(shield1_equipped * (strength_total + shield1_bonusCap + fight + shield1_bonus_misc)),
-          tempAR1 = armor1_equipped * (armor1_bonusCap + armor1_damage),
-          tempAR2 = armor2_equipped * (armor2_bonusCap + armor2_damage),
-          tempAR3 = armor3_equipped * (armor3_bonusCap + armor3_damage),
-          tempAR4 = armor4_equipped * (armor4_bonusCap + armor4_damage),
-          tempAR = Math.max(tempAR1 + tempAR2 + tempAR3 + tempAR4, 0); //prevents negative value
-        setAttrs({
-          armor1_ar: tempAR1,
-          armor2_ar: tempAR2,
-          armor3_ar: tempAR3,
-          armor4_ar: tempAR4,
-          ar: tempAR,
-          armor1_bonus: armor1_bonusCap, //applies cap based on the bonus_max value
-          armor2_bonus: armor2_bonusCap, //applies cap based on the bonus_max value
-          armor3_bonus: armor3_bonusCap, //applies cap based on the bonus_max value
-          armor4_bonus: armor4_bonusCap, //applies cap based on the bonus_max value
-          shield1_bonus: shield1_bonusCap, //applies cap based on the bonus_max value
-          shield1_bonus_total: shield1_bonus_total,
-        });
-      });
-    }
-  );
-  
-  /* set armor artifact dice totals */
-  on(
-    "sheet:opened change:armor_artifact_die_ocho change:armor_artifact_die_eight change:armor_artifact_die_ten change:armor_artifact_die_twelve change:armor1_artifact_die_ocho change:armor1_artifact_die_eight change:armor1_artifact_die_ten change:armor1_artifact_die_twelve change:armor2_artifact_die_ocho change:armor2_artifact_die_eight change:armor2_artifact_die_ten change:armor2_artifact_die_twelve change:armor3_artifact_die_ocho change:armor3_artifact_die_eight change:armor3_artifact_die_ten change:armor3_artifact_die_twelve change:armor4_artifact_die_ocho change:armor4_artifact_die_eight change:armor4_artifact_die_ten change:armor4_artifact_die_twelve",
-    function () {
-      clog("Change Detected: Armor Artifact Dice");
-      getAttrs(["armor_artifact_die_ocho", "armor_artifact_die_eight", "armor_artifact_die_ten", "armor_artifact_die_twelve", "armor1_artifact_die_ocho", "armor1_artifact_die_eight", "armor1_artifact_die_ten", "armor1_artifact_die_twelve", "armor2_artifact_die_ocho", "armor2_artifact_die_eight", "armor2_artifact_die_ten", "armor2_artifact_die_twelve", "armor3_artifact_die_ocho", "armor3_artifact_die_eight", "armor3_artifact_die_ten", "armor3_artifact_die_twelve", "armor4_artifact_die_ocho", "armor4_artifact_die_eight", "armor4_artifact_die_ten", "armor4_artifact_die_twelve"],
-    function (values) {
-        const	armor1_artifact_die_ocho = int(values.armor1_artifact_die_ocho),
-          armor1_artifact_die_eight = int(values.armor1_artifact_die_eight),
-          armor1_artifact_die_ten = int(values.armor1_artifact_die_ten),
-          armor1_artifact_die_twelve = int(values.armor1_artifact_die_twelve),
-          armor2_artifact_die_ocho = int(values.armor2_artifact_die_ocho),
-          armor2_artifact_die_eight = int(values.armor2_artifact_die_eight),
-          armor2_artifact_die_ten = int(values.armor2_artifact_die_ten),
-          armor2_artifact_die_twelve = int(values.armor3_artifact_die_twelve),
-          armor3_artifact_die_ocho = int(values.armor3_artifact_die_ocho),
-          armor3_artifact_die_eight = int(values.armor3_artifact_die_eight),
-          armor3_artifact_die_ten = int(values.armor3_artifact_die_ten),
-          armor3_artifact_die_twelve = int(values.armor3_artifact_die_twelve),
-          armor4_artifact_die_ocho = int(values.armor4_artifact_die_ocho),
-          armor4_artifact_die_eight = int(values.armor4_artifact_die_eight),
-          armor4_artifact_die_ten = int(values.armor4_artifact_die_ten),
-          armor4_artifact_die_twelve = int(values.armor4_artifact_die_twelve);
-        setAttrs({
-          armor_artifact_die_ocho: Math.max(armor1_artifact_die_ocho, armor2_artifact_die_ocho, armor3_artifact_die_ocho, armor4_artifact_die_ocho),
-          armor_artifact_die_eight: Math.max(armor1_artifact_die_eight, armor2_artifact_die_eight, armor3_artifact_die_eight, armor4_artifact_die_eight),
-          armor_artifact_die_ten: Math.max(armor1_artifact_die_ten, armor2_artifact_die_ten, armor3_artifact_die_ten, armor4_artifact_die_ten),
-          armor_artifact_die_twelve: Math.max(armor1_artifact_die_twelve, armor2_artifact_die_twelve, armor3_artifact_die_twelve, armor4_artifact_die_twelve),
-        });
-      });
-    }
-  );
-  
   /* set armor dice pool */
   on("clicked:armor-roll", function () {
     clog("Change Detected: Armor - button clicked");
-    getAttrs([ "ar", "armor_artifact_die_ocho", "armor_artifact_die_eight", "armor_artifact_die_ten", "armor_artifact_die_twelve", "armor1_artifact_die_ocho", "armor1_artifact_die_eight", "armor1_artifact_die_ten", "armor1_artifact_die_twelve", "armor2_artifact_die_ocho", "armor2_artifact_die_eight", "armor2_artifact_die_ten", "armor2_artifact_die_twelve", "armor3_artifact_die_ocho", "armor3_artifact_die_eight", "armor3_artifact_die_ten", "armor3_artifact_die_twelve", "armor4_artifact_die_ocho", "armor4_artifact_die_eight", "armor4_artifact_die_ten", "armor4_artifact_die_twelve", "armor1_equipped", "armor1_name", "armor1_bonus", "armor1_bonus_max", "armor1_damage", "armor1_ar", "armor2_equipped", "armor2_name", "armor2_bonus", "armor2_bonus_max", "armor2_damage", "armor2_ar", "armor3_equipped", "armor3_name", "armor3_bonus", "armor3_bonus_max", "armor3_damage", "armor3_ar", "armor4_equipped", "armor4_name", "armor4_bonus", "armor4_bonus_max", "armor4_damage", "armor4_ar"],
-      function (values) {
-        const ar = int(values.ar),
-          armor1_equipped = values.armor1_equipped,
-          armor1_name = values.armor1_name,
-          armor1_bonus = int(values.armor1_bonus),
-          armor1_bonus_max = int(values.armor1_bonus_max),
-          armor1_damage = int(values.armor1_damage),
-          armor1_ar = int(values.armor1_ar),
-          armor2_equipped = values.armor2_equipped,
-          armor2_name = values.armor2_name,
-          armor2_bonus = int(values.armor2_bonus),
-          armor2_bonus_max = int(values.armor2_bonus_max),
-          armor2_damage = int(values.armor2_damage),
-          armor2_ar = int(values.armor2_ar),
-          armor3_equipped = values.armor3_equipped,
-          armor3_name = values.armor3_name,
-          armor3_bonus = int(values.armor3_bonus),
-          armor3_bonus_max = int(values.armor3_bonus_max),
-          armor3_damage = int(values.armor3_damage),
-          armor3_ar = int(values.armor3_ar),
-          armor4_equipped = values.armor4_equipped,
-          armor4_name = values.armor4_name,
-          armor4_bonus = int(values.armor4_bonus),
-          armor4_bonus_max = int(values.armor4_bonus_max),
-          armor4_damage = int(values.armor4_damage),
-          armor4_ar = int(values.armor4_ar),
-          armor1_artifact_die_ocho = int(values.armor1_artifact_die_ocho),
-          armor1_artifact_die_eight = int(values.armor1_artifact_die_eight),
-          armor1_artifact_die_ten = int(values.armor1_artifact_die_ten),
-          armor1_artifact_die_twelve = int(values.armor1_artifact_die_twelve),
-          armor2_artifact_die_ocho = int(values.armor2_artifact_die_ocho),
-          armor2_artifact_die_eight = int(values.armor2_artifact_die_eight),
-          armor2_artifact_die_ten = int(values.armor2_artifact_die_ten),
-          armor2_artifact_die_twelve = int(values.armor3_artifact_die_twelve),
-          armor3_artifact_die_ocho = int(values.armor3_artifact_die_ocho),
-          armor3_artifact_die_eight = int(values.armor3_artifact_die_eight),
-          armor3_artifact_die_ten = int(values.armor3_artifact_die_ten),
-          armor3_artifact_die_twelve = int(values.armor3_artifact_die_twelve),
-          armor4_artifact_die_ocho = int(values.armor4_artifact_die_ocho),
-          armor4_artifact_die_eight = int(values.armor4_artifact_die_eight),
-          armor4_artifact_die_ten = int(values.armor4_artifact_die_ten),
-          armor4_artifact_die_twelve = int(values.armor4_artifact_die_twelve),
-          armor_artifact_die_ocho = int(values.armor_artifact_die_ocho),
-          armor_artifact_die_eight = int(values.armor_artifact_die_eight),
-          armor_artifact_die_ten = int(values.armor_artifact_die_ten),
-          armor_artifact_die_twelve = int(values.armor_artifact_die_twelve),
-          armorMiscSkill = Math.max(armor1_damage + armor2_damage + armor3_damage + armor4_damage, -3), //max of 3 negative dice
-          armorMiscGear = ar;
+    getAttrs(["ar_total"], function (values) {
+        const ar_total = int(values.ar_total);
         setAttrs({
           attribute: 0,
-          gear: armorMiscGear,
-          skill: armorMiscSkill,
-          artifact_die_ocho: Math.max(armor_artifact_die_ocho, armor1_artifact_die_ocho, armor2_artifact_die_ocho, armor3_artifact_die_ocho, armor4_artifact_die_ocho),
-          artifact_die_eight: Math.max(armor_artifact_die_eight, armor1_artifact_die_eight, armor2_artifact_die_eight, armor3_artifact_die_eight, armor4_artifact_die_eight),
-          artifact_die_ten: Math.max(armor_artifact_die_ten, armor1_artifact_die_ten, armor2_artifact_die_ten, armor3_artifact_die_ten, armor4_artifact_die_ten),
-          artifact_die_twelve: Math.max(armor_artifact_die_twelve, armor1_artifact_die_twelve, armor2_artifact_die_twelve, armor3_artifact_die_twelve, armor4_artifact_die_twelve),
+          gear: ar_total,
+          skill: 0,
           current_preset: getTranslationByKey(`armor-roll`),
-          include_with_roll: `{{armor1-equipped=[[ ${armor1_equipped} ]]}} {{armor1-name=${armor1_name}}} {{armor1-rating=${armor1_bonus}}} {{armor1-rating-max=${armor1_bonus_max}}} {{armor1-rating-misc=${armor1_damage}}} {{armor1-rating-total=${armor1_ar}}} {{armor2-equipped=[[ ${armor2_equipped} ]]}} {{armor2-name=${armor2_name}}} {{armor2-rating=${armor2_bonus}}} {{armor2-rating-max=${armor2_bonus_max}}} {{armor2-rating-misc=${armor2_damage}}} {{armor2-rating-total=${armor2_ar}}} {{armor3-equipped=[[ ${armor3_equipped} ]]}} {{armor3-name=${armor3_name}}} {{armor3-rating=${armor3_bonus}}} {{armor3-rating-max=${armor3_bonus_max}}} {{armor3-rating-misc=${armor3_damage}}} {{armor3-rating-total=${armor3_ar}}} {{armor4-equipped=[[ ${armor4_equipped} ]]}} {{armor4-name=${armor4_name}}} {{armor4-rating=${armor4_bonus}}} {{armor4-rating-max=${armor4_bonus_max}}} {{armor4-rating-misc=${armor4_damage}}} {{armor4-rating-total=${armor4_ar}}}`,
+          include_with_roll: `{{armor-rating=[[ ${ar_total} ]]}}`,
         });
       }
     );
   });
   
-  /* set shield dice pool */
-  on("clicked:shield-shove-roll", function () {
-    clog("Change Detected: Shield Shove - button clicked");
-    getAttrs(["shield1_bonus", "shield1_bonus_max", "shield1_bonus_misc", "shield1_bonus_total", "fight", "strength_total", "shield1_name", "shield1_artifact_die_ocho", "shield1_artifact_die_eight", "shield1_artifact_die_ten", "shield1_artifact_die_twelve"], function (values) {
-      const skill = int(values.fight),
-        fight = int(values.fight),
-        strength_total = int(values.strength_total),
-        strength = int(values.strength_total),
-        shield1_bonus = int(values.shield1_bonus),
-        shield1_bonus_misc = int(values.shield1_bonus_misc),
-        shield1_bonus_max = int(values.shield1_bonus_max),
-        shield1_bonus_total = int(values.shield1_bonus_total),
-        shield1_name = values.shield1_name,
-        shield1MiscSkill = Math.max(skill + shield1_bonus_misc, -3),
-        shield1MiscGear = shield1_bonus_total - skill - shield1_bonus_misc - strength,
-        shield1_artifact_die_ocho = int(values.shield1_artifact_die_ocho),
-        shield1_artifact_die_eight = int(values.shield1_artifact_die_eight),
-        shield1_artifact_die_ten = int(values.shield1_artifact_die_ten),
-        shield1_artifact_die_twelve = int(values.shield1_artifact_die_twelve);
-      setAttrs({
-        attribute: strength,
-        gear: shield1MiscGear,
-        skill: shield1MiscSkill,
-        artifact_die_ocho: shield1_artifact_die_ocho,
-        artifact_die_eight: shield1_artifact_die_eight,
-        artifact_die_ten: shield1_artifact_die_ten,
-        artifact_die_twelve: shield1_artifact_die_twelve,
-        current_preset: getTranslationByKey(`shove`) + ` - ` + getTranslationByKey(`shield`),
-        include_with_roll: `{{shield1-name=${shield1_name}}} {{shield1-base=${strength_total}}} {{shield1-skill=${fight}}} {{shield1-bonus=${shield1_bonus}}} {{shield1-bonus-max=${shield1_bonus_max}}} {{shield1-bonus-misc=${shield1_bonus_misc}}}`,
-      });
-    });
-  });
-  
-  on("clicked:shield-roll", function () {
-    clog("Change Detected: Shield Parry - button clicked");
-    getAttrs(["shield1_bonus", "shield1_bonus_max", "shield1_bonus_misc", "shield1_bonus_total", "fight", "strength_total", "shield1_name", "shield1_artifact_die_ocho", "shield1_artifact_die_eight", "shield1_artifact_die_ten", "shield1_artifact_die_twelve"], function (values) {
-      const skill = int(values.fight),
-        fight = int(values.fight),
-        strength_total = int(values.strength_total),
-        strength = int(values.strength_total),
-        shield1_bonus = int(values.shield1_bonus),
-        shield1_bonus_misc = int(values.shield1_bonus_misc),
-        shield1_bonus_max = int(values.shield1_bonus_max),
-        shield1_bonus_total = int(values.shield1_bonus_total),
-        shield1_name = values.shield1_name,
-        shield1MiscSkill = Math.max(skill + shield1_bonus_misc, -3),
-        shield1MiscGear = shield1_bonus_total - skill - shield1_bonus_misc - strength,
-        shield1_artifact_die_ocho = int(values.shield1_artifact_die_ocho),
-        shield1_artifact_die_eight = int(values.shield1_artifact_die_eight),
-        shield1_artifact_die_ten = int(values.shield1_artifact_die_ten),
-        shield1_artifact_die_twelve = int(values.shield1_artifact_die_twelve);
-      setAttrs({
-        attribute: strength,
-        gear: shield1MiscGear,
-        skill: shield1MiscSkill,
-        artifact_die_ocho: shield1_artifact_die_ocho,
-        artifact_die_eight: shield1_artifact_die_eight,
-        artifact_die_ten: shield1_artifact_die_ten,
-        artifact_die_twelve: shield1_artifact_die_twelve,
-        current_preset: getTranslationByKey(`parry`) + ` - ` + getTranslationByKey(`shield`),
-        include_with_roll: `{{shield1-name=${shield1_name}}} {{shield1-base=${strength_total}}} {{shield1-skill=${fight}}} {{shield1-bonus=${shield1_bonus}}} {{shield1-bonus-max=${shield1_bonus_max}}} {{shield1-bonus-misc=${shield1_bonus_misc}}}`,
-      });
-    });
-  });
-  
+   
   /* vehicle/Beast Carry calcs */
   const carry = (strength, vehicleed) => (strength * 4) / (vehicleed + 1);
   

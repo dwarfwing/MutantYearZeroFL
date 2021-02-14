@@ -34,54 +34,24 @@
     <div class="character-heading box chartype-background-light toggle-dice-only toggle-monster-only ">
       <div class="heading-grid">
         <div class="heading-box heading-box1">
-          <span class="sheet-label" data-i18n="name">Name</span>
-        </div>
-        <div class="heading-box heading-box2">
+          <span class="sheet-label" data-i18n="name">Name</span><br>
           <input class="input input-center" type="text" name="attr_character_name" value="" title="@{character_name}" />
         </div>
         <div class="heading-box heading-box3">
-          <span class="sheet-label" data-i18n="profession">Profession</span>
-        </div>
-        <div class="heading-box heading-box4">
-          <input class="input input-center" type="text" name="attr_kin" value="" title="@{profession}" />
-        </div>
-        <div class="heading-box heading-box5">
-          <span class="sheet-label data-i18n="name">Kin</span>
-        </div>
-        <div class="heading-box heading-box6">
+          <span class="sheet-label" data-i18n="kin">Kin</span><br>
           <input class="input input-center" type="text" name="attr_profession" value="" title="@{kin}" />
-        </div>
-        <div class="heading-box heading-box8">
+        </div>    
+        <div class="heading-box heading-box5">
+          <span class="sheet-label" data-i18n="profession">Profession</span><br>
+          <input class="input input-center" type="text" name="attr_kin" value="" title="@{profession}" />
+        </div>    
+        <div class="heading-box heading-box7">
           <span class="sheet-label" data-i18n="age">Age</span>
+          <input type="number" class="input-number" name="attr_age" title="@{age}">
         </div>
         <div class="heading-box heading-box9">
-          <select name="attr_age" class="input" title="@{age}">
-            <option value="young" data-i18n="young-1" selected>Young</option>
-            <option value="adult" data-i18n="adult-2">Adult+1</option>
-            <option value="old" data-i18n="old-3">Old+2</option>
-          </select>
-        </div>
-        <div class="heading-box heading-box10">
-          <button type="action" name="act_reputation-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice." data-i18n="reputation" style="height: 1.85em;">
-            Reputation
-          </button>
-        </div>
-        <div class="heading-box heading-box11">
-          <select class="input" name="attr_reputation" data-i18n-title="reputation-bonus" title="How well known are you? @{reputation}">
-            <option value="0" selected>+0</option>
-            <option value="1">+1</option>
-            <option value="2">+2</option>
-            <option value="3">+3</option>
-            <option value="4">+4</option>
-            <option value="5">+5</option>
-            <option value="6">+6</option>
-            <option value="7">+7</option>
-            <option value="8">+8</option>
-          </select>
-          <input type="hidden" name="attr_reputation_total" value="" />
-        </div>
-        <div class="heading-box heading-box7 raven" style="z-index: 1;">
-          <img alt="raven" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20raven1.png" style="height: 6em; margin: -1.125em 0px 0px -6em;" />
+            <span class="sheet-label" data-i18n="reputation">Reputation</span>
+          <input type="number" class="input-number" name="attr_reputation" title="@{reputation}" />
         </div>
       </div>
     </div>
@@ -403,30 +373,14 @@
           <span class="label" data-i18n="age">Age</span>
         </div>
         <div class="details-box6">
-          <select name="attr_age" class="input" title="@{age}">
-            <option value="young" data-i18n="young-1" selected>Young</option>
-            <option value="adult" data-i18n="adult-2">Adult+1</option>
-            <option value="old" data-i18n="old-3">Old+2</option>
+          <input type="number" class="input-number" value="0" min="0" name="attr_age" title="@{age}">
           </select>
         </div>
         <div class="details-box7">
-          <button type="action" name="act_reputation-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice." data-i18n="reputation" style="height: 1.85em;">
-            Reputation
-          </button>
+          <span class="label" data-i18n="reputation">Reputation</span>
         </div>
         <div class="details-box8">
-          <select class="input" name="attr_reputation" data-i18n-title="reputation-bonus" title="How well known are you? @{reputation}">
-            <option value="0" selected>+0</option>
-            <option value="1">+1</option>
-            <option value="2">+2</option>
-            <option value="3">+3</option>
-            <option value="4">+4</option>
-            <option value="5">+5</option>
-            <option value="6">+6</option>
-            <option value="7">+7</option>
-            <option value="8">+8</option>
-          </select>
-          <input type="hidden" name="attr_reputation_total" value="" />
+          <input type="number" class="input-number" name="attr_reputation" value="0" title="@{reputation}" />
         </div>
       </div>
     </div>
@@ -757,7 +711,7 @@
           </span>
           <span class="skills-row chartype-background-dark" data-i18n-list-item="comprehend">
             <span class="skill-name" data-i18n="comprehend" name="attr_comprehend_name">Comprehend</span>
-            <span class="small-caps skill-name" data-i18n="wits-abbr">(Wit&nbsp;<span name="attr_wits_total"></span>)</span>
+            <span class="small-caps skill-name" data-i18n="wits-abbr">Wit&nbsp;<span class="readonly" name="attr_wits_total"></span></span>
             <input class="input-number character-skill-level" type="number" name="attr_comprehend" value="0" min="0" title="@{comprehend}" />
             <select class="input character-skill-mod" name="attr_comprehend_skill_misc" title="@{comprehend_skill_misc}">
               <option value="6">+6</option>
@@ -801,7 +755,7 @@
           
           <span class="skills-row chartype-background-dark" data-i18n-list-item="endure">
             <span class="skill-name" data-i18n="endure" name="attr_endure_name">Endure</span>
-            <span class="small-caps skill-name" data-i18n="strength-abbr">(Str&nbsp;<span name="attr_strength_total"></span>)</span>
+            <span class="small-caps skill-name" data-i18n="strength-abbr">Str&nbsp;<span name="attr_strength_total"></span></span>
             <button type="action" name="act_dice_pool_endure_monster" class="monster" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice."><span data-i18n="endure">endure</span>&nbsp;(<span data-i18n="monster">Monster</span>)</button>
             <input class="input-number character-skill-level toggle-monster-only" type="number" name="attr_endure" value="0" min="0" title="@{endure}" />
             <select class="input character-skill-mod toggle-monster-only" name="attr_endure_skill_misc" title="@{endure_skill_misc}">
@@ -890,7 +844,7 @@
 
           <span class="skills-row chartype-background-dark" chartype-background-dark data-i18n-list-item="fight">
             <span class="skill-name" data-i18n="fight-as-skill" name="attr_fight_name">Fight</span>
-            <span class="small-caps skill-name" data-i18n="strength-abbr">(Str&nbsp;<span name="attr_strength_total"></span>)</span>
+            <span class="small-caps skill-name" data-i18n="strength-abbr">Str&nbsp;<span name="attr_strength_total"></span></span>
             <button type="action" name="act_dice_pool_fight_monster" class="monster" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice."><span data-i18n="fight-as-skill">fight</span>&nbsp;(<span data-i18n="monster">Monster</span>)</button>
             <input class="input-number character-skill-level toggle-monster-only" type="number" name="attr_fight" value="0" min="0" title="@{fight}" />
             <select class="input character-skill-mod toggle-monster-only" name="attr_fight_skill_misc" title="@{fight_skill_misc}">
@@ -980,7 +934,7 @@
           
           <span class="skills-row chartype-background-dark" data-i18n-list-item="force">
             <span class="skill-name" data-i18n="force" name="attr_force_name">Force</span>
-            <span class="small-caps skill-name" data-i18n="strength-abbr">(Str&nbsp;<span name="attr_strength_total"></span>)</span>
+            <span class="small-caps skill-name" data-i18n="strength-abbr">Str&nbsp;<span name="attr_strength_total"></span></span>
             <button type="action" name="act_dice_pool_force_monster" class="monster" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice."><span data-i18n="force">force</span>&nbsp;(<span data-i18n="monster">Monster</span>)</button>
             <input class="input-number toggle-monster-only" type="number" name="attr_force" value="0" min="0" title="@{force}" />
             <select class="input toggle-monster-only" name="attr_force_skill_misc" title="@{force_skill_misc}">
@@ -1069,7 +1023,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="heal">
             <span class="skill-name" data-i18n="heal" name="attr_heal_name">Heal</span>
-            <span class="small-caps skill-name" data-i18n="empathy-abbr">(Emp&nbsp;<span name="attr_empathy_total"></span>)</span>
+            <span class="small-caps skill-name" data-i18n="empathy-abbr">Emp&nbsp;<span name="attr_empathy_total"></span></span>
             <input class="input-number" type="number" name="attr_heal" value="0" min="0" title="@{heal}" />
             <select class="input" name="attr_heal_skill_misc" title="@{heal_skill_misc}">
               <option value="6">+6</option>
@@ -1113,7 +1067,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="know_the_zone">
             <span class="skill-name" data-i18n="know_the_zone" name="attr_know_the_zone_name">Know the Zone</span>
-            <span class="small-caps skill-name" data-i18n="wits-abbr">(Wit&nbsp;<span name="attr_wits_total"></span>)</span>
+            <span class="small-caps skill-name" data-i18n="wits-abbr">Wit&nbsp;<span name="attr_wits_total"></span></span>
             <input class="input-number character-skill-level" type="number" name="attr_know_the_zone" value="0" min="0" title="@{know_the_zone}" />
             <select class="input character-skill-mod" name="attr_know_the_zone_skill_misc" title="@{know_the_zone_skill_misc}">
               <option value="6">+6</option>
@@ -1157,7 +1111,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="manipulate">
             <span class="skill-name" data-i18n="manipulate" name="attr_manipulate_name">Manipulate</span>
-            <span class="small-caps skill-name" data-i18n="empathy-abbr">(Emp&nbsp;<span name="attr_empathy_total"></span>)</span>
+            <span class="small-caps skill-name" data-i18n="empathy-abbr">Emp&nbsp;<span name="attr_empathy_total"></span></span>
             <input class="input-number character-skill-level" type="number" name="attr_manipulate" value="0" min="0" title="@{manipulate}" />
             <select class="input character-skill-mod" name="attr_manipulate_skill_misc" title="@{manipulate_skill_misc}">
               <option value="6">+6</option>
@@ -1201,7 +1155,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="move">
             <span class="skill-name" data-i18n="move" name="attr_move_name">Move</span>
-            <span class="small-caps skill-name" data-i18n="agility-abbr">(Agi&nbsp;<span name="attr_agility_total"></span>)</span>
+            <span class="small-caps skill-name" data-i18n="agility-abbr">Agi&nbsp;<span name="attr_agility_total"></span></span>
             <input class="input-number character-skill-level" type="number" name="attr_move" value="0" min="0" title="@{move}" />
             <select class="input character-skill-mod" name="attr_move_skill_misc" title="@{move_skill_misc}">
               <option value="6">+6</option>
@@ -1245,7 +1199,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="scout">
             <span class="skill-name" data-i18n="scout" name="attr_scout_name">Scout</span>
-            <span class="small-caps skill-name" data-i18n="wits-abbr">(Wit&nbsp;<span name="attr_wits_total"></span>)</span>
+            <span class="small-caps skill-name" data-i18n="wits-abbr">Wit&nbsp;<span name="attr_wits_total"></span></span>
             <input class="input-number character-skill-level" type="number" name="attr_scout" value="0" min="0" title="@{scout}" />
             <select class="input character-skill-mod" name="attr_scout_skill_misc" title="@{scout_skill_misc}">
               <option value="6">+6</option>
@@ -1289,7 +1243,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="sense_emotion">
             <span class="skill-name" data-i18n="sense_emotion" name="attr_sense_emotion_name">Sense emotion</span>
-            <span class="small-caps skill-name" data-i18n="empathy-abbr">(Emp&nbsp;<span name="attr_empathy_total"></span>)</span>
+            <span class="small-caps skill-name" data-i18n="empathy-abbr">Emp&nbsp;<span name="attr_empathy_total"></span></span>
             <input class="input-number character-skill-level" type="number" name="attr_sense_emotion" value="0" min="0" title="@{sense_emotion}" />
             <select class="input character-skill-mod" name="attr_sense_emotion_skill_misc" title="@{sense_emotion_skill_misc}">
               <option value="6">+6</option>
@@ -1333,7 +1287,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="shoot"> 
             <span class="skill-name" data-i18n="shoot" name="attr_shoot_name">Shoot</span>
-            <span class="small-caps skill-name" data-i18n="agility-abbr">(Agi&nbsp;<span name="attr_agility_total"></span>)</span>
+            <span class="small-caps skill-name" data-i18n="agility-abbr">Agi&nbsp;<span name="attr_agility_total"></span></span>
             <input class="input-number character-skill-level" type="number" name="attr_shoot" value="0" min="0" title="@{shoot}" />
             <select class="input character-skill-mod" name="attr_shoot_skill_misc" title="@{shoot_skill_misc}">
               <option value="6">+6</option>
@@ -1377,7 +1331,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="sneak">
             <span class="skill-name" data-i18n="sneak" name="attr_sneak_name">Sneak</span>
-            <span class="small-caps skill-name" data-i18n="agility-abbr">(Agi&nbsp;<span name="attr_agility_total"></span>)</span>
+            <span class="small-caps skill-name" data-i18n="agility-abbr">Agi&nbsp;<span name="attr_agility_total" title="@{agility_total}"></span></span>
             <input class="input-number character-skill-level" type="number" name="attr_sneak" value="0" min="0" title="@{sneak}" />
             <select class="input character-skill-mod" name="attr_sneak_skill_misc" title="@{sneak_skill_misc}">
               <option value="6">+6</option>
@@ -1404,7 +1358,7 @@
               <option value="0" selected>+0</option>
             </select>
             <button type="action" name="act_dice_pool_sneak" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-              <span class="readonly character-skill-total" name="attr_sneak_total" value="0" title="@{sneak_total}">0</span>
+              <span class="readonly character-skill-total" name="attr_sneak_total" value="0" title="@{sneak_total}"></span>
             </button>  
             <!-- expand 2nd row -->
             <!--<input class="expand" type="checkbox" name="attr_expand_sneak" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
@@ -1420,12 +1374,21 @@
           </span>
           
         </div>
-          <fieldset class="repeating_skills">
-            <span class="skills-row chartype-background-light" data-i18n-list-item="sense_emotion">
-              <input class="skill-name chartype-background-light" class="input" type="text" name="attr_repeating_skill$_name" />
-              <span class="small-caps skill-name" data-i18n="empathy-abbr">(Emp&nbsp;<span name="attr_empathy_total" value=@{empathy_total} readonly></span>)</span>
-              <input class="input-number character-skill-level" type="number" name="attr_sense_emotion" value="0" min="0" title="@{sense_emotion}" />
-                <select class="input character-skill-mod" name="attr_sense_emotion_skill_misc" title="@{sense_emotion_skill_misc}">
+          <fieldset class="repeating_profskill">
+            <span class="skills-row chartype-background-light">
+              <input class="skill-name chartype-background-light" class="input" type="text" name="attr_profskill_name" />
+              <span class="small-caps skill-name">
+                <select class="input character-skill-mod chartype-background-light" name="attr_profskill_attr" title="@{profskill_$X_profskill_attr}">
+                  <option value="" selected disabled hidden data-i18n="base">Base</option>
+                  <option value="@{strength_total}" data-i18n="strength-abbr">Str</option>
+                  <option value="@{agility_total}" data-i18n="agility-abbr">Agi</option>
+                  <option value="@{wits_total}" data-i18n="wits-abbr">Wit</option>
+                  <option value="@{empathy_total}" data-i18n="empathy-abbr">Emp</option>
+                </select>
+                <span name="attr_profskill_total" value=@{profskill_$X_profskill_attr} readonly></span>
+              </span>
+              <input class="input-number character-skill-level" type="number" name="attr_profskill_level" value="0" min="0" title="@{profskill_$X_proffskill_level}" />
+              <select class="input character-skill-mod" name="attr_profskill_misc" title="@{sense_profskill_misc}">
                 <option value="6">+6</option>
                 <option value="5">+5</option>
                 <option value="4">+4</option>
@@ -1440,7 +1403,7 @@
                 <option value="-5">-5</option>
                 <option value="-6">-6</option>
               </select>
-              <select class="input character-skill-gear" name="attr_sense_emotion_gear_misc" title="@{sense_emotion_gear_misc}">
+              <select class="input character-skill-gear" name="attr_profskill_gear_misc" title="@{profskill_$X_profskill_gear_misc}">
                 <option value="6">+6</option>
                 <option value="5">+5</option>
                 <option value="4">+4</option>
@@ -1449,8 +1412,8 @@
                 <option value="1">+1</option>
                 <option value="0" selected>+0</option>
               </select>
-              <button type="action" name="act_dice_pool_sense_emotion" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-                <span class="readonly character-skill-total" name="attr_sense_emotion_total" value="0" title="@{sense_emotion_total}">0</span>
+              <button type="action" name="act_dice_pool_profskill" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+                <span class="readonly character-skill-total" name="attr_profskill_total" value="0" title="@{profskill_$X_profskill_total}">0</span>
               </button>
               <!-- expand 2nd row -->
               <!--<input class="expand" type="checkbox" name="attr_expand_sense_emotion" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
@@ -1623,41 +1586,19 @@
     </div>
 
     <div class="character-column3 box toggle-dice-only toggle-monster-only ">
+
       <div class="character-experience box sheet-header toggle-dice-only toggle-monster-only toggle-npc-only">
         <div class="experience-grid">
           <div class="experience-box1">
             <h1 data-i18n="experience-u">EXPERIENCE</h1>
           </div>
           <div class="experience-box2">
-            <input class="input-number" type="number" name="attr_experience" value="0" min="0" title="@{experience}" />
+            <input class="input-number input-experience" type="number" name="attr_experience" value="0" min="0" title="@{experience}" />
           </div>
           <div class="experience-box3"></div>
         </div>
       </div>
-      <div class="character-willpower box chartype-background-dark toggle-dice-only toggle-monster-only toggle-npc-only">
-        <div class="willpower-grid">
-          <div class="willpower-box1 header">
-            <h1 data-i18n="power-u">POWER POINTS</h1>
-          </div>
-          <div class="willpower-box2">
-            <input type="radio" name="attr_willpower" value="0" data-i18n-title="no-willpower" title="No Willpower" style="margin: 4px 8px 3px 2px; width: 0.95em; height: 0.95em;" checked />
-            <input class="xbox" type="radio" name="attr_willpower" value="1" title="1 @{willpower}" /><span></span> <input
-              class="xbox" type="radio" name="attr_willpower" value="2" title="2 @{willpower}" /><span></span>
-            <input class="xbox" type="radio" name="attr_willpower" value="3" title="3 @{willpower}" /><span></span> <input
-              class="xbox" type="radio" name="attr_willpower" value="4" title="4 @{willpower}" /><span></span>
-            <input class="xbox" type="radio" name="attr_willpower" value="5" title="5 @{willpower}" /><span></span> <input
-              class="xbox" type="radio" name="attr_willpower" value="6" title="6 @{willpower}" /><span></span>
-            <input class="xbox" type="radio" name="attr_willpower" value="7" title="7 @{willpower}" /><span></span> <input
-              class="xbox" type="radio" name="attr_willpower" value="8" title="8 @{willpower}" /><span></span>
-            <input class="xbox" type="radio" name="attr_willpower" value="9" title="9 @{willpower}" /><span></span> <input
-              class="xbox" type="radio" name="attr_willpower" value="10" title="10 @{willpower}" /><span></span>
-            <input type="hidden" name="attr_willpower_max" value="10" />
-          </div>
-          <div class="willpower-box3">
-            <span class="input-span" name="attr_willpower" title="@{willpower}"></span>
-          </div>
-        </div>
-      </div>
+
       <div class="character-talents sheet-box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
         <div class="talents-grid">
           <div class="talents-box header">
@@ -1672,7 +1613,7 @@
           <div class="talents-box4">
             <fieldset class="repeating_talents">
               <div class="talents-grid">
-                <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
+                <input class="expand" type="checkbox" name="attr_expand" value="0" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
                 <input class="talents-box1 input" type="text" name="attr_talent_name" value="" title="@{repeating_talents_$X_talent_name}" data-i18n-placeholder="name" placeholder="Name" />
                 <select class="talents-box2 input" name="attr_talent_type" title="@{repeating_talents_$X_talent_type}">
                   <option value="Prof" data-i18n="profession-abbrv">Prof</option>
@@ -1688,6 +1629,213 @@
           </div>
         </div>
       </div>
+
+      <div class="character-mutations sheet-box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
+        <div class="talents-grid">
+          <div class="talents-box header">
+            <h1 data-i18n="mutation-u">MUTATIONS</h1>
+          </div>
+          <div class="talents-box2 column-header">
+            <span data-i18n="power">Power</span>
+          </div>
+          <div class="talents-box3 column-header">
+            <span data-i18n="misfire">Misfire</span>
+          </div>
+          <div class="talents-box4">
+            <fieldset class="repeating_mutations">
+              <div class="talents-grid">
+                <input class="expand" type="checkbox" name="attr_expand" value="0" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
+                <input class="talents-box1 input" type="text" name="attr_mutation_name" value="" title="@{repeating_mutations_$X_mutation_name}" data-i18n-placeholder="name" placeholder="Name" />
+                <input type="number" class="talents-box2 input-number" name="attr_mp_used" min="1" max="10" title="@{repeating_mutations_$X_mp_used}">
+                <span class="talents-box3 input" name="attr_talent_rank" title="@{repeating_mutations_$X_mutation_rank}">
+                  <button name="act_mutation_roll" class="roll-button" type="action">t</button>
+                </span>
+                <!-- expand 2nd row -->
+                <textarea class="talents-box4 input-textarea" name="attr_mutation_description" title="@{repeating_mutations_$X_mutation_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="willpower-grid">
+          <div class="willpower-box2 chartype-background-dark">
+            <input type="radio" name="attr_mutationpoints" value="0" data-i18n-title="no-mutationpoints" title="No Mutation Points" style="margin: 4px 8px 3px 2px; width: 0.95em; height: 0.95em;" checked />
+            <input class="xbox" type="radio" name="attr_mutationpoints" value="1" title="1 @{mutationpoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_mutationpoints" value="2" title="2 @{mutationpoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_mutationpoints" value="3" title="3 @{mutationpoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_mutationpoints" value="4" title="4 @{mutationpoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_mutationpoints" value="5" title="5 @{mutationpoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_mutationpoints" value="6" title="6 @{mutationpoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_mutationpoints" value="7" title="7 @{mutationpoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_mutationpointsr" value="8" title="8 @{mutationpoints}" /><span></span>
+            <input class="xbox" type="radio" name="attrmutationpoints" value="9" title="9 @{mutationpoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_mutationpoints" value="10" title="10 @{mutationpoints}" /><span></span>
+            <input type="hidden" name="attr_mutationpoints_max" value="10" />
+          </div>
+          <div class="willpower-box3 chartype-background-dark">
+            <span class="input-span" name="attr_mutationpoints" title="@{mutationpoints}" readonly></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="character-modules sheet-box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
+        <div class="talents-grid">
+          <div class="talents-box header">
+            <h1 data-i18n="modules-u">MODULES</h1>
+          </div>
+          <div class="talents-box2 column-header">
+            <span data-i18n="power">Power</span>
+          </div>
+          <div class="talents-box3 column-header">
+            <span data-i18n="overheat">Overheat</span>
+          </div>
+          <div class="talents-box4">
+            <fieldset class="repeating_modules">
+              <div class="talents-grid">
+                <input class="expand" type="checkbox" name="attr_expand" value="0" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
+                <input class="talents-box1 input" type="text" name="attr_module_name" value="" title="@{repeating_modules_$X_module_name}" data-i18n-placeholder="name" placeholder="Name" />
+                <input type="number" class="talents-box2 input-number" name="attr_ep_used" min="1" max="10" title="@{repeating_modules_$X_ep_used}">
+                <span class="talents-box3 input" name="attr_module_rank" title="@{repeating_modules_$X_module_rank}">
+                  <button name="act_module_roll" class="roll-button" type="action">t</button>
+                </span>
+                <!-- expand 2nd row -->
+                <textarea class="talents-box4 input-textarea" name="attr_module_description" title="@{repeating_modules_$X_module_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="willpower-grid">
+          <div class="willpower-box2 chartype-background-dark">
+            <input type="radio" name="attr_energypoints" value="0" data-i18n-title="no-energypoints" title="No Energy Points" style="margin: 4px 8px 3px 2px; width: 0.95em; height: 0.95em;" checked />
+            <input class="xbox" type="radio" name="attr_energypoints" value="1" title="1 @{energypoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_energypoints" value="2" title="2 @{energypoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_energypoints" value="3" title="3 @{energypoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_energypoints" value="4" title="4 @{energypoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_energypoints" value="5" title="5 @{energypoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_energypoints" value="6" title="6 @{energypoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_energypoints" value="7" title="7 @{energypoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_energypoints" value="8" title="8 @{energypoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_energypoints" value="9" title="9 @{energypoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_energypoints" value="10" title="10 @{energypoints}" /><span></span>
+            <input type="hidden" name="attr_energypoints_max" value="10" />
+          </div>
+          <div class="willpower-box3 chartype-background-dark">
+            <span class="input-span" name="attr_energypoints" title="@{energypoints}" readonly></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="character-animalpowers sheet-box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
+        <div class="talents-grid">
+          <div class="talents-box header">
+            <h1 data-i18n="animalpowers-u">ANIMAL POWERS</h1>
+          </div>
+          <div class="talents-box2 column-header">
+            <span data-i18n="power">Power</span>
+          </div>
+          <div class="talents-box3 column-header">
+            <span data-i18n="feral">Feral</span>
+          </div>
+          <div class="talents-box4">
+            <fieldset class="repeating_animalpowers">
+              <div class="talents-grid">
+                <input class="expand" type="checkbox" name="attr_expand" value="0" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
+                <input class="talents-box1 input" type="text" name="attr_animalpower_name" value="" title="@{repeating_animalpowers_$X_animalpower_name}" data-i18n-placeholder="name" placeholder="Name" />
+                <input type="number" class="talents-box2 input-number" name="attr_ap_used" min="1" max="10" title="@{repeating_animalpowers_$X_ap_used}">
+                <span class="talents-box3 input" name="attr_animalpower_rank" title="@{repeating_animalpowers_$X_animalpower_rank}">
+                  <button name="act_animalpower_roll" class="roll-button" type="action">t</button>
+                </span>
+                <!-- expand 2nd row -->
+                <textarea class="talents-box4 input-textarea" name="attr_animalpower_description" title="@{repeating_animalpowers_$X_animalpower_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="willpower-grid">
+          <div class="willpower-box2 chartype-background-dark">
+            <input type="radio" name="attr_feralpoints" value="0" data-i18n-title="no-feralpoints" title="No Feral Points" style="margin: 4px 8px 3px 2px; width: 0.95em; height: 0.95em;" checked />
+            <input class="xbox" type="radio" name="attr_feralpoints" value="1" title="1 @{feralpoints}" /><span></span> <input
+              class="xbox" type="radio" name="attr_feralpoints" value="2" title="2 @feralpoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_feralpoints" value="3" title="3 @{feralpoints}" /><span></span> <input
+              class="xbox" type="radio" name="attr_feralpoints" value="4" title="4 @{feralpoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_feralpoints" value="5" title="5 @{feralpoints}" /><span></span> <input
+              class="xbox" type="radio" name="attr_feralpoints" value="6" title="6 @{feralpoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_feralpoints" value="7" title="7 @{feralpoints}" /><span></span> <input
+              class="xbox" type="radio" name="attr_feralpoints" value="8" title="8 @{feralpoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_feralpoints" value="9" title="9 @{feralpoints}" /><span></span> <input
+              class="xbox" type="radio" name="attr_feralpoints" value="10" title="10 @{feralpoints}" /><span></span>
+            <input type="hidden" name="attr_feralpoints_max" value="10" />
+          </div>
+          <div class="willpower-box3 chartype-background-dark">
+            <span class="input-span" name="attr_feralpoints" title="@{feralpoints}" readonly></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="character-contacts character sheet-box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
+        <div class="talents-grid">
+          <div class="talents-box header">
+            <h1 data-i18n="contacts-u">CONTACTS</h1>
+          </div>
+          <div class="talents-box2 column-header">
+            <span data-i18n="power">Points</span>
+          </div>
+          <div class="talents-box3 column-header">
+            <span data-i18n="backlash">Backlash</span>
+          </div>
+          <div class="talents-box4">
+            <fieldset class="repeating_contacts">
+              <div class="talents-grid">
+                <input class="expand" type="checkbox" name="attr_expand" value="0" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
+                <input class="talents-box1 input" type="text" name="attr_contact_name" value="" title="@{repeating_contacts_$X_contact_name}" data-i18n-placeholder="name" placeholder="Name" />
+                <input type="number" class="talents-box2 input-number" name="attr_ip_used" min="1" max="10" title="@{repeating_contact_$X_ip_used}">
+                <span class="talents-box3 input" name="attr_contact_rank" title="@{repeating_contacts_$X_contact_rank}">
+                  <button name="act_contact_roll" class="roll-button" type="action">t</button>
+                </span>
+                <!-- expand 2nd row -->
+                <textarea class="talents-box4 input-textarea" name="attr_contact_description" title="@{repeating_contacts_$X_contact_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="willpower-grid">
+          <div class="willpower-box2 chartype-background-dark">
+            <input type="radio" name="attr_influencepoints" value="0" data-i18n-title="no-influencepoints" title="No Influence Points" style="margin: 4px 8px 3px 2px; width: 0.95em; height: 0.95em;" checked />
+            <input class="xbox" type="radio" name="attr_influencepoints" value="1" title="1 @{influencepoints}" /><span></span> <input
+              class="xbox" type="radio" name="attr_influencepoints" value="2" title="2 @{influencepoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_influencepoints" value="3" title="3 @{influencepoints}" /><span></span> <input
+              class="xbox" type="radio" name="attr_influencepoints" value="4" title="4 @{influencepoints}" /><span></span>
+            <input class="xbox" type="radio" name="attrinfluencepoints" value="5" title="5 @{influencepoints}" /><span></span> <input
+              class="xbox" type="radio" name="attr_influencepoints" value="6" title="6 @{influencepoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_influencepoints" value="7" title="7 @{influencepoints}" /><span></span> <input
+              class="xbox" type="radio" name="attr_influencepoints" value="8" title="8 @{influencepoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_influencepoints" value="9" title="9 @{influencepoints}" /><span></span> <input
+              class="xbox" type="radio" name="attr_influencepoints" value="10" title="10 @{influencepoints}" /><span></span>
+            <input type="hidden" name="attr_influencepoints_max" value="10" />
+          </div>
+          <div class="willpower-box3 chartype-background-dark">
+            <span class="input-span" name="attr_influencepoints" title="@{influencepoints} readonly"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="character-biomechs character sheet-box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
+        <div class="talents-grid">
+          <div class="talents-box header">
+            <h1 data-i18n="biomechatronics-u">BIOMECHATRONICS</h1>
+          </div>
+          <div class="talents-box4">
+            <fieldset class="repeating_biomechs">
+              <div class="talents-grid">
+                <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
+                <input class="talents-box1 input" type="text" name="attr_biomech_name" value="" title="@{repeating_biomechs_$X_biomech_name}" data-i18n-placeholder="name" placeholder="Name" />
+                <!-- expand 2nd row -->
+                <textarea class="talents-box4 input-textarea" name="attr_biomech_description" title="@{repeating_biomechs_$X_biomech_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+
       <div class="character-consumables box chartype-background-light toggle-dice-only toggle-monster-only">
         <div class="consumables-grid">
           <div class="consumables-box header">
@@ -1742,6 +1890,7 @@
           </div>
         </div>
       </div>
+
       <div class="character-coins box chartype-background-light toggle-dice-only toggle-monster-only">
         <div class="coins-grid">
           <div class="coins-box header">
@@ -1866,7 +2015,7 @@
           </div>
           <div><span class="label" data-i18n="armor">Armor</span></div>
           <div>
-            <input class="input-number" type="text" name="attr_armor_shield_encumbrance" value="0" title="@{armor_shield_encumbrance}" readonly />
+            <input class="input-number" type="text" name="attr_armor_encumbrance" value="0" title="@{armor_encumbrance}" readonly />
           </div>
         </div>
         <div class="gear-box6 header">
@@ -1896,6 +2045,7 @@
           </div>
         </div>
       </div>
+
       <div class="vehicle-grid box chartype-background-light">
         <div class="vehicle-box1 header">
           <h1 data-i18n="vehicle-u">VEHICLE</h1>
@@ -2037,7 +2187,7 @@
             <span data-i18n="max-abbr">Max</span>
           </div>
           <div class="armor-box4 column-header">
-            <span data-i18n="misc-skill-abbr">Misc Skill</span>
+            <span data-i18n="modifier-abbr">Mod</span>
           </div>
           <div class="armor-box5 column-header">
             <span data-i18n="features">Features</span>
@@ -2048,10 +2198,10 @@
           <div class="armor-box10">
             <fieldset class="repeating_armor">
               <div class="armor-grid">
-                <input class="armor-box1 input" type="text" name="attr_armor1_name" value="" title="@{armor1_name}" data-i18n-placeholder="name" placeholder="name" />
-                <input class="armor-box2 input-number" type="number" name="attr_armor1_bonus" value="0" min="0" data-i18n-title="armor1-bonus" title="Record the armor's CURRENT bonus up to MAX (adjusts GEAR dice). @{armor1_bonus}" />
-                <input class="armor-box3 input-number" type="number" name="attr_armor1_bonus_max" value="0" min="0" data-i18n-title="armor1-bonus-max" title="Record the armor's UNDAMAGED bonus. @{armor1_bonus_max}" />
-                <select class="armor-box4 input" name="attr_armor1_damage" data-i18n-title="armor1-bonus-misc" title="Miscellaneous bonus modifier (adjusts GEAR dice). @{armor1_damage}">
+                <input class="armor-box1 input" type="text" name="attr_armor_name" value="" title="@{armor_name}" data-i18n-placeholder="name" placeholder="name" />
+                <input class="armor-box2 input-number" type="number" name="attr_armor_bonus" value="0" min="0" max="@{armor-bonus-max}" data-i18n-title="armor-bonus" title="Record the armor's CURRENT bonus up to MAX (adjusts GEAR dice). @{armor_bonus}" />
+                <input class="armor-box3 input-number" type="number" name="attr_armor_bonus_max" value="0" min="0" data-i18n-title="armor-bonus-max" title="Record the armor's UNDAMAGED bonus. @{armor_bonus_max}" />
+                <select class="armor-box4 input" name="attr_armor_bonus_misc" data-i18n-title="armor-bonus-misc" title="Miscellaneous bonus modifier (adjusts GEAR dice). @{armor_damage}">
                   <option value="6">+6</option>
                   <option value="5">+5</option>
                   <option value="4">+4</option>
@@ -2066,45 +2216,44 @@
                   <option value="-5">-5</option>
                   <option value="-6">-6</option>
                 </select>
-                <input class="armor-box5 input" type="text" name="attr_armor1_features" value="" title="@{armor1_features}" />
-                <span class="armor-box6 readonly" name="attr_armor1_ar" value="0" data-i18n-title="armor1-bonus-total" title="Total GEAR and SKILL dice included for armor1. @{armor1_ar}">0</span>
+                <input class="armor-box5 input" type="text" name="attr_armor_features" value="" title="@{armor_features}" />
+                <input class="armor-box6 readonly" name="attr_armor_ar" value="0" data-i18n-title="armor-bonus-total" title="Total GEAR and SKILL dice included for armor. @{armor_ar}" readonly />
 
                 <!-- expand 2nd row -->
-                <input class="expand" type="checkbox" name="attr_expand_armor1" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
-                <!-- 2nd row -->
-                <!-- --> 
-                  <div class="armor-row2">               
-                    <span class="armor-box21">
-                      <span data-i18n="carried">Carried</span>
-                    </span>
-                    <select class="armor-box22 input" name="attr_armor1_carried" title="@{armor1_carried}">
-                      <option data-i18n="yes" value="1" selected>Yes</option>
-                      <option data-i18n="no" value="0">No</option>
-                      <option data-i18n="vehicle" value="0">vehicle</option>
-                    </select>
-                    <span class="armor-box23">
-                      <span data-i18n="weight">Weight</span>
-                    </span>
-                    <select class="armor-box24 input" name="attr_armor1_weight" title="@{armor1_weight}">
-                      <option data-i18n="tiny-abbr" value="0" selected>T</option>
-                      <option data-i18n="light-abbr" value="0.5">L</option>
-                      <option data-i18n="normal-abbr" value="1">N</option>
-                      <option data-i18n="heavy-abbr" value="2">H</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                      <option value="7">7</option>
-                      <option value="8">8</option>
-                      <option value="9">9</option>
-                      <option value="10">10</option>
-                    </select>
-                    <span class="armor-box25"><span data-i18n="donned">Donned</span></span>
-                    <input class="armor-box26 input" type="checkbox" name="attr_armor1_equipped" value="1" title="@{armor1_equipped}" checked />
-                  </div>
-                </div> 
+                <input class="expand" type="checkbox" name="attr_expand_armor" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
+                  <!-- 2nd row -->
+                  <!-- --> 
+                <div class="armor-row2">               
+                  <span class="armor-box21">
+                    <span data-i18n="carried">Carried</span>
+                  </span>
+                  <select class="armor-box22 input" name="attr_armor_carried" title="@{armor_carried}">
+                    <option data-i18n="yes" value="1" selected>Yes</option>
+                    <option data-i18n="no" value="0">No</option>
+                  </select>
+                  <span class="armor-box23">
+                    <span data-i18n="weight">Weight</span>
+                  </span>
+                  <select class="armor-box24 input" name="attr_armor_weight" title="@{armor_weight}">
+                    <option data-i18n="tiny-abbr" value="0" selected>T</option>
+                    <option data-i18n="light-abbr" value="0.5">L</option>
+                    <option data-i18n="normal-abbr" value="1">N</option>
+                    <option data-i18n="heavy-abbr" value="2">H</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                  <span class="armor-box25"><span data-i18n="donned">Donned</span></span>
+                  <input class="armor-box26 input" type="checkbox" name="attr_armor_equipped" value="1" title="@{armor_equipped}" checked />
+                </div>
               </div>       
             </fieldset>
+          </div>
           <div class="armor-ar">
             <div class="armor-subgrid">
               <span class="armor-box3 header">
@@ -2112,12 +2261,21 @@
                   ARMOR RATING
                 </h1>
               </span>
-              <span class="armor-box4 input-span chartype-border-darkest" name="attr_ar" value="0" data-i18n-title="armor-rating-total" title="Total GEAR dice included for armor1 + armor2. @{ar}"></span>
+              <span class="armor-box4 input-span chartype-border-darkest" data-i18n-title="armor-rating-total" title="Total GEAR dice included for all armor. @{ar_total}">
+                <button type="action" class="armor-button" name="act_armor-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+                  <span class="readonly character-skill-total ar-total" name="attr_ar_total" value="0" title="@{ar_total}">0</span>
+                </button>
+              </span>
+              <!--
               <span class="armor-box5">
+                <button type="action" class="armor-button" name="act_armor-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+                  <span class="readonly character-skill-total ar-total" name="attr_ar_total" value="0" title="@{ar_total}">0</span>
+                </button>
                 <button type="action" name="act_armor-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice." data-i18n="armor"   style="height: 2em; width: 4em;">
                   Armor
                 </button>
               </span>
+              -->
             </div>
           </div>
         </div>
@@ -3620,47 +3778,18 @@
     repeatingSum("weapons_encumbrance", "weapons", ["weapon_weight", "weapon_carried"]);
   });
   
-  /* armor/helmet weight */
-  on("sheet:opened change:armor1_carried change:armor2_carried change:armor3_carried change:armor4_carried change:armor1_weight change:armor2_weight change:armor3_weight change:armor4_weight", function () {
-    getAttrs(["armor1_carried", "armor2_carried", "armor3_carried", "armor4_carried", "armor1_weight", "armor2_weight", "armor3_weight", "armor4_weight"], function (values) {
-      clog("Change Detected: Armor/Helmet Weight");
-      const armor1_carried = int(values["armor1_carried"]),
-        armor2_carried = int(values["armor2_carried"]),
-        armor3_carried = int(values["armor3_carried"]),
-        armor4_carried = int(values["armor4_carried"]),
-        armor1_weight = float(values["armor1_weight"]),
-        armor2_weight = float(values["armor2_weight"]),
-        armor3_weight = float(values["armor3_weight"]),
-        armor4_weight = float(values["armor4_weight"]),
-        temp_armor1_carried = armor1_carried * armor1_weight,
-        temp_armor2_carried = armor2_carried * armor2_weight,
-        temp_armor3_carried = armor3_carried * armor3_weight,
-        temp_armor4_carried = armor4_carried * armor4_weight,
-        armor_carried = (temp_armor1_carried + temp_armor2_carried + temp_armor3_carried + temp_armor4_carried).toFixed(1);
-      clog("Armor/Helmet Weight: " + armor_carried);
-      setAttrs({
-        armor_encumbrance: armor_carried,
-      });
-    });
+  /* armor encumbrance */
+  on("change:repeating_armor remove:repeating_armor sheet:opened", function () {
+    clog("Change Detected: Character Armor Encumbrance");
+    repeatingSum("armor_encumbrance", "armor", ["armor_weight", "armor_carried"]);
   });
   
-  /* shield weight */
-  on("sheet:opened change:shield1_carried change:shield1_weight", function () {
-    getAttrs(["shield1_carried", "shield1_weight"], function (values) {
-      clog("Change Detected: Shield Weight");
-      const shield1_carried = int(values["shield1_carried"]),
-        shield1_weight = float(values["shield1_weight"]),
-        temp_shield1_carried = shield1_carried * shield1_weight,
-        shield_carried = temp_shield1_carried.toFixed(1);
-  
-      clog("Shield Weight: " + shield1_carried);
-  
-      setAttrs({
-        shield_encumbrance: shield_carried,
-      });
-    });
+  /* armor rating */
+  on("change:repeating_armor remove:repeating_armor sheet:opened", function () {
+    clog("Change Detected: Character Armor Rating");
+    repeatingSum("ar_total", "armor", ["armor_ar", "armor_equipped"]);
   });
-  
+    
   /* coin weight */
   on("sheet:opened change:gold change:silver change:copper change:gold_vehicle change:silver_vehicle change:copper_vehicle", function () {
     getAttrs(["gold", "silver", "copper", "gold_vehicle", "silver_vehicle", "copper_vehicle"], function (values) {
@@ -3683,59 +3812,33 @@
   });
   
   /* total encumbrance */
-  on("sheet:opened change:character_gear_encumbrance change:vehicle_gear_encumbrance change:coins_carried change:coins_carried_vehicle change:weapons_encumbrance change:armor_encumbrance change:shield_encumbrance", function () {
+  on("sheet:opened change:character_gear_encumbrance change:vehicle_gear_encumbrance change:coins_carried change:coins_carried_vehicle change:weapons_encumbrance change:armor_encumbrance", function () {
     getAttrs(["character_gear_encumbrance", "vehicle_gear_encumbrance", "coins_carried", "coins_carried_vehicle", "weapons_encumbrance", "armor_encumbrance", "shield_encumbrance", "armor_shield_encumbrance"], function (values) {
       clog("Change Detected: Character Encumbrance");
       const character_gear_encumbrance = float(values["character_gear_encumbrance"]),
         vehicle_gear_encumbrance = float(values["vehicle_gear_encumbrance"]),
         weapons_encumbrance = float(values["weapons_encumbrance"]),
         armor_encumbrance = float(values["armor_encumbrance"]),
-        shield_encumbrance = float(values["shield_encumbrance"]),
-        armor_shield_encumbrance = armor_encumbrance + shield_encumbrance,
         coins_carried = float(values["coins_carried"]),
         coins_carried_vehicle = float(values["coins_carried_vehicle"]),
-        sum_character_weight = character_gear_encumbrance + weapons_encumbrance + armor_encumbrance + shield_encumbrance + coins_carried,
+        sum_character_weight = character_gear_encumbrance + weapons_encumbrance + armor_encumbrance + coins_carried,
         sum_vehicle_weight = vehicle_gear_encumbrance + coins_carried_vehicle;
       setAttrs({
-        armor_shield_encumbrance: armor_shield_encumbrance,
+        weapons_encumbrance: weapons_encumbrance,
+        armor_encumbrance: armor_encumbrance,
         character_encumbrance: sum_character_weight,
         vehicle_encumbrance: sum_vehicle_weight,
       });
     });
   });
   
-  /* coin total 
-  on("sheet:opened change:gold change:silver change:copper change:gold_vehicle change:silver_vehicle change:copper_vehicle change:gold_other change:silver_other change:copper_other", function () {
-    getAttrs(["gold", "silver", "copper", "gold_vehicle", "silver_vehicle", "copper_vehicle", "gold_other", "silver_other", "copper_other"], function (values) {
-      clog("Change Detected: Coin Total");
-      const gold = int(values["gold"]),
-        silver = int(values["silver"]),
-        copper = int(values["copper"]),
-        gold_vehicle = int(values["gold_vehicle"]),
-        silver_vehicle = int(values["silver_vehicle"]),
-        copper_vehicle = int(values["copper_vehicle"]),
-        gold_other = int(values["gold_other"]),
-        silver_other = int(values["silver_other"]),
-        copper_other = int(values["copper_other"]),
-        sum_gold = gold + gold_vehicle + gold_other,
-        sum_silver = silver + silver_vehicle + silver_other,
-        sum_copper = copper + copper_vehicle + copper_other;
-      setAttrs({
-        gold_total: sum_gold,
-        silver_total: sum_silver,
-        copper_total: sum_copper,
-      });
-    });
-  });
-  */
-  
-  /* coin total */
+  /* Credits total */
   on("sheet:opened change:credits change:credits_vehicle change:credits_stash", function () {
     getAttrs(["credits", "credits_vehicle", "credits_stash"], function (values) {
-      clog("Change Detected: Coin Total");
+      clog("Change Detected: Credits Total");
       const credits = float(values["credits"]),
         credits_vehicle = float(values["credits_vehicle"]),
-        credit_stash = ifloat(values["credits_stash"]),
+        credits_stash = ifloat(values["credits_stash"]),
         sum_credits = credits + credits_vehicle + credits_stash;
       setAttrs({
         credits_total: sum_credits,
@@ -3804,12 +3907,9 @@
   /* skill total calcs */
   const attributes = {
       // a javascript Object Literal, containing each skill, and its corresponding attribute
-      "Animal Handling": "empathy_total",
-      Crafting: "strength_total",
       endure: "strength_total",
       heal: "empathy_total",
       comprehend: "wits_total",
-      Lore: "wits_total",
       manipulate: "empathy_total",
       shoot: "agility_total",
       fight: "strength_total",
@@ -3819,16 +3919,12 @@
       scout: "wits_total",
       "Know the Zone": "wits",
       sneak: "agility_total",
-      Survival: "wits_total",
     },
     misc = {
       // a javascript Object Literal, containing each skill, and its corresponding attribute
-      "Animal Handling": "animal_handling_skill_misc",
-      Crafting: "crafting_skill_misc",
       endure: "endure_skill_misc",
       heal: "heal_skill_misc",
       comprehend: "comprehend_skill_misc",
-      Lore: "lore_skill_misc",
       manipulate: "manipulate_skill_misc",
       shoot: "shoot_skill_misc",
       fight: "fight_skill_misc",
@@ -3838,16 +3934,12 @@
       scout: "scout_skill_misc",
       "Know the Zone": "know_the_zone_skill_misc",
       sneak: "sneak_skill_misc",
-      Survival: "survival_skill_misc",
     },
     miscGear = {
       // a javascript Object Literal, containing each skill, and its corresponding attribute
-      "Animal Handling": "animal_handling_gear_misc",
-      Crafting: "crafting_gear_misc",
       endure: "endure_gear_misc",
       heal: "heal_gear_misc",
       comprehend: "comprehend_gear_misc",
-      Lore: "lore_gear_misc",
       manipulate: "manipulate_gear_misc",
       shoot: "shoot_gear_misc",
       fight: "fight_gear_misc",
@@ -3857,7 +3949,6 @@
       scout: "scout_gear_misc",
       "Know the Zone": "know_the_zone_gear_misc",
       sneak: "sneak_gear_misc",
-      Survival: "survival_gear_misc",
     },
     getSkill = (label) => label.split(" ").join("_").toLowerCase(),
     // a function to change (for example) "Animal Handling" to "animal_handling"
@@ -3882,6 +3973,24 @@
           [skill + "_total"]: stat_score + skillRank_score + miscSkill_score + miscGear_score,
         });
       });
+    });
+  });
+    
+  /* set repeating armor rating */
+  on("repeating_armor:armor_bonus change:repeating_armor:armor_bonus_max change:repeating_armor:armor_bonus_misc sheet:opened", function () {
+    clog("Change Detected: Repeating Armor Bonus - recalculating Bonus totals");
+    // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
+    getAttrs(["repeating_armor_armor_bonus", "repeating_armor_armor_bonus_misc", "repeating_armor_armor_bonus_max", "repeating_armor_armor_ar"], function (values) {
+      const armor_bonus_misc = int(values.repeating_armor_armor_bonus_misc),
+      armor_bonus = int(values.repeating_armor_armor_bonus),
+      armor_bonus_max = int(values.repeating_armor_armor_bonus_max);
+      // separate out the basic values read from the sheet from those calculated within the worker
+      const armor_bonus_total = Math.min(armor_bonus, armor_bonus_max) + armor_bonus_misc;
+      clog("armor calculation: armor_bonus " + armor_bonus + " armor_bonus_misc " + armor_bonus_misc + " = armor_bonus_total " +armor_bonus_total);
+      setAttrs({
+        repeating_armor_armor_ar: armor_bonus_total,
+      });
+      clog("armor_rating: " + armor_bonus_total);
     });
   });
   
@@ -3913,8 +4022,7 @@
     });
   });
   
-  /* set weapon bonus_total */
-  
+  /* set weapon bonus_total */  
   on("repeating_weapons:weapon_name change:repeating_weapons:weapon_bonus change:repeating_weapons:weapon_bonus_misc  change:repeating_weapons:weapon_bonus_max", function () {
     clog("Change Detected: Weapon Attacks - recalculating Bonus totals");
     // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
@@ -4135,7 +4243,7 @@
   });
   
   on("sheet:opened clicked:dice_pool_clear", function () {
-    clog("Change Detected: Clear Dice Pool - button clicked");
+    clog("Change Detected: Clear Dice Pool - button clicked or sheet loaded");
     setAttrs({
       attribute: 0,
       skill: 0,
@@ -4200,45 +4308,6 @@
       }
       setAttrs({
         api_toggle: buttonState,
-      });
-    });
-  });
-  
-  /* set reputation total */
-  on("sheet:opened change:age change:reputation", function () {
-    clog("Change Detected: Reputation - recalculating total");
-    getAttrs(["age", "reputation", "reputation_total"], function (values) {
-      const age = values.age,
-        reputation = int(values.reputation);
-      let ageNum = 0;
-      if (age === "young") {
-        ageNum = 0;
-      }
-      if (age === "adult") {
-        ageNum = 1;
-      }
-      if (age === "old") {
-        ageNum = 2;
-      }
-      let reputation_total = ageNum + reputation;
-      setAttrs({
-        reputation_total: reputation_total,
-      });
-      clog("reputation_total: " + reputation_total);
-    });
-  });
-  
-  /* set reputation dice pool */
-  on("clicked:reputation-roll", function () {
-    clog("Change Detected: Reputation - button clicked");
-    getAttrs(["reputation_total"], function (values) {
-      const reputation_total = int(values.reputation_total);
-      setAttrs({
-        attribute: 0,
-        skill: reputation_total,
-        gear: 0,
-        current_preset: getTranslationByKey(`reputation-roll`),
-        include_with_roll: "{{attribute-die-one}}", //hides the dice column footer
       });
     });
   });
@@ -4355,227 +4424,23 @@
     });
   });
   
-  /* set armor and shield calcs */
-  on(
-    "sheet:opened change:fight change:strength_total change:armor1_equipped change:armor1_damage change:armor1_bonus change:armor1_bonus_max change:armor2_equipped change:armor2_damage change:armor2_bonus change:armor2_bonus_max change:armor3_equipped change:armor3_damage change:armor3_bonus change:armor3_bonus_max change:armor4_equipped change:armor4_damage change:armor4_bonus change:armor4_bonus_max change:shield1_equipped change:shield1_bonus change:shield1_bonus_max change:shield1_bonus_misc",
-    function () {
-      clog("Change Detected: Armor/Helmet/Shield");
-      getAttrs(["fight", "strength_total", "armor1_equipped", "armor1_bonus", "armor1_bonus_max", "armor1_damage", "armor2_equipped", "armor2_bonus", "armor2_bonus_max", "armor2_damage", "armor3_equipped", "armor3_bonus", "armor3_bonus_max", "armor3_damage", "armor4_equipped", "armor4_bonus", "armor4_bonus_max", "armor4_damage", "shield1_equipped", "shield1_bonus", "shield1_bonus_misc", "shield1_bonus_max"], function (values) {
-        const armor1_equipped = int(values.armor1_equipped),
-          armor1_bonus = int(values.armor1_bonus),
-          armor1_bonus_max = int(values.armor1_bonus_max),
-          armor1_bonusCap = Math.min(armor1_bonus, armor1_bonus_max), //prevents inputting a higher bonus than the bonus_max value
-          armor1_damage = int(values.armor1_damage),
-          armor2_equipped = int(values.armor2_equipped),
-          armor2_bonus = int(values.armor2_bonus),
-          armor2_bonus_max = int(values.armor2_bonus_max),
-          armor2_bonusCap = Math.min(armor2_bonus, armor2_bonus_max), //prevents inputting a higher bonus than the bonus_max value
-          armor2_damage = int(values.armor2_damage),
-          armor3_equipped = int(values.armor3_equipped),
-          armor3_bonus = int(values.armor3_bonus),
-          armor3_bonus_max = int(values.armor3_bonus_max),
-          armor3_bonusCap = Math.min(armor3_bonus, armor3_bonus_max), //prevents inputting a higher bonus than the bonus_max value
-          armor3_damage = int(values.armor3_damage),
-          armor4_equipped = int(values.armor4_equipped),
-          armor4_bonus = int(values.armor4_bonus),
-          armor4_bonus_max = int(values.armor4_bonus_max),
-          armor4_bonusCap = Math.min(armor4_bonus, armor4_bonus_max), //prevents inputting a higher bonus than the bonus_max value
-          armor4_damage = int(values.armor4_damage),
-          strength_total = int(values.strength_total),
-          fight = int(values.fight),
-          shield1_equipped = int(values.shield1_equipped),
-          shield1_bonus = int(values.shield1_bonus),
-          shield1_bonus_misc = int(values.shield1_bonus_misc),
-          shield1_bonus_max = int(values.shield1_bonus_max),
-          shield1_bonusCap = Math.min(shield1_bonus, shield1_bonus_max), //prevents inputting a higher bonus than the bonus_max value
-          shield1_bonus_total = Math.max(shield1_equipped * (strength_total + shield1_bonusCap + fight + shield1_bonus_misc)),
-          tempAR1 = armor1_equipped * (armor1_bonusCap + armor1_damage),
-          tempAR2 = armor2_equipped * (armor2_bonusCap + armor2_damage),
-          tempAR3 = armor3_equipped * (armor3_bonusCap + armor3_damage),
-          tempAR4 = armor4_equipped * (armor4_bonusCap + armor4_damage),
-          tempAR = Math.max(tempAR1 + tempAR2 + tempAR3 + tempAR4, 0); //prevents negative value
-        setAttrs({
-          armor1_ar: tempAR1,
-          armor2_ar: tempAR2,
-          armor3_ar: tempAR3,
-          armor4_ar: tempAR4,
-          ar: tempAR,
-          armor1_bonus: armor1_bonusCap, //applies cap based on the bonus_max value
-          armor2_bonus: armor2_bonusCap, //applies cap based on the bonus_max value
-          armor3_bonus: armor3_bonusCap, //applies cap based on the bonus_max value
-          armor4_bonus: armor4_bonusCap, //applies cap based on the bonus_max value
-          shield1_bonus: shield1_bonusCap, //applies cap based on the bonus_max value
-          shield1_bonus_total: shield1_bonus_total,
-        });
-      });
-    }
-  );
-  
-  /* set armor artifact dice totals */
-  on(
-    "sheet:opened change:armor_artifact_die_ocho change:armor_artifact_die_eight change:armor_artifact_die_ten change:armor_artifact_die_twelve change:armor1_artifact_die_ocho change:armor1_artifact_die_eight change:armor1_artifact_die_ten change:armor1_artifact_die_twelve change:armor2_artifact_die_ocho change:armor2_artifact_die_eight change:armor2_artifact_die_ten change:armor2_artifact_die_twelve change:armor3_artifact_die_ocho change:armor3_artifact_die_eight change:armor3_artifact_die_ten change:armor3_artifact_die_twelve change:armor4_artifact_die_ocho change:armor4_artifact_die_eight change:armor4_artifact_die_ten change:armor4_artifact_die_twelve",
-    function () {
-      clog("Change Detected: Armor Artifact Dice");
-      getAttrs(["armor_artifact_die_ocho", "armor_artifact_die_eight", "armor_artifact_die_ten", "armor_artifact_die_twelve", "armor1_artifact_die_ocho", "armor1_artifact_die_eight", "armor1_artifact_die_ten", "armor1_artifact_die_twelve", "armor2_artifact_die_ocho", "armor2_artifact_die_eight", "armor2_artifact_die_ten", "armor2_artifact_die_twelve", "armor3_artifact_die_ocho", "armor3_artifact_die_eight", "armor3_artifact_die_ten", "armor3_artifact_die_twelve", "armor4_artifact_die_ocho", "armor4_artifact_die_eight", "armor4_artifact_die_ten", "armor4_artifact_die_twelve"],
-    function (values) {
-        const	armor1_artifact_die_ocho = int(values.armor1_artifact_die_ocho),
-          armor1_artifact_die_eight = int(values.armor1_artifact_die_eight),
-          armor1_artifact_die_ten = int(values.armor1_artifact_die_ten),
-          armor1_artifact_die_twelve = int(values.armor1_artifact_die_twelve),
-          armor2_artifact_die_ocho = int(values.armor2_artifact_die_ocho),
-          armor2_artifact_die_eight = int(values.armor2_artifact_die_eight),
-          armor2_artifact_die_ten = int(values.armor2_artifact_die_ten),
-          armor2_artifact_die_twelve = int(values.armor3_artifact_die_twelve),
-          armor3_artifact_die_ocho = int(values.armor3_artifact_die_ocho),
-          armor3_artifact_die_eight = int(values.armor3_artifact_die_eight),
-          armor3_artifact_die_ten = int(values.armor3_artifact_die_ten),
-          armor3_artifact_die_twelve = int(values.armor3_artifact_die_twelve),
-          armor4_artifact_die_ocho = int(values.armor4_artifact_die_ocho),
-          armor4_artifact_die_eight = int(values.armor4_artifact_die_eight),
-          armor4_artifact_die_ten = int(values.armor4_artifact_die_ten),
-          armor4_artifact_die_twelve = int(values.armor4_artifact_die_twelve);
-        setAttrs({
-          armor_artifact_die_ocho: Math.max(armor1_artifact_die_ocho, armor2_artifact_die_ocho, armor3_artifact_die_ocho, armor4_artifact_die_ocho),
-          armor_artifact_die_eight: Math.max(armor1_artifact_die_eight, armor2_artifact_die_eight, armor3_artifact_die_eight, armor4_artifact_die_eight),
-          armor_artifact_die_ten: Math.max(armor1_artifact_die_ten, armor2_artifact_die_ten, armor3_artifact_die_ten, armor4_artifact_die_ten),
-          armor_artifact_die_twelve: Math.max(armor1_artifact_die_twelve, armor2_artifact_die_twelve, armor3_artifact_die_twelve, armor4_artifact_die_twelve),
-        });
-      });
-    }
-  );
-  
   /* set armor dice pool */
   on("clicked:armor-roll", function () {
     clog("Change Detected: Armor - button clicked");
-    getAttrs([ "ar", "armor_artifact_die_ocho", "armor_artifact_die_eight", "armor_artifact_die_ten", "armor_artifact_die_twelve", "armor1_artifact_die_ocho", "armor1_artifact_die_eight", "armor1_artifact_die_ten", "armor1_artifact_die_twelve", "armor2_artifact_die_ocho", "armor2_artifact_die_eight", "armor2_artifact_die_ten", "armor2_artifact_die_twelve", "armor3_artifact_die_ocho", "armor3_artifact_die_eight", "armor3_artifact_die_ten", "armor3_artifact_die_twelve", "armor4_artifact_die_ocho", "armor4_artifact_die_eight", "armor4_artifact_die_ten", "armor4_artifact_die_twelve", "armor1_equipped", "armor1_name", "armor1_bonus", "armor1_bonus_max", "armor1_damage", "armor1_ar", "armor2_equipped", "armor2_name", "armor2_bonus", "armor2_bonus_max", "armor2_damage", "armor2_ar", "armor3_equipped", "armor3_name", "armor3_bonus", "armor3_bonus_max", "armor3_damage", "armor3_ar", "armor4_equipped", "armor4_name", "armor4_bonus", "armor4_bonus_max", "armor4_damage", "armor4_ar"],
-      function (values) {
-        const ar = int(values.ar),
-          armor1_equipped = values.armor1_equipped,
-          armor1_name = values.armor1_name,
-          armor1_bonus = int(values.armor1_bonus),
-          armor1_bonus_max = int(values.armor1_bonus_max),
-          armor1_damage = int(values.armor1_damage),
-          armor1_ar = int(values.armor1_ar),
-          armor2_equipped = values.armor2_equipped,
-          armor2_name = values.armor2_name,
-          armor2_bonus = int(values.armor2_bonus),
-          armor2_bonus_max = int(values.armor2_bonus_max),
-          armor2_damage = int(values.armor2_damage),
-          armor2_ar = int(values.armor2_ar),
-          armor3_equipped = values.armor3_equipped,
-          armor3_name = values.armor3_name,
-          armor3_bonus = int(values.armor3_bonus),
-          armor3_bonus_max = int(values.armor3_bonus_max),
-          armor3_damage = int(values.armor3_damage),
-          armor3_ar = int(values.armor3_ar),
-          armor4_equipped = values.armor4_equipped,
-          armor4_name = values.armor4_name,
-          armor4_bonus = int(values.armor4_bonus),
-          armor4_bonus_max = int(values.armor4_bonus_max),
-          armor4_damage = int(values.armor4_damage),
-          armor4_ar = int(values.armor4_ar),
-          armor1_artifact_die_ocho = int(values.armor1_artifact_die_ocho),
-          armor1_artifact_die_eight = int(values.armor1_artifact_die_eight),
-          armor1_artifact_die_ten = int(values.armor1_artifact_die_ten),
-          armor1_artifact_die_twelve = int(values.armor1_artifact_die_twelve),
-          armor2_artifact_die_ocho = int(values.armor2_artifact_die_ocho),
-          armor2_artifact_die_eight = int(values.armor2_artifact_die_eight),
-          armor2_artifact_die_ten = int(values.armor2_artifact_die_ten),
-          armor2_artifact_die_twelve = int(values.armor3_artifact_die_twelve),
-          armor3_artifact_die_ocho = int(values.armor3_artifact_die_ocho),
-          armor3_artifact_die_eight = int(values.armor3_artifact_die_eight),
-          armor3_artifact_die_ten = int(values.armor3_artifact_die_ten),
-          armor3_artifact_die_twelve = int(values.armor3_artifact_die_twelve),
-          armor4_artifact_die_ocho = int(values.armor4_artifact_die_ocho),
-          armor4_artifact_die_eight = int(values.armor4_artifact_die_eight),
-          armor4_artifact_die_ten = int(values.armor4_artifact_die_ten),
-          armor4_artifact_die_twelve = int(values.armor4_artifact_die_twelve),
-          armor_artifact_die_ocho = int(values.armor_artifact_die_ocho),
-          armor_artifact_die_eight = int(values.armor_artifact_die_eight),
-          armor_artifact_die_ten = int(values.armor_artifact_die_ten),
-          armor_artifact_die_twelve = int(values.armor_artifact_die_twelve),
-          armorMiscSkill = Math.max(armor1_damage + armor2_damage + armor3_damage + armor4_damage, -3), //max of 3 negative dice
-          armorMiscGear = ar;
+    getAttrs(["ar_total"], function (values) {
+        const ar_total = int(values.ar_total);
         setAttrs({
           attribute: 0,
-          gear: armorMiscGear,
-          skill: armorMiscSkill,
-          artifact_die_ocho: Math.max(armor_artifact_die_ocho, armor1_artifact_die_ocho, armor2_artifact_die_ocho, armor3_artifact_die_ocho, armor4_artifact_die_ocho),
-          artifact_die_eight: Math.max(armor_artifact_die_eight, armor1_artifact_die_eight, armor2_artifact_die_eight, armor3_artifact_die_eight, armor4_artifact_die_eight),
-          artifact_die_ten: Math.max(armor_artifact_die_ten, armor1_artifact_die_ten, armor2_artifact_die_ten, armor3_artifact_die_ten, armor4_artifact_die_ten),
-          artifact_die_twelve: Math.max(armor_artifact_die_twelve, armor1_artifact_die_twelve, armor2_artifact_die_twelve, armor3_artifact_die_twelve, armor4_artifact_die_twelve),
+          gear: ar_total,
+          skill: 0,
           current_preset: getTranslationByKey(`armor-roll`),
-          include_with_roll: `{{armor1-equipped=[[ ${armor1_equipped} ]]}} {{armor1-name=${armor1_name}}} {{armor1-rating=${armor1_bonus}}} {{armor1-rating-max=${armor1_bonus_max}}} {{armor1-rating-misc=${armor1_damage}}} {{armor1-rating-total=${armor1_ar}}} {{armor2-equipped=[[ ${armor2_equipped} ]]}} {{armor2-name=${armor2_name}}} {{armor2-rating=${armor2_bonus}}} {{armor2-rating-max=${armor2_bonus_max}}} {{armor2-rating-misc=${armor2_damage}}} {{armor2-rating-total=${armor2_ar}}} {{armor3-equipped=[[ ${armor3_equipped} ]]}} {{armor3-name=${armor3_name}}} {{armor3-rating=${armor3_bonus}}} {{armor3-rating-max=${armor3_bonus_max}}} {{armor3-rating-misc=${armor3_damage}}} {{armor3-rating-total=${armor3_ar}}} {{armor4-equipped=[[ ${armor4_equipped} ]]}} {{armor4-name=${armor4_name}}} {{armor4-rating=${armor4_bonus}}} {{armor4-rating-max=${armor4_bonus_max}}} {{armor4-rating-misc=${armor4_damage}}} {{armor4-rating-total=${armor4_ar}}}`,
+          include_with_roll: `{{armor-rating=[[ ${ar_total} ]]}}`,
         });
       }
     );
   });
   
-  /* set shield dice pool */
-  on("clicked:shield-shove-roll", function () {
-    clog("Change Detected: Shield Shove - button clicked");
-    getAttrs(["shield1_bonus", "shield1_bonus_max", "shield1_bonus_misc", "shield1_bonus_total", "fight", "strength_total", "shield1_name", "shield1_artifact_die_ocho", "shield1_artifact_die_eight", "shield1_artifact_die_ten", "shield1_artifact_die_twelve"], function (values) {
-      const skill = int(values.fight),
-        fight = int(values.fight),
-        strength_total = int(values.strength_total),
-        strength = int(values.strength_total),
-        shield1_bonus = int(values.shield1_bonus),
-        shield1_bonus_misc = int(values.shield1_bonus_misc),
-        shield1_bonus_max = int(values.shield1_bonus_max),
-        shield1_bonus_total = int(values.shield1_bonus_total),
-        shield1_name = values.shield1_name,
-        shield1MiscSkill = Math.max(skill + shield1_bonus_misc, -3),
-        shield1MiscGear = shield1_bonus_total - skill - shield1_bonus_misc - strength,
-        shield1_artifact_die_ocho = int(values.shield1_artifact_die_ocho),
-        shield1_artifact_die_eight = int(values.shield1_artifact_die_eight),
-        shield1_artifact_die_ten = int(values.shield1_artifact_die_ten),
-        shield1_artifact_die_twelve = int(values.shield1_artifact_die_twelve);
-      setAttrs({
-        attribute: strength,
-        gear: shield1MiscGear,
-        skill: shield1MiscSkill,
-        artifact_die_ocho: shield1_artifact_die_ocho,
-        artifact_die_eight: shield1_artifact_die_eight,
-        artifact_die_ten: shield1_artifact_die_ten,
-        artifact_die_twelve: shield1_artifact_die_twelve,
-        current_preset: getTranslationByKey(`shove`) + ` - ` + getTranslationByKey(`shield`),
-        include_with_roll: `{{shield1-name=${shield1_name}}} {{shield1-base=${strength_total}}} {{shield1-skill=${fight}}} {{shield1-bonus=${shield1_bonus}}} {{shield1-bonus-max=${shield1_bonus_max}}} {{shield1-bonus-misc=${shield1_bonus_misc}}}`,
-      });
-    });
-  });
-  
-  on("clicked:shield-roll", function () {
-    clog("Change Detected: Shield Parry - button clicked");
-    getAttrs(["shield1_bonus", "shield1_bonus_max", "shield1_bonus_misc", "shield1_bonus_total", "fight", "strength_total", "shield1_name", "shield1_artifact_die_ocho", "shield1_artifact_die_eight", "shield1_artifact_die_ten", "shield1_artifact_die_twelve"], function (values) {
-      const skill = int(values.fight),
-        fight = int(values.fight),
-        strength_total = int(values.strength_total),
-        strength = int(values.strength_total),
-        shield1_bonus = int(values.shield1_bonus),
-        shield1_bonus_misc = int(values.shield1_bonus_misc),
-        shield1_bonus_max = int(values.shield1_bonus_max),
-        shield1_bonus_total = int(values.shield1_bonus_total),
-        shield1_name = values.shield1_name,
-        shield1MiscSkill = Math.max(skill + shield1_bonus_misc, -3),
-        shield1MiscGear = shield1_bonus_total - skill - shield1_bonus_misc - strength,
-        shield1_artifact_die_ocho = int(values.shield1_artifact_die_ocho),
-        shield1_artifact_die_eight = int(values.shield1_artifact_die_eight),
-        shield1_artifact_die_ten = int(values.shield1_artifact_die_ten),
-        shield1_artifact_die_twelve = int(values.shield1_artifact_die_twelve);
-      setAttrs({
-        attribute: strength,
-        gear: shield1MiscGear,
-        skill: shield1MiscSkill,
-        artifact_die_ocho: shield1_artifact_die_ocho,
-        artifact_die_eight: shield1_artifact_die_eight,
-        artifact_die_ten: shield1_artifact_die_ten,
-        artifact_die_twelve: shield1_artifact_die_twelve,
-        current_preset: getTranslationByKey(`parry`) + ` - ` + getTranslationByKey(`shield`),
-        include_with_roll: `{{shield1-name=${shield1_name}}} {{shield1-base=${strength_total}}} {{shield1-skill=${fight}}} {{shield1-bonus=${shield1_bonus}}} {{shield1-bonus-max=${shield1_bonus_max}}} {{shield1-bonus-misc=${shield1_bonus_misc}}}`,
-      });
-    });
-  });
-  
+   
   /* vehicle/Beast Carry calcs */
   const carry = (strength, vehicleed) => (strength * 4) / (vehicleed + 1);
   

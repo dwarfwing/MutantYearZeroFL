@@ -1948,7 +1948,7 @@
           <div class="coins-box10">
             <input class="input-number" type="text" name="attr_credits_stash" value="0" min="0" title="@{credits_stash}" />
           </div>
-          <input type="hidden" name="attr_coins_other_total" value="0" />
+          <input type="hidden" name="attr_coins_other_total" value="0" min="0" />
   
           <div class="coins-box11">
             <span class="label" data-i18n="total">Total</span>
@@ -1960,7 +1960,7 @@
             <input class="input-number" type="text" name="attr_silver_total" value="0" title="@{silver_total}" readonly />
           </div>-->
           <div class="coins-box12">
-            <input class="input-number" type="text" name="attr_credits_total" value="0" style="width:5em;" readonly />
+            <input class="input-number" type="text" name="attr_credits_total" value="0" min="0" style="width:5em;" readonly />
           </div>
         </div>
       </div> 
@@ -3911,7 +3911,7 @@
       clog("Change Detected: Credits Total");
       const credits = float(values["credits"]),
         credits_vehicle = float(values["credits_vehicle"]),
-        credits_stash = ifloat(values["credits_stash"]),
+        credits_stash = float(values["credits_stash"]),
         sum_credits = credits + credits_vehicle + credits_stash;
       setAttrs({
         credits_total: sum_credits,

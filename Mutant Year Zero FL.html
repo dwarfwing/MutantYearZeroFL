@@ -2009,7 +2009,11 @@
         <div class="gear-weight">
           <div><span class="label" data-i18n="gear">Gear</span></div>
           <div>
-            <input class="input-number" type="text" name="attr_character_gear_encumbrance" value="0" title="@{character_gear_encumbrance}" readonly />
+            <input class="input-number" type="text" name="attr_gear_encumbrance" value="0" title="@{gear_encumbrance}" readonly />
+          </div>
+          <div><span class="label" data-i18n="consumables">Consumables</span></div>
+          <div>
+            <input class="input-number" type="text" name="attr_consumables_encumbrance" value="0" title="@{character_consumables_encumbrance}" readonly />
           </div>
           <div><span class="label" data-i18n="weapons">Weapons</span></div>
           <div>
@@ -2031,7 +2035,7 @@
             <span class="label" data-i18n="encumbrance">Encumbrance</span>
           </div>
           <div class="gear">
-            <input type="hidden" name="attr_character_gear_encumbrance" value="1" />
+            <input type="hidden" name="attr_gear_encumbrance" value="1" />
             <input class="input-number" type="text" name="attr_character_encumbrance" value="0" title="@{character_encumbrance}" readonly />
           </div>
         </div>
@@ -2155,15 +2159,13 @@
                 <span class="label" data-i18n="carry">Carry</span>
               </div>
               <div class="vehiclegear">
-                <input class="input-number" type="text" name="attr_vehicle_carry" value="0" title="@{vehicle_carry} = vehicle_strength x2, unvehicleed x4" readonly />
+                <input class="input-number" type="text" name="attr_vehicle_carry" value="@{vehicle_carry}" title="@{vehicle_carry} = vehicle_strength x2, unvehicleed x4" readonly />
               </div>
               <div class="vehiclegear">
                 <span class="label" data-i18n="encumbrance">Encumbrance</span>
               </div>
               <div class="vehiclegear">
-                <input class="input" type="hidden" name="attr_vehiclegear_encumbrance" value="1.5" />
-                <input class="input-number" type="text" name="attr_vehicle_encumbrance" value="0" title="@{vehicle_encumbrance}"
-                  readonly />
+                <input class="input-number" type="text" name="attr_vehiclegear_encumbrance" value="0" title="@{vehicle_encumbrance}" readonly />
               </div>
             </div>
         </div>
@@ -3536,14 +3538,14 @@
 </rolltemplate>
 
 <script type="text/worker">
-/* beautify preserve:start */
+  /* beautify preserve:start */
 
   "use strict";
-
+  
   /* START RACE TYPE UPDATES */
-
+  
     //object reference for Race specific attribute names
-
+  
     //Upate sheet labels when chartype attribute changes
     on("change:chartype", function(eventInfo) {
         
@@ -3714,14 +3716,14 @@
             setAttrs({manipulate_name: race_att_names.manipulate_name});
             setAttrs({heal_name: race_att_names.heal_name});
         });
-
+  
         //getAttrs(["chartype","CharacterType"], function(values) {
         //  setAttrs("CharacterType"="chartype");
         //});
     });
-
+  
   /* END RACE TYPE UPDATES */
-
+  
   /* number and log handling */
   const int = (score, on_error = 0) => parseInt(score) || on_error;
   const float = (score, on_error = 0) => parseFloat(score) || on_error;
@@ -3774,7 +3776,7 @@
         newAnnouncement(old_version, new_version, show_announcement);
     }
   };
-//add updates here
+  //add updates here
   
   //rename misspelled attributes
   const update_to_1_71 = (old_version) => {
@@ -3791,9 +3793,9 @@
       Object.entries(statswaps).forEach(([key, value]) => {
         if (v[key]) setter[key] = v[value];
       });
-
+  
   /*** UPDATE THIS ***/
-// MUST set the version to a specific value here, the one where the sheet was updated like this.  
+  // MUST set the version to a specific value here, the one where the sheet was updated like this.  
       const current_version = 1.75;
       setter.version = current_version;
   
@@ -3838,13 +3840,13 @@
   /* character encumbrance */
   on("change:repeating_gear remove:repeating_gear sheet:opened", function () {
     clog("Change Detected: Character Gear Encumbrance");
-    repeatingSum("character_gear_encumbrance", "gear", ["gear_weight", "gear_qty", "gear_carried"]);
+    repeatingSum("gear_encumbrance", "gear", ["gear_weight", "gear_qty", "gear_carried"]);
   });
   
   /* vehicle encumbrance */
-  on("change:repeating_vehicle remove:repeating_vehicle sheet:opened", function () {
-    clog("Change Detected: vehicles Gear Encumbrance");
-    repeatingSum("vehiclegear_encumbrance", "vehicle", ["vehiclegear_weight", "vehiclegear_qty", "vehiclegear_carried"]);
+  on("change:repeating_vehiclegear remove:repeating_vehiclegear sheet:opened", function () {
+    clog("Change Detected: Vehicle Gear Encumbrance");
+    repeatingSum("vehiclegear_encumbrance", "vehiclegear", ["vehiclegear_weight", "vehiclegear_qty", "vehiclegear_carried"]);
   });
   
   /* weapons encumbrance */
@@ -3864,45 +3866,29 @@
     clog("Change Detected: Character Armor Rating");
     repeatingSum("ar_total", "armor", ["armor_ar", "armor_equipped"]);
   });
-    
-  /* coin weight */
-  on("sheet:opened change:gold change:silver change:copper change:gold_vehicle change:silver_vehicle change:copper_vehicle", function () {
-    getAttrs(["gold", "silver", "copper", "gold_vehicle", "silver_vehicle", "copper_vehicle"], function (values) {
-      clog("Change Detected: Coin Weight");
-      const gold = int(values["gold"]),
-        silver = int(values["silver"]),
-        copper = int(values["copper"]),
-        temp_carried = Math.floor((gold + silver + copper) / 100) * 100,
-        output_carried = (temp_carried * 0.005).toFixed(1),
-        gold_vehicle = int(values["gold_vehicle"]),
-        silver_vehicle = int(values["silver_vehicle"]),
-        copper_vehicle = int(values["copper_vehicle"]),
-        temp_vehicle = Math.floor((gold_vehicle + silver_vehicle + copper_vehicle) / 100) * 100,
-        output_vehicle = (temp_vehicle * 0.005).toFixed(1);
-      setAttrs({
-        coins_carried: output_carried,
-        coins_carried_vehicle: output_vehicle,
-      });
-    });
-  });
   
   /* total encumbrance */
-  on("sheet:opened change:character_gear_encumbrance change:vehiclegear_encumbrance change:coins_carried change:coins_carried_vehicle change:weapons_encumbrance change:armor_encumbrance", function () {
-    getAttrs(["character_gear_encumbrance", "vehiclegear_encumbrance", "coins_carried", "coins_carried_vehicle", "weapons_encumbrance", "armor_encumbrance", "shield_encumbrance", "armor_shield_encumbrance"], function (values) {
+  on("sheet:opened change:gear_encumbrance change:vehiclegear_encumbrance change:weapons_encumbrance change:armor_encumbrance change:food change:water change:bullets", function () {
+    getAttrs(["gear_encumbrance", "vehiclegear_encumbrance", "weapons_encumbrance", "armor_encumbrance", "food", "water", "bullets"], function (values) {
       clog("Change Detected: Character Encumbrance");
-      const character_gear_encumbrance = float(values["character_gear_encumbrance"]),
+      const gear_encumbrance = float(values["gear_encumbrance"]),
         vehiclegear_encumbrance = float(values["vehiclegear_encumbrance"]),
         weapons_encumbrance = float(values["weapons_encumbrance"]),
         armor_encumbrance = float(values["armor_encumbrance"]),
-        coins_carried = float(values["coins_carried"]),
-        coins_carried_vehicle = float(values["coins_carried_vehicle"]),
-        sum_character_weight = character_gear_encumbrance + weapons_encumbrance + armor_encumbrance + coins_carried,
-        sum_vehicle_weight = vehiclegear_encumbrance + coins_carried_vehicle;
+        food = float(values["food"]),
+        water = float(values["water"]),
+        bullets = float(values["bullets"]),
+        consumables_enc = (food * 0.25) + (water * 0.25),
+        bullets_enc = bullets <= 10 ? 0 : (bullets <= 20 ? 0.5 : (bullets <= 40 ? 1 : 2)),
+        consumables_encumbrance = consumables_enc + bullets_enc, 
+        sum_character_encumbrance = gear_encumbrance + weapons_encumbrance + armor_encumbrance + consumables_encumbrance,
+        sum_vehicle_encumbrance = vehiclegear_encumbrance;
       setAttrs({
         weapons_encumbrance: weapons_encumbrance,
         armor_encumbrance: armor_encumbrance,
-        character_encumbrance: sum_character_weight,
-        vehicle_encumbrance: sum_vehicle_weight,
+        character_encumbrance: sum_character_encumbrance,
+        consumables_encumbrance: consumables_encumbrance,
+        vehicle_encumbrance: sum_vehicle_encumbrance,
       });
     });
   });
@@ -4739,7 +4725,7 @@
     setAttrs({ repeat_delete: timestamp });
     clog("repeating row has been removed");
   });
-
+  
   /* beautify preserve:end */
 </script>
 

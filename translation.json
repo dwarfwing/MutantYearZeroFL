@@ -62,6 +62,7 @@
 	"condition-thirsty": "You must drink a ration of water at least once per day. After a day without water, you become THIRSTY. @{thirsty}",
 	"condition-u": "CONDITIONS",
 	"consumable": "Consumable",
+	"consumables": "Consumables",
 	"consumable-note": "**note:** be sure to manually reduce the consumable die on the sheet if you roll bane of 1 or 2.",
 	"consumable-u": "CONSUMABLES",
 	"contacts-u": "CONTACTS",

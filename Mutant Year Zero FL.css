@@ -1373,7 +1373,7 @@ input.sheet-expand:checked + span::before {
 .sheet-shield-box12:hover input.sheet-expand+span::before,
 .repitem .sheet-gear-grid:hover input.sheet-expand+span::before,
 .sheet-vehicle-grid:hover input.sheet-expand+span::before,
-.repitem .sheet-vehicle_gear-grid:hover input.sheet-expand+span::before,
+.repitem .sheet-vehiclegear-grid:hover input.sheet-expand+span::before,
 .repitem .sheet-spells-grid:hover input.sheet-expand+span::before,
 .sheet-skills-row:hover input.sheet-expand+span::before {
   opacity: 0.85;
@@ -1517,7 +1517,7 @@ div.sheet-gear-box1,
 div.sheet-gear-box6,
 div.sheet-coins-box .sheet-header,
 div.sheet-vehicle-box1,
-div.sheet-vehicle_gear-box1,
+div.sheet-vehiclegear-box1,
 div.sheet-consumables-box1,
 div.sheet-coins-box,
 div.sheet-experience-grid,
@@ -1551,14 +1551,14 @@ div.sheet-ark-development-grid h1 {
 }
 
 div.sheet-experience-grid,
-div.sheet-vehicle_gear-box6.sheet-header  {
+div.sheet-vehiclegear-box6.sheet-header  {
   background-size: cover;
   -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header6.jpg");
 }
 
 div.sheet-ark-notes-grid h1,
 div.sheet-ark-bosses-header,
-div.sheet-vehicle_gear-box1 {
+div.sheet-vehiclegear-box1 {
   background-size: cover;
   -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header18.jpg");
 }
@@ -3862,7 +3862,7 @@ span.sheet-armor-box3.sheet-header {
 
 /* ---------------------------------- Vehicle */
 .sheet-vehicle-grid,
-.sheet-vehicle_gear-box5,
+.sheet-vehiclegear-box5,
 .sheet-talents-grid .sheet-talents-box4,
 .sheet-gear-box5 {
   -padding: 3px 3px 8px 2px;
@@ -4011,14 +4011,14 @@ span.sheet-armor-box3.sheet-header {
 
 /* ---------------------------------- Vehicle Gear */
 
-.sheet-vehicle_gear-box {
+.sheet-vehiclegear-box {
   grid-row-start: 7;
   grid-column: 1/7; 
   display:flex;
   width: 100%;
 }
 
-.sheet-vehicle_gear-grid {
+.sheet-vehiclegear-grid {
   display: grid;
   grid-row-gap: 2px;
   grid-template-columns: auto 3em 2em 3em;
@@ -4026,62 +4026,62 @@ span.sheet-armor-box3.sheet-header {
   width: 100%;
 }
 
-.sheet-vehicle_gear-subgrid {
+.sheet-vehiclegear-subgrid {
   display: grid;
   grid-column-gap: 2px;
   grid-row-gap: 2px;
   grid-template-columns: 4em 3em 9em 3em;
 }
 
-.sheet-vehicle_gear-subgrid2 {
+.sheet-vehiclegear-subgrid2 {
   display: grid;
   height: 2em;
   margin-top: 5px;
   grid-template-columns: 2em auto;
 }
 
-.sheet-vehicle_gear-subgrid > .sheet-vehicle_gear-box11 {
+.sheet-vehiclegear-subgrid > .sheet-vehiclegear-box11 {
   display: block;
   white-space: nowrap;
 }
 
-.sheet-vehicle_gear-subgrid > div {
+.sheet-vehiclegear-subgrid > div {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.sheet-vehicle_gear-box1 {
+.sheet-vehiclegear-box1 {
   grid-column: 1/5;
   grid-row-start: 1;
 }
 
-.sheet-vehicle_gear-box2 {
+.sheet-vehiclegear-box2 {
   grid-column-start: 2;
   grid-row-start: 1;
 }
 
-.sheet-vehicle_gear-box3 {
+.sheet-vehiclegear-box3 {
   grid-column-start: 3;
   grid-row-start: 1;
 }
 
-.sheet-vehicle_gear-box4 {
+.sheet-vehiclegear-box4 {
   grid-column-start: 4;
   grid-row-start: 1;
 }
 
-.sheet-vehicle_gear-box5 {
+.sheet-vehiclegear-box5 {
   grid-column: 1/5;
   grid-row-start: 2;
 }
 
-.sheet-vehicle_gear-coin {
+.sheet-vehiclegear-coin {
   grid-column: 1/5;
   grid-row-start: 3;
 }
 
-.sheet-vehicle_gear-box6 {
+.sheet-vehiclegear-box6 {
   display: grid;
   justify-content: end;
   height: 4em;
@@ -4092,27 +4092,27 @@ span.sheet-armor-box3.sheet-header {
   grid-template-columns: auto 3em auto 3em;
 }
 
-.sheet-vehicle_gear-box7 {
+.sheet-vehiclegear-box7 {
   grid-column: 1/2;
   grid-row-start: 1;
 }
 
-.sheet-vehicle_gear-box8 {
+.sheet-vehiclegear-box8 {
   grid-column-start: 2;
   grid-row-start: 1;
 }
 
-.sheet-vehicle_gear-box9 {
+.sheet-vehiclegear-box9 {
   grid-column-start: 3;
   grid-row-start: 1;
 }
 
-.sheet-vehicle_gear-box10 {
+.sheet-vehiclegear-box10 {
   grid-column-start: 4;
   grid-row-start: 1;
 }
 
-.sheet-vehicle_gear-box11 {
+.sheet-vehiclegear-box11 {
   justify-content: left;
   grid-column: 1/5;
   grid-row-start: 2;

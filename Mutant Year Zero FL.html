@@ -523,7 +523,7 @@
               </button>
               <input class="weapons-box30 input" type="text" name="attr_weapon_name" value="" title="@{repeating_weapons_$X_weapon_name}" />
               <select class="weapons-box31 input" name="attr_weapon_skill" title="@{repeating_weapons_$X_weapon_skill}">
-                <option value="0" data-i18n="fight-as-distance" selected>Melee</option>
+                <option value="0" data-i18n="melee" selected>Melee</option>
                 <option value="1" data-i18n="ranged">Ranged</option>
               </select>
               <span class="weapons-box32 readonly" name="attr_weapon_base_total" value="0" data-i18n-title="weapon-type-base" title="BASE dice as per weapon/skill type. @{repeating_weapons_$X_weapon_base_total}">0</span>
@@ -2002,7 +2002,7 @@
                 <option value="10">10</option>
               </select>
               <!-- expand 2nd row -->
-              <textarea class="gear-box5 input-textarea" name="attr_gear_description" title="@{repeating_talents_$X_gear_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+              <textarea class="gear-box5 input-textarea" name="attr_gear_description" title="@{repeating_gear_$X_gear_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
             </div>
           </fieldset>
         </div>
@@ -2094,28 +2094,28 @@
         <!-- expand 2nd row -->
         <textarea class="vehicle-box-desc vehicle-row2 input-textarea" name="attr_vehicle_description"
           title="@{vehicle_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
-        <div class="vehicle_gear-box chartype-background-light">
-          <div class="vehicle_gear-grid chartype-background-light">
-            <div class="vehicle_gear-box1 header">
+        <div class="vehiclegear-box chartype-background-light">
+          <div class="vehiclegear-grid chartype-background-light">
+            <div class="vehiclegear-box1 header">
               <h1 data-i18n="gear-on-vehicle">Gear on vehicle</h1>
             </div>
-            <div class="vehicle_gear-box2 column-header">
+            <div class="vehiclegear-box2 column-header">
               <span data-i18n="quantity-abbr">Qty</span>
             </div>
-            <div class="vehicle_gear-box3 column-header">
+            <div class="vehiclegear-box3 column-header">
               <span data-i18n="carried-abbr">Carr</span>
             </div>
-            <div class="vehicle_gear-box4 column-header">
+            <div class="vehiclegear-box4 column-header">
               <span data-i18n="weight-abbr">Wt</span>
             </div>
-            <div class="vehicle_gear-box5">
-              <fieldset class="repeating_vehicle_gear">
-                <div class="vehicle_gear-grid">
+            <div class="vehiclegear-box5">
+              <fieldset class="repeating_vehiclegear">
+                <div class="vehiclegear-grid">
                   <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
-                  <input class="vehicle_gear-box1 input" type="text" name="attr_vehicle_gear_name" value="" title="@{repeating_vehicle_gear_$X_vehicle_gear_name}" data-i18n-placeholder="item" placeholder="item" />
-                  <input class="vehicle_gear-box2 input-number" type="number" name="attr_vehicle_gear_qty" value="1" title="Quantity @{repeating_vehicle_gear_$X_vehicle_gear_qty}" />
-                  <input class="vehicle_gear-box3 input" type="checkbox" name="attr_vehicle_gear_carried" value="1" title="@{repeating_vehicle_gear_$X_vehicle_gear_carried}" checked />
-                  <select class="vehicle_gear-box4 input" name="attr_vehicle_gear_weight" title="@{repeating_vehicle_gear_$X_vehicle_gear_weight}">
+                  <input class="vehiclegear-box1 input" type="text" name="attr_vehiclegear_name" value="" title="@{repeating_vehiclegear_$X_vehiclegear_name}" data-i18n-placeholder="item" placeholder="item" />
+                  <input class="vehiclegear-box2 input-number" type="number" name="attr_vehiclegear_qty" value="1" title="Quantity @{repeating_vehiclegear_$X_vehiclegear_qty}" />
+                  <input class="vehiclegear-box3 input" type="checkbox" name="attr_vehiclegear_carried" value="1" title="@{repeating_vehiclegear_$X_vehiclegear_carried}" checked />
+                  <select class="vehiclegear-box4 input" name="attr_vehiclegear_weight" title="@{repeating_vehiclegear_$X_vehiclegear_weight}">
                     <option data-i18n="tiny-abbr" value="0" selected>T</option>
                     <option data-i18n="quarter-abbr" value="0.25">Q</option>
                     <option data-i18n="light-abbr" value="0.5">L</option>
@@ -2130,14 +2130,14 @@
                     <option value="9">9</option>
                     <option value="10">10</option>
                   </select>
-                  <textarea class="vehicle_gear-box5 input-textarea" name="attr_vehicle_gear_description" title="@{repeating_vehicle_gear_$X_vehicle_gear_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+                  <textarea class="vehiclegear-box5 input-textarea" name="attr_vehiclegear_description" title="@{repeating_vehiclegear_$X_vehiclegear_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
                 </div>
               </fieldset>
             </div>
             <div class="gear-weight">
               <div><span class="label" data-i18n="gear">Gear</span></div>
               <div>
-                <input class="input-number" type="text" name="attr_vehicle_gear_encumberance" value="0" title="@{vehicle_gear_encumbrance}" readonly />
+                <input class="input-number" type="text" name="attr_vehiclegear_encumberance" value="0" title="@{vehiclegear_encumbrance}" readonly />
               </div>
               <div>
                 <span class="label" data-i18n="occupants">Occupants</span>
@@ -2152,18 +2152,18 @@
                 <input class="input-number" type="text" name="attr_vehicle_fuel_weight" value="0" title="@{vehicle_fuel_weight}" readonly />
               </div>
             </div>
-            <div class="vehicle_gear-box6 header">
-              <div class="vehicle_gear">
+            <div class="vehiclegear-box6 header">
+              <div class="vehiclegear">
                 <span class="label" data-i18n="carry">Carry</span>
               </div>
-              <div class="vehicle_gear">
+              <div class="vehiclegear">
                 <input class="input-number" type="text" name="attr_vehicle_carry" value="0" title="@{vehicle_carry} = vehicle_strength x2, unvehicleed x4" readonly />
               </div>
-              <div class="vehicle_gear">
+              <div class="vehiclegear">
                 <span class="label" data-i18n="encumbrance">Encumbrance</span>
               </div>
-              <div class="vehicle_gear">
-                <input class="input" type="hidden" name="attr_vehicle_gear_encumbrance" value="1.5" />
+              <div class="vehiclegear">
+                <input class="input" type="hidden" name="attr_vehiclegear_encumbrance" value="1.5" />
                 <input class="input-number" type="text" name="attr_vehicle_encumbrance" value="0" title="@{vehicle_encumbrance}"
                   readonly />
               </div>
@@ -3846,7 +3846,7 @@
   /* vehicle encumbrance */
   on("change:repeating_vehicle remove:repeating_vehicle sheet:opened", function () {
     clog("Change Detected: vehicles Gear Encumbrance");
-    repeatingSum("vehicle_gear_encumbrance", "vehicle", ["vehicle_gear_weight", "vehicle_gear_qty", "vehicle_gear_carried"]);
+    repeatingSum("vehiclegear_encumbrance", "vehicle", ["vehiclegear_weight", "vehiclegear_qty", "vehiclegear_carried"]);
   });
   
   /* weapons encumbrance */
@@ -3889,17 +3889,17 @@
   });
   
   /* total encumbrance */
-  on("sheet:opened change:character_gear_encumbrance change:vehicle_gear_encumbrance change:coins_carried change:coins_carried_vehicle change:weapons_encumbrance change:armor_encumbrance", function () {
-    getAttrs(["character_gear_encumbrance", "vehicle_gear_encumbrance", "coins_carried", "coins_carried_vehicle", "weapons_encumbrance", "armor_encumbrance", "shield_encumbrance", "armor_shield_encumbrance"], function (values) {
+  on("sheet:opened change:character_gear_encumbrance change:vehiclegear_encumbrance change:coins_carried change:coins_carried_vehicle change:weapons_encumbrance change:armor_encumbrance", function () {
+    getAttrs(["character_gear_encumbrance", "vehiclegear_encumbrance", "coins_carried", "coins_carried_vehicle", "weapons_encumbrance", "armor_encumbrance", "shield_encumbrance", "armor_shield_encumbrance"], function (values) {
       clog("Change Detected: Character Encumbrance");
       const character_gear_encumbrance = float(values["character_gear_encumbrance"]),
-        vehicle_gear_encumbrance = float(values["vehicle_gear_encumbrance"]),
+        vehiclegear_encumbrance = float(values["vehiclegear_encumbrance"]),
         weapons_encumbrance = float(values["weapons_encumbrance"]),
         armor_encumbrance = float(values["armor_encumbrance"]),
         coins_carried = float(values["coins_carried"]),
         coins_carried_vehicle = float(values["coins_carried_vehicle"]),
         sum_character_weight = character_gear_encumbrance + weapons_encumbrance + armor_encumbrance + coins_carried,
-        sum_vehicle_weight = vehicle_gear_encumbrance + coins_carried_vehicle;
+        sum_vehicle_weight = vehiclegear_encumbrance + coins_carried_vehicle;
       setAttrs({
         weapons_encumbrance: weapons_encumbrance,
         armor_encumbrance: armor_encumbrance,
@@ -4736,7 +4736,7 @@
   });
   
   /* delete empty repeating rows w/out having to close/reopen sheet*/
-  on('remove:repeating_injuries remove:repeating_talents remove:repeating_gear remove:repeating_vehicle_gear remove:repeating_relationships remove:repeating_spells remove:repeating_beasts remove:repeating_notes remove:repeating_functions remove:repeating_hirelings remove:repeating_monster', function() { 
+  on('remove:repeating_injuries remove:repeating_talents remove:repeating_gear remove:repeating_vehiclegear remove:repeating_relationships remove:repeating_spells remove:repeating_beasts remove:repeating_notes remove:repeating_functions remove:repeating_hirelings remove:repeating_monster', function() { 
     const timestamp = Number(new Date())
     setAttrs({ repeat_delete: timestamp });
     clog("repeating row has been removed");

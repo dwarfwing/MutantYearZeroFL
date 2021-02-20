@@ -656,6 +656,7 @@
                 </div>
                 <select class="weapons-box58 input" name="attr_weapon_weight" title="@{repeating_weapons_$X_weapon_weight}">
                   <option data-i18n="tiny-abbr" value="0" selected>T</option>
+                  <option data-i18n="quarter-abbr" value="0.25">L</option>
                   <option data-i18n="light-abbr" value="0.5">L</option>
                   <option data-i18n="normal-abbr" value="1">N</option>
                   <option data-i18n="heavy-abbr" value="2">H</option>
@@ -1948,7 +1949,7 @@
           <div class="coins-box10">
             <input class="input-number" type="text" name="attr_credits_stash" value="0" min="0" title="@{credits_stash}" />
           </div>
-          <input type="hidden" name="attr_coins_other_total" value="0" />
+          <input type="hidden" name="attr_coins_other_total" value="0" min="0" />
   
           <div class="coins-box11">
             <span class="label" data-i18n="total">Total</span>
@@ -1960,7 +1961,7 @@
             <input class="input-number" type="text" name="attr_silver_total" value="0" title="@{silver_total}" readonly />
           </div>-->
           <div class="coins-box12">
-            <input class="input-number" type="text" name="attr_credits_total" value="0" style="width:5em;" readonly />
+            <input class="input-number" type="text" name="attr_credits_total" value="0" min="0" style="width:5em;" readonly />
           </div>
         </div>
       </div> 
@@ -1987,6 +1988,7 @@
               <input class="gear-box3 input" type="checkbox" name="attr_gear_carried" value="1" title="@{repeating_gear_$X_gear_carried}" checked />
               <select class="gear-box4 input" name="attr_gear_weight" title="@{repeating_gear_$X_gear_weight}">
                 <option data-i18n="tiny-abbr" value="0" selected>T</option>
+                <option data-i18n="quarter-abbr" value="0.25">Q</option>
                 <option data-i18n="light-abbr" value="0.5">L</option>
                 <option data-i18n="normal-abbr" value="1">N</option>
                 <option data-i18n="heavy-abbr" value="2">H</option>
@@ -2115,6 +2117,7 @@
                   <input class="vehicle_gear-box3 input" type="checkbox" name="attr_vehicle_gear_carried" value="1" title="@{repeating_vehicle_gear_$X_vehicle_gear_carried}" checked />
                   <select class="vehicle_gear-box4 input" name="attr_vehicle_gear_weight" title="@{repeating_vehicle_gear_$X_vehicle_gear_weight}">
                     <option data-i18n="tiny-abbr" value="0" selected>T</option>
+                    <option data-i18n="quarter-abbr" value="0.25">Q</option>
                     <option data-i18n="light-abbr" value="0.5">L</option>
                     <option data-i18n="normal-abbr" value="1">N</option>
                     <option data-i18n="heavy-abbr" value="2">H</option>
@@ -2236,6 +2239,7 @@
                   </span>
                   <select class="armor-box24 input" name="attr_armor_weight" title="@{armor_weight}">
                     <option data-i18n="tiny-abbr" value="0" selected>T</option>
+                    <option data-i18n="quarter-abbr" value="0.25">Q</option>
                     <option data-i18n="light-abbr" value="0.5">L</option>
                     <option data-i18n="normal-abbr" value="1">N</option>
                     <option data-i18n="heavy-abbr" value="2">H</option>
@@ -2330,34 +2334,34 @@
           <h1 data-i18n="relationships-u">RELATIONSHIPS</h1>
         </div>
         <div class="relationships-box1">
-          <div class="relationships-grid">
-            <div class="relationships-box3">
-              <span data-i18n="hate">Hate: </span>
+            <div class="relationships-grid">
+              <div class="relationships-box3">
+                <span data-i18n="hate">Hate: </span>
+              </div>
+              <div class="relationships-box6">
+                <textarea class="input-textarea" name="attr_relation_hate" title="@{{relation_hate}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
+              </div>
             </div>
-            <div class="relationships-box6">
-              <textarea class="input-textarea" name="attr_relation_hate" title="@{{relation_hate}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
-            </div>
-          </div>
         </div>
         <div class="relationships-box1">
-          <div class="relationships-grid">
-            <div class="relationships-box3">
-              <span data-i18n="protect">Protect: </span>
+            <div class="relationships-grid">
+              <div class="relationships-box3">
+                <span data-i18n="protect">Protect: </span>
+              </div>
+              <div class="relationships-box6">
+                <textarea class="input-textarea" name="attr_relation_protect" title="@{{relation_protect}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
+              </div>
             </div>
-            <div class="relationships-box6">
-              <textarea class="input-textarea" name="attr_relation_protect" title="@{{relation_protect}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
-            </div>
-          </div>
         </div>
         <div class="relationships-box1">
-          <div class="relationships-grid">
-            <div class="relationships-box3">
-              <span data-i18n="dream">Dream: </span>
+            <div class="relationships-grid">
+              <div class="relationships-box3">
+                <span data-i18n="dream">Dream: </span>
+              </div>
+              <div class="relationships-box6">
+                <textarea class="input-textarea" name="attr_relation_dream" title="@{relation_dream}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
+              </div>
             </div>
-            <div class="relationships-box6">
-              <textarea class="input-textarea" name="attr_relation_dream" title="@{relation_dream}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
-            </div>
-          </div>
         </div>
         <div class="relationships-box11 chartype-background-dark">
           <div class="relationships-grid-repeating">
@@ -2396,6 +2400,7 @@
             </div>
             <div class="relationships-box6 column-subheader chartype-background-dark">
               <span data-i18n="description">Description</span>
+            </div>
             </div>
           </div>
         </div>      
@@ -2479,8 +2484,11 @@
         <div class="notes-box2">
           <fieldset class="repeating_notes">
             <div class="notes-grid">
+              <div class="notes-box3">
+                <button class="roll-button" type="roll" name="roll_notes" title="%{repeating_notes_$X_notes}"   style="padding: 0;" value="@{whisper_option} &{template:forbiddenlands} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{notes}}} {{subtitle=@{note_name}}} {{free-text=@{note_description}}}"></button>
+              </div>
               <div class="notes-box4">
-                <input class="input" type="text" name="attr_note_name" value="" title="@{repeating_notes_$X_note_name}" data-i18n-placeholder="note-name" placeholder="Note's name" />
+                <input class="input-number" type="text" name="attr_note_name" value="" title="@{repeating_notes_$X_note_name}" data-i18n-placeholder="note-name" placeholder="Note's name" />
               </div>
               <div class="notes-box5">
                 <textarea class="input-textarea" name="attr_note_description" title="@{repeating_notes_$X_note_description}" data-i18n-placeholder="note-description"   placeholder="Note's description."></textarea>
@@ -3907,7 +3915,7 @@
       clog("Change Detected: Credits Total");
       const credits = float(values["credits"]),
         credits_vehicle = float(values["credits_vehicle"]),
-        credits_stash = ifloat(values["credits_stash"]),
+        credits_stash = float(values["credits_stash"]),
         sum_credits = credits + credits_vehicle + credits_stash;
       setAttrs({
         credits_total: sum_credits,

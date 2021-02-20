@@ -2058,42 +2058,40 @@
         <!-- First row of stats -->
         <div class="vehicle-box3">
           <span class="label" data-i18n="bonus">Bonus</span>
+          <input class="input-number" type="number" name="attr_vehicle_bonus" value="0" title="@{vehicle_bonus}" />
         </div>
-        <input class="vehicle-box4 input-number" type="number" name="attr_vehicle_bonus" value="0"
-          title="@{vehicle_bonus}" />
+        <div class="vehicle-box4">
+          <input class="input-number" type="number" name="attr_vehicle_carry" value="0" title="@{vehicle_carry}" />
+          <span class="label" data-i18n="carry">Carry cap</span>
+        </div>
         <div class="vehicle-box5">
           <span class="label" data-i18n="armor">Armor</span>
+          <input class="input-number" type="number" name="attr_vehicle_armor" value="0" title="@{vehicle_armor}" />
         </div>
-        <input class="vehicle-box6 input-number" type="number" name="attr_vehicle_armor" value="0"
-          title="@{vehicle_armor}" />
         <div class="vehicle-box7">
+          <input class="input-number" type="number" name="attr_vehicle_resilience" value="0" title="@{vehicle_resilience}" />        
           <span class="label" data-i18n="resilience">Resilience</span>
         </div>
-        <input class="vehicle-box8 input-number" type="number" name="attr_vehicle_resilience" value="0"
-          title="@{vehicle_resilience}" />
-          <div class="vehicle-box9">
-            <span class="label" data-i18n="fuel">Fuel</span>
-          </div>
-          <input class="vehicle-box10 input-number" type="number" name="attr_vehicle_fuel" value="0"
-            title="@{vehicle_fuel}" />
-            <div class="vehicle-box11">
-              <span class="label" data-i18n="fuel-capacity">Fuel Capacity</span>
-            </div>
-            <input class="vehicle-box12 input-number" type="number" name="attr_vehicle_fuel_cap" value="0"
-              title="@{vehicle_fuel}" />
+        <div class="vehicle-box9">
+          <span class="label" data-i18n="fuel">Fuel</span>
+          <input class="input-number" type="number" name="attr_vehicle_fuel" value="0" title="@{vehicle_fuel}" />
+        </div>
+        <div class="vehicle-box11">
+          <input class="input-number" type="number" name="attr_vehicle_fuel_cap" value="0" title="@{vehicle_fuel}" />
+          <span class="label" data-i18n="fuel-capacity">Fuel Capacity</span>
+        </div>
         <div class="vehicle-box13">
           <span class="label" data-i18n="occupants">Occupants</span>
+          <input class="input-number" type="number" name="attr_vehicle_occupants" value="0" title="@{vehicle_occupants}" />
         </div>
-        <input class="vehicle-box14 input-number" type="number" name="attr_vehicle_occupants" value="0"
-          title="@{vehicle_occupants}" />
-          <div class="vehicle-box15">
-            <span class="label" data-i18n="seats">Seats</span>
-          </div>
-          <input class="vehicle-box16 input-number" type="number" name="attr_vehicle_seats" value="1"
-            title="@{vehicle_seats}" />
+        <div class="vehicle-box15">
+          <input class="input-number" type="number" name="attr_vehicle_seats" value="1" title="@{vehicle_seats}" />
+          <span class="label" data-i18n="seats">Seats</span>
+        </div>
         <!-- expand 2nd row -->
         <textarea class="vehicle-box-desc vehicle-row2 input-textarea" name="attr_vehicle_description"
           title="@{vehicle_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+        <!-- vehicle gear -->
         <div class="vehiclegear-box chartype-background-light">
           <div class="vehiclegear-grid chartype-background-light">
             <div class="vehiclegear-box1 header">

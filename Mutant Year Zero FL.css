@@ -875,17 +875,26 @@ input[name="attr_chartype"][value="Human"]:checked ~ div ~ div ~ div .sheet-char
   border-color: #1b6764; 
 }
 
+
 .sheet-character-mutations,
 .sheet-character-modules, 
 .sheet-character-animalpowers, 
 .sheet-character-contacts,
-.sheet-character-biomechs {
+.sheet-character-biomechs,
+.sheet-char-mutant,
+.sheet-char-robot,
+.sheet-char-animal,
+.sheet-char-human {
   display: none;
 }
 
+input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-char-mutant,
 input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-character-mutations, 
+input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-char-robot,
 input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-character-modules, 
+input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-char-animal,
 input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-character-animalpowers, 
+input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-char-human,
 input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-character-contacts,
 input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-character-biomechs {
   display: block;
@@ -1883,8 +1892,8 @@ input.sheet-dice_only:checked
 }
 
 .sheet-character-spells {
-  display: none;
-  grid-row-start: 11;
+  -display: none;
+  -grid-row-start: 11;
   overflow: hidden;
 }
 
@@ -1901,20 +1910,20 @@ input.sheet-dice_only:checked
 /* ---------------------------------- Heading */
 
 .sheet-heading-grid {
-  align-items: stretch;
+  -align-items: stretch;
   justify-self: left;
-  justify-content: left;
+  justify-content: flex-start;
   width: 100%;
-  display: grid;
-  -display: flex;
+  -display: grid;
+  display: flex;
   margin: 0;
   -grid-template-columns: 8em 150px 8em 150px 8em 4em;
-  grid-template-columns: auto auto auto auto auto;
-  column-gap: 1em;
+  -grid-template-columns: auto auto auto auto auto;
+  -column-gap: 1em;
   -grid-template-rows: auto auto;
 }
 .sheet-heading-box {
-  margin: 5px;  
+  margin: 5px 7px 5px 7px;  
   justify-self: center;
   -margin-top: -5px;
 }
@@ -1929,31 +1938,55 @@ input.sheet-dice_only:checked
   -margin-top: 20px;
 }
 
+.sheet-heading-box .sheet-input, 
 .sheet-heading-box .sheet-input-number {
   align-self: center;
   justify-self: center;
   text-align: center;
-  min-width: 4em;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  min-width: 6em;
+  height: 2.75em !important;
+  max-height: 2.75em !important;
 }
 
+.sheet-heading-box1 {
+  width: 200px;
+}
+.sheet-heading-box3, 
+.sheet-heading-box5 {
+  width: 125px;
+}
+.sheet-heading-box5m {
+  width: 200px;
+}
+.sheet-heading-box4 {
+  width: 200px;
+}
+.sheet-heading-box6 {
+  width: 250px;
+}
+
+/*
 input[name="attr_chartype"][value="Mutant"]:checked ~ div.sheet-character-grid .sheet-heading-box3,
 input[name="attr_chartype"][value="Mutant"]:checked ~ div.sheet-character-grid .sheet-heading-box9,
 input[name="attr_chartype"][value="Robot"]:checked ~ div.sheet-character-grid .sheet-heading-box3,
 input[name="attr_chartype"][value="Robot"]:checked ~ div.sheet-character-grid .sheet-heading-box7 {
   display:none;
 }
+*/
 
 .sheet-heading-box7,
 .sheet-heading-box9 {
-  text-align: center;
-  position: relative;
-  bottom: -17px;
+  -text-align: center;
+  -position: relative;
+  -bottom: -17px;
 }
 
 .sheet-heading-box7 .sheet-label,
 .sheet-heading-box9 .sheet-label {
-  padding-left: 0;
-  bottom: 0;
+  -padding-left: 0;
+  -bottom: 0;
 }
 
 

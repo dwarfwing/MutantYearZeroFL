@@ -37,21 +37,65 @@
           <span class="sheet-label" data-i18n="name">Name</span><br>
           <input class="input input-center" type="text" name="attr_character_name" value="" title="@{character_name}" />
         </div>
-        <div class="heading-box heading-box3">
-          <span class="sheet-label" data-i18n="kin">Kin</span><br>
-          <input class="input input-center" type="text" name="attr_profession" value="" title="@{kin}" />
-        </div>    
-        <div class="heading-box heading-box5">
+        <div class="heading-box heading-box3 char-human">
+          <span class="sheet-label" data-i18n="house">House</span><br>
+          <input class="input input-center" type="text" name="attr_house" value="" title="@{house}" />
+        </div> 
+        <div class="heading-box heading-box4 char-robot">
+          <span class="sheet-label" data-i18n="model">Model</span><br>
+          <input class="input input-center" type="text" name="attr_model" value="" title="@{model}" />
+        </div>  
+        <div class="heading-box heading-box3 char-animal">
+          <span class="sheet-label" data-i18n="animaltype">Animal type</span><br>
+          <select class="input input-center" type="text" name="attr_animal_type" value="Animal type" title="@animal_type}">
+            <option value="animaltype" data-i18n="animaltype" selected  disabled hidden >Animal type</option>
+            <option value="dogs" data-i18n="dogs">Dogs</option>
+            <option value="cats" data-i18n="cats">Cats</option>
+            <option value="rats" data-i18n="rats">Rats</option>
+            <option value="bears" data-i18n="bears">Bears</option>
+            <option value="apes" data-i18n="apes">Apes</option>
+            <option value="rabbits" data-i18n="rabbits">Rabbits</option>
+            <option value="badgers" data-i18n="badgers">Badgers</option>
+            <option value="reptiles" data-i18n="reptiles">Reptiles</option>
+            <option value="moose" data-i18n="moose">Moose</option>
+            <option value="other" data-i18n="other">Other</option>
+          </select>
+        </div> 
+        <div class="heading-box heading-box3 char-animal">
+          <span class="sheet-label" data-i18n="species">Species</span><br>
+          <input class="input input-center" type="text" name="attr_species" value="" title="@{species}" />
+        </div>     
+        <div class="heading-box heading-box5m char-mutant">
+          <span class="sheet-label" data-i18n="role">Role</span><br>
+          <input class="input input-center" type="text" name="attr_role" value="" title="@{role}" />
+        </div>   
+        <div class="heading-box heading-box5 char-animal">
+          <span class="sheet-label" data-i18n="role">Role</span><br>
+          <input class="input input-center" type="text" name="attr_role" value="" title="@{role}" />
+        </div>   
+        <div class="heading-box heading-box5 char-human">
           <span class="sheet-label" data-i18n="profession">Profession</span><br>
-          <input class="input input-center" type="text" name="attr_kin" value="" title="@{profession}" />
+          <input class="input input-center" type="text" name="attr_profession" value="" title="@{profession}" />
         </div>    
-        <div class="heading-box heading-box7">
-          <span class="sheet-label" data-i18n="age">Age</span>
+        <div class="heading-box heading-box6 char-robot">
+          <span class="sheet-label" data-i18n="personality">Personality</span><br>
+          <input class="input input-center" type="text" name="attr_personality" value="" title="@{personality}" />
+        </div>    
+        <div class="heading-box heading-box7 char-human char-animal char-mutant">
+          <span class="sheet-label" data-i18n="age">Age</span><br>
           <input type="number" class="input-number" name="attr_age" title="@{age}">
         </div>
-        <div class="heading-box heading-box9">
-            <span class="sheet-label" data-i18n="reputation">Reputation</span>
+        <div class="heading-box heading-box9 char-human">
+            <span class="sheet-label" data-i18n="reputation">Reputation</span><br>
           <input type="number" class="input-number" name="attr_reputation" title="@{reputation}" />
+        </div>
+        <div class="heading-box heading-box9 char-robot">
+            <span class="sheet-label" data-i18n="hierarchy">Hierarchy</span><br>
+          <input type="number" class="input-number" name="attr_hierarchy" title="@{hierarchy}" />
+        </div>
+        <div class="heading-box heading-box9 char-animal">
+            <span class="sheet-label" data-i18n="rank">Rank</span><br>
+          <input type="number" class="input-number" name="attr_rank" title="@{rank}" />
         </div>
       </div>
     </div>
@@ -565,7 +609,7 @@
               </select>
               <select class="weapons-box39 input" name="attr_weapon_bonus_max" data-i18n-title="weapon-bonus-max" title="Record the weapon's UNDAMAGED bonus. @{repeating_weapons_$X_weapon_bonus_max}">
                 <option value="0">0</option>
-                <option value="1">1</option>
+                <option value="1" selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
@@ -576,7 +620,7 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
                 <option value="11">11</option>
-                <option value="12" selected>12</option>
+                <option value="12">12</option>
               </select>
               <select class="weapons-box40 input" name="attr_weapon_bonus_misc" data-i18n-title="weapon-bonus-misc" title="Miscellaneous bonus modifier (adjusts Gear dice). @{repeating_weapons_$X_weapon_bonus_misc}">
                 <option value="6">+6</option>
@@ -1375,21 +1419,21 @@
           </span>
           
         </div>
-          <fieldset class="repeating_profskill">
+          <fieldset class="repeating_profskills">
             <span class="skills-row chartype-background-light">
               <input class="skill-name chartype-background-light" class="input" type="text" name="attr_profskill_name" />
               <span class="small-caps skill-name">
-                <select class="input character-skill-mod chartype-background-light" name="attr_profskill_attr" title="@{profskill_$X_profskill_attr}">
+                <select class="input character-skill-mod chartype-background-light" name="attr_profskill_attr" title="@{profskills_$X_profskill_attr}">
                   <option value="" selected disabled hidden data-i18n="base">Base</option>
                   <option value="@{strength_total}" data-i18n="strength-abbr">Str</option>
                   <option value="@{agility_total}" data-i18n="agility-abbr">Agi</option>
                   <option value="@{wits_total}" data-i18n="wits-abbr">Wit</option>
                   <option value="@{empathy_total}" data-i18n="empathy-abbr">Emp</option>
                 </select>
-                <span name="attr_profskill_total" value=@{profskill_$X_profskill_attr} readonly></span>
+                <!--<span name="attr_profskill_attr" value="@{profskill_$X_profskill_attr}" readonly></span>-->
               </span>
-              <input class="input-number character-skill-level" type="number" name="attr_profskill_level" value="0" min="0" title="@{profskill_$X_proffskill_level}" />
-              <select class="input character-skill-mod" name="attr_profskill_misc" title="@{sense_profskill_misc}">
+              <input class="input-number character-skill-level" type="number" name="attr_profskill_level" value="0" min="0" title="@{profskills_$X_profskill_level}" />
+              <select class="input character-skill-mod" name="attr_profskill_misc" title="@{profskills_$X_profskill_misc}">
                 <option value="6">+6</option>
                 <option value="5">+5</option>
                 <option value="4">+4</option>
@@ -1404,7 +1448,7 @@
                 <option value="-5">-5</option>
                 <option value="-6">-6</option>
               </select>
-              <select class="input character-skill-gear" name="attr_profskill_gear_misc" title="@{profskill_$X_profskill_gear_misc}">
+              <select class="input character-skill-gear" name="attr_profskill_gear" title="@{profskills_$X_profskill_gear}">
                 <option value="6">+6</option>
                 <option value="5">+5</option>
                 <option value="4">+4</option>
@@ -1413,8 +1457,8 @@
                 <option value="1">+1</option>
                 <option value="0" selected>+0</option>
               </select>
-              <button type="action" name="act_dice_pool_profskill" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-                <span class="readonly character-skill-total" name="attr_profskill_total" value="0" title="@{profskill_$X_profskill_total}">0</span>
+              <button type="action" name="act_profskill-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+                <span class="readonly character-skill-total" name="attr_profskill_total" value="0" title="@{profskills_$X_profskill_total}">0</span>
               </button>
               <!-- expand 2nd row -->
               <!--<input class="expand" type="checkbox" name="attr_expand_sense_emotion" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
@@ -3541,7 +3585,7 @@
   /* beautify preserve:start */
 
   "use strict";
-  
+    
   /* START RACE TYPE UPDATES */
   
     //object reference for Race specific attribute names
@@ -4012,11 +4056,11 @@
       sneak: "sneak_gear_misc",
     },
     getSkill = (label) => label.split(" ").join("_").toLowerCase(),
-    // a function to change (for example) "Animal Handling" to "animal_handling"
+    // a function to change (for example) "Know the Zone" to "know_the_zone"
     // needed for a couple of functions below
   
     getSkillKey = (label) => label.split(" ").join("-").toLowerCase();
-  // a function to change (for example) "Animal Handling" to "animal-handling"
+  // a function to change (for example) "Know the Zone" to "know_the_zone"
   // needed for a couple of functions below
   
   Object.keys(attributes).forEach((skill_name) => {
@@ -4233,7 +4277,7 @@
   
   const dicePoolButtons = (which) => {
     clog(`Change Detected: Dice Pool ${which} - button clicked`);
-    getAttrs([attributes[which], misc[which], miscGear[which], getSkill(which), getSkillKey(which), getSkill(which) + "_artifact_die_eight", getSkill(which) + "_artifact_die_ocho", getSkill(which) + "_artifact_die_ten", getSkill(which) + "_artifact_die_twelve", getSkill(which) + "_notes"], function (
+    getAttrs([attributes[which], misc[which], miscGear[which], getSkill(which), getSkillKey(which), getSkill(which) + "_notes"], function (
       values
     ) {
       // attributes[which] returns the attribute; e.g attributes['sneak'] gives 'agility_total'
@@ -4243,10 +4287,6 @@
         miscGear_score = int(values[miscGear[which]]),
         // stat here first gets attributes['sneak'] which will be, say, 'agility_total' and
         //  then values['ability_total'] gives you the score from the character sheet.
-        artifact_die_eight = int(values[getSkill(which) + "_artifact_die_eight"]),
-        artifact_die_ocho = int(values[getSkill(which) + "_artifact_die_ocho"]),
-        artifact_die_ten = int(values[getSkill(which) + "_artifact_die_ten"]),
-        artifact_die_twelve = int(values[getSkill(which) + "_artifact_die_twelve"]),
         skill_attribute_selected = stat > 0 ? stat : 0,
         skill_bonus_misc_selected = miscSkill_score,
         skill_bonus_misc_gear_selected = miscGear_score,
@@ -4262,10 +4302,6 @@
         // uses the translation key
         gear: miscGear_score,
         skill: int(values[getSkill(which)]) + miscSkill_score,
-        artifact_die_eight: artifact_die_eight,
-        artifact_die_ocho: artifact_die_ocho,
-        artifact_die_ten: artifact_die_ten,
-        artifact_die_twelve: artifact_die_twelve,
         skill_attribute_selected: skill_attribute_selected,
         skill_bonus_misc_selected: skill_bonus_misc_selected,
         skill_bonus_misc_gear_selected: skill_bonus_misc_gear_selected,
@@ -4346,10 +4382,6 @@
       gear_die_three: 0,
       gear_die_two: 0,
       gear_die_one: 0,
-      artifact_die_eight: 0,
-      artifact_die_ocho: 0,
-      artifact_die_ten: 0,
-      artifact_die_twelve: 0,
       current_preset: getTranslationByKey(`custom-roll`),
       include_with_roll: "",
     });
@@ -4459,6 +4491,26 @@
         gear: 0,
         current_preset: getTranslationByKey(`attack`) + ` - ${monster_attack_name}`,
         include_with_roll: `{{weapon-damage=${monster_attack_damage}}} {{attack-features=${monster_attack_features}}} {{weapon-range=${monster_attack_range}}} {{attack-description=${monster_attack_description}}}`,
+      });
+    });
+  });
+
+  /* set prof skill dice pool */
+  on("clicked:repeating_profskills:profskill-roll", function () {
+    clog("Change Detected: Profession Skill - button clicked");
+    getAttrs(["repeating_profskills_profskill_name", "repeating_profskills_profskill_attr", "repeating_profskills_profskill_level", "repeating_profskills_profskill_misc", "repeating_profskills_profskill_gear"], function (values) {
+      const profskill_name = values.repeating_profskills_profskill_name,
+        profskill_attr = int(values.repeating_profskills_profskill_attr),
+        profskill_level = int(values.repeating_profskills_profskill_level),
+        profskill_misc = int(values.repeating_profskills_profskill_misc),
+        profskill_gear = int(values.repeating_profskills_profskill_gear),
+        profskill_skill = profskill_level + profskill_misc;
+      setAttrs({
+        attribute: profskill_attr,
+        skill: profskill_skill,
+        gear: profskill_gear,
+        current_preset: getTranslationByKey(`skill`) + ` - ${profskill_name}`,
+        include_with_roll: ``,
       });
     });
   });

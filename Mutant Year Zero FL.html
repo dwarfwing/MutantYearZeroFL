@@ -1419,6 +1419,7 @@
           </span>
           
         </div>
+
           <fieldset class="repeating_pskills">
             <span class="skills-row chartype-background-light">
               <input class="skill-name chartype-background-light" class="input" type="text" name="attr_pskill_name" />
@@ -1430,6 +1431,7 @@
                   <option value="wit" data-i18n="wits-abbr">Wit</option>
                   <option value="emp" data-i18n="empathy-abbr">Emp</option>
                 </select>
+
               </span>
               <input class="input-number character-skill-level" type="number" name="attr_pskill_level" value="0" min="0" title="@{pskills_$X_proffskill_level}" />
               <select class="input character-skill-mod" name="attr_pskill_misc" title="@{pskills_$X_pskill_misc}">
@@ -2137,6 +2139,9 @@
         <!-- expand 2nd row -->
         <textarea class="vehicle-box-desc vehicle-row2 input-textarea" name="attr_vehicle_description"
           title="@{vehicle_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+
+        <!-- vehicle gear -->
+
         <div class="vehiclegear-box chartype-background-light">
           <div class="vehiclegear-grid chartype-background-light">
             <div class="vehiclegear-box1 header">
@@ -2160,6 +2165,7 @@
                   <input class="vehiclegear-box3 input" type="checkbox" name="attr_vehiclegear_carried" value="1" title="@{repeating_vehiclegear_$X_vehiclegear_carried}" checked />
                   <select class="vehiclegear-box4 input" name="attr_vehiclegear_weight" title="@{repeating_vehiclegear_$X_vehiclegear_weight}">
                     <option data-i18n="tiny-abbr" value="0" selected>T</option>
+                    <option data-i18n="quarter-abbr" value="0.25">Q</option>
                     <option data-i18n="light-abbr" value="0.5">L</option>
                     <option data-i18n="normal-abbr" value="1">N</option>
                     <option data-i18n="heavy-abbr" value="2">H</option>
@@ -2374,34 +2380,34 @@
           <h1 data-i18n="relationships-u">RELATIONSHIPS</h1>
         </div>
         <div class="relationships-box1">
-          <div class="relationships-grid">
-            <div class="relationships-box3">
-              <span data-i18n="hate">Hate: </span>
+            <div class="relationships-grid">
+              <div class="relationships-box3">
+                <span data-i18n="hate">Hate: </span>
+              </div>
+              <div class="relationships-box6">
+                <textarea class="input-textarea" name="attr_relation_hate" title="@{{relation_hate}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
+              </div>
             </div>
-            <div class="relationships-box6">
-              <textarea class="input-textarea" name="attr_relation_hate" title="@{{relation_hate}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
-            </div>
-          </div>
         </div>
         <div class="relationships-box1">
-          <div class="relationships-grid">
-            <div class="relationships-box3">
-              <span data-i18n="protect">Protect: </span>
+            <div class="relationships-grid">
+              <div class="relationships-box3">
+                <span data-i18n="protect">Protect: </span>
+              </div>
+              <div class="relationships-box6">
+                <textarea class="input-textarea" name="attr_relation_protect" title="@{{relation_protect}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
+              </div>
             </div>
-            <div class="relationships-box6">
-              <textarea class="input-textarea" name="attr_relation_protect" title="@{{relation_protect}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
-            </div>
-          </div>
         </div>
         <div class="relationships-box1">
-          <div class="relationships-grid">
-            <div class="relationships-box3">
-              <span data-i18n="dream">Dream: </span>
+            <div class="relationships-grid">
+              <div class="relationships-box3">
+                <span data-i18n="dream">Dream: </span>
+              </div>
+              <div class="relationships-box6">
+                <textarea class="input-textarea" name="attr_relation_dream" title="@{relation_dream}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
+              </div>
             </div>
-            <div class="relationships-box6">
-              <textarea class="input-textarea" name="attr_relation_dream" title="@{relation_dream}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
-            </div>
-          </div>
         </div>
         <div class="relationships-box11 chartype-background-dark">
           <div class="relationships-grid-repeating">
@@ -2440,6 +2446,7 @@
             </div>
             <div class="relationships-box6 column-subheader chartype-background-dark">
               <span data-i18n="description">Description</span>
+            </div>
             </div>
           </div>
         </div>      
@@ -2523,8 +2530,11 @@
         <div class="notes-box2">
           <fieldset class="repeating_notes">
             <div class="notes-grid">
+              <div class="notes-box3">
+                <button class="roll-button" type="roll" name="roll_notes" title="%{repeating_notes_$X_notes}"   style="padding: 0;" value="@{whisper_option} &{template:forbiddenlands} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{notes}}} {{subtitle=@{note_name}}} {{free-text=@{note_description}}}"></button>
+              </div>
               <div class="notes-box4">
-                <input class="input" type="text" name="attr_note_name" value="" title="@{repeating_notes_$X_note_name}" data-i18n-placeholder="note-name" placeholder="Note's name" />
+                <input class="input-number" type="text" name="attr_note_name" value="" title="@{repeating_notes_$X_note_name}" data-i18n-placeholder="note-name" placeholder="Note's name" />
               </div>
               <div class="notes-box5">
                 <textarea class="input-textarea" name="attr_note_description" title="@{repeating_notes_$X_note_description}" data-i18n-placeholder="note-description"   placeholder="Note's description."></textarea>
@@ -3574,14 +3584,14 @@
 </rolltemplate>
 
 <script type="text/worker">
-/* beautify preserve:start */
+  /* beautify preserve:start */
 
   "use strict";
-
+    
   /* START RACE TYPE UPDATES */
-
+  
     //object reference for Race specific attribute names
-
+  
     //Upate sheet labels when chartype attribute changes
     on("change:chartype", function(eventInfo) {
         
@@ -3752,14 +3762,14 @@
             setAttrs({manipulate_name: race_att_names.manipulate_name});
             setAttrs({heal_name: race_att_names.heal_name});
         });
-
+  
         //getAttrs(["chartype","CharacterType"], function(values) {
         //  setAttrs("CharacterType"="chartype");
         //});
     });
-
+  
   /* END RACE TYPE UPDATES */
-
+  
   /* number and log handling */
   const int = (score, on_error = 0) => parseInt(score) || on_error;
   const float = (score, on_error = 0) => parseFloat(score) || on_error;
@@ -3812,7 +3822,7 @@
         newAnnouncement(old_version, new_version, show_announcement);
     }
   };
-//add updates here
+  //add updates here
   
   //rename misspelled attributes
   const update_to_1_71 = (old_version) => {
@@ -3829,9 +3839,9 @@
       Object.entries(statswaps).forEach(([key, value]) => {
         if (v[key]) setter[key] = v[value];
       });
-
+  
   /*** UPDATE THIS ***/
-// MUST set the version to a specific value here, the one where the sheet was updated like this.  
+  // MUST set the version to a specific value here, the one where the sheet was updated like this.  
       const current_version = 1.75;
       setter.version = current_version;
   
@@ -3902,11 +3912,11 @@
     clog("Change Detected: Character Armor Rating");
     repeatingSum("ar_total", "armor", ["armor_ar", "armor_equipped"]);
   });
-
   
   /* total encumbrance */
   on("sheet:opened change:gear_encumbrance change:vehiclegear_encumbrance change:weapons_encumbrance change:armor_encumbrance change:food change:water change:bullets", function () {
     getAttrs(["gear_encumbrance", "vehiclegear_encumbrance", "weapons_encumbrance", "armor_encumbrance", "food", "water", "bullets"], function (values) {      clog("Change Detected: Character Encumbrance");
+
       const gear_encumbrance = float(values["gear_encumbrance"]),
         vehiclegear_encumbrance = float(values["vehiclegear_encumbrance"]),
         weapons_encumbrance = float(values["weapons_encumbrance"]),
@@ -4297,7 +4307,7 @@
   
   const dicePoolButtons = (which) => {
     clog(`Change Detected: Dice Pool ${which} - button clicked`);
-    getAttrs([attributes[which], misc[which], miscGear[which], getSkill(which), getSkillKey(which), getSkill(which) + "_artifact_die_eight", getSkill(which) + "_artifact_die_ocho", getSkill(which) + "_artifact_die_ten", getSkill(which) + "_artifact_die_twelve", getSkill(which) + "_notes"], function (
+    getAttrs([attributes[which], misc[which], miscGear[which], getSkill(which), getSkillKey(which), getSkill(which) + "_notes"], function (
       values
     ) {
       // attributes[which] returns the attribute; e.g attributes['sneak'] gives 'agility_total'
@@ -4499,7 +4509,7 @@
     });
   });
 
-  
+
   /* set prof skill dice pool */
   on("clicked:repeating_pskills", function () {
     clog("Change Detected: Profession Skill - button clicked");
@@ -4516,6 +4526,7 @@
         gear: pskill_gear,
         current_preset: getTranslationByKey(`skill`) + ` - ${pskill_name}`,
         include_with_roll: `{{skill-base=${pskill_base}}} {{skill-skill=${pskill_level}}} {{skill-bonus-misc-skill=${pskill_misc}}} {{skill-bonus-misc-gear=${pskill_gear}}}`,
+
       });
     });
   });
@@ -4782,7 +4793,7 @@
     setAttrs({ repeat_delete: timestamp });
     clog("repeating row has been removed");
   });
-
+  
   /* beautify preserve:end */
 </script>
 

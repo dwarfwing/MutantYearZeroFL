@@ -1938,11 +1938,12 @@ input.sheet-dice_only:checked
   -margin-top: 20px;
 }
 
-.sheet-heading-box .sheet-input, 
-.sheet-heading-box .sheet-input-number {
+.sheet-heading-box .sheet-input-number,
+.sheet-heading-box .sheet-input {
   align-self: center;
   justify-self: center;
   text-align: center;
+  min-width: 4em;
   padding-top: 3px;
   padding-bottom: 3px;
   min-width: 6em;
@@ -1966,6 +1967,7 @@ input.sheet-dice_only:checked
 .sheet-heading-box6 {
   width: 250px;
 }
+
 
 /*
 input[name="attr_chartype"][value="Mutant"]:checked ~ div.sheet-character-grid .sheet-heading-box3,
@@ -4000,6 +4002,7 @@ span.sheet-armor-box3.sheet-header {
   grid-column: 1/3;
   display: inline-block;
 }
+
 
 /* ---------------------------------- Vehicle Gear */
 

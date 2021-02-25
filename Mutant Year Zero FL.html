@@ -2266,7 +2266,7 @@
                   <option value="-6">-6</option>
                 </select>
                 <input class="armor-box5 input" type="text" name="attr_armor_features" value="" title="@{armor_features}" />
-                <input class="armor-box6 readonly" name="attr_armor_ar" value="0" data-i18n-title="armor-bonus-total" title="Total GEAR and SKILL dice included for armor. @{armor_ar}" readonly />
+                <input class="armor-box6 readonly" name="attr_armor_ar" value="0" data-i18n-title="armor-ar" title="Total GEAR and SKILL dice included for armor. @{armor_ar}" readonly />
 
                 <!-- expand 2nd row -->
                 <input class="expand" type="checkbox" name="attr_expand_armor" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
@@ -4120,12 +4120,12 @@
       armor_bonus = int(values.repeating_armor_armor_bonus),
       armor_bonus_max = int(values.repeating_armor_armor_bonus_max);
       // separate out the basic values read from the sheet from those calculated within the worker
-      const armor_bonus_total = Math.min(armor_bonus, armor_bonus_max) + armor_bonus_misc;
-      clog("armor calculation: armor_bonus " + armor_bonus + " armor_bonus_misc " + armor_bonus_misc + " = armor_bonus_total " +armor_bonus_total);
+      const armor_ar = Math.min(armor_bonus, armor_bonus_max) + armor_bonus_misc;
+      clog("armor calculation: armor_bonus " + armor_bonus + " armor_bonus_misc " + armor_bonus_misc + " = armor_bonus_total " +armor_ar);
       setAttrs({
-        repeating_armor_armor_ar: armor_bonus_total,
+        repeating_armor_armor_ar: armor_ar,
       });
-      clog("armor_rating: " + armor_bonus_total);
+      clog("armor_rating: " + armor_ar);
     });
   });
   

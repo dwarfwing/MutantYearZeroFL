@@ -4520,6 +4520,8 @@
   on("clicked:repeating_pskills:pskill-roll", function () {
     clog("Change Detected: Profession Skill - button clicked");
     clog("eventInfo.sourceAttribute");
+  on("clicked:repeating_pskills", function () {
+    clog("Change Detected: Profession Skill - button clicked");
     getAttrs(["repeating_pskills_pskill_name", "repeating_pskills_pskill_base", "repeating_pskills_pskill_level", "repeating_pskills_pskill_misc", "repeating_pskills_pskill_gear"], function (values) {
       const pskill_name = values.repeating_pskills_pskill_name,
         pskill_base = int(values.repeating_pskills_pskill_base),

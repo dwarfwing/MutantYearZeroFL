@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap');
 @font-face {
   font-family: 'BigNoodleTitling';
-  src: url('https://github.com/dwarfwing/MutantYearZeroFL/blob/main/font/BigNoodleTitling.woff2') format('woff2'),
-      url('https://github.com/dwarfwing/MutantYearZeroFL/blob/main/font/BigNoodleTitling.woff') format('woff'),
-      URL('https://github.com/dwarfwing/MutantYearZeroFL/blob/main/font/big_noodle_titling.ttf') format('truetype');
+  src: url('https://dwarfwing.github.io/MutantYearZeroFL/font/BigNoodleTitling.woff2') format('woff2'),
+      url('https://dwarfwing.github.io/MutantYearZeroFL/font/BigNoodleTitling.woff') format('woff'),
+      URL('https://dwarfwing.github.io/MutantYearZeroFL/font/big_noodle_titling.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -1892,7 +1892,7 @@ input.sheet-dice_only:checked
 }
 
 .sheet-character-spells {
-  -display: none;
+  display: none;
   -grid-row-start: 11;
   overflow: hidden;
 }
@@ -2880,13 +2880,13 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   float: left;
 }
 .sheet-character-skills .repcontainer .repitem .itemcontrol .repcontrol_del {
-  position: absolute;
+  -position: absolute;
   right: 5px;
   top: 5px;
   z-index: 1000;
 }
 .sheet-character-skills .repcontainer .repitem .itemcontrol .repcontrol_move {
-  position: absolute;
+  -position: absolute;
   right: 35px;
   top: 2px;
   z-index: 1000;
@@ -3252,7 +3252,7 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 
 .sheet-skills-grid>span,
 .sheet-skills-row {
-  position: relative;
+  -position: relative;
   display: grid;
   padding: 1px 0 1px 0;
   grid-column-gap: 2px;

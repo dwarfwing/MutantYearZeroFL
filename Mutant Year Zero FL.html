@@ -734,6 +734,7 @@
       <div class="character-skills box chartype-background-light toggle-dice-only">
         <input type="checkbox" class="skill-order-group hidden" name="attr_skill_order_group" value="1" />
         <div class="skills-grid" data-i18n-list="skills-list">
+          
           <span>
             <div class="skills-box1 header">
               <h1 data-i18n="skill-u">SKILLS</h1>
@@ -754,6 +755,7 @@
               <span data-i18n="sum-abbr">Sum</span>
             </div>
           </span>
+
           <span class="skills-row chartype-background-dark" data-i18n-list-item="comprehend">
             <span class="skill-name" data-i18n="comprehend" name="attr_comprehend_name">Comprehend</span>
             <span class="small-caps skill-name" data-i18n="wits-abbr">Wit&nbsp;<span class="readonly" name="attr_wits_total"></span></span>
@@ -1419,19 +1421,19 @@
           </span>
           
         </div>
-
+        <div>
           <fieldset class="repeating_pskills">
-            <span class="skills-row chartype-background-light">
+            <div class="skills-row chartype-background-light">
               <input class="skill-name chartype-background-light" class="input" type="text" name="attr_pskill_name" />
               <span class="small-caps skill-name">
+                <input type="hidden" name="attr_pskill_base" value="0" min="0" title="@{pskills_$X_pskill_base}" readonly />
                 <select class="input character-skill-mod chartype-background-light" name="attr_pskill_attr" title="@{pskills_$X_pskill_attr}">
                   <option value="" selected disabled hidden data-i18n="base">Base</option>
-                  <option value="str" data-i18n="strength-abbr">Str</option>
-                  <option value="agi" data-i18n="agility-abbr">Agi</option>
-                  <option value="wit" data-i18n="wits-abbr">Wit</option>
-                  <option value="emp" data-i18n="empathy-abbr">Emp</option>
+                  <option value="strength" data-i18n="strength-abbr">Str</option>
+                  <option value="agility" data-i18n="agility-abbr">Agi</option>
+                  <option value="wits" data-i18n="wits-abbr">Wit</option>
+                  <option value="empathy" data-i18n="empathy-abbr">Emp</option>
                 </select>
-
               </span>
               <input class="input-number character-skill-level" type="number" name="attr_pskill_level" value="0" min="0" title="@{pskills_$X_proffskill_level}" />
               <select class="input character-skill-mod" name="attr_pskill_misc" title="@{pskills_$X_pskill_misc}">
@@ -1461,20 +1463,12 @@
               <button type="action" name="act_pskill-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
                 <span class="readonly character-skill-total" name="attr_pskill_total" value="0" title="@{pskills_$X_pskill_total}">0</span>
               </button>
-              <!-- expand 2nd row -->
-              <!--<input class="expand" type="checkbox" name="attr_expand_sense_emotion" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
-  
-              <div class="sense_emotion-row2 skills-row2">
-                <div class="skills-row2-header">
-                  <div class="skills-box6 column-header"></div>
-                </div>
-                <div class="skills-row2-body">
-                  <textarea class="skills-box6 input-textarea" name="attr_sense_emotion_notes" data-i18n-placeholder="notes-text" placeholder="notes..." title="@{sense_emotion_notes}"></textarea>
-                </div>
-              </div>-->
-            </span>
+            </div>
           </fieldset>
+        </div>
       </div>
+
+      <!-- DICE POOL GRID-->
       <div class="box chartype-background-light character-dice_pool">
         <div class="dice_pool-grid">
           <div class="dice-header dice_pool-box1 toggle-dice-only header">
@@ -4084,35 +4078,47 @@
   });
    
     
-  /* set profession skill base and skill total */
-  on("sheet:opened change:repeating_pskills:pskill_name change:repeating_pskills:pskill_attr change:repeating_pskills:pskill_level change:repeating_pskills:pskill_misc change:repeating_pskills:pskill_gear change:strength_total change:agility_total change:wits_total change:empathy_total", function () {
-    clog("Change Detected: Profession Skill - recalculating Base & Skill totals");
-    // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
-    getAttrs(["repeating_pskills_pskill_name", "repeating_pskills_pskill_attr", "repeating_pskills_pskill_base", "repeating_pskills_pskill_level", "repeating_pskills_pskill_misc", "repeating_pskills_pskill_gear", "repeating_pskills_pskill_total", "strength_total", "agility_total", "wits_total", "empathy_total"], function (values) {
-      const name = values.repeating_pskills_pskill_name,
-        attr = values.repeating_pskills_pskill_attr,
-        strength = int(values.strength_total),
-        agility = int(values.agility_total),
-        wits = int(values.wits_total),
-        empathy = int(values.empathy_total),
-        pskill_skill = int(values.repeating_pskills_pskill_level),
-        pskill_misc = int(values.repeating_pskills_pskill_misc),
-        pskill_gear = int(values.repeating_pskills_pskill_gear);
-      // separate out the basic values read from the sheet from those calculated within the worker. for clarity
-      const base = attr === "str" ? strength : (attr === "agi" ? agility : (attr === "wit" ? wits : (attr === "emp" ? empathy : 0))),
-        pskill_total = base + pskill_skill + pskill_misc + pskill_gear;
-      setAttrs({
-        repeating_pskills_pskill_base: base,
-        repeating_pskills_pskill_total: pskill_total,
+  /* set profession skill base and skill total FIX courtesy of GiGs*/
+  on('sheet:opened change:repeating_pskills:pskill_name change:repeating_pskills:pskill_attr change:repeating_pskills:pskill_level change:repeating_pskills:pskill_misc change:repeating_pskills:pskill_gear change:strength_total change:agility_total change:wits_total change:empathy_total', function () {
+      clog('Change Detected: Profession Skill - recalculating Base & Skill totals');
+      getSectionIDs('repeating_pskills', idarray => {
+          const fields = [];
+          idarray.forEach(id => fields.push(
+              `repeating_pskills_${id}_pskill_name`,
+              `repeating_pskills_${id}_pskill_attr`, 
+              `repeating_pskills_${id}_pskill_base`, 
+              `repeating_pskills_${id}_pskill_level`, 
+              `repeating_pskills_${id}_pskill_misc`, 
+              `repeating_pskills_${id}_pskill_gear`, 
+              `repeating_pskills_${id}_pskill_total`
+          ));
+  
+          // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
+          getAttrs([...fields, 'strength_total', 'agility_total', 'wits_total', 'empathy_total'], function (values) {
+              const output = {};
+              idarray.forEach(id => {
+                  const name = values[`repeating_pskills_${id}_pskill_name`];
+                  const attr = values[`repeating_pskills_${id}_pskill_attr`];
+                  const pskill_skill = int(values[`repeating_pskills_${id}_pskill_level`]);
+                  const pskill_misc = int(values[`repeating_pskills_${id}_pskill_misc`]);
+                  const pskill_gear = int(values[`repeating_pskills_${id}_pskill_gear`]);
+                  // separate out the basic values read from the sheet from those calculated within the worker. for clarity
+                  const pskill_base = values[`${attr}_total`] || 0;
+                  const pskill_total = pskill_base + pskill_skill + pskill_misc + pskill_gear;
+                  output[`repeating_pskills_${id}_pskill_base`] = pskill_base;
+                  output[`repeating_pskills_${id}_pskill_total`] = pskill_total;
+                  clog('pskill_name: ' + name);
+                  clog('pskill_base: ' + pskill_base);
+                  clog('pskill_total: ' + pskill_total);
+              });
+                  
+              setAttrs(output);
+          });
       });
-      clog("pskill_name: " + name);
-      clog("pskill_base: " + base);
-      clog("weapon_skill_total: " + pskill_total);
-    });
   });
 
   /* set repeating armor rating */
-  on("repeating_armor:armor_bonus change:repeating_armor:armor_bonus_max change:repeating_armor:armor_bonus_misc sheet:opened", function () {
+  on("change:repeating_armor:armor_bonus change:repeating_armor:armor_bonus_max change:repeating_armor:armor_bonus_misc", function () {
     clog("Change Detected: Repeating Armor Bonus - recalculating Bonus totals");
     // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
     getAttrs(["repeating_armor_armor_bonus", "repeating_armor_armor_bonus_misc", "repeating_armor_armor_bonus_max", "repeating_armor_armor_ar"], function (values) {
@@ -4511,8 +4517,9 @@
 
 
   /* set prof skill dice pool */
-  on("clicked:repeating_pskills", function () {
+  on("clicked:repeating_pskills:pskill-roll", function () {
     clog("Change Detected: Profession Skill - button clicked");
+    clog("eventInfo.sourceAttribute");
     getAttrs(["repeating_pskills_pskill_name", "repeating_pskills_pskill_base", "repeating_pskills_pskill_level", "repeating_pskills_pskill_misc", "repeating_pskills_pskill_gear"], function (values) {
       const pskill_name = values.repeating_pskills_pskill_name,
         pskill_base = int(values.repeating_pskills_pskill_base),
@@ -4525,8 +4532,7 @@
         skill: pskill_skill,
         gear: pskill_gear,
         current_preset: getTranslationByKey(`skill`) + ` - ${pskill_name}`,
-        include_with_roll: `{{skill-base=${pskill_base}}} {{skill-skill=${pskill_level}}} {{skill-bonus-misc-skill=${pskill_misc}}} {{skill-bonus-misc-gear=${pskill_gear}}}`,
-
+        include_with_roll: `{{skill-base=${pskill_base}}} {{skill-level=${pskill_level}}} {{skill-bonus-misc=${pskill_misc}}} {{skill-bonus-gear=${pskill_gear}}}`,
       });
     });
   });
@@ -4603,7 +4609,7 @@
   
   /* Update the Dice Pool indicator */
   on(
-    "clicked:dice_pool_crafting_monster clicked:dice_pool_force_monster clicked:dice_pool_endure_monster clicked:dice_pool_fight_monster clicked:dice_pool_sneak clicked:dice_pool_know_the_zone clicked:dice_pool_move clicked:dice_pool_shoot clicked:dice_pool_scout clicked:dice_pool_lore clicked:dice_pool_survival clicked:dice_pool_comprehend clicked:dice_pool_manipulate clicked:dice_pool_sense_emotion clicked:dice_pool_heal clicked:dice_pool_animal_handling clicked:reputation-roll clicked:repeating_weapons:attack-roll clicked:repeating_monster:monster-attack-roll clicked:repeating_spells:spell-roll clicked:armor-roll clicked:shield-roll clicked:shield-shove-roll",
+    "clicked:repeating_pskills:pskill-roll clicked:dice_pool_crafting_monster clicked:dice_pool_force_monster clicked:dice_pool_endure_monster clicked:dice_pool_fight_monster clicked:dice_pool_sneak clicked:dice_pool_know_the_zone clicked:dice_pool_move clicked:dice_pool_shoot clicked:dice_pool_scout clicked:dice_pool_lore clicked:dice_pool_survival clicked:dice_pool_comprehend clicked:dice_pool_manipulate clicked:dice_pool_sense_emotion clicked:dice_pool_heal clicked:dice_pool_animal_handling clicked:reputation-roll clicked:repeating_weapons:attack-roll clicked:repeating_monster:monster-attack-roll clicked:repeating_spells:spell-roll clicked:armor-roll clicked:shield-roll clicked:shield-shove-roll",
     function () {
       clog("Change Detected: Update Dice Pool");
       getAttrs(["roll_the_dice_flag"], function (values) {
@@ -4797,8 +4803,3 @@
   /* beautify preserve:end */
 </script>
 
-<!--
-i18n-tags generated with ACSI V0.32 (Automated Character Sheet Internationalizer)
-ACSI author: https://github.com/Anduh
-ACSI Sourcecode: https://github.com/Anduh/acsi
--->

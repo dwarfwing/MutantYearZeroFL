@@ -65,11 +65,10 @@ input.sheet-monster_only:checked
   opacity: 1;
 }
 
-input[type="checkbox"].sheet-announcements-older-show,
-input[type="checkbox"].sheet-armor-show-more {
+input[type="checkbox"].sheet-announcements-older-show {
   position: relative;
   z-index: 1;
-  float: right;
+  float: left;
   width: 1.5em;
   height: 1em;
   margin: -1.1em 0 0 0;
@@ -84,7 +83,7 @@ input.sheet-armor-show-more:hover + span {
 input.sheet-announcements-older-show + span,
 input.sheet-armor-show-more + span {
   position: relative;
-  float: right;
+  float: left;
   width: 0;
   height: 0;
   margin: -1em 0 0 0;
@@ -161,7 +160,12 @@ input.sheet-monster_only:checked
   --background-color: #ffffea;
 }
 
-.sheet-settings-options {
+.sheet-settings {
+  display: flex;
+}
+
+.sheet-settings-options,
+.sheet-announcements {
   margin: 3em 0.5em 2em 0.5em;
   padding: 1em 0.5em 2em 0.5em;
   border: 2px solid #000;
@@ -735,7 +739,7 @@ button.btn.btn-danger.pictos.repcontrol_del:hover {
 /* Sheet Tabs */
 div.sheet-tab-content {
   display: none;
-  margin-top: -50px;
+  -margin-top: -50px;
   border-top: 1px solid #fff;
 }
 
@@ -900,14 +904,22 @@ input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-character-biomec
   display: block;
 }
 
+input[name="attr_charactertype"][value="Mutant"] .sheet-char-mutant {
+  display: block;
+}
+
 
 input.sheet-character:checked ~ div.sheet-character,
-input.sheet-stronghold:checked ~ div.sheet-stronghold,
+input.sheet-ark:checked ~ div.sheet-ark,
 input.sheet-npc_only:checked ~ div.sheet-character,
 input.sheet-monster_only:checked ~ div.sheet-character,
 input.sheet-settings:checked ~ div.sheet-settings {
   display: inline-block;
   -margin-top: -30px;
+}
+
+input.sheet-settings:checked ~ .sheet-character-type {
+  display: none;
 }
 
 input.sheet-monster_only:checked
@@ -954,7 +966,7 @@ input[type="radio"].sheet-tab {
   float: left;
   width: 90px;
   height: 20px;
-  margin: 14px 1px 20px 1px;
+  margin: 14px 1px 10px 1px;
   cursor: pointer;
   border: none;
   outline: none;
@@ -991,7 +1003,7 @@ input.sheet-tab.sheet-settings::before {
 }
 
 input.sheet-tab.sheet-character:checked,
-input.sheet-tab.sheet-stronghold:checked,
+input.sheet-tab.sheet-ark:checked,
 input.sheet-tab.sheet-npc:checked,
 input.sheet-tab.sheet-monster_only:checked,
 input.sheet-tab.sheet-settings:checked {
@@ -1000,7 +1012,7 @@ input.sheet-tab.sheet-settings:checked {
 }
 
 input.sheet-tab.sheet-character:hover,
-input.sheet-tab.sheet-stronghold:hover,
+input.sheet-tab.sheet-ark:hover,
 input.sheet-tab.sheet-npc:hover,
 input.sheet-tab.sheet-monster_only:hover,
 input.sheet-tab.sheet-settings:hover {
@@ -1009,7 +1021,7 @@ input.sheet-tab.sheet-settings:hover {
 }
 
 input.sheet-tab.sheet-character:hover::before,
-input.sheet-tab.sheet-stronghold:hover::before,
+input.sheet-tab.sheet-ark:hover::before,
 input.sheet-tab.sheet-npc:hover::before,
 input.sheet-tab.sheet-monster_only:hover::before {
   z-index: 3;
@@ -1064,7 +1076,7 @@ input.sheet-tab.sheet-settings:checked:hover::before {
 
 /* hides radio selector */
 input.sheet-tab.sheet-character:checked::after,
-input.sheet-tab.sheet-stronghold:checked::after,
+input.sheet-tab.sheet-ark:checked::after,
 input.sheet-tab.sheet-npc_only:checked::after,
 input.sheet-tab.sheet-monster_only:checked::after,
 input.sheet-tab.sheet-settings:checked::after {
@@ -1080,8 +1092,8 @@ input.sheet-tab.sheet-settings:checked::after {
   box-sizing: border-box;
   width: 100%;
   min-width: 820px;
-  padding: 70px 0 50px 0;
-  margin-top: 70px;
+  -padding: 70px 0 50px 0;
+  margin-top: 10px;
   color: #000;
   -border: 2px solid #000;
   border-top: 4px solid #000;
@@ -1097,7 +1109,7 @@ input.sheet-tab.sheet-settings:checked::after {
 .sheet-logo {
   min-width: 820px;
   max-height: 56px;
-  margin-top: -85px;
+  -margin-top: -50px;
   margin-right: 50px;
   text-align: right;
 }
@@ -1583,10 +1595,15 @@ div.sheet-ark-other-grid h1 {
 }
 
 
-.sheet-character-type-box {
-  width: 100%;
-  text-align: left;
-  margin: -20px 15px 25px -55px;
+.sheet-character-type {
+  -display:flex;
+  -width: 100%;
+  -text-align: left;
+  -justify-self: start;
+  -margin: -20px 15px 25px -55px;
+}
+.sheet-character-type-break {
+  clear:left;
 }
 
 .sheet-character-heading {
@@ -1697,10 +1714,10 @@ input.sheet-npc_only:checked
 .sheet-character-armor,
 .sheet-character-relationships,
 .sheet-character-spells,
-.sheet-stronghold-functions,
-.sheet-stronghold-hirelings,
-.sheet-stronghold-stockpile,
-.sheet-stronghold-notes {
+.sheet-ark-functions,
+.sheet-ark-hirelings,
+.sheet-ark-stockpile,
+.sheet-ark-notes {
   padding: 0;
   margin: 0 0 5px 0;
   -border: 7px solid #000;
@@ -4309,344 +4326,435 @@ span.sheet-armor-box3.sheet-header {
   grid-row-start: 2;
 }
 
-/* stronghold grid layout */
+/* ark grid layout */
 
-.sheet-stronghold-grid {
+.sheet-ark-grid {
   display: grid;
-  margin: -21px 5px 0 5px;
+  margin: 21px 5px 0 5px;
   grid-column-gap: 4px;
   grid-row-gap: 4px;
-  grid-template-columns: 1fr 1fr auto;
-  grid-template-rows: repeat(4, auto);
+  grid-template-columns: 1fr 1fr 1fr;
+  -grid-template-rows: repeat(4, auto);
 }
 
-.sheet-stronghold-details {
-  border: none;
-  grid-column: 1/3;
+.sheet-ark-development {
   grid-row-start: 1;
-  background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20top%20banner.png);
-  background-repeat: no-repeat;
-  background-size: 100% 110px;
-  background-position-y: top;
-  background-position-x: center;
-  display: flex;
+  grid-column: 1/4;
+}
+
+.sheet-ark-details {
+  -border: none;
+  grid-column: 1;
+  grid-row-start: 2;
+  -background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20top%20banner.png);
+  -background-repeat: no-repeat;
+  -background-size: 100% 110px;
+  -background-position-y: top;
+  -background-position-x: center;
+  -display: flex;
   justify-content: space-evenly;
   justify-self: stretch;
 }
 
-.sheet-stronghold-functions {
-  grid-column-start: 1;
-}
 
-.sheet-stronghold-hirelings {
+.sheet-ark-bosses {
   grid-column-start: 2;
+  grid-row-start: 2;
 }
 
-.sheet-stronghold-stockpile {
-  grid-column: 1/2;
+.sheet-ark-other {
+  grid-column-start: 3;
+  grid-row-start: 2;
+}
+
+.sheet-ark-projects {
+  grid-column: 1/4;
   grid-row-start: 3;
 }
 
-.sheet-stronghold-notes {
-  grid-column-start: 2;
-  grid-row-start: 3;
+.sheet-ark-notes {
+  grid-column-start: 1/4;
+  grid-row-start: 4;
 }
 
-/* ---------------------------------- Stronghold Details */
 
-.sheet-stronghold-details-grid {
+
+/* ---------------------------------- ark development */
+
+.sheet-ark-development-grid {
   display: grid;
   grid-row-gap: 2px;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 2.75em 0.5em 2.75em 2em auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: space-around;
-  width: 87%;
+  -width: 87%;
 }
 
-.sheet-stronghold-details-grid > div {
+.sheet-ark-development-grid > div {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.sheet-stronghold-details-box1 {
-  grid-column: 1/4;
-  grid-row: 1;
-  background-color: inherit;
-}
-
-.sheet-stronghold-details-box1 h1 {
-  color: #000;
-}
-
-.sheet-stronghold-details-box2 {
-  grid-column-start: 1;
+.sheet-ark-development-box1 {
+  grid-column: 1/5;
   grid-row-start: 1;
 }
 
-.sheet-stronghold-details-grid .sheet-stronghold-details-box2 {
-  justify-content: flex-end;
-  margin-right: 18%;
+.sheet-ark-development-subheader1 {
+  grid-column: 1;
+  grid-row-start: 1;
 }
 
-.sheet-stronghold-details-box3 {
-  grid-column-start: 1;
+.sheet-ark-development-subheader2 {
+  grid-column: 2;
+  grid-row-start: 1;
+}
+
+.sheet-ark-development-subheader3 {
+  grid-column: 3;
+  grid-row-start: 1;
+}
+
+.sheet-ark-development-subheader4 {
+  grid-column: 4;
+  grid-row-start: 1;
+}
+
+.sheet-ark-development-col1 {
+  grid-column: 1;
   grid-row-start: 2;
 }
 
-.sheet-stronghold-details-box4 {
+.sheet-ark-development-col2 {
+  grid-column: 2;
+  grid-row-start: 2;
+}
+
+.sheet-ark-development-col3 {
+  grid-column: 3;
+  grid-row-start: 2;
+}
+
+.sheet-ark-development-col4 {
+  grid-column: 4;
+  grid-row-start: 2;
+}
+
+
+/* ---------------------------------- ark Details */
+
+.sheet-ark-details-grid {
+  display: grid;
+  grid-row-gap: 2px;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-around;
+  -width: 87%;
+}
+
+.sheet-ark-details-grid > div {
+  -display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.sheet-ark-details-box {
+  grid-column: 1/3;
+  grid-row: 1;
+  -background-color: inherit;
+  width: 100%;
+}
+
+.sheet-ark-details-box h1 {
+  -color: #000;
+}
+
+.sheet-ark-details-box1 {
+  grid-column-start: 1;
+  grid-row-start: 2;
+  width: 100%;
+}
+
+.sheet-ark-details-grid .sheet-ark-details-box2 {
+  justify-content: flex-end;
+  -margin-right: 18%;
+}
+
+.sheet-ark-details-box2 {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.sheet-ark-details-box3 {
+  grid-column-start: 1;
+  grid-row-start: 3;
+  -margin: 3.5em 0 0 0;
+  width: 100%;
+}
+
+.sheet-ark-details-box4 {
   grid-column-start: 2;
   grid-row-start: 3;
-  margin: 3.5em 0 0 0;
+  -margin: 2.5em 0 0 0;
 }
 
-.sheet-stronghold-details-box5 {
+.sheet-ark-details-box5 {
+  grid-column-start: 1;
+  grid-row-start: 4;
+  width: 100%;
+}
+
+.sheet-ark-details-box6 {
   grid-column-start: 2;
-  grid-row-start: 2;
-  margin: 2.5em 0 0 0;
+  grid-row-start: 4;
 }
 
-.sheet-stronghold-details-box6 {
-  grid-column-start: 3;
-  grid-row-start: 1;
-}
-
-.sheet-stronghold-details-grid .sheet-stronghold-details-box6 {
-  justify-content: flex-start;
-  margin-left: 15%;
-}
-
-.sheet-stronghold-details-box7 {
-  grid-column-start: 3;
-  grid-row-start: 2;
-}
-
-.sheet-stronghold-details-box8 {
-  grid-column: 1/4;
+.sheet-ark-details-box7 {
+  grid-column: 1/3;
   grid-row-start: 5;
   padding: 10px;
-  margin: 0;
-  border: 10px solid #000;
-  border-top-width: 18px;
-  border-bottom-width: 18px;
-  border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20column%20box%20border.png);
-  border-image-slice: 25 25 35 25;
-  border-image-width: 15px 15px 15px 15px;
-  border-image-repeat: round;
+  margin: 0 1px 0 0 ;
+  -border: 2px solid #000;
+  -border: 10px solid #000;
+  -border-top-width: 18px;
+  -border-bottom-width: 18px;
+  -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20column%20box%20border.png);
+  -border-image-slice: 25 25 35 25;
+  -border-image-width: 15px 15px 15px 15px;
+  -border-image-repeat: round;
   background-color: inherit;
+  -width: 100%;
 }
 
-/* ---------------------------------- Stronghold Functions */
+.sheet-ark-details-box7 .sheet-input-textarea {
+  width: 90%;
+}
 
-.sheet-stronghold-functions-grid {
+/* ---------------------------------- ark bosses */
+
+.sheet-ark-bosses-grid {
   display: grid;
   grid-column-gap: 2px;
   grid-row-gap: 2px;
-  grid-template-columns: 2fr 3em 3fr;
-  grid-template-rows: auto;
+  grid-template-columns: auto 4em;
 }
 
-.sheet-stronghold-functions-grid > div,
-.sheet-stronghold-functions-grid > input,
-.sheet-stronghold-functions-grid > textarea {
+.sheet-ark-bosses-grid > div,
+.sheet-ark-bosses-grid > input,
+.sheet-ark-bosses-grid > textarea {
   box-sizing: border-box;
 }
 
-.sheet-stronghold-functions-grid > .sheet-input-textarea {
+.sheet-ark-bosses-grid > .sheet-input-textarea {
   height: 2.25em;
 }
 
-.sheet-stronghold-functions-box {
-  grid-column: 1/4;
+.sheet-ark-bosses-box,
+.sheet-ark-bosses-repeating {
+  grid-column: 1/3;
   grid-row-start: 1;
 }
 
-.sheet-stronghold-functions-box1 {
+.sheet-ark-bosses-subheader1 {
   grid-column-start: 1;
   grid-row-start: 1;
 }
 
-.sheet-stronghold-functions-box2 {
+.sheet-ark-bosses-subheader2 {
   grid-column-start: 2;
   grid-row-start: 1;
 }
 
-.sheet-stronghold-functions-box3 {
-  grid-column-start: 3;
-  grid-row-start: 1;
-}
-
-.sheet-stronghold-functions-box4 {
-  grid-column: 1/4;
+.sheet-ark-bosses-repeating {
   grid-row-start: 2;
 }
 
-/* ---------------------------------- Stronghold Hirelings */
+.sheet-ark-bosses-box1 {
+  grid-column: 1;
+}
 
-.sheet-stronghold-hirelings-grid {
+.sheet-ark-bosses-box2 {
+  grid-column: 2;
+}
+
+
+/* ---------------------------------- ark projects */
+
+.sheet-ark-projects {
+  -display: flex;
+  grid-column: 1/4;
+  width: 100%;
+}
+
+.sheet-ark-projects-grid {
   display: grid;
-  margin-bottom: 2px;
-  grid-column-gap: 2px;
-  grid-row-gap: 2px;
-  grid-template-columns: auto 3em 5em;
-  grid-template-rows: auto;
-}
-
-.sheet-stronghold-hirelings-box {
-  grid-column: 1/4;
-  grid-row-start: 1;
-}
-
-.sheet-stronghold-hirelings-box1 {
-  grid-column-start: 1;
-  grid-row-start: 1;
-}
-
-.sheet-stronghold-hirelings-box2 {
-  grid-column-start: 2;
-  grid-row-start: 1;
-}
-
-.sheet-stronghold-hirelings-box3 {
-  grid-column-start: 3;
-  grid-row-start: 1;
-}
-
-.sheet-stronghold-hirelings-box3 span {
-  line-height: 1em;
-  height: 2em;
-  margin-top: -9px;
-  text-align: center;
-  word-break: break-word;
-  background: transparent;
-  grid-column-start: 3;
-  grid-row-start: 1;
-}
-
-input.sheet-stronghold-hirelings-box3 {
-  display: flex;
-  max-width: 3.5em;
-  justify-self: center;
-}
-
-.sheet-stronghold-hirelings-box4 {
-  grid-column: 1/4;
-  grid-row-start: 2;
-}
-
-.sheet-stronghold-hirelings-box5 {
-  grid-column: 1/4;
-  grid-row-start: 3;
-}
-
-/* ---------------------------------- Stronghold Stockpile */
-
-/* list ordering of stockpile by attribute group */
-.sheet-stronghold-stockpile-grid {
-  display: flex;
   flex-direction: column;
-}
-
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(1) { order: 12;} /* iron ore */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(2) { order: 6;} /* fur */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(3) { order: 4;} /* flour */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(4) { order: 11;} /* iron */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(5) { order: 13;} /* leather */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(6) { order: 9;} /* grain */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(7) { order: 15;} /* silver */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(8) { order: 2;} /* cloth */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(9) { order: 14;} /* meat */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(10) { order: 8;} /* gold */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(11) { order: 21;} /* wool */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(12) { order: 3;} /* fish */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(13) { order: 16;} /* stone */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(14) { order: 5;} /* food */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(15) { order: 18;} /* vegetables */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(16) { order: 7;} /* glass */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(17) { order: 1;} /* bread */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(18) { order: 17;} /* tallow */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(19) { order: 20;} /* wood */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(20) { order: 19;} /* water */
-.sheet-stockpile-order-group:checked ~ .sheet-stronghold-stockpile-grid span.sheet-stockpile-row:nth-of-type(21) { order: 10;} /* herbs */
-
-/* end list order */
-
-.sheet-stronghold-stockpile-grid {
-  display: grid;
   grid-row-gap: 2px;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
+  grid-column-gap: 10px;
+  grid-template-columns: 1fr 1.5fr 1fr 0.5fr 0.5fr;
+  width: 100%;
 }
 
-.sheet-stronghold-stockpile-grid > div,
-.sheet-stronghold-stockpile-grid > span {
-  display: flex;
+.sheet-ark-projects-grid > div,
+.sheet-ark-projects-grid > span {
+  -display: flex;
   align-items: center;
   justify-content: space-around;
+  justify-self: stretch;
 }
 
-.sheet-stronghold-stockpile-grid > .sheet-column-header > span {
+.sheet-ark-projects-grid > .sheet-column-header > span {
   width: 100%;
 }
 
-.sheet-stronghold-stockpile-grid > span > input {
-  max-width: 3em;
+.sheet-ark-projects-grid .sheet-input-text,
+.sheet-ark-projects-grid .sheet-input-textfield {
+  justify-self: stretch !important;
 }
 
-.sheet-stronghold-stockpile-grid > span > span.sheet-label {
+.sheet-ark-projects-grid .sheet-input-radio,
+.sheet-ark-projects-grid .sheet-input-number {
+  justify-self: center !important;
+}
+
+.sheet-ark-projects-grid > span > span.sheet-label {
   width: 100%;
   text-align: center;
 }
 
-.sheet-stronghold-stockpile-box1 {
-  grid-column: 1/4;
-  grid-row-start: 1;
+.sheet-ark-projects-box {
+  grid-column: 1/6;
+  grid-row: 1;
 }
 
-.sheet-stronghold-stockpile-box2 {
+.sheet-ark-projects-box1 {
   grid-column-start: 1;
   grid-row-start: 1;
   width: 100%;
-  text-align: right;
+  -text-align: right;
 }
 
-.sheet-stronghold-stockpile-box3 {
+.sheet-ark-projects-box2 {
   grid-column-start: 2;
   grid-row-start: 1;
   width: 100%;
-  text-align: right;
+  -text-align: right;
 }
 
-.sheet-stronghold-stockpile-box4 {
+.sheet-ark-projects-box3 {
   grid-column-start: 3;
   grid-row-start: 1;
   width: 100%;
-  text-align: right;
+  -text-align: right;
 }
 
-/* ---------------------------------- Stronghold Notes */
+.sheet-ark-projects-box4 {
+  grid-column-start: 4;
+  grid-row-start: 1;
+  width: 100%;
+  -text-align: right;
+}
 
-.sheet-stronghold-notes-grid {
+.sheet-ark-projects-box5 {
+  grid-column-start: 5;
+  grid-row-start: 1;
+  width: 100%;
+  -text-align: right;
+}
+
+.sheet-ark-projects-repeating {
+  width: 100%;
+  grid-column: 1/6;
+}
+
+.sheet-ark-projects-box6 {
+  grid-column-start: 1;
+  grid-row-start: 2;
+  width: 100%;
+  -text-align: right;
+}
+
+.sheet-ark-projects-box7 {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  width: 100%;
+  -text-align: right;
+}
+
+.sheet-ark-projects-box8 {
+  grid-column-start: 3;
+  grid-row-start: 2;
+  width: 100%;
+  -text-align: right;
+}
+
+.sheet-ark-projects-box9 {
+  grid-column-start: 4;
+  grid-row-start: 2;
+  width: 100%;
+  -text-align: right;
+}
+
+.sheet-ark-projects-box10 {
+  grid-column-start: 5;
+  grid-row-start: 2;
+  width: 100%;
+  -text-align: right;
+}
+
+/* ---------------------------------- ark Notes */
+
+.sheet-ark-notes {
+  width: 100%;
+  grid-column: 1/4;
+  display:flex;
+
+}
+
+.sheet-ark-notes-grid {
+  width: 100%;
   display: grid;
   grid-column-gap: 2px;
   grid-row-gap: 2px;
-  grid-template-columns: auto;
+  grid-template-columns: 250px auto;
   grid-template-rows: auto;
 }
 
-.sheet-stronghold-notes-grid > div,
-.sheet-stronghold-notes-grid > input,
-.sheet-stronghold-notes-grid > textarea {
+.sheet-ark-notes-grid div,
+.sheet-ark-notes-grid input,
+.sheet-ark-notes-grid textarea {
   box-sizing: border-box;
+  width: 100%;
+  justify-self: stretch;
 }
 
-.sheet-stronghold-notes-box1 {
-  grid-column: 1/2;
+.sheet-ark-notes-box {
+  grid-column: 1/3;
   grid-row-start: 1;
 }
 
-.sheet-stronghold-notes-box2 {
+.sheet-ark-notes-repeating {
+  width: 100%;
+  grid-column: 1/3;
+}
+
+.sheet-ark-notes-box1 {
   grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.sheet-ark-notes-box2 {
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+
+.sheet-ark-notes-box3 {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+
+.sheet-ark-notes-box4 {
+  grid-column-start: 2;
   grid-row-start: 2;
 }
 

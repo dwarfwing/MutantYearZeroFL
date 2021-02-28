@@ -3,32 +3,32 @@
 <!-- ADDED recalc checkbox to force sheet worker events. temp unhide for testing purposes-->
 <input class="hidden" name="attr_recalc1" type="checkbox" />
 
+<input class="hidden attr-chartype-selected" name="attr_charactertype" value="(@{chartype})" type="hidden" />
+
 <!--tabs-->
 <input class="tab character" name="attr_tab" data-i18n-title="character" title="Character" type="radio" value="1" checked />
-<input class="tab stronghold" name="attr_tab" data-i18n-title="ark" title="Ark" type="radio" value="2" />
+<input class="tab ark" name="attr_tab" data-i18n-title="ark" title="Ark" type="radio" value="2" />
 <!--<input class="tab npc_only" name="attr_tab" data-i18n-title="npc" title="NPC" type="radio" value="3" />-->
 <input class="tab monster_only" name="attr_tab" data-i18n-title="monster" title="Monster" type="radio" value="4" />
 <input class="tab settings" name="attr_tab" data-i18n-title="settings" title="Settings" type="radio" value="5" />
 
+<div class="logo" title="MUTANT YEAR ZERO" data-i18n-title="logo-myz">
+  <span class="sheet-logo-image lang-sv"></span>
+</div>
+
+<span class="character-type character-type-break" data-i18n="chartype">Character Type:&nbsp;&nbsp;</span>
+<input type="radio" class="character-type sheet-chartype-mutant" name="attr_chartype" value="Mutant" checked />    
+<span class="character-type">Mutant&nbsp;&nbsp;</span>
+<input type="radio" class="character-type sheet-chartype-animal" name="attr_chartype" value="Animal" />                  
+<span class="character-type">Animal&nbsp;&nbsp;</span>
+<input type="radio" class="character-type sheet-chartype-robot"  name="attr_chartype" value="Robot" />                  
+<span class="character-type">Robot&nbsp;&nbsp;</span>
+<input type="radio" class="character-type sheet-chartype-human"  name="attr_chartype" value="Human" />                  
+<span class="character-type">Human</span>
 
 
 <div class="wrapper tab-content character">
-  
-  <input type="hidden" name ="attr_CharacterType" value="@{chartype}" />    
 
-  <div class="logo" title="MUTANT YEAR ZERO" data-i18n-title="logo-myz">
-    <span class="sheet-logo-image lang-sv"></span>
-  </div>
-  
-  Character Type:&nbsp;&nbsp;
-  <input type="radio" class="sheet-character-type sheet-chartype-mutant" name="attr_chartype" value="Mutant" checked />    
-  <span>Mutant&nbsp;&nbsp;</span>
-  <input type="radio" class="sheet-character-type sheet-chartype-animal" name="attr_chartype" value="Animal" />                  
-  <span>Animal&nbsp;&nbsp;</span>
-  <input type="radio" class="sheet-character-type sheet-chartype-robot"  name="attr_chartype" value="Robot" />                  
-  <span>Robot&nbsp;&nbsp;</span>
-  <input type="radio" class="sheet-character-type sheet-chartype-human"  name="attr_chartype" value="Human" />                  
-  <span>Human</span>
     
   <div class="character-grid">
     <div class="character-heading box chartype-background-light toggle-dice-only toggle-monster-only ">
@@ -43,7 +43,7 @@
         </div> 
         <div class="heading-box heading-box3 char-animal">
           <span class="sheet-label" data-i18n="animaltype">Animal Type</span><br>
-          <select class="input input-center" type="text" name="attr_animal_type" value="Animal type" title="@animal_type}">
+          <select class="input input-center" type="text" name="attr_animal_type" value="Animal type" title="@{animal_type}">
             <option value="animaltype" data-i18n="animaltype" selected  disabled hidden >Animal type</option>
             <option value="dogs" data-i18n="dogs">Dogs</option>
             <option value="cats" data-i18n="cats">Cats</option>
@@ -1706,8 +1706,8 @@
             <input class="xbox" type="radio" name="attr_mutationpoints" value="5" title="5 @{mutationpoints}" /><span></span> 
             <input class="xbox" type="radio" name="attr_mutationpoints" value="6" title="6 @{mutationpoints}" /><span></span>
             <input class="xbox" type="radio" name="attr_mutationpoints" value="7" title="7 @{mutationpoints}" /><span></span> 
-            <input class="xbox" type="radio" name="attr_mutationpointsr" value="8" title="8 @{mutationpoints}" /><span></span>
-            <input class="xbox" type="radio" name="attrmutationpoints" value="9" title="9 @{mutationpoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_mutationpoints" value="8" title="8 @{mutationpoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_mutationpoints" value="9" title="9 @{mutationpoints}" /><span></span> 
             <input class="xbox" type="radio" name="attr_mutationpoints" value="10" title="10 @{mutationpoints}" /><span></span>
             <input type="hidden" name="attr_mutationpoints_max" value="10" />
           </div>
@@ -1793,16 +1793,16 @@
         <div class="willpower-grid">
           <div class="willpower-box2 chartype-background-dark">
             <input type="radio" name="attr_feralpoints" value="0" data-i18n-title="no-feralpoints" title="No Feral Points" style="margin: 4px 8px 3px 2px; width: 0.95em; height: 0.95em;" checked />
-            <input class="xbox" type="radio" name="attr_feralpoints" value="1" title="1 @{feralpoints}" /><span></span> <input
-              class="xbox" type="radio" name="attr_feralpoints" value="2" title="2 @feralpoints}" /><span></span>
-            <input class="xbox" type="radio" name="attr_feralpoints" value="3" title="3 @{feralpoints}" /><span></span> <input
-              class="xbox" type="radio" name="attr_feralpoints" value="4" title="4 @{feralpoints}" /><span></span>
-            <input class="xbox" type="radio" name="attr_feralpoints" value="5" title="5 @{feralpoints}" /><span></span> <input
-              class="xbox" type="radio" name="attr_feralpoints" value="6" title="6 @{feralpoints}" /><span></span>
-            <input class="xbox" type="radio" name="attr_feralpoints" value="7" title="7 @{feralpoints}" /><span></span> <input
-              class="xbox" type="radio" name="attr_feralpoints" value="8" title="8 @{feralpoints}" /><span></span>
-            <input class="xbox" type="radio" name="attr_feralpoints" value="9" title="9 @{feralpoints}" /><span></span> <input
-              class="xbox" type="radio" name="attr_feralpoints" value="10" title="10 @{feralpoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_feralpoints" value="1" title="1 @{feralpoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_feralpoints" value="2" title="2 @feralpoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_feralpoints" value="3" title="3 @{feralpoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_feralpoints" value="4" title="4 @{feralpoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_feralpoints" value="5" title="5 @{feralpoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_feralpoints" value="6" title="6 @{feralpoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_feralpoints" value="7" title="7 @{feralpoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_feralpoints" value="8" title="8 @{feralpoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_feralpoints" value="9" title="9 @{feralpoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_feralpoints" value="10" title="10 @{feralpoints}" /><span></span>
             <input type="hidden" name="attr_feralpoints_max" value="10" />
           </div>
           <div class="willpower-box3 chartype-background-dark">
@@ -1840,16 +1840,16 @@
         <div class="willpower-grid">
           <div class="willpower-box2 chartype-background-dark">
             <input type="radio" name="attr_influencepoints" value="0" data-i18n-title="no-influencepoints" title="No Influence Points" style="margin: 4px 8px 3px 2px; width: 0.95em; height: 0.95em;" checked />
-            <input class="xbox" type="radio" name="attr_influencepoints" value="1" title="1 @{influencepoints}" /><span></span> <input
-              class="xbox" type="radio" name="attr_influencepoints" value="2" title="2 @{influencepoints}" /><span></span>
-            <input class="xbox" type="radio" name="attr_influencepoints" value="3" title="3 @{influencepoints}" /><span></span> <input
-              class="xbox" type="radio" name="attr_influencepoints" value="4" title="4 @{influencepoints}" /><span></span>
-            <input class="xbox" type="radio" name="attrinfluencepoints" value="5" title="5 @{influencepoints}" /><span></span> <input
-              class="xbox" type="radio" name="attr_influencepoints" value="6" title="6 @{influencepoints}" /><span></span>
-            <input class="xbox" type="radio" name="attr_influencepoints" value="7" title="7 @{influencepoints}" /><span></span> <input
-              class="xbox" type="radio" name="attr_influencepoints" value="8" title="8 @{influencepoints}" /><span></span>
-            <input class="xbox" type="radio" name="attr_influencepoints" value="9" title="9 @{influencepoints}" /><span></span> <input
-              class="xbox" type="radio" name="attr_influencepoints" value="10" title="10 @{influencepoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_influencepoints" value="1" title="1 @{influencepoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_influencepoints" value="2" title="2 @{influencepoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_influencepoints" value="3" title="3 @{influencepoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_influencepoints" value="4" title="4 @{influencepoints}" /><span></span>
+            <input class="xbox" type="radio" name="attrinfluencepoints" value="5" title="5 @{influencepoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_influencepoints" value="6" title="6 @{influencepoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_influencepoints" value="7" title="7 @{influencepoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_influencepoints" value="8" title="8 @{influencepoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_influencepoints" value="9" title="9 @{influencepoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_influencepoints" value="10" title="10 @{influencepoints}" /><span></span>
             <input type="hidden" name="attr_influencepoints_max" value="10" />
           </div>
           <div class="willpower-box3 chartype-background-dark">
@@ -1872,6 +1872,33 @@
                 <textarea class="talents-box4 input-textarea" name="attr_biomech_description" title="@{repeating_biomechs_$X_biomech_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
               </div>
             </fieldset>
+          </div>
+        </div>
+      </div>
+
+      <div class="character-rotpoints sheet-box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
+        <div class="talents-grid">
+          <div class="talents-box header">
+            <h1 data-i18n="rotpoints-u">ROT POINTS</h1>
+          </div>
+        </div>
+        <div class="willpower-grid">
+          <div class="willpower-box2 chartype-background-dark">
+            <input type="radio" name="attr_rotpoints" value="0" data-i18n-title="no-rotpoints" title="No Rot Points" style="margin: 4px 8px 3px 2px; width: 0.95em; height: 0.95em;" checked />
+            <input class="xbox" type="radio" name="attr_rotpoints" value="1" title="1 @{rotpoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_rotpoints" value="2" title="2 @{rotpoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_rotpoints" value="3" title="3 @{rotpoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_rotpoints" value="4" title="4 @{rotpoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_rotpoints" value="5" title="5 @{rotpoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_rotpoints" value="6" title="6 @{rotpoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_rotpoints" value="7" title="7 @{rotpoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_rotpoints" value="8" title="8 @{rotpoints}" /><span></span>
+            <input class="xbox" type="radio" name="attr_rotpoints" value="9" title="9 @{rotpoints}" /><span></span> 
+            <input class="xbox" type="radio" name="attr_rotpoints" value="10" title="10 @{rotpoints}" /><span></span>
+            <input type="hidden" name="attr_rotpoints_max" value="10" />
+          </div>
+          <div class="willpower-box3 chartype-background-dark">
+            <span class="input-span" name="attr_rotpoints" title="@{rotpoints}" readonly></span>
           </div>
         </div>
       </div>
@@ -2441,7 +2468,6 @@
             <div class="relationships-box6 column-subheader chartype-background-dark">
               <span data-i18n="description">Description</span>
             </div>
-            </div>
           </div>
         </div>      
         <div class="relationships-box11">
@@ -2541,175 +2567,235 @@
   </div>
 </div>
 
-<div class="wrapper tab-content stronghold">
-  <div class="stronghold-grid">
-    <div class="box stronghold-details">
-      <div class="stronghold-details-grid">
-        <div class="stronghold-details-box1 header">
-          <h1 data-i18n="stronghold-u" style="margin: 10px 0 0 0;">
-            STRONGHOLD
+<div class="wrapper tab-content ark">
+  <div class="ark-grid">
+    <div class="box ark-development char-human char-robot char-mutant">
+      <div class="ark-development-grid">
+        <div class="ark-development-box1 header">
+          <h1 data-i18n="development-u">
+            DEVELOPMENT
           </h1>
         </div>
-        <div class="stronghold-details-box2">
-          <span class="label" data-i18n="location">Location</span>
+        <div class="ark-development-subheader ark-development-subheader1 column-header">
+          <span data-i18n="foodsupply-u">Food Supply</span>
         </div>
-        <div class="stronghold-details-box3">
-          <input class="input-number" type="text" name="attr_stronghold_location" value="" title="@{stronghold_location}" style="width: 65%;" />
+        <div class="ark-development-subheader ark-development-subheader2 column-header">
+          <span data-i18n="culture">Culture</span>
         </div>
-
-        <div class="stronghold-details-box4">
-          <span class="label" data-i18n="name">Name</span>
+        <div class="ark-development-subheader ark-development-subheader3 column-header">
+          <span data-i18n="technology">Technology</span>
         </div>
-        <div class="stronghold-details-box5">
-          <input class="input-number" type="text" name="attr_stronghold_name" value="" title="@{stronghold_name}" style="width: 85%;" />
+        <div class="ark-development-subheader ark-development-subheader4 column-header">
+          <span data-i18n="warfare">Warfare</span>
+        </div>      
+        <div class="ark-development-col ark-development-col1">
+          <input type="number" class="input-number" name="attr_ark_dev_food" />
         </div>
-
-        <div class="stronghold-details-box6">
-          <span class="label" data-i18n="defense-rating">Defense Rating</span>
+        <div class="ark-development-col ark-development-col2">
+          <input type="number" class="input-number" name="attr_ark_dev_cult" />
         </div>
-        <div class="stronghold-details-box7">
-          <input class="input-number" type="number" name="attr_stronghold_dr" value="0" title="@{stronghold_dr}" style="width: 25%;" />
+        <div class="ark-development-col ark-development-col3">
+          <input type="number" class="input-number" name="attr_ark_dev_tech" />
         </div>
-
-        <div class="stronghold-details-box8">
-          <span class="label" data-i18n="description" style="margin: 0 5px 0 0;">Description</span>
-          <textarea class="input-textarea" name="attr_stronghold_description" title="@{stronghold_description}"></textarea>
+        <div class="ark-development-col ark-development-col4">
+          <input type="number" class="input-number" name="attr_ark_dev_war" />
         </div>
       </div>
     </div>
-    <div class="box stronghold-functions">
-      <div class="stronghold-functions-grid">
-        <div class="stronghold-functions-box header">
-          <h1 data-i18n="function-u">FUNCTIONS</h1>
+
+    <div class="box ark-details char-mutant">
+      <div class="ark-details-grid">
+        <div class="ark-details-box header">
+          <h1 data-i18n="ark-u">
+            ARK
+          </h1>
         </div>
-        <div class="stronghold-functions-box1 column-header">
-          <span data-i18n="name">Name</span>
+        <div class="ark-details-box1">
+          <span class="label ark-details-label" data-i18n="name">Name</span>
         </div>
-        <div class="stronghold-functions-box2 column-header">
-          <span data-i18n="number-abbr">Num</span>
+        <div class="ark-details-box2">
+          <input class="input-text" type="text" name="attr_ark_name" value="" title="@{ark_name}" />
         </div>
-        <div class="stronghold-functions-box3 column-header">
-          <span data-i18n="production-outcome">Production/Outcome</span>
+
+        <div class="ark-details-box3">
+          <span class="label ark-details-label" data-i18n="type">Type</span>
         </div>
-        <div class="stronghold-functions-box4">
-          <fieldset class="repeating_functions">
-            <div class="stronghold-functions-grid">
-              <input class="stronghold-functions-box1 input" type="text" name="attr_function_name" value="" title="@repeating_functions_$X_function_name}" />
-              <input class="stronghold-functions-box2 input-number" type="text" name="attr_function_number" value="" title="@{repeating_functions_$X_function_number}" />
-              <textarea class="stronghold-functions-box3 input-textarea" name="attr_function_production" title="@{repeating_functions_$X_function_production}"></textarea>
+        <div class="ark-details-box4">
+          <input class="input-text" type="text" name="attr_ark_type" value="" title="@{ark_type}" />
+        </div>
+
+        <div class="ark-details-box5">
+          <span class="label ark-details-label" data-i18n="location">Location</span>
+        </div>
+        <div class="ark-details-box6">
+          <input class="input-text" type="text" name="attr_ark_location" value="0" title="@{ark_location}" />
+        </div>
+
+        <div class="ark-details-box7">
+          <span class="label ark-description-label" data-i18n="description" style="margin: 0 5px 0 0;">Description</span>
+          <textarea class="input-textarea" name="attr_ark_description" title="@{ark_description}"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="box ark-other char-mutant">
+      <div class="ark-details-grid">
+        <div class="ark-details-box header">
+          <h1 data-i18n="other-u">
+            OTHER
+          </h1>
+        </div>
+        <div class="ark-details-box1">
+          <span class="label ark-details-label" data-i18n="population">Population</span>
+        </div>
+        <div class="ark-details-box2">
+          <input class="input-number ark-population" type="text" name="attr_ark_population" value="" min="0" title="@{ark_population}" />
+        </div>
+
+        <div class="ark-details-box3">
+          <span class="label ark-details-label" data-i18n="water-source">Water source</span>
+        </div>
+        <div class="ark-details-box4">
+          <input class="input-text" type="text" name="attr_ark_watersource" value="" title="@{ark_watersource}" />
+        </div>
+
+        <div class="ark-details-box5">
+          <span class="label ark-details-label" data-i18n="season">Season</span>
+        </div>
+        <div class="ark-details-box6">
+          <input class="input-text" type="text" name="attr_ark_season" value="0" title="@{ark_season}"/>
+        </div>
+
+        <div class="ark-details-box7">
+          <span class="label ark-description-label " data-i18n="notable-inhabitants">Notable inhabitants</span>
+          <textarea class="input-textarea" name="attr_ark_notableinhabitants" title="@{ark_notableinhabitants}"></textarea>
+        </div>
+      </div>
+    </div>
+       
+    <div class="box ark-bosses char-mutant">
+      <div class="ark-bosses-grid">
+        <div class="ark-bosses-box header">
+          <h1 data-i18n="bosses-u">BOSSES</h1>
+        </div>
+        <div class="ark-bosses-subheader ark-bosses-subheader1 column-header">
+          <span data-i18n="description">Description</span>
+        </div>
+        <div class="ark-bosses-subheader ark-bosses-subheader2 column-header">
+          <span data-i18n="type">Type</span>
+        </div>
+        <div class="ark-bosses-repeating">
+          <fieldset class="repeating_bosses">
+            <div class="ark-bosses-grid">
+              <input class="ark-bosses-box1 input-textarea" type="text" name="attr_boss_desc" value="" title="@{repeating_bosses_$X_boss_desc}" />
+              <input class="ark-bosses-box2 input-text" type="text" name="attr_boss_type" value="" title="@{repeating_bosses_$X_boss_type}" />
             </div>
           </fieldset>
         </div>
       </div>
     </div>
-    <div class="box stronghold-hirelings">
-      <div class="stronghold-hirelings-grid">
-        <div class="stronghold-hirelings-box header">
-          <h1 data-i18n="hirelings-u">HIRELINGS</h1>
+
+    <div class="box ark-projects char-mutant char-robot">
+      <div class="ark-projects-grid">
+        <div class="ark-projects-box header">
+          <h1 data-i18n="projects-u">PROJECTS</h1>
         </div>
-        <div class="stronghold-hirelings-box1 column-header">
-          <span data-i18n="profession">Profession</span>
+        <div class="ark-projects-box1 column-header">
+          <span data-i18n="project">Project</span>
         </div>
-        <div class="stronghold-hirelings-box2 column-header">
-          <span data-i18n="number-abbr">Num</span>
+        <div class="ark-projects-box2 column-header">
+          <span data-i18n="comment">Comment</span>
         </div>
-        <div class="stronghold-hirelings-box3 column-header">
-          <span data-i18n="salary">Salary copper/day</span>
+        <div class="ark-projects-box3 column-header">
+          <span data-i18n="skill-u">Skills</span>
         </div>
-        <div class="stronghold-hirelings-box4">
-          <fieldset class="repeating_hirelings">
-            <div class="stronghold-hirelings-grid">
-              <input class="stronghold-hirelings-box1 input" type="text" name="attr_hireling_name" value="" title="@{repeating_hirelings_$X_hireling_name}" />
-              <input class="stronghold-hirelings-box2 input-number" type="number" name="attr_hireling_number" value="1" step="1" min="0" title="@{repeating_hirelings_$X_hireling_number}" />
-              <input class="stronghold-hirelings-box3 input-number" type="number" name="attr_hireling_salary" value="0" step="1" min="0" title="@{repeating_hirelings_$X_hireling_salary}" />
+        <div class="ark-projects-box4 column-header">
+          <span data-i18n="workpoints">Work Points</span>
+        </div>
+        <div class="ark-projects-box5 column-header">
+          <span data-i18n="complete">Complete</span>
+        </div>
+        <div class="ark-projects-repeating">
+          <fieldset class="repeating_projects">
+            <div class="ark-projects-grid">
+              <input class="ark-projects-box6 input-text" type="text" name="attr_project_desc" value="" title="@{repeating_projects_$X_project_desc}" />
+              <input class="ark-projects-box7 input-text" type="text" name="attr_project_comment" value="" title="@{repeating_projects_$X_project_comment}" />            
+              <input class="ark-projects-box8 input-text" type="text" name="attr_project_skills" value="" title="@{repeating_projects_$X_project_skills}" />
+              <input class="ark-projects-box9 input-number" type="number" name="attr_project_points" value="" title="@{repeating_projects_$X_project_points}" />
+              <input class="ark-projects-box10 input-checkbox" type="checkbox" name="attr_project_complete" value="" title="@{repeating_projects_$X_project_complete}" />
             </div>
           </fieldset>
         </div>
-        <div class="stronghold-hirelings-box5">
-          <div class="stronghold-hirelings-grid">
-            <span class="stronghold-hirelings-box2 label" data-i18n="total" style="margin: 6px 0 0 10px;">Total</span>
-            <span class="stronghold-hirelings-box3 center readonly" name="attr_hirelings_cost" value="0" title="@{hirelings_cost}" style="margin-bottom: 5px;">0</span>
-          </div>
-        </div>
       </div>
     </div>
-    <div class="box stronghold-stockpile">
-      <input type="checkbox" class="stockpile-order-group hidden" name="attr_stockpile_order_group" value="1" checked />
-      <div class="stronghold-stockpile-grid" data-i18n-list="stockpile-list">
-        <div class="stronghold-stockpile-box1 header">
-          <h1 data-i18n="stockpile-u">STOCKPILE</h1>
+
+    <div class="box ark-notes">
+      <div class="ark-notes-grid">
+        <div class="ark-notes-box header">
+          <h1 data-i18n="ark-notes-u">ARK NOTES</h1>
         </div>
-        <div class="stronghold-stockpile-box2 column-header">
-          <span data-i18n="units">Units</span>
+        <div class="ark-notes-box1 column-header">
+          <span data-i18n="title">Title</span>
         </div>
-        <div class="stronghold-stockpile-box3 column-header">
-          <span data-i18n="units">Units</span>
+        <div class="ark-notes-box2 column-header">
+          <span data-i18n="note">Note</span>
         </div>
-        <div class="stronghold-stockpile-box4 column-header">
-          <span data-i18n="units">Units</span>
-        </div>
-        <span class="stockpile-row" data-i18n-list-item="iron-ore"><span data-i18n="iron-ore" class="label">Iron Ore</span>
-        <input class="input-number" type="number" name="attr_stockpile_iron_ore" value="0" min="0" title="@{stockpile_iron_ore}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="fur"><span data-i18n="fur" class="label">Fur</span>
-        <input class="input-number" type="number" name="attr_stockpile_fur" value="0" min="0" title="@{stockpile_fur}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="flour"><span data-i18n="flour" class="label">Flour</span>
-        <input class="input-number" type="number" name="attr_stockpile_flour" value="0" min="0" title="@{stockpile_flour}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="iron"><span data-i18n="iron" class="label">Iron</span>
-        <input class="input-number" type="number" name="attr_stockpile_iron" value="0" min="0" title="@{stockpile_iron}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="leather"><span data-i18n="leather" class="label">Leather</span>
-        <input class="input-number" type="number" name="attr_stockpile_leather" value="0" min="0" title="@{stockpile_leather}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="grain"><span data-i18n="grain" class="label">Grain</span>
-        <input class="input-number" type="number" name="attr_stockpile_grain" value="0" min="0" title="@{stockpile_grain}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="silver"><span data-i18n="silver" class="label">Silver</span>
-        <input class="input-number" type="number" name="attr_stockpile_silver" value="0" min="0" title="@{stockpile_silver}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="cloth"><span data-i18n="cloth" class="label">Cloth</span>
-        <input class="input-number" type="number" name="attr_stockpile_cloth" value="0" min="0" title="@{stockpile_cloth}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="meat"><span data-i18n="meat" class="label">Meat</span>
-        <input class="input-number" type="number" name="attr_stockpile_meat" value="0" min="0" title="@{stockpile_meat}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="gold"><span data-i18n="gold" class="label">Gold</span>
-        <input class="input-number" type="number" name="attr_stockpile_gold" value="0" min="0" title="@{stockpile_gold}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="wool"><span data-i18n="wool" class="label">Wool</span>
-        <input class="input-number" type="number" name="attr_stockpile_wool" value="0" min="0" title="@{stockpile_wool}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="fish"><span data-i18n="fish" class="label">Fish</span>
-        <input class="input-number" type="number" name="attr_stockpile_fish" value="0" min="0" title="@{stockpile_fish}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="stone"><span data-i18n="stone" class="label">Stone</span>
-        <input class="input-number" type="number" name="attr_stockpile_stone" value="0" min="0" title="@{stockpile_stone}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="food"><span data-i18n="food" class="label">Food</span>
-        <input class="input-number" type="number" name="attr_stockpile_food" value="0" min="0" title="@{stockpile_food}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="vegetables"><span data-i18n="vegetables" class="label">Vegetables</span>
-        <input class="input-number" type="number" name="attr_stockpile_vegetables" value="0" min="0" title="@{stockpile_vegetables}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="glass"><span data-i18n="glass" class="label">Glass</span>
-        <input class="input-number" type="number" name="attr_stockpile_glass" value="0" min="0" title="@{stockpile_glass}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="bread"><span data-i18n="bread" class="label">Bread</span>
-        <input class="input-number" type="number" name="attr_stockpile_bread" value="0" min="0" title="@{stockpile_bread}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="tallow"><span data-i18n="tallow" class="label">Tallow</span>
-        <input class="input-number" type="number" name="attr_stockpile_tallow" value="0" min="0" title="@{stockpile_tallow}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="wood"><span data-i18n="wood" class="label">Wood</span>
-        <input class="input-number" type="number" name="attr_stockpile_wood" value="0" min="0" title="@{stockpile_wood}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="water"><span data-i18n="water" class="label">Water</span>
-        <input class="input-number" type="number" name="attr_stockpile_water" value="0" min="0" title="@{stockpile_water}" /></span>
-        <span class="stockpile-row" data-i18n-list-item="herbs"><span data-i18n="herbs" class="label">Herbs</span>
-        <input class="input-number" type="number" name="attr_stockpile_herbs" value="0" min="0" title="@{stockpile_herbs}" /></span>
-      </div>
-    </div>
-    <div class="box stronghold-notes">
-      <div class="stronghold-notes-grid">
-        <div class="stronghold-notes-box1 header">
-          <h1 data-i18n="stronghold-notes-u">STRONGHOLD NOTES</h1>
-        </div>
-        <textarea class="stronghold-stronghold_notes-box2 input-textarea" name="attr_stronghold_notes" title="@{stronghold_notes}"></textarea>
+        <div class="ark-notes-repeating">
+          <fieldset class="repeating_arknotes">
+            <div class="ark-notes-grid">
+              <div class="ark_notes-box3">                
+                <input type="text" class="input-text" name="attr_ark_notes_title" title="@{repeating_arknotes_$X_ark_notes_title}" />
+              </div>
+              <div class="ark_notes-box4">
+                <textarea class="input-textarea" name="attr_ark_notes_note" title="@{repeating_arknotes_$X_ark_notes_note}"></textarea>
+              </div>
+            </div>
+          </fieldset>
+        </div>  
       </div>
     </div>
   </div>
 </div>
 
 <div class="wrapper tab-content settings">
-  <div class="logo" title="MUTANT YEAR ZERO" data-i18n-title="logo-myz">
-    <span class="sheet-logo-image lang-sv"></span>
-  </div>
+
   <!--announcements/updates-->
   <input type="checkbox" class="announcements-show toggle-dice-only toggle-monster-only" name="attr_show_announcements" value="1" data-i18n-title="version-announcements" title="Sheet version and announcements" style="width: 4.5em; height: 2em;">
-  <span class="announcements-show toggle-dice-only toggle-monster-only" name="attr_version">&nbsp;</span>
+  <!--<span class="announcements-show toggle-dice-only toggle-monster-only" name="attr_version">&nbsp;</span>-->
+  <div class="settings-options">
+    <input type="hidden" name="attr_translation_whisper_query" value="whisper-query" />
+    <input type="hidden" name="attr_translation_whisper_api_query" value="whisper_api-query" />
+    <div>
+      <span data-i18n="whisper-options">Whisper Options:</span>
+      <select name="attr_whisper_option" title="@{whisper_option}">
+        <option value="" data-i18n="whisper-nothing" selected>Do not whisper rolls(default).</option>
+        <option value="/w gm" data-i18n="whisper-rolls">Whisper all rolls to the GM.</option>
+        <option value="@{translation_whisper_macro_query}" data-i18n="whisper-query">Use a query.</option>
+      </select>
+    </div>
+    <div>
+      <span data-i18n="whisper-options-api">API Whisper Options:</span>
+      <select name="attr_whisper_option_api" title="@{whisper_option_api}">
+        <option value="!forl" data-i18n="whisper-nothing" selected>Do not whisper rolls(default).</option>
+        <option value="!wforl" data-i18n="whisper-rolls">Whisper all rolls to the GM.</option>
+        <option value="@{translation_whisper_api_macro_query}" data-i18n="whisper-query">Use a query.</option>
+      </select>
+    </div>
+    <!-- used to translate query-->
+    <span style="display: none;" name="attr_translation_whisper_macro_query" value=""></span>
+    <span style="display: none;" name="attr_translation_whisper_api_macro_query" value=""></span>
+    <span style="display: none;" data-i18n="whisper-query">Whisper roll?</span>
+    <span style="display: none;" data-i18n="yes">yes</span>
+    <span style="display: none;" data-i18n="no">no</span>
+    <div>
+      <span data-i18n="sort-skills">Sort Skills by Attribute:</span>
+      <input type="checkbox" name="attr_skill_order_group" value="1" title="@{skill_order_group}" style="vertical-align: text-top;" />
+    </div>
+    <div>
+      <span data-i18n="sort-stockpile">Sort Stockpile resources alphabetically:</span>
+      <input type="checkbox" name="attr_stockpile_order_group" value="1" title="@{stockpile_order_group}" style="vertical-align: text-top;" checked />
+    </div>
+  </div>
   <div class="announcements toggle-dice-only toggle-monster-only">
     <h3 data-i18n="latest-announcements">Latest Announcements</h3>
     <span class="footer">11/12/20</span>
@@ -2798,43 +2884,9 @@
         <li>added an expandable 2nd row to weapons, armor, and shield to show/hide additional attributes.</li>
       </ol>
     </span>
-    <input type="checkbox" class="announcements-show" name="attr_show_announcements" value="1" data-i18n-title="close-announcements" title="Close Announcements" style="margin: 10px 0 0 -10px; position: relative;" />
-    <span class="announcements-exit" data-i18n-title="close">*</span>
-  </div>  
-  <div class="settings-options">
-    <input type="hidden" name="attr_translation_whisper_query" value="whisper-query" />
-    <input type="hidden" name="attr_translation_whisper_api_query" value="whisper_api-query" />
-    <div>
-      <span data-i18n="whisper-options">Whisper Options:</span>
-      <select name="attr_whisper_option" title="@{whisper_option}">
-        <option value="" data-i18n="whisper-nothing" selected>Do not whisper rolls(default).</option>
-        <option value="/w gm" data-i18n="whisper-rolls">Whisper all rolls to the GM.</option>
-        <option value="@{translation_whisper_macro_query}" data-i18n="whisper-query">Use a query.</option>
-      </select>
-    </div>
-    <div>
-      <span data-i18n="whisper-options-api">API Whisper Options:</span>
-      <select name="attr_whisper_option_api" title="@{whisper_option_api}">
-        <option value="!forl" data-i18n="whisper-nothing" selected>Do not whisper rolls(default).</option>
-        <option value="!wforl" data-i18n="whisper-rolls">Whisper all rolls to the GM.</option>
-        <option value="@{translation_whisper_api_macro_query}" data-i18n="whisper-query">Use a query.</option>
-      </select>
-    </div>
-    <!-- used to translate query-->
-    <span style="display: none;" name="attr_translation_whisper_macro_query" value=""></span>
-    <span style="display: none;" name="attr_translation_whisper_api_macro_query" value=""></span>
-    <span style="display: none;" data-i18n="whisper-query">Whisper roll?</span>
-    <span style="display: none;" data-i18n="yes">yes</span>
-    <span style="display: none;" data-i18n="no">no</span>
-    <div>
-      <span data-i18n="sort-skills">Sort Skills by Attribute:</span>
-      <input type="checkbox" name="attr_skill_order_group" value="1" title="@{skill_order_group}" style="vertical-align: text-top;" />
-    </div>
-    <div>
-      <span data-i18n="sort-stockpile">Sort Stockpile resources alphabetically:</span>
-      <input type="checkbox" name="attr_stockpile_order_group" value="1" title="@{stockpile_order_group}" style="vertical-align: text-top;" checked />
-    </div>
-  </div>
+    <!--<input type="checkbox" class="announcements-show" name="attr_show_announcements" value="1" data-i18n-title="close-announcements" title="Close Announcements" style="margin: 10px 0 0 -10px; position: relative;" />
+    <span class="announcements-exit" data-i18n-title="close">*</span>-->
+  </div> 
 </div>
 
 <!-- Roll Templates -->

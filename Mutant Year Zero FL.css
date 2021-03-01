@@ -749,133 +749,93 @@ div.sheet-tab-content {
 
 input.sheet-broken-str[value="0"] ~ div .sheet-broken-str */
 
-input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-background-dark,
-input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div .sheet-chartype-background-dark,
-input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div ~ div .sheet-chartype-background-dark {
+input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-background-dark {
   background-color: #cd8b41; 
 }
-input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-background-dark,
-input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div .sheet-chartype-background-dark,
-input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div ~ div .sheet-chartype-background-dark {
+input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-background-dark {
   background-color: #67a83f; 
 }
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-chartype-background-dark,
-input[name="attr_chartype"][value="Robot"]:checked ~ div ~ div .sheet-chartype-background-dark,
-input[name="attr_chartype"][value="Robot"]:checked ~ div ~ div ~ div .sheet-chartype-background-dark  {
+input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-chartype-background-dark  {
   background-color: #8bb2ce; 
 }
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-background-dark,
-input[name="attr_chartype"][value="Human"]:checked ~ div ~ div .sheet-chartype-background-dark,
-input[name="attr_chartype"][value="Human"]:checked ~ div ~ div ~ div .sheet-chartype-background-dark {
+input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-background-dark {
   background-color: #68a98f; 
 }
 
 
-input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-background-light,
-input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div .sheet-chartype-background-light,
-input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div ~ div .sheet-chartype-background-light {
+input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-background-light {
   background-color: #efd6b8; 
 }
-input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-background-light,
-input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div .sheet-chartype-background-light,
-input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div ~ div .sheet-chartype-background-light {
+input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-background-light {
   background-color: #d6ead8; 
 }
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-chartype-background-light,
-input[name="attr_chartype"][value="Robot"]:checked ~ div ~ div .sheet-chartype-background-light,
-input[name="attr_chartype"][value="Robot"]:checked ~ div ~ div ~ div .sheet-chartype-background-light  {
+input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-chartype-background-light {
   background-color: #e4eef5; 
 }
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-background-light,
-input[name="attr_chartype"][value="Human"]:checked ~ div ~ div .sheet-chartype-background-light,
-input[name="attr_chartype"][value="Human"]:checked ~ div ~ div ~ div .sheet-chartype-background-light {
+input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-background-light {
   background-color: #e2edea; 
 }
 
 
 input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-header,
-input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div .sheet-header,
-input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div ~ div .sheet-header {
+input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-column-header,
+input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-border-darkest {
   background-color: #764621; 
 }
 input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-header,
-input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div .sheet-header,
-input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div ~ div .sheet-header {
+input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-column-header,
+input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-border-darkest {
   background-color: #687569; 
 }
 input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-header,
-input[name="attr_chartype"][value="Robot"]:checked ~ div ~ div .sheet-header,
-input[name="attr_chartype"][value="Robot"]:checked ~ div ~ div ~ div .sheet-header  {
+input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-column-header,
+input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-chartype-border-darkest {
   background-color: #035974; 
 }
 input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-header,
-input[name="attr_chartype"][value="Human"]:checked ~ div ~ div .sheet-header,
-input[name="attr_chartype"][value="Human"]:checked ~ div ~ div ~ div .sheet-header {
+input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-column-header,
+input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-border-darkest {
   background-color: #1b6764; 
 }
 
 /* -------------------------- BORDERS */
-input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-border-dark,
-input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div .sheet-chartype-border-dark,
-input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div ~ div .sheet-chartype-border-dark {
+input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-border-dark {
   border-color: #cd8b41; 
 }
-input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-border-dark,
-input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div .sheet-chartype-border-dark,
-input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div ~ div .sheet-chartype-border-dark {
+input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-border-dark {
   border-color: #67a83f; 
 }
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-chartype-border-dark,
-input[name="attr_chartype"][value="Robot"]:checked ~ div ~ div .sheet-chartype-border-dark,
-input[name="attr_chartype"][value="Robot"]:checked ~ div ~ div ~ div .sheet-chartype-border-dark  {
+input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-chartype-border-dark  {
   border-color: #8bb2ce; 
 }
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-border-dark,
-input[name="attr_chartype"][value="Human"]:checked ~ div ~ div .sheet-chartype-border-dark,
-input[name="attr_chartype"][value="Human"]:checked ~ div ~ div ~ div .sheet-chartype-border-dark {
+input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-border-dark {
   border-color: #68a98f; 
 }
 
 
-input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-border-light,
-input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div .sheet-chartype-border-light,
-input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div ~ div .sheet-chartype-border-light {
+input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-border-light {
   border-color: #efd6b8; 
 }
-input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-border-light,
-input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div .sheet-chartype-border-light,
-input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div ~ div .sheet-chartype-border-light {
+input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-border-light {
   border-color: #d6ead8; 
 }
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-chartype-border-light,
-input[name="attr_chartype"][value="Robot"]:checked ~ div ~ div .sheet-chartype-border-light,
-input[name="attr_chartype"][value="Robot"]:checked ~ div ~ div ~ div .sheet-chartype-border-light  {
+input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-chartype-border-light {
   border-color: #e4eef5; 
 }
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-border-light,
-input[name="attr_chartype"][value="Human"]:checked ~ div ~ div .sheet-chartype-border-light,
-input[name="attr_chartype"][value="Human"]:checked ~ div ~ div ~ div .sheet-chartype-border-light {
+input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-border-light {
   border-color: #e2edea; 
 }
 
-input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-border-darkest,
-input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div .sheet-chartype-border-darkest,
-input[name="attr_chartype"][value="Mutant"]:checked ~ div ~ div ~ div .sheet-chartype-border-darkest {
+input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-border-darkest {
   border-color: #764621; 
 }
-input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-border-darkest,
-input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div .sheet-chartype-border-darkest,
-input[name="attr_chartype"][value="Animal"]:checked ~ div ~ div ~ div .sheet-chartype-border-darkest {
+input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-border-darkest {
   border-color: #687569; 
 }
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-chartype-border-darkest,
-input[name="attr_chartype"][value="Robot"]:checked ~ div ~ div .sheet-chartype-border-darkest,
-input[name="attr_chartype"][value="Robot"]:checked ~ div ~ div ~ div .sheet-chartype-border-darkest  {
+input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-chartype-border-darkest  {
   border-color: #035974; 
 }
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-border-darkest,
-input[name="attr_chartype"][value="Human"]:checked ~ div ~ div .sheet-chartype-border-darkest,
-input[name="attr_chartype"][value="Human"]:checked ~ div ~ div ~ div .sheet-chartype-border-darkest {
+input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-border-darkest {
   border-color: #1b6764; 
 }
 
@@ -4326,7 +4286,7 @@ span.sheet-armor-box3.sheet-header {
   grid-row-start: 2;
 }
 
-/* ark grid layout */
+/* -------------------------- ark grid layout */
 
 .sheet-ark-grid {
   display: grid;
@@ -4377,13 +4337,16 @@ span.sheet-armor-box3.sheet-header {
   grid-row-start: 4;
 }
 
-
+.sheet-ark-details,
+.sheet-ark-development {
+  background-color: lightgrey;
+}
 
 /* ---------------------------------- ark development */
 
 .sheet-ark-development-grid {
   display: grid;
-  grid-row-gap: 2px;
+  -grid-row-gap: 2px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: space-around;
   -width: 87%;
@@ -4393,11 +4356,17 @@ span.sheet-armor-box3.sheet-header {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding: 3px;
 }
 
 .sheet-ark-development-box1 {
   grid-column: 1/5;
   grid-row-start: 1;
+}
+
+.sheet-ark-development-subheader {
+  font-size: 1.3em;  
+  padding-bottom: 0.5em;
 }
 
 .sheet-ark-development-subheader1 {
@@ -4418,6 +4387,10 @@ span.sheet-armor-box3.sheet-header {
 .sheet-ark-development-subheader4 {
   grid-column: 4;
   grid-row-start: 1;
+}
+
+.sheet-ark-development-col {
+  padding: 4px;
 }
 
 .sheet-ark-development-col1 {
@@ -4701,6 +4674,53 @@ span.sheet-armor-box3.sheet-header {
   width: 100%;
   -text-align: right;
 }
+
+/* ---------------------------------- ark Influence */
+
+.sheet-ark-influence {
+  -display: flex;
+  grid-column: 1/4;
+  width: 100%;
+}
+.sheet-ark-influence-grid {
+  display: flex;
+  flex-direction: column;
+
+}
+.sheet-ark-influence-header {
+  width: 100%;
+}
+.sheet-ark-influence-subheaderrow {
+  display: flex;
+  justify-items: stretch;
+}
+.sheet-ark-influence-subheader {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  width: 20%;
+  font-size: 1.3em;
+  -margin-bottom: 0.5em;    
+  padding-bottom: 0.5em;
+}
+.sheet-ark-influence-row {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  border-bottom: 1px solid #ccc;
+  -margin-bottom: 0.2em;
+}
+.sheet-ark-influence-row span {
+  align-items: center;
+}
+.sheet-ark-influence-col {
+  display: flex;
+  width: 20%;
+  justify-content: center;
+  border-right: 1px solid #ccc;
+  padding: 3px;
+}
+
 
 /* ---------------------------------- ark Notes */
 

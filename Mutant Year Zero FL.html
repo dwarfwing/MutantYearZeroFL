@@ -2570,7 +2570,7 @@
 <div class="wrapper tab-content ark">
   <div class="ark-grid">
 
-    <div class="box ark-development chartype-background-light char-human char-robot char-mutant">
+    <div class="box ark-development chartype-background-dark char-human char-robot char-mutant">
       <div class="ark-development-grid">
         <div class="ark-development-box1 header">
           <h1 data-i18n="development-u">
@@ -2750,33 +2750,33 @@
 
     <div class="box ark-details chartype-background-dark char-mutant">
       <div class="ark-details-grid">
-        <div class="ark-details-box header">
+        <div class="ark-details-header header">
           <h1 data-i18n="ark-u">
             ARK
           </h1>
         </div>
-        <div class="ark-details-box1">
+        <div class="ark-details-box ark-details-box1">
           <span class="label ark-details-label" data-i18n="name">Name</span>
         </div>
-        <div class="ark-details-box2">
+        <div class="ark-details-box ark-details-box2">
           <input class="input-text" type="text" name="attr_ark_name" value="" title="@{ark_name}" />
         </div>
 
-        <div class="ark-details-box3">
+        <div class="ark-details-box ark-details-box3">
           <span class="label ark-details-label" data-i18n="type">Type</span>
         </div>
-        <div class="ark-details-box4">
+        <div class="ark-details-box ark-details-box4">
           <input class="input-text" type="text" name="attr_ark_type" value="" title="@{ark_type}" />
         </div>
 
-        <div class="ark-details-box5">
+        <div class="ark-details-box ark-details-box5">
           <span class="label ark-details-label" data-i18n="location">Location</span>
         </div>
-        <div class="ark-details-box6">
-          <input class="input-text" type="text" name="attr_ark_location" value="0" title="@{ark_location}" />
+        <div class="ark-details-box ark-details-box6">
+          <input class="input-text" type="text" name="attr_ark_location" title="@{ark_location}" />
         </div>
 
-        <div class="ark-details-box7">
+        <div class="ark-details-box ark-details-box7">
           <span class="label ark-description-label" data-i18n="description" style="margin: 0 5px 0 0;">Description</span>
           <textarea class="input-textarea" name="attr_ark_description" title="@{ark_description}"></textarea>
         </div>
@@ -2785,33 +2785,33 @@
 
     <div class="box ark-other chartype-background-dark char-mutant">
       <div class="ark-details-grid">
-        <div class="ark-details-box header">
+        <div class="ark-details-header header">
           <h1 data-i18n="other-u">
             OTHER
           </h1>
         </div>
-        <div class="ark-details-box1">
+        <div class="ark-details-box ark-details-box1">
           <span class="label ark-details-label" data-i18n="population">Population</span>
         </div>
-        <div class="ark-details-box2">
-          <input class="input-number ark-population" type="text" name="attr_ark_population" value="" min="0" title="@{ark_population}" />
+        <div class="ark-details-box ark-details-box2">
+          <input class="input-text ark-population" type="text" name="attr_ark_population" value="" min="0" title="@{ark_population}" />
         </div>
 
-        <div class="ark-details-box3">
+        <div class="ark-details-box ark-details-box3">
           <span class="label ark-details-label" data-i18n="water-source">Water source</span>
         </div>
-        <div class="ark-details-box4">
+        <div class="ark-details-box ark-details-box4">
           <input class="input-text" type="text" name="attr_ark_watersource" value="" title="@{ark_watersource}" />
         </div>
 
-        <div class="ark-details-box5">
+        <div class="ark-details-box ark-details-box5">
           <span class="label ark-details-label" data-i18n="season">Season</span>
         </div>
-        <div class="ark-details-box6">
-          <input class="input-text" type="text" name="attr_ark_season" value="0" title="@{ark_season}"/>
+        <div class="ark-details-box ark-details-box6">
+          <input class="input-text" type="text" name="attr_ark_season" title="@{ark_season}"/>
         </div>
 
-        <div class="ark-details-box7">
+        <div class="ark-details-box ark-details-box7">
           <span class="label ark-description-label " data-i18n="notable-inhabitants">Notable inhabitants</span>
           <textarea class="input-textarea" name="attr_ark_notableinhabitants" title="@{ark_notableinhabitants}"></textarea>
         </div>
@@ -2863,11 +2863,11 @@
         <div class="ark-projects-repeating">
           <fieldset class="repeating_projects">
             <div class="ark-projects-grid">
-              <input class="ark-projects-box6 input-text" type="text" name="attr_project_desc" value="" title="@{repeating_projects_$X_project_desc}" />
-              <input class="ark-projects-box7 input-text" type="text" name="attr_project_comment" value="" title="@{repeating_projects_$X_project_comment}" />            
-              <input class="ark-projects-box8 input-text" type="text" name="attr_project_skills" value="" title="@{repeating_projects_$X_project_skills}" />
-              <input class="ark-projects-box9 input-number" type="number" name="attr_project_points" value="" title="@{repeating_projects_$X_project_points}" />
-              <input class="ark-projects-box10 input-checkbox" type="checkbox" name="attr_project_complete" value="" title="@{repeating_projects_$X_project_complete}" />
+              <input class="ark-projects-col ark-projects-box6 input-text" type="text" name="attr_project_desc" title="@{repeating_projects_$X_project_desc}" />
+              <input class="ark-projects-col ark-projects-box7 input-text" type="text" name="attr_project_comment" title="@{repeating_projects_$X_project_comment}" />            
+              <input class="ark-projects-col ark-projects-box8 input-text" type="text" name="attr_project_skills" title="@{repeating_projects_$X_project_skills}" />
+              <input class="ark-projects-col ark-projects-box9 input-number" type="number" name="attr_project_points" title="@{repeating_projects_$X_project_points}" />
+              <input class="ark-projects-col ark-projects-box10 input-checkbox" type="checkbox" name="attr_project_complete" title="@{repeating_projects_$X_project_complete}" />
             </div>
           </fieldset>
         </div>

@@ -736,18 +736,8 @@ button.btn.btn-danger.pictos.repcontrol_del:hover {
   color: #fff;
 }
 
-/* Sheet Tabs */
-div.sheet-tab-content {
-  display: none;
-  -margin-top: -50px;
-  border-top: 1px solid #fff;
-}
 
-
-
-/* input[name="attr_empathy"][value="0"] ~ input.sheet-skull:nth-of-type(1n+3) + span::before 
-
-input.sheet-broken-str[value="0"] ~ div .sheet-broken-str */
+/* ------------------- CHARACTER TYPE VISIBILITY */
 
 input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-background-dark {
   background-color: #cd8b41; 
@@ -845,6 +835,7 @@ input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-border-
 .sheet-character-animalpowers, 
 .sheet-character-contacts,
 .sheet-character-biomechs,
+.sheet-character-chassis,
 .sheet-char-mutant,
 .sheet-char-robot,
 .sheet-char-animal,
@@ -864,10 +855,29 @@ input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-character-biomec
   display: block;
 }
 
-input[name="attr_charactertype"][value="Mutant"] .sheet-char-mutant {
-  display: block;
+input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-appearance-grid {
+  display: grid;
+  padding: 0;
+  grid-column-gap: 2px;
+  grid-row-gap: 10px;
+  grid-template-columns: 5em 2fr 0.6fr;
+}
+input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-appearance-grid .sheet-header {
+  display: flex;
 }
 
+input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-conditions-grid {
+  display: none;
+}
+
+/* ----------------------- TABS VISIBILITY */
+
+/* Sheet Tabs */
+div.sheet-tab-content {
+  display: none;
+  -margin-top: -50px;
+  border-top: 1px solid #fff;
+}
 
 input.sheet-character:checked ~ div.sheet-character,
 input.sheet-ark:checked ~ div.sheet-ark,
@@ -1261,10 +1271,11 @@ input[type="checkbox"].sheet-input {
   color: #000;
 }
 
-.sheet-details-grid div .sheet-input-textarea,
+.sheet-chassis-grid div .sheet-input-textarea,
 .sheet-appearance-grid div .sheet-input-textarea {
   height: 3em;
   min-height: 3em;
+  margin-right: 5px;
 }
 
 input[disabled].sheet-input-number,
@@ -1622,22 +1633,6 @@ input.sheet-npc_only:checked
   height: 100%;
 }
 
-.sheet-character-details {
-  display: none;
-  grid-column-start: 2;
-  padding: 5px;
-  margin: 0;
-  -border: 10px solid #000;
-  border: 2px solid #000;
-  -border-top-width: 18px;
-  -border-bottom-width: 18px;
-  -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20column%20box%20border.png);
-  -border-image-slice: 25 25 35 25;
-  -border-image-width: 15px 15px 15px 15px;
-  -border-image-repeat: round;
-  background-color: inherit;
-}
-
 .sheet-character-appearance {
   grid-column: 2/span 2;
   -grid-column-end: 3;
@@ -1652,7 +1647,7 @@ input.sheet-npc_only:checked
 /* add fbl applique border/backgrounds */
 .sheet-character-attributes,
 .sheet-character-appearance {
-  padding: 0 2px 0 2px;
+  padding: 0 0 10px 0;
   margin: 0;
   -border: 10px solid #000;
   border: 2px solid #000;
@@ -2528,7 +2523,7 @@ input.sheet-npc_only:checked ~ div.sheet-character .sheet-character-column3 {
   padding: 0 -10px 0 -10px;
 }
 
-.sheet-appearance-grid > div {
+.sheet-appearance-grid > .sheet-appearance-box {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -2565,6 +2560,41 @@ input.sheet-npc_only:checked ~ div.sheet-character .sheet-character-column3 {
 
 .sheet-appearance-box7 {
   grid-row-start: 4;
+}
+
+.sheet-chassis-box {
+  padding: 0px 8px 0px 10px;
+}
+.sheet-chassis-box .sheet-label {
+  padding-left: 10px;
+}
+.sheet-chassis-box1 {
+  grid-row-start: 1;
+  grid-column: 3/5;
+}
+.sheet-chassis-box2 {
+  grid-row-start: 2;
+  grid-column-start: 3;
+}
+.sheet-chassis-box3 {
+  grid-row-start: 2;
+  grid-column-start: 4;
+}
+.sheet-chassis-box4 {
+  grid-row-start: 3;
+  grid-column-start: 3;
+}
+.sheet-chassis-box5 {
+  grid-row-start: 3;
+  grid-column-start: 4;
+}
+.sheet-chassis-box6 {
+  grid-row-start: 4;
+  grid-column-start: 3;
+}
+.sheet-chassis-box7 {
+  grid-row-start: 4;
+  grid-column-start: 4;
 }
 
 /* ---------------------------------- Conditions */

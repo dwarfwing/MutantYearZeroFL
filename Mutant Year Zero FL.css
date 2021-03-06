@@ -1271,13 +1271,6 @@ input[type="checkbox"].sheet-input {
   color: #000;
 }
 
-.sheet-chassis-grid div .sheet-input-textarea,
-.sheet-appearance-grid div .sheet-input-textarea {
-  height: 3em;
-  min-height: 3em;
-  margin-right: 5px;
-}
-
 input[disabled].sheet-input-number,
 input[readonly].sheet-input,
 textarea[disabled].sheet-input,
@@ -2531,6 +2524,13 @@ input.sheet-npc_only:checked ~ div.sheet-character .sheet-character-column3 {
 
 .sheet-appearance-grid > div textarea {
   height: 100%;
+}
+
+.sheet-chassis-grid div .sheet-input-textarea,
+.sheet-appearance-grid div .sheet-input-textarea {
+  height: 3em;
+  min-height: 3em;
+  margin-right: 5px;
 }
 
 .sheet-appearance-box1 {

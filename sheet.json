@@ -38,7 +38,7 @@
                 "whisper-rolls",
                 "whisper-query"
             ],
-            "default": "!forl"
+            "default": "!myz"
         },
         {
             "attribute": "skill_order_group",

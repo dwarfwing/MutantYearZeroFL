@@ -2344,48 +2344,6 @@
       </div>
     </div>
 
-    <div class="character-beasts box toggle-dice-only toggle-monster-only ">
-      <div class="beasts-grid">
-        <div class="beasts-box header">
-          <h1 data-i18n="beasts-u">BEASTS</h1>
-        </div>
-        <div class="beasts-box1 column-header">
-          <span data-i18n="type">Type</span>
-        </div>
-        <div class="beasts-box2 column-header">
-          <span data-i18n="strength-abbr-u">STR</span>
-        </div>
-        <div class="beasts-box3 column-header">
-          <span data-i18n="agility-abbr-u">AGI</span>
-        </div>
-        <div class="beasts-box4 column-header">
-          <span data-i18n="vehicleed">vehicleed</span>
-        </div>
-        <div class="beasts-box5 column-header">
-          <span data-i18n="carry">Carry</span>
-        </div>
-        <div class="beasts-box6 column-header">
-          <span data-i18n="encumbrance-current-abbr">Current Encum</span>
-        </div>
-        <div class="beasts-box7 column-header">
-          <span data-i18n="notes">Notes</span>
-        </div>
-        <div class="beasts-box8">
-          <fieldset class="repeating_beasts">
-            <div class="beasts-grid">
-              <input class="beasts-box1 input" type="text" name="attr_beast_type" value="" data-i18n-placeholder="type-name" placeholder="Type/Name" title="@{repeating_beasts_$X_beast_type}" />
-              <input class="beasts-box2 input-number" type="number" name="attr_beast_strength" value="0" min="0" title="@{repeating_beasts_$X_beast_strength}" />
-              <input class="beasts-box3 input-number" type="number" name="attr_beast_agility" value="0" min="0" title="@{repeating_beasts_$X_beast_agility}" />
-              <input class="beasts-box4 input" type="checkbox" name="attr_beast_vehicleed" value="1" title="@{repeating_beasts_$X_beast_vehicleed}" />
-              <span class="beasts-box5 readonly" name="attr_beast_carry" value="0" title="@{repeating_beasts_$X_beast_carry} = vehicle_strength x2, unvehicleed x4">0</span>
-              <input class="beasts-box6 input input-number-center" type="number" name="attr_beast_encumbrance" title="@{repeating_beasts_$X_beast_encumbrance}" value="0" min="0" step="0.5" />
-              <textarea class="beasts-box7 input-textarea" name="attr_beast_notes" data-i18n-placeholder="gear-notes" placeholder="Gear/Notes" title="@{repeating_beasts_$X_beast_notes}"></textarea>
-            </div>
-          </fieldset>
-        </div>
-      </div>
-    </div>
-
     <div class="character-relationships box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only ">
       <div class="relationships-grid">
         <div class="relationships-box1 header">
@@ -2541,11 +2499,8 @@
         <div class="notes-box2">
           <fieldset class="repeating_notes">
             <div class="notes-grid">
-              <div class="notes-box3">
-                <button class="roll-button" type="roll" name="roll_notes" title="%{repeating_notes_$X_notes}"   style="padding: 0;" value="@{whisper_option} &{template:forbiddenlands} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{notes}}} {{subtitle=@{note_name}}} {{free-text=@{note_description}}}"></button>
-              </div>
               <div class="notes-box4">
-                <input class="input-number" type="text" name="attr_note_name" value="" title="@{repeating_notes_$X_note_name}" data-i18n-placeholder="note-name" placeholder="Note's name" />
+                <input class="input" type="text" name="attr_note_name" value="" title="@{repeating_notes_$X_note_name}" data-i18n-placeholder="note-name" placeholder="Note's name" />
               </div>
               <div class="notes-box5">
                 <textarea class="input-textarea" name="attr_note_description" title="@{repeating_notes_$X_note_description}" data-i18n-placeholder="note-description"   placeholder="Note's description."></textarea>
@@ -4107,8 +4062,13 @@
     // needed for a couple of functions below
   
     getSkillKey = (label) => label.split(" ").join("-").toLowerCase();
+<<<<<<< Updated upstream
   // a function to change (for example) "Know the Zone" to "know-the-zone"
   // needed for a couple of functions below
+=======
+    // a function to change (for example) "Know the Zone" to "know-the-zone"
+    // needed for a couple of functions below
+>>>>>>> Stashed changes
   
   Object.keys(attributes).forEach((skill_name) => {
     // creates a sheet worker for each skill in attributes - first skill = 'strength', then stat = 'agility', etc
@@ -4131,41 +4091,39 @@
     
   /* set profession skill base and skill total FIX courtesy of GiGs*/
   on('sheet:opened change:repeating_pskills:pskill_name change:repeating_pskills:pskill_attr change:repeating_pskills:pskill_level change:repeating_pskills:pskill_misc change:repeating_pskills:pskill_gear change:strength_total change:agility_total change:wits_total change:empathy_total', function () {
-      clog('Change Detected: Profession Skill - recalculating Base & Skill totals');
-      getSectionIDs('repeating_pskills', idarray => {
-          const fields = [];
-          idarray.forEach(id => fields.push(
-              `repeating_pskills_${id}_pskill_name`,
-              `repeating_pskills_${id}_pskill_attr`, 
-              `repeating_pskills_${id}_pskill_base`, 
-              `repeating_pskills_${id}_pskill_level`, 
-              `repeating_pskills_${id}_pskill_misc`, 
-              `repeating_pskills_${id}_pskill_gear`, 
-              `repeating_pskills_${id}_pskill_total`
-          ));
-  
-          // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
-          getAttrs([...fields, 'strength_total', 'agility_total', 'wits_total', 'empathy_total'], function (values) {
-              const output = {};
-              idarray.forEach(id => {
-                  const name = values[`repeating_pskills_${id}_pskill_name`];
-                  const attr = values[`repeating_pskills_${id}_pskill_attr`];
-                  const pskill_skill = int(values[`repeating_pskills_${id}_pskill_level`]);
-                  const pskill_misc = int(values[`repeating_pskills_${id}_pskill_misc`]);
-                  const pskill_gear = int(values[`repeating_pskills_${id}_pskill_gear`]);
-                  // separate out the basic values read from the sheet from those calculated within the worker. for clarity
-                  const pskill_base = values[`${attr}_total`] || 0;
-                  const pskill_total = pskill_base + pskill_skill + pskill_misc + pskill_gear;
-                  output[`repeating_pskills_${id}_pskill_base`] = pskill_base;
-                  output[`repeating_pskills_${id}_pskill_total`] = pskill_total;
-                  clog('pskill_name: ' + name);
-                  clog('pskill_base: ' + pskill_base);
-                  clog('pskill_total: ' + pskill_total);
-              });
-                  
-              setAttrs(output);
-          });
+    clog('Change Detected: Profession Skill - recalculating Base & Skill totals');
+    getSectionIDs('repeating_pskills', idarray => {
+      const fields = [];
+      idarray.forEach(id => fields.push(
+        `repeating_pskills_${id}_pskill_name`,
+        `repeating_pskills_${id}_pskill_attr`, 
+        `repeating_pskills_${id}_pskill_base`, 
+        `repeating_pskills_${id}_pskill_level`, 
+        `repeating_pskills_${id}_pskill_misc`, 
+        `repeating_pskills_${id}_pskill_gear`, 
+        `repeating_pskills_${id}_pskill_total`
+      ));
+      // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
+      getAttrs([...fields, 'strength_total', 'agility_total', 'wits_total', 'empathy_total'], function (values) {
+        const output = {};
+        idarray.forEach(id => {
+          const name = values[`repeating_pskills_${id}_pskill_name`];
+          const attr = values[`repeating_pskills_${id}_pskill_attr`];
+          const pskill_skill = int(values[`repeating_pskills_${id}_pskill_level`]);
+          const pskill_misc = int(values[`repeating_pskills_${id}_pskill_misc`]);
+          const pskill_gear = int(values[`repeating_pskills_${id}_pskill_gear`]);
+          // separate out the basic values read from the sheet from those calculated within the worker. for clarity
+          const pskill_base = values[`${attr}_total`] || 0;
+          const pskill_total = pskill_base + pskill_skill + pskill_misc + pskill_gear;
+          output[`repeating_pskills_${id}_pskill_base`] = pskill_base;
+          output[`repeating_pskills_${id}_pskill_total`] = pskill_total;
+          clog('pskill_name: ' + name);
+          clog('pskill_base: ' + pskill_base);
+          clog('weapon_skill_total: ' + pskill_total);
+        });              
+      setAttrs(output);
       });
+    });
   });
 
   /* set repeating armor rating */
@@ -4567,10 +4525,10 @@
   });
 
 
-  /* set prof skill dice pool */
+  /* set prof skill dice pool 
   on("clicked:repeating_pskills:pskill-roll", function () {
     clog("Change Detected: Profession Skill - button clicked");
-    clog("eventInfo.sourceAttribute");
+    clog("eventInfo.sourceAttribute"); */
   on("clicked:repeating_pskills", function () {
     clog("Change Detected: Profession Skill - button clicked");
     getAttrs(["repeating_pskills_pskill_name", "repeating_pskills_pskill_base", "repeating_pskills_pskill_level", "repeating_pskills_pskill_misc", "repeating_pskills_pskill_gear"], function (values) {

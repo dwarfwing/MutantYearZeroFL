@@ -1,17 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic|Oswald:wght@300&display=swap');
 @font-face {
   font-family: 'DidactGothic';
-  src: URL('https://dwarfwing.github.io/MutantYearZeroFL/font/DidactGothic-Regular.ttf') format('truetype');
+  src: URL('https://dwarfwing.github.io/MutantYearZeroFL/docs/font/DidactGothic-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'BigNoodleTitling';
-  src: url('https://dwarfwing.github.io/MutantYearZeroFL/font/BigNoodleTitling.woff2') format('woff2'),
-      url('https://dwarfwing.github.io/MutantYearZeroFL/font/BigNoodleTitling.woff') format('woff'),
-      URL('https://dwarfwing.github.io/MutantYearZeroFL/font/big_noodle_titling.ttf') format('truetype');
+  src: url('https://dwarfwing.github.io/MutantYearZeroFL/docs/font/BigNoodleTitling.woff2') format('woff2'),
+      url('https://dwarfwing.github.io/MutantYearZeroFL/docs/font/BigNoodleTitling.woff') format('woff'),
+      URL('https://dwarfwing.github.io/MutantYearZeroFL/docs/font/big_noodle_titling.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

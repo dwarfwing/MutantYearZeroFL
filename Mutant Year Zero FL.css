@@ -41,7 +41,7 @@
   padding: 0 4px 0 4px;
   border: 2px solid black;
   border-radius: 5px;
-  --background-color: #ffffea;
+  -background-color: #ffffea;
 }
 
 span.sheet-announcements-show::before {
@@ -1094,7 +1094,7 @@ input.sheet-tab.sheet-settings:checked::after {
   max-height: 56px;
   -margin-top: -50px;
   margin-right: 50px;
-  text-align: right;
+  -text-align: right;
 }
 
 span.sheet-logo-image {
@@ -1106,10 +1106,12 @@ span.sheet-logo-image {
   background-size: contain;
   background-repeat: no-repeat;
   background-position:right;
-  width: 220px;
-  height: 70px;  
+  width: 550px;
+  height: 175px;
   -margin: -15px 0 0 0;
   display: inline-block;
+  margin-top: -80px;
+  margin-left: -40px;
 }
 
 span.sheet-logo-image.lang-sv {
@@ -1381,45 +1383,35 @@ input.sheet-expand~.sheet-input-textarea,
 .repitem input.sheet-expand~.sheet-input-textarea,
 input.sheet-expand~.sheet-weapons-subgrid,
 input.sheet-expand~.sheet-armor-row2,
-input.sheet-expand~.sheet-shield-row2,
-input.sheet-expand~.sheet-animal-handling-row2,
-input.sheet-expand~.sheet-crafting-row2,
-input.sheet-expand~.sheet-endurance-row2,
-input.sheet-expand~.sheet-healing-row2,
+input.sheet-expand~.sheet-endure-row2,
+input.sheet-expand~.sheet-heal-row2,
 input.sheet-expand~.sheet-insight-row2,
-input.sheet-expand~.sheet-lore-row2,
-input.sheet-expand~.sheet-manipulation-row2,
-input.sheet-expand~.sheet-marksmanship-row2,
-input.sheet-expand~.sheet-melee-row2,
+input.sheet-expand~.sheet-manipulate-row2,
+input.sheet-expand~.sheet-shoot-row2,
+input.sheet-expand~.sheet-fight-row2,
 input.sheet-expand~.sheet-might-row2,
 input.sheet-expand~.sheet-move-row2,
-input.sheet-expand~.sheet-performance-row2,
-input.sheet-expand~.sheet-scouting-row2,
-input.sheet-expand~.sheet-sleight-of-hand-row2,
-input.sheet-expand~.sheet-stealth-row2,
-input.sheet-expand~.sheet-survival-row2 {
+input.sheet-expand~.sheet-scout-row2,
+input.sheet-expand~.sheet-sneak-row2,
+input.sheet-expand~.sheet-know-the-zone-row2 {
   display: none;
 }
 
-input.sheet-expand:checked ~ .sheet-weapons-subgrid,
-input.sheet-expand:checked ~ .sheet-armor-row2,
-input.sheet-expand:checked ~ .sheet-shield-row2,
-input.sheet-expand:checked ~ .sheet-animal-handling-row2,
-input.sheet-expand:checked ~ .sheet-crafting-row2,
-input.sheet-expand:checked ~ .sheet-endurance-row2,
-input.sheet-expand:checked ~ .sheet-healing-row2,
-input.sheet-expand:checked ~ .sheet-insight-row2,
-input.sheet-expand:checked ~ .sheet-lore-row2,
-input.sheet-expand:checked ~ .sheet-manipulation-row2,
-input.sheet-expand:checked ~ .sheet-marksmanship-row2,
-input.sheet-expand:checked ~ .sheet-melee-row2,
-input.sheet-expand:checked ~ .sheet-might-row2,
-input.sheet-expand:checked ~ .sheet-move-row2,
-input.sheet-expand:checked ~ .sheet-performance-row2,
-input.sheet-expand:checked ~ .sheet-scouting-row2,
-input.sheet-expand:checked ~ .sheet-sleight-of-hand-row2,
-input.sheet-expand:checked ~ .sheet-stealth-row2,
-input.sheet-expand:checked ~ .sheet-survival-row2 {
+input.sheet-expand:checked~.sheet-input-textarea,
+.repitem input.sheet-expand:checked~.sheet-input-textarea,
+input.sheet-expand:checked~.sheet-weapons-subgrid,
+input.sheet-expand:checked~.sheet-armor-row2,
+input.sheet-expand:checked~.sheet-endure-row2,
+input.sheet-expand:checked~.sheet-heal-row2,
+input.sheet-expand:checked~.sheet-insight-row2,
+input.sheet-expand:checked~.sheet-manipulate-row2,
+input.sheet-expand:checked~.sheet-shoot-row2,
+input.sheet-expand:checked~.sheet-fight-row2,
+input.sheet-expand:checked~.sheet-might-row2,
+input.sheet-expand:checked~.sheet-move-row2,
+input.sheet-expand:checked~.sheet-scout-row2,
+input.sheet-expand:checked~.sheet-sneak-row2,
+input.sheet-expand:checked~.sheet-know-the-zone-row2 {
   display: grid;
   box-sizing: border-box;
   margin: 0;
@@ -1456,6 +1448,7 @@ input.sheet-expand:checked ~ .sheet-input-textarea {
   text-align: left;
   border: 2px solid #000;
   border-radius: 4px;
+  font-size: 1.05em;
 }
 
 
@@ -1753,8 +1746,8 @@ input.sheet-npc_only:checked
 }
 
 .sheet-character-skills {
-  min-width: 20em;
-  width: 50%;
+  min-width: 22em;
+  width: 100%;
 }
 
 .sheet-character-dice_pool {
@@ -2917,7 +2910,7 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 }
 
 .sheet-character-skills {
-  margin-right: 7px;
+  margin-right: 5px;
 }
 
 .sheet-dice_pool-grid {
@@ -3208,6 +3201,7 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   grid-column-gap: 2px;
   grid-row-gap: 2px;
   grid-template-columns: auto 4em 3em;
+  -grid-template-columns: auto 4em;
 }
 
 .sheet-talents-box {
@@ -3216,24 +3210,56 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 }
 
 .sheet-talents-box1 {
-  grid-column-start: 1;
+  -grid-column-start: 1;  /* Enable to show Power level and action button */
+  grid-column: 1/4;
   grid-row-start: 1;
   padding-left: 10px;
 }
 
 .sheet-talents-box2 {
+  display: none; /* Remove to show Power level dropdown */
   grid-column-start: 2;
   grid-row-start: 1;
+  justify-self: center;
 }
 
 .sheet-talents-box3 {
+  display: none; /* Remove to show Power action button */
   grid-column-start: 3;
   grid-row-start: 1;
+  justify-self: center;
 }
 
 .sheet-talents-box4 {
   grid-column: 1/4;
   grid-row-start: 2;
+}
+
+.sheet-character-biomechs .sheet-talents-box1 {
+  grid-column: 1/4;
+}
+
+  /* special handling for Powers boxes WITH Power levels and action buttons
+  .sheet-character-talents .sheet-talents-box1 {
+    grid-column: 1/3;
+  }
+  .sheet-character-talents .sheet-talents-box2 {
+    grid-column: 3;
+  }
+  .sheet-character-talents .sheet-talents-box3 {
+    display: block;
+  } */
+
+  /* special handling for Talent box  */
+.sheet-character-talents .sheet-talents-box1 {
+  grid-column: 1/3;
+}
+.sheet-character-talents .sheet-talents-box2 {
+  display: block;
+  grid-column: 3;
+}
+.sheet-character-talents .sheet-talents-box3 {
+  display: none;
 }
 
 /* ---------------------------------- Skills */

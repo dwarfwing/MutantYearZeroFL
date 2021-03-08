@@ -31,6 +31,7 @@
 
     
   <div class="character-grid">
+
     <div class="character-heading box chartype-background-light toggle-dice-only toggle-monster-only ">
       <div class="heading-grid">
         <div class="heading-box heading-box1">
@@ -397,8 +398,6 @@
       </div>
     </div>
 
-
-
     <div class="character-appearance box chartype-background-light toggle-dice-only toggle-monster-only ">
       <div class="appearance-grid">
         <div class="appearance-box appearance-box1 header">
@@ -722,6 +721,7 @@
       <input type="hidden" name="attr_skill_bonus_misc_gear_selected" value="" readonly />
       <input type="hidden" name="attr_skill_only_selected" value="" readonly />
       <input type="hidden" name="attr_skill_notes_selected" value="" readonly />
+
       <div class="character-skills box chartype-background-light toggle-dice-only">
         <input type="checkbox" class="skill-order-group hidden" name="attr_skill_order_group" value="1" />
         <div class="skills-grid" data-i18n-list="skills-list">
@@ -1602,7 +1602,7 @@
             <input type="hidden" class="input" name="attr_current_preset" value="" readonly />
             <input type="hidden" name="attr_include_with_roll" value="" readonly />
             <span class="label dice-preset-header" data-i18n="current-preset">Current Preset</span>
-            <span class="header-h1 dice-preset-preset" name="attr_current_preset"></span>
+            <input type="text" class="header-h1 dice-preset-preset" name="attr_current_preset">
           </div>
           <div class="dice-footer">
             <button type="action" name="act_dice_pool_clear" class="small-caps dice-footer-clear" data-i18n-title="reset-dice" title="Reset dice pool." data-i18n="clear-dice-pool">
@@ -1644,14 +1644,14 @@
           <div class="talents-box4">
             <fieldset class="repeating_talents">
               <div class="talents-grid">
-                <input class="expand" type="checkbox" name="attr_expand" value="0" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
-                <input class="talents-box1 input" type="text" name="attr_talent_name" value="" title="@{repeating_talents_$X_talent_name}" data-i18n-placeholder="name" placeholder="Name" />
+                <input class="expand" type="checkbox" name="attr_expand" data-i18n-title="show-hide" title="show/hide" /><span></span>
+                <input class="talents-box1 input" type="text" name="attr_name" value="" title="@{repeating_talents_$X_name}" data-i18n-placeholder="name" placeholder="Name" />
                 <select class="talents-box2 input" name="attr_talent_type" title="@{repeating_talents_$X_talent_type}">
                   <option value="Prof" data-i18n="profession-abbrv">Prof</option>
                   <option value="Gen" data-i18n="general-abbrv" selected>Gen</option>
                 </select>
-                <span class="talents-box3 input" name="attr_talent_rank" title="@{repeating_talents_$X_talent_rank}">
-                  <button name="act_talent_roll" class="roll-button" type="action">t</button>
+                <span class="talents-box3 input">
+                  <button name="act_talentroll" class="roll-button" type="action">t</button>
                 </span>
                 <!-- expand 2nd row -->
                 <textarea class="talents-box4 input-textarea" name="attr_talent_description" title="@{repeating_talents_$X_talent_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
@@ -1675,11 +1675,11 @@
           <div class="talents-box4">
             <fieldset class="repeating_mutations">
               <div class="talents-grid">
-                <input class="expand" type="checkbox" name="attr_expand" value="0" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
-                <input class="talents-box1 input" type="text" name="attr_mutation_name" value="" title="@{repeating_mutations_$X_mutation_name}" data-i18n-placeholder="name" placeholder="Name" />
-                <input type="number" class="talents-box2 input-number" name="attr_mp_used" min="1" max="10" title="@{repeating_mutations_$X_mp_used}">
-                <span class="talents-box3 input" name="attr_talent_rank" title="@{repeating_mutations_$X_mutation_rank}">
-                  <button name="act_mutation_roll" class="roll-button" type="action">t</button>
+                <input class="expand" type="checkbox" name="attr_expand" data-i18n-title="show-hide" title="show/hide" /><span></span>
+                <input class="talents-box1 input" type="text" name="attr_name" value="" title="@{repeating_mutations_$X_name}" data-i18n-placeholder="name" placeholder="Name" />
+                <input type="number" class="talents-box2 input-number" name="attr_powerlevel" min="1" max="10" title="@{repeating_mutations_$X_powerlevel}">
+                <span class="talents-box3 input">
+                  <button name="act_powerroll" class="roll-button" type="action">t</button>
                 </span>
                 <!-- expand 2nd row -->
                 <textarea class="talents-box4 input-textarea" name="attr_mutation_description" title="@{repeating_mutations_$X_mutation_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
@@ -1722,11 +1722,11 @@
           <div class="talents-box4">
             <fieldset class="repeating_modules">
               <div class="talents-grid">
-                <input class="expand" type="checkbox" name="attr_expand" value="0" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
-                <input class="talents-box1 input" type="text" name="attr_module_name" value="" title="@{repeating_modules_$X_module_name}" data-i18n-placeholder="name" placeholder="Name" />
-                <input type="number" class="talents-box2 input-number" name="attr_ep_used" min="1" max="10" title="@{repeating_modules_$X_ep_used}">
-                <span class="talents-box3 input" name="attr_module_rank" title="@{repeating_modules_$X_module_rank}">
-                  <button name="act_module_roll" class="roll-button" type="action">t</button>
+                <input class="expand" type="checkbox" name="attr_expand" data-i18n-title="show-hide" title="show/hide" /><span></span>
+                <input class="talents-box1 input" type="text" name="attr_name" value="" title="@{repeating_modules_$X_name}" data-i18n-placeholder="name" placeholder="Name" />
+                <input type="number" class="talents-box2 input-number" name="attr_powerlevel" min="1" max="10" title="@{repeating_modules_$X_powerlevel}">
+                <span class="talents-box3 input" >
+                  <button name="act_powerroll" class="roll-button" type="action">t</button>
                 </span>
                 <!-- expand 2nd row -->
                 <textarea class="talents-box4 input-textarea" name="attr_module_description" title="@{repeating_modules_$X_module_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
@@ -1769,11 +1769,11 @@
           <div class="talents-box4">
             <fieldset class="repeating_animalpowers">
               <div class="talents-grid">
-                <input class="expand" type="checkbox" name="attr_expand" value="0" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
-                <input class="talents-box1 input" type="text" name="attr_animalpower_name" value="" title="@{repeating_animalpowers_$X_animalpower_name}" data-i18n-placeholder="name" placeholder="Name" />
-                <input type="number" class="talents-box2 input-number" name="attr_ap_used" min="1" max="10" title="@{repeating_animalpowers_$X_ap_used}">
-                <span class="talents-box3 input" name="attr_animalpower_rank" title="@{repeating_animalpowers_$X_animalpower_rank}">
-                  <button name="act_animalpower_roll" class="roll-button" type="action">t</button>
+                <input class="expand" type="checkbox" name="attr_expand" data-i18n-title="show-hide" title="show/hide" /><span></span>
+                <input class="talents-box1 input" type="text" name="attr_name" value="" title="@{repeating_animalpowers_$X_name}" data-i18n-placeholder="name" placeholder="Name" />
+                <input type="number" class="talents-box2 input-number" name="attr_powerlevel" min="1" max="10" title="@{repeating_animalpowers_$X_powerlevel}">
+                <span class="talents-box3 input">
+                  <button name="act_powerroll" class="roll-button" type="action">t</button>
                 </span>
                 <!-- expand 2nd row -->
                 <textarea class="talents-box4 input-textarea" name="attr_animalpower_description" title="@{repeating_animalpowers_$X_animalpower_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
@@ -1816,11 +1816,11 @@
           <div class="talents-box4">
             <fieldset class="repeating_contacts">
               <div class="talents-grid">
-                <input class="expand" type="checkbox" name="attr_expand" value="0" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
-                <input class="talents-box1 input" type="text" name="attr_contact_name" value="" title="@{repeating_contacts_$X_contact_name}" data-i18n-placeholder="name" placeholder="Name" />
-                <input type="number" class="talents-box2 input-number" name="attr_ip_used" min="1" max="10" title="@{repeating_contact_$X_ip_used}">
-                <span class="talents-box3 input" name="attr_contact_rank" title="@{repeating_contacts_$X_contact_rank}">
-                  <button name="act_contact_roll" class="roll-button" type="action">t</button>
+                <input class="expand" type="checkbox" name="attr_expand" data-i18n-title="show-hide" title="show/hide" /><span></span>
+                <input class="talents-box1 input" type="text" name="attr_name" value="" title="@{repeating_contacts_$X_name}" data-i18n-placeholder="name" placeholder="Name" />
+                <input type="number" class="talents-box2 input-number" name="attr_powerlevel" min="1" max="10" title="@{repeating_contact_$X_powerlevel}">
+                <span class="talents-box3 input" >
+                  <button name="act_powerroll" class="roll-button" type="action">t</button>
                 </span>
                 <!-- expand 2nd row -->
                 <textarea class="talents-box4 input-textarea" name="attr_contact_description" title="@{repeating_contacts_$X_contact_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
@@ -1857,7 +1857,7 @@
           <div class="talents-box4">
             <fieldset class="repeating_biomechs">
               <div class="talents-grid">
-                <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
+                <input class="expand" type="checkbox" name="attr_expand" data-i18n-title="show-hide" title="show/hide" /><span></span>
                 <input class="talents-box1 input" type="text" name="attr_biomech_name" value="" title="@{repeating_biomechs_$X_biomech_name}" data-i18n-placeholder="name" placeholder="Name" />
                 <!-- expand 2nd row -->
                 <textarea class="talents-box4 input-textarea" name="attr_biomech_description" title="@{repeating_biomechs_$X_biomech_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
@@ -4062,13 +4062,8 @@
     // needed for a couple of functions below
   
     getSkillKey = (label) => label.split(" ").join("-").toLowerCase();
-<<<<<<< Updated upstream
-  // a function to change (for example) "Know the Zone" to "know-the-zone"
-  // needed for a couple of functions below
-=======
     // a function to change (for example) "Know the Zone" to "know-the-zone"
     // needed for a couple of functions below
->>>>>>> Stashed changes
   
   Object.keys(attributes).forEach((skill_name) => {
     // creates a sheet worker for each skill in attributes - first skill = 'strength', then stat = 'agility', etc
@@ -4525,10 +4520,7 @@
   });
 
 
-  /* set prof skill dice pool 
-  on("clicked:repeating_pskills:pskill-roll", function () {
-    clog("Change Detected: Profession Skill - button clicked");
-    clog("eventInfo.sourceAttribute"); */
+  /* set prof skill dice pool */
   on("clicked:repeating_pskills", function () {
     clog("Change Detected: Profession Skill - button clicked");
     getAttrs(["repeating_pskills_pskill_name", "repeating_pskills_pskill_base", "repeating_pskills_pskill_level", "repeating_pskills_pskill_misc", "repeating_pskills_pskill_gear"], function (values) {
@@ -4547,7 +4539,31 @@
       });
     });
   });
-  
+
+  /* set dice pool for Powers action button - NOT WORKING (buttons are hidden) */
+  const powers = ["mutations","modules","animalpowers","contacts"];
+  powers.forEach(pow => {
+    on(`clicked:repeating_${pow}:powerroll`, (eventInfo) => {
+      clog(JSON.stringify(eventInfo.sourceAttribute));
+      var getAttrsString = [`repeating_${pow}_name`,`repeating_${pow}_powerlevel`];
+      getAttrs(getAttrsString, function(values) {
+        const name = values[`repeating_${pow}_name`],
+          level = int(values[`repeating_${pow}_powerlevel`]),
+          setAttrObj = {
+            attribute: level,
+            skill: 0,
+            gear: 0,
+            current_preset: getTranslationByKey(`power`) + ` - ${name}`,
+            include_with_roll: ``,
+          };
+          clog(name);
+          clog(level);
+          clog(JSON.stringify(setAttrObj));
+        SetAttrs(setAttrObj);/**/
+      });
+    });
+  });
+
   /* set spell dice pool */
   on("clicked:repeating_spells:spell-roll", function () {
     clog("Change Detected: Spell - button clicked");

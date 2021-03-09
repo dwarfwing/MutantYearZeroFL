@@ -1746,12 +1746,12 @@ input.sheet-npc_only:checked
 }
 
 .sheet-character-skills {
-  min-width: 22em;
+  min-width: 20em;
   width: 100%;
 }
 
 .sheet-character-dice_pool {
-  min-width: 20em;
+  min-width: 16em;
   width: 40%;
   -background-color: #ffffea;
 }
@@ -3080,6 +3080,7 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 .sheet-dice-preset-preset {
   grid-area: sheet-dice-preset-preset;
   text-align: center;
+  border-width: 0 1px 1px 1px;
 }
 
 .sheet-dice-preset-preset::before,

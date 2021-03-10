@@ -739,7 +739,7 @@
               <h1 data-i18n="skill-u">SKILLS</h1>
             </div>
             <div class="skills-box-base column-header">
-              <span data-i18n="base">Base</span>
+              <span data-i18n="attribute-abbr">Attr</span>
             </div>
             <div class="skills-box2 column-header">
               <span data-i18n="lvl-abbr">Lvl</span>
@@ -2244,7 +2244,9 @@
       <div class="armor-container">
         <div class="armor-grid">
           <div class="armor-box header">
-            <h1 data-i18n="armor">ARMOR</h1>
+          </div>
+          <div class="armor-box-header header">
+            <h1 data-i18n="armor-u">ARMOR</h1>
           </div>
           <div class="armor-box1 column-header">
             <span data-i18n="name">Name</span>
@@ -2259,10 +2261,19 @@
             <span data-i18n="modifier-abbr">Mod</span>
           </div>
           <div class="armor-box5 column-header">
-            <span data-i18n="features">Features</span>
+            <span data-i18n="carried">Carried</span>
           </div>
           <div class="armor-box6 column-header">
-            <span data-i18n="total-abbr">Tot</span>
+            <span data-i18n="donned">Donned</span>
+          </div>
+          <div class="armor-box7 column-header">
+            <span data-i18n="weight">Weight</span>
+          </div>
+          <div class="armor-box8 column-header">
+            <span data-i18n="features">Features</span>
+          </div>
+          <div class="armor-box9 column-header">
+            <span data-i18n="total-abbr" title-i18n="armor-rating">AR</span>
           </div>
           <div class="armor-box10">
             <fieldset class="repeating_armor">
@@ -2285,13 +2296,33 @@
                   <option value="-5">-5</option>
                   <option value="-6">-6</option>
                 </select>
-                <input class="armor-box5 input" type="text" name="attr_armor_features" value="" title="@{armor_features}" />
-                <input class="armor-box6 readonly" name="attr_armor_ar" value="0" data-i18n-title="armor-ar" title="Total GEAR and SKILL dice included for armor. @{armor_ar}" readonly />
-
-                <!-- expand 2nd row -->
+                <select class="armor-box5 input" name="attr_armor_carried" title="@{armor_carried}">
+                  <option data-i18n="yes" value="1" selected>Yes</option>
+                  <option data-i18n="no" value="0">No</option>
+                </select>
+                <input class="armor-box6 input" type="checkbox" name="attr_armor_equipped" value="1" title="@{armor_equipped}" checked />
+                <select class="armor-box7 input" name="attr_armor_weight" title="@{armor_weight}">
+                  <option data-i18n="tiny-abbr" value="0" selected>T</option>
+                  <option data-i18n="quarter-abbr" value="0.25">Q</option>
+                  <option data-i18n="light-abbr" value="0.5">L</option>
+                  <option data-i18n="normal-abbr" value="1">N</option>
+                  <option data-i18n="heavy-abbr" value="2">H</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+                <input class="armor-box8 input" type="text" name="attr_armor_features" value="" title="@{armor_features}" />
+                <span class="armor-box9 readonly" name="attr_armor_ar" value="0" data-i18n-title="armor-ar" title="Total GEAR and SKILL dice included for armor. @{armor_ar}" readonly>0</span>
+                <!-- expand 2nd row 
                 <input class="expand" type="checkbox" name="attr_expand_armor" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
+                -->
                   <!-- 2nd row -->
-                  <!-- --> 
+                  <!-- 
                 <div class="armor-row2">               
                   <span class="armor-box21">
                     <span data-i18n="carried">Carried</span>
@@ -2320,34 +2351,20 @@
                   </select>
                   <span class="armor-box25"><span data-i18n="donned">Donned</span></span>
                   <input class="armor-box26 input" type="checkbox" name="attr_armor_equipped" value="1" title="@{armor_equipped}" checked />
-                </div>
+                </div>--> 
               </div>       
             </fieldset>
           </div>
-          <div class="armor-ar">
-            <div class="armor-subgrid">
-              <span class="armor-box3 header">
-                <h1 data-i18n="armor-rating-u" style="margin: 0;">
-                  ARMOR RATING
-                </h1>
-              </span>
-              <span class="armor-box4 input-span chartype-border-darkest" data-i18n-title="armor-rating-total" title="Total GEAR dice included for all armor. @{ar_total}">
-                <button type="action" class="armor-button" name="act_armor-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-                  <span class="readonly character-skill-total ar-total" name="attr_ar_total" value="0" title="@{ar_total}">0</span>
-                </button>
-              </span>
-              <!--
-              <span class="armor-box5">
-                <button type="action" class="armor-button" name="act_armor-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-                  <span class="readonly character-skill-total ar-total" name="attr_ar_total" value="0" title="@{ar_total}">0</span>
-                </button>
-                <button type="action" name="act_armor-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice." data-i18n="armor"   style="height: 2em; width: 4em;">
-                  Armor
-                </button>
-              </span>
-              -->
-            </div>
-          </div>
+        </div>
+        <div class="armor-ar chartype-background-dark">
+            <span class="armor-box-ar">
+              <h1 data-i18n="armor-rating-u" style="margin: 0;">
+                ARMOR RATING
+              </h1>
+              <button type="action" class="armor-button" name="act_armor-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+                <span class="readonly character-skill-total ar-total" name="attr_ar_total" value="0" title="@{ar_total}">0</span>
+              </button>
+            </span>
         </div>
       </div>
     </div>

@@ -2072,7 +2072,7 @@ input[name="attr_chartype"][value="Robot"]:checked ~ div.sheet-character-grid .s
 
 input.sheet-monster_only:checked ~ div.sheet-character .sheet-character-grid {
   grid-template-columns: auto auto 22em;
-  margin: -4px 0 0 0;
+  margin: 20px 0 0 0;
   padding: 0;
 }
 
@@ -3097,6 +3097,7 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 .sheet-dice-preset-preset {
   grid-area: sheet-dice-preset-preset;
   text-align: center;
+  border-width: 0 1px 1px 1px;
 }
 
 .sheet-dice-preset-preset::before,

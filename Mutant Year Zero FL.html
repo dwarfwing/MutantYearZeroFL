@@ -490,7 +490,19 @@
     <div class="character-weapons box chartype-background-light toggle-dice-only toggle-monster-only ">
       <div class="weapons-grid">
         <div class="weapons-box header">
+          <h1 style="margin-top: -21px;"></h1>
+        </div>
+        <div class="weapons-box-header header">
           <h1 data-i18n="weapon-u" style="margin-top: -21px;">WEAPONS</h1>
+        </div>
+        <div class="weapons-box-skill column-header">
+          <h1 data-i18n="skill" style="margin-top: -21px;">SKILL</h1>
+        </div>
+        <div class="weapons-box-gear column-header">
+          <h1 data-i18n="gear" style="margin-top: -21px;">GEAR</h1>
+        </div>
+        <div class="weapons-box-damage column-header">
+          <h1 data-i18n="damage" style="margin-top: -21px;">DAMAGE</h1>
         </div>
         <div class="weapons-box1 column-header">
           <span data-i18n="attack-abbrv">Attk</span>
@@ -511,15 +523,14 @@
           <span>|</span>
         </div>
         <div class="weapons-box7 column-header">
-          <span data-i18n="skill">Skill</span>
+          <span data-i18n="modifier-abbr">Mod</span>
         </div>
         <div class="weapons-box8 column-header">
-          <span data-i18n="misc-skill-abbr">Mod</span>
+          <span data-i18n="skill">Skill</span>
         </div>
         <div class="weapons-box9 column-header">
-          <span data-i18n="total-abbr">Sum</span>
+          <span> | </span>
         </div>
-        <div class="weapons-box10 column-header"></div>
         <div class="weapons-box11 column-header">
           <span data-i18n="bonus-abbr">Bonus</span>
         </div>
@@ -527,28 +538,28 @@
           <span data-i18n="max-abbr">Max</span>
         </div>
         <div class="weapons-box13 column-header">
-          <span data-i18n="misc-gear-abbr">Gear</span>
+          <span data-i18n="modifier-abbr">Mod</span>
         </div>
         <div class="weapons-box14 column-header">
           <span data-i18n="total-abbr">Sum</span>
         </div>
-        <div class="weapons-box15 column-header"></div>
 
         <div class="weapons-box16 column-header">
           <span>|</span>
         </div>
         <div class="weapons-box17 column-header">
-          <span data-i18n="dmg-abbr">Dmg</span>
+          <span data-i18n="base">Base</span>
         </div>
         <div class="weapons-box18 column-header">
-          <span data-i18n="misc-abbr">Misc</span>
+          <span data-i18n="modifier-abbr">Mod</span>
         </div>
         <div class="weapons-box19 column-header">
-          <span data-i18n="total-abbr">Tot</span>
+          <span data-i18n="damage-abbr">Dmg</span>
         </div>
         <div class="weapons-box27">
           <fieldset class="repeating_weapons">
-            <div class="weapons-grid">
+            <div class="weapons-grid weapons-repeating chartype-background-light">
+              <input type="hidden" name="attr_weapon_damage_misc" value="0" readonly />
               <button class="weapons-box28 roll-button" type="action" name="act_attack-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
                 t
               </button>
@@ -561,9 +572,9 @@
                 <option value="1" data-i18n="ranged">Ranged</option>
               </select>
               <span class="weapons-box32 readonly" name="attr_weapon_base_total" value="0" data-i18n-title="weapon-type-base" title="BASE dice as per weapon/skill type. @{repeating_weapons_$X_weapon_base_total}">0</span>
-              <span class="weapons-box33 readonly"> |</span>
-              <span class="weapons-box34 readonly" name="attr_weapon_skill_value" value="0" data-i18n-title="weapon-type-skill" title="SKILL dice as per weapon/skill type. @{repeating_weapons_$X_weapon_skill_value}">0</span>
-              <select class="weapons-box35 input" name="attr_weapon_skill_misc" data-i18n-title="weapon-skill-misc" title="Miscellaneous attack modifier (adjusts SKILL dice). @{repeating_weapons_$X_weapon_skill_misc}">
+              <span class="weapons-box33 readonly separator"> | </span>
+              <!--<span class="weapons-box34 readonly" name="attr_weapon_skill_value" value="0" data-i18n-title="weapon-type-skill" title="SKILL dice as per weapon/skill type. @{repeating_weapons_$X_weapon_skill_value}">0</span>-->
+              <select class="weapons-box34 input" name="attr_weapon_skill_misc" data-i18n-title="weapon-skill-misc" title="Miscellaneous attack modifier (adjusts SKILL dice). @{repeating_weapons_$X_weapon_skill_misc}">
                 <option value="6">+6</option>
                 <option value="5">+5</option>
                 <option value="4">+4</option>
@@ -578,10 +589,8 @@
                 <option value="-5">-5</option>
                 <option value="-6">-6</option>
               </select>
-              <span class="weapons-box36 readonly" name="attr_weapon_skill_total" value="0" data-i18n-title="weapon-skill-total" title="Total Skill dice included with the attack. @{repeating_weapons_$X_weapon_skill_total}">0</span>
-
-              <div class="weapons-box37"></div>
-
+              <span class="weapons-box35 readonly" name="attr_weapon_skill_total" value="0" data-i18n-title="weapon-skill-total" title="Total Skill dice included with the attack. @{repeating_weapons_$X_weapon_skill_total}">0</span>
+              <span class="weapons-box37 readonly separator"> | </span>
               <select class="weapons-box38 input" name="attr_weapon_bonus" data-i18n-title="weapon-bonus" title="Record the weapon's CURRENT bonus up to MAX (adjusts Gear dice). @{repeating_weapons_$X_weapon_bonus}">
                 <option value="0" selected>+0</option>
                 <option value="1">+1</option>
@@ -622,8 +631,7 @@
                 <option value="0" selected>+0</option>
               </select>
               <span class="weapons-box41 readonly" name="attr_weapon_bonus_total" value="0" data-i18n-title="weapon-bonus-total" title="Total GEAR dice included with the attack. @{repeating_weapons_$X_weapon_bonus_total}">0</span>
-              <div class="weapons-box42"></div>
-              <span class="weapons-box47 readonly"> | </span>
+              <span class="weapons-box47 readonly separator"> | </span>
               <select class="weapons-box48 input" name="attr_weapon_damage" data-i18n-title="weapon-damage" title="Damage as per weapon tables. @{repeating_weapons_$X_weapon_damage}">
                 <option value="0" selected>0</option>
                 <option value="1">1</option>
@@ -639,7 +647,7 @@
                 <option value="11">11</option>
                 <option value="12">12</option>
               </select>
-              <select class="weapons-box49 input" name="attr_weapon_damage_misc" data-i18n-title="weapon-damage-misc" title="Miscellaneous damage modifier. @{repeating_weapons_$X_weapon_damage_misc}">
+              <select class="weapons-box49 input" name="attr_weapon_damage_misc" data-i18n-title="modifier-damage-abbr" title="Miscellaneous damage modifier. @{repeating_weapons_$X_weapon_damage_misc}">
                 <option value="6">+6</option>
                 <option value="5">+5</option>
                 <option value="4">+4</option>
@@ -737,10 +745,10 @@
               <span data-i18n="lvl-abbr">Lvl</span>
             </div>
             <div class="skills-box3 column-header">
-              <span data-i18n="modifier-skill-abbr">Mod</span>
+              <span data-i18n="misc-skill-abbr">Mod</span>
             </div>
             <div class="skills-box4 column-header">
-              <span data-i18n="modifier-gear-abbr">Gear</span>
+              <span data-i18n="misc-gear-abbr">Gear</span>
             </div>
             <div class="skills-box5 column-header">
               <span data-i18n="sum-abbr">Sum</span>

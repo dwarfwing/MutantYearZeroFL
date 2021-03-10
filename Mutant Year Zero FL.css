@@ -1439,7 +1439,7 @@ input.sheet-expand:checked ~ .sheet-input-textarea {
   grid-column-gap: 4px;
   grid-row-gap: 4px;
   -grid-template-columns: 33% auto 33%;
-  grid-template-columns: 35% 31% auto;
+  grid-template-columns: 33% 33% auto;
 }
 
 .sheet-box {
@@ -1687,7 +1687,7 @@ input.sheet-npc_only:checked
 
 .sheet-character-injuries,
 .sheet-character-weapons {
-  grid-column: 1/span 3;
+  grid-column: 1/span 2;
   overflow: hidden;
 }
 
@@ -1746,12 +1746,12 @@ input.sheet-npc_only:checked
 }
 
 .sheet-character-skills {
-  min-width: 22em;
+  min-width: 20em;
   width: 100%;
 }
 
 .sheet-character-dice_pool {
-  min-width: 20em;
+  min-width: 17em;
   width: 40%;
   -background-color: #ffffea;
 }
@@ -1774,7 +1774,7 @@ input.sheet-dice_only:checked
   height: fit-content;
   grid-column-start: 3;
   -grid-row-end: span 6;
-  grid-row: 5/span 8;
+  grid-row: 3/span 8;
   border: none;
   overflow: hidden;
   -display: flex;
@@ -2400,7 +2400,7 @@ input.sheet-npc_only:checked ~ div.sheet-character .sheet-character-appearance {
   border: none;
 }
 input.sheet-npc_only:checked ~ div.sheet-character .sheet-character-weapons {
-  grid-column: 1/3;
+  grid-column: 1/2;
   grid-row: 3;
   border: none;
 }
@@ -2734,11 +2734,31 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   padding: 0 0 2px 0;
   grid-column-gap: 2px;
   grid-row-gap: 2px;
-  grid-template-columns: 3em 3em auto 5em 3em 3px 3em 3em 3em 0em 3em 3em 3em 3em 0em 0em 3em 3em 3em;
+  grid-template-columns: 2em 2em auto 4em 2.25em 4px 2.25em 2.25em 4px 2.25em 2.25em 2.25em 2.25em 4px 2.25em 2.25em 2.25em;
 }
 
 .sheet-weapons-box {
-  grid-column: 1/20;
+  grid-column: 1/18;
+  grid-row-start: 1;
+}
+
+.sheet-weapons-box-header {
+  grid-column: 1/8;
+  grid-row-start: 1;
+}
+
+.sheet-weapons-box-skill {
+  grid-column: 7/9;
+  grid-row-start: 1;
+}
+
+.sheet-weapons-box-gear {
+  grid-column: 10/15;
+  grid-row-start: 1;
+}
+
+.sheet-weapons-box-damage {
+  grid-column: 15/18;
   grid-row-start: 1;
 }
 
@@ -2781,7 +2801,6 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 .sheet-weapons-box8 {
   grid-row-start: 1;
   grid-column-start: 8;
-  padding-bottom: 3px;
 }
 
 .sheet-weapons-box9 {
@@ -2789,20 +2808,15 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   grid-column-start: 9;
 }
 
-.sheet-weapons-box10 {
-  grid-row-start: 1;
-  grid-column-start: 10;
-}
-
 .sheet-weapons-box11 {
   grid-row-start: 1;
-  grid-column-start: 11;
+  grid-column-start: 10;
   justify-self: right;
 }
 
 .sheet-weapons-box12 {
   grid-row-start: 1;
-  grid-column-start: 12;
+  grid-column-start: 11;
   justify-self: left;
 }
 
@@ -2813,44 +2827,36 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 
 .sheet-weapons-box13 {
   grid-row-start: 1;
-  grid-column-start: 13;
-  padding-bottom: 3px;
+  grid-column-start: 12;
 }
 
 .sheet-weapons-box14 {
   grid-row-start: 1;
-  grid-column-start: 14;
-}
-
-.sheet-weapons-box15 {
-  grid-row-start: 1;
-  grid-column-start: 15;
+  grid-column-start: 13;
 }
 
 .sheet-weapons-box16 {
   grid-row-start: 1;
-  grid-column-start: 16;
-  margin-right: 7px;
+  grid-column-start: 14;
 }
-
 
 .sheet-weapons-box17 {
   grid-row-start: 1;
-  grid-column-start: 17;
+  grid-column-start: 15;
 }
 
 .sheet-weapons-box18 {
   grid-row-start: 1;
-  grid-column-start: 18;
+  grid-column-start: 16;
 }
 
 .sheet-weapons-box19 {
   grid-row-start: 1;
-  grid-column-start: 19;
+  grid-column-start: 17;
 }
 
 .sheet-weapons-box27 {
-  grid-column: 1/20;
+  grid-column: 1/18;
   grid-row-start: 2;
 }
 
@@ -2863,12 +2869,23 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   justify-content: center;
 }
 
+.sheet-weapons-box33,
+.sheet-weapons-box37,
 .sheet-weapons-box47 {
-  margin-right: 7px;
+  align-self:center;
+  justify-self: center;
+  -margin-right: 5px;
+}
+
+.sheet-readonly.sheet-separator {
+  line-height: 100%;
+  font-size: 1.75em;
+  align-self: center;
+  padding-bottom: 4px;
 }
 
 .sheet-weapons-subgrid {
-  grid-column: 1/20;
+  grid-column: 1/18;
   grid-row-start: 3;
   display: grid;
   grid-template-columns: 4em 3em 4em 5em 3em 4em 2em 3em 6em auto;

@@ -2091,17 +2091,20 @@
         </div>
         <div class="gear-box6 header">
           <div class="gear">
-            <span class="label" data-i18n="carry">Carry</span>
-          </div>
-          <div class="gear">
-            <input class="input-number" type="text" name="attr_carry" value="((2*(@{strength}))*@{pack_rat})" title="@{carry} = 2 x @{strength} x @{pack_rat}" disabled />
-          </div>
-          <div class="gear">
-            <span class="label" data-i18n="encumbrance">Encumbrance</span>
+            <span class="label encumberance" data-i18n="encumbrance">Encumbrance</span>
           </div>
           <div class="gear">
             <input type="hidden" name="attr_gear_encumbrance" value="1" />
             <input class="input-number" type="text" name="attr_character_encumbrance" value="0" title="@{character_encumbrance}" readonly />
+          </div>
+          <div class="gear">
+            <span class="label carry-separator"> / </span>
+          </div>
+          <div class="gear">
+            <span class="label carry-cap" data-i18n="carry-cap">Carry Cap</span>
+          </div>
+          <div class="gear">
+            <input class="input-number" type="text" name="attr_carry" value="((2*(@{strength}))*@{pack_rat})" title="@{carry} = 2 x @{strength} x @{pack_rat}" disabled />
           </div>
         </div>
         <div class="gear-subgrid2 chartype-background-light" style="margin-bottom: 1em;">
@@ -2123,14 +2126,15 @@
         </div>
         <input class="expand" type="checkbox" name="attr_expand_vehicle1" value="1" data-i18n-title="show-hide" title="show/hide" style="margin-top: 3.35em;" /><span></span>
         <input class="vehicle-box2 input" type="text" name="attr_vehicle_name" value="" title="@{vehicle_name}" data-i18n-placeholder="name" placeholder="name" />
+        <input type="hidden" name="attr_vehicle_advancedencumbrance" value="0" readonly hidden />
         <!-- First row of stats -->
         <div class="vehicle-box3">
           <span class="label" data-i18n="bonus">Bonus</span>
           <input class="input-number" type="number" name="attr_vehicle_bonus" value="0" title="@{vehicle_bonus}" />
         </div>
         <div class="vehicle-box4">
-          <input class="input-number" type="number" name="attr_vehicle_carry" value="0" title="@{vehicle_carry}" />
-          <span class="label" data-i18n="carry">Carry cap</span>
+          <input class="input-number" type="number" name="attr_vehicle_maxload" value="0" title="@{vehicle_maxload}" />
+          <span class="label" data-i18n="carry-load">Max load</span>
         </div>
         <div class="vehicle-box5">
           <span class="label" data-i18n="armor">Armor</span>
@@ -2171,7 +2175,7 @@
               <span data-i18n="quantity-abbr">Qty</span>
             </div>
             <div class="vehiclegear-box3 column-header">
-              <span data-i18n="carried-abbr">Carr</span>
+              <span data-i18n="carry-cap">Carry Cap</span>
             </div>
             <div class="vehiclegear-box4 column-header">
               <span data-i18n="weight-abbr">Wt</span>
@@ -2205,7 +2209,7 @@
             <div class="gear-weight">
               <div><span class="label" data-i18n="gear">Gear</span></div>
               <div>
-                <input class="input-number" type="text" name="attr_vehiclegear_encumberance" value="0" title="@{vehiclegear_encumbrance}" readonly />
+                <input class="input-number" type="text" name="attr_vehiclegear_encumbrance" value="0" title="@{vehiclegear_encumbrance}" readonly />
               </div>
               <div>
                 <span class="label" data-i18n="occupants">Occupants</span>
@@ -2221,17 +2225,21 @@
               </div>
             </div>
             <div class="vehiclegear-box6 header">
+              <input type="hidden" name="attr_vehicle_overencumbered" hidden readonly />
               <div class="vehiclegear">
-                <span class="label" data-i18n="carry">Carry</span>
+                <span class="label encumberance" data-i18n="encumbrance">Encumbrance</span>
+              </div>
+              <div class="vehiclegear">
+                <input class="input-number" type="text" name="attr_vehiclegear_total" value="0" title="@{vehiclegear_total}" readonly />
+              </div>
+              <div class="gear">
+                <span class="label carry-separator"> / </span>
+              </div>
+              <div class="vehiclegear">
+                <span class="label carry-cap" data-i18n="carry-cap">Carry Cap</span>
               </div>
               <div class="vehiclegear">
                 <input class="input-number" type="text" name="attr_vehicle_carry" value="@{vehicle_carry}" title="@{vehicle_carry} = vehicle_strength x2, unvehicleed x4" readonly />
-              </div>
-              <div class="vehiclegear">
-                <span class="label" data-i18n="encumbrance">Encumbrance</span>
-              </div>
-              <div class="vehiclegear">
-                <input class="input-number" type="text" name="attr_vehiclegear_encumbrance" value="0" title="@{vehicle_encumbrance}" readonly />
               </div>
             </div>
         </div>
@@ -3960,6 +3968,34 @@
         character_encumbrance: sum_character_encumbrance,
         consumables_encumbrance: consumables_encumbrance,
         vehicle_encumbrance: sum_vehicle_encumbrance,
+      });
+    });
+  });
+ 
+  /* total vehicle encumbrance */
+  on("sheet:opened change:vehicle_advancedencumbrance change:vehiclegear_encumbrance change:vehicle_occupants change:vehicle_seats change:vehicle_fuel change:vehicle_fuel_cap change:vehicle_maxload", function () { 
+   getAttrs(["vehicle_advancedencumbrance", "vehiclegear_total", "vehicle_carry", "vehiclegear_encumbrance", "vehicle_occupants", "vehicle_occupants_weight", "vehicle_seats", "vehicle_fuel", "vehicle_fuel_cap", "vehicle_fuel_weight", "vehicle_maxload", "vehicle_overencumbered"], function (values) {
+      clog("Change Detected: Vehicle Encumbrance");
+      const adv = int(values["vehicle_advancedencumbrance"]),
+        gear = float(values["vehiclegear_encumbrance"]),
+        occupants = int(values["vehicle_occupants"]),
+        seats = int(values["vehicle_seats"]),
+        fuel_cap = int(values["vehicle_fuel_cap"]),
+        fuel_in = float(values["vehicle_fuel"]),
+        fuel = fuel_in > fuel_cap ? fuel_cap : fuel_in,
+        fuel_wght = (adv > 0) ? fuel * 2 : 0, // If Adv, A unit of fuel weighs 2 units
+        maxload = int(values["vehicle_maxload"]),
+        carry = (adv > 0) ? maxload + (seats * 10) + (fuel_cap * 2) : maxload, // If Adv, Adjusted to accommodate poccupants and fuel
+        occupants_wght = (adv > 0) ? occupants * 10 : 0, // If Adv, A person weighs 10 units
+        total = gear + fuel_wght + occupants_wght,
+        overencumbered = (carry - total) < 0 ? 1 : 0;
+      setAttrs({
+        vehiclegear_encumbrance: gear,
+        vehicle_fuel_weight: fuel_wght,
+        vehicle_occupants_weight: occupants_wght,
+        vehiclegear_total: total,
+        vehicle_carry: carry,
+        vehicle_overencumbered: overencumbered,
       });
     });
   });

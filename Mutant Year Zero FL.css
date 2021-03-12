@@ -3899,7 +3899,11 @@ span.sheet-armor-box3.sheet-header {
   grid-column: 1/5;
   grid-column-gap: 0.25em;
   grid-row-start: 4;
-  grid-template-columns: auto 3em auto 3em;
+  grid-template-columns: auto 3em 1em auto 3em;
+}
+
+.sheet-carry-separator {
+  font-size: 2em;
 }
 
 .sheet-gear-box7 {
@@ -4092,6 +4096,11 @@ span.sheet-armor-box3.sheet-header {
   justify-content: space-around;
 }
 
+/* Hiding encumbrance for fuel and occupants */
+.sheet-input-vehicle-advancedencumbrance:not(:checked) ~ .sheet-advanced-vehicleencumbrance {
+  display: none;
+}
+
 .sheet-vehiclegear-box1 {
   grid-column: 1/5;
   grid-row-start: 1;
@@ -4130,7 +4139,7 @@ span.sheet-armor-box3.sheet-header {
   grid-column: 1/5;
   grid-column-gap: 0.25em;
   grid-row-start: 4;
-  grid-template-columns: auto 3em auto 3em;
+  grid-template-columns: auto 3em 1em auto 3em;
 }
 
 .sheet-vehiclegear-box7 {

@@ -4096,6 +4096,11 @@ span.sheet-armor-box3.sheet-header {
   justify-content: space-around;
 }
 
+/* Hiding encumbrance for fuel and occupants */
+.sheet-input-vehicle-advancedencumbrance:not(:checked) ~ .sheet-advanced-vehicleencumbrance {
+  display: none;
+}
+
 .sheet-vehiclegear-box1 {
   grid-column: 1/5;
   grid-row-start: 1;

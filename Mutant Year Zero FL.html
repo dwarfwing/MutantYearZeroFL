@@ -2126,7 +2126,7 @@
         </div>
         <input class="expand" type="checkbox" name="attr_expand_vehicle1" value="1" data-i18n-title="show-hide" title="show/hide" style="margin-top: 3.35em;" /><span></span>
         <input class="vehicle-box2 input" type="text" name="attr_vehicle_name" value="" title="@{vehicle_name}" data-i18n-placeholder="name" placeholder="name" />
-        <input type="hidden" name="attr_vehicle_advancedencumbrance" value="0" readonly hidden />
+        
         <!-- First row of stats -->
         <div class="vehicle-box3">
           <span class="label" data-i18n="bonus">Bonus</span>
@@ -2207,20 +2207,21 @@
               </fieldset>
             </div>
             <div class="gear-weight">
+              <input type="checkbox" class="input-vehicle-advancedencumbrance hidden" name="attr_vehicle_advancedencumbrance" value="1" />
               <div><span class="label" data-i18n="gear">Gear</span></div>
               <div>
                 <input class="input-number" type="text" name="attr_vehiclegear_encumbrance" value="0" title="@{vehiclegear_encumbrance}" readonly />
               </div>
-              <div>
+              <div class="advanced-vehicleencumbrance">
                 <span class="label" data-i18n="occupants">Occupants</span>
               </div>
-              <div>
+              <div class="advanced-vehicleencumbrance">
                 <input class="input-number" type="text" name="attr_vehicle_occupants_weight" value="0" title="@{vehicle_occupants_weight}" readonly />
               </div>
-              <div>
+              <div class="advanced-vehicleencumbrance">
                 <span class="label" data-i18n="fuel">Fuel</span>
               </div>
-              <div>
+              <div class="advanced-vehicleencumbrance">
                 <input class="input-number" type="text" name="attr_vehicle_fuel_weight" value="0" title="@{vehicle_fuel_weight}" readonly />
               </div>
             </div>
@@ -2239,7 +2240,7 @@
                 <span class="label carry-cap" data-i18n="carry-cap">Carry Cap</span>
               </div>
               <div class="vehiclegear">
-                <input class="input-number" type="text" name="attr_vehicle_carry" value="@{vehicle_carry}" title="@{vehicle_carry} = vehicle_strength x2, unvehicleed x4" readonly />
+                <input class="input-number" type="text" name="attr_vehicle_carry" value="@{vehicle_carry}"  title="@{vehicle_carry} = vehicle_strength x2, unvehicleed x4" readonly />
               </div>
             </div>
         </div>
@@ -2913,11 +2914,15 @@
     <span style="display: none;" data-i18n="no">no</span>
     <div>
       <span data-i18n="sort-skills">Sort Skills by Attribute:</span>
-      <input type="checkbox" name="attr_skill_order_group" value="1" title="@{skill_order_group}" style="vertical-align: text-top;" />
+      <input type="checkbox" name="attr_skill_order_group" value="1" title="@{skill_order_group}" style="vertical-align: middle;" />
     </div>
-    <div>
+    <!--<div>
       <span data-i18n="sort-stockpile">Sort Stockpile resources alphabetically:</span>
       <input type="checkbox" name="attr_stockpile_order_group" value="1" title="@{stockpile_order_group}" style="vertical-align: text-top;" checked />
+    </div>-->
+    <div>
+      <span data-i18n="adv-vehicleencumbrance">Advanced vehicle encumbrance:</span>
+      <input type="checkbox" name="attr_vehicle_advancedencumbrance" value="1" title="@{vehicle_advancedencumbrance}" style="vertical-align: center;"  />
     </div>
   </div>
   <div class="announcements toggle-dice-only toggle-monster-only">

@@ -8,8 +8,8 @@
 <!--tabs-->
 <input class="tab character" name="attr_tab" data-i18n-title="character" title="Character" type="radio" value="1" checked />
 <input class="tab ark" name="attr_tab" data-i18n-title="ark" title="Ark" type="radio" value="2" />
-<!--<input class="tab npc_only" name="attr_tab" data-i18n-title="npc" title="NPC" type="radio" value="3" />-->
-<input class="tab monster_only" name="attr_tab" data-i18n-title="monster" title="Monster" type="radio" value="4" />
+<input class="tab monster_only" name="attr_tab" data-i18n-title="monster" title="Monster" type="radio" value="3" />
+<!--<input class="tab npc_only" name="attr_tab" data-i18n-title="npc" title="NPC" type="radio" value="4" />-->
 <input class="tab settings" name="attr_tab" data-i18n-title="settings" title="Settings" type="radio" value="5" />
 
 <div class="logo" title="MUTANT YEAR ZERO" data-i18n-title="logo-myz">
@@ -103,11 +103,11 @@
 
     <div class="character-attributes chartype-background-dark box toggle-dice-only ">
       <!--Monster Stats-->
-      <div class="monster monster-stat1">
+      <div class="monster monster-stat1 toggle-monster-only">
         <span class="header monster-stats-box1">
           <input class="input-number header-h1" type="text" name="attr_character_name" value="" title="@{character_name}" data-i18n-placeholder="monster-name" placeholder="Monster's Name/Type" />
         </span>
-        <div class="column-header monster-stats-box2">
+        <!--<div class="column-header monster-stats-box2">
           <span data-i18n="move" style="padding-left: 5px;">Move</span>
         </div>
         <div class="column-header monster-stats-box3">
@@ -171,9 +171,9 @@
           <button type="action" name="act_armor-roll" data-i18n-title="update-dice-pool" data-i18n="armor" style="height: 2em; width: 3.75em; margin: 0 10px 0 0px;">
             Armor
           </button>
-        </span>
+        </span>-->
       </div>
-      <div class="attributes-grid">
+      <div class="attributes-grid chartype-background-dark">
         <!-- Broken Indicators -->
         <input class="broken-str" type="hidden" name="attr_strength_total" />
         <input class="broken-agi" type="hidden" name="attr_agility_total" />
@@ -349,41 +349,37 @@
       </div>
     </div>
 
-    <div class="monster-attacks box toggle-dice-only monster ">
+
+    <div class="monster-attacks box monster toggle-dice-only chartype-background-light">
       <div class="monster-attacks-grid">
         <div class="monster-attacks-box header">
-          <h1 data-i18n="monster-attacks-u">MONSTER ATTACKS</h1>
+          <h1 data-i18n="monster-features-u">MONSTER FEATURES</h1>
         </div>
-        <div class="monster-attacks-box1 column-header"></div>
-        <div class="monster-attacks-box2 column-header"></div>
-        <div class="monster-attacks-box3 column-header">
+        <div class="monster-attacks-box1 column-header">
           <span data-i18n="name">Name</span>
         </div>
-        <div class="monster-attacks-box4 column-header">
-          <span data-i18n="base">Base</span>
+        <div class="monster-attacks-box2 column-header">
+          <span data-i18n="features">Features</span>
         </div>
-        <div class="monster-attacks-box5 column-header">
+        <div class="monster-attacks-box3 column-header">
+          <span data-i18n="dice">Dice</span>
+        </div>
+        <div class="monster-attacks-box4 column-header">
           <span data-i18n="damage-abbr">Dmg</span>
         </div>
-        <div class="monster-attacks-box6 column-header">
-          <span data-i18n="type">Type</span>
-        </div>
-        <div class="monster-attacks-box7 column-header">
+        <div class="monster-attacks-box5 column-header">
           <span data-i18n="range">Range</span>
         </div>
+        <div class="monster-attacks-box6 column-header"></div>
         <div class="monster-attacks-box8 repeating-fields">
           <fieldset class="repeating_monster">
             <div class="monster-attacks-grid">
               <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
-              <input class="monster-attacks-box1 counted" type="checkbox" name="attr_rep_counter" value="1" style="opacity: 0; position: absolute; cursor: default; z-index: 1; width: 0;" checked /><span></span>
-              <button class="monster-attacks-box2 roll-button" type="action" name="act_monster-attack-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-                t
-              </button>
-              <input class="monster-attacks-box3 input" type="text" name="attr_attack_name" value="" title="@{repeating_monster_$X_attack_name}" data-i18n-placeholder="name" placeholder="Name" />
-              <input class="monster-attacks-box4 input-number" type="text" name="attr_attack_dice" value="0" title="@{repeating_monster_$X_attack_dice}" />
-              <input class="monster-attacks-box5 input-number" type="text" name="attr_attack_damage" value="0" title="@{repeating_monster_$X_attack_damage}" />
-              <input class="monster-attacks-box6 input" type="text" name="attr_attack_features" value="" title="@{repeating_monster_$X_attack_features}" />
-              <select class="monster-attacks-box7 input" name="attr_attack_range" title="@{repeating_monster_$X_attack_range}">
+              <input class="monster-attacks-box1 input" type="text" name="attr_attack_name" value="" title="@{repeating_monster_$X_attack_name}" data-i18n-placeholder="name" placeholder="Name" />
+              <input class="monster-attacks-box2 input-text" type="text" name="attr_attack_features" value="" title="@{repeating_monster_$X_attack_features}" />
+              <input class="monster-attacks-box3 input-number" type="text" name="attr_attack_dice" value="0" title="@{repeating_monster_$X_attack_dice}" />
+              <input class="monster-attacks-box4 input-number" type="text" name="attr_attack_damage" value="0" title="@{repeating_monster_$X_attack_damage}" />
+              <select class="monster-attacks-box5 input" name="attr_attack_range" title="@{repeating_monster_$X_attack_range}">
                 <option value="n/a" data-i18n="not-applicable-abbr">n/a</option>
                 <option value="Arm" data-i18n="arms-length-abbr" selected>Arm's L.</option>
                 <option value="Near" data-i18n="near">Near</option>
@@ -391,14 +387,17 @@
                 <option value="Long" data-i18n="long">Long</option>
                 <option value="Distant" data-i18n="distant">Distant</option>
               </select>
-              <textarea class="monster-attacks-box8 input-textarea" name="attr_attack_description" title="@{repeating_monster_$X_attack_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+              <button class="monster-attacks-box6 roll-button" type="action" name="act_monster-attack-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+                t
+              </button>
+              <textarea class="monster-attacks-box8 input-textarea" name="attr_attack_description" title="@{repeating_monster_$X_attack_description}" data-i18n-placeholder="description" placeholder="description"></textarea>              
             </div>
           </fieldset>
         </div>
       </div>
     </div>
 
-    <div class="character-appearance box chartype-background-light toggle-dice-only toggle-monster-only ">
+    <div class="character-appearance box chartype-background-light toggle-dice-only toggle-monster-only">
       <div class="appearance-grid">
         <div class="appearance-box appearance-box1 header">
           <h1 data-i18n="appearance-u">APPEARANCE</h1>
@@ -487,7 +486,7 @@
       </div>
     </div>
 
-    <div class="character-weapons box chartype-background-light toggle-dice-only toggle-monster-only ">
+    <div class="character-weapons box chartype-background-light toggle-dice-only">
       <div class="weapons-grid">
         <div class="weapons-box header">
           <h1 style="margin-top: -21px;"></h1>
@@ -730,6 +729,19 @@
       <input type="hidden" name="attr_skill_only_selected" value="" readonly />
       <input type="hidden" name="attr_skill_notes_selected" value="" readonly />
 
+      <!-- MONSTER DESCRIPTION-->
+      <div class="monster-description box chartype-background-light monster toggle-dice-only">
+        <div class="description-grid">
+          <div class="description-box description-box1 header">
+            <h1 data-i18n="description-u">DESCRIPTION</h1>
+          </div>
+          <div class="description-box description-box2">
+            <textarea class="input-textarea" name="attr_monster_description" title="@{monster_description}"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- SKILL GRID -->
       <div class="character-skills box chartype-background-light toggle-dice-only">
         <input type="checkbox" class="skill-order-group hidden" name="attr_skill_order_group" value="1" />
         <div class="skills-grid" data-i18n-list="skills-list">
@@ -802,9 +814,8 @@
           <span class="skills-row chartype-background-dark" data-i18n-list-item="endure">
             <span class="skill-name" data-i18n="endure" name="attr_endure_name">Endure</span>
             <span class="small-caps skill-name" data-i18n="strength-abbr">Str&nbsp;<span name="attr_strength_total"></span></span>
-            <button type="action" name="act_dice_pool_endure_monster" class="monster" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice."><span data-i18n="endure">endure</span>&nbsp;(<span data-i18n="monster">Monster</span>)</button>
-            <input class="input-number character-skill-level toggle-monster-only" type="number" name="attr_endure" value="0" min="0" title="@{endure}" />
-            <select class="input character-skill-mod toggle-monster-only" name="attr_endure_skill_misc" title="@{endure_skill_misc}">
+            <input class="input-number character-skill-level" type="number" name="attr_endure" value="0" min="0" title="@{endure}" />
+            <select class="input character-skill-mod" name="attr_endure_skill_misc" title="@{endure_skill_misc}">
               <option value="6">+6</option>
               <option value="5">+5</option>
               <option value="4">+4</option>
@@ -819,7 +830,7 @@
               <option value="-5">-5</option>
               <option value="-6">-6</option>
             </select>
-            <select class="input character-skill-gear toggle-monster-only" name="attr_endure_gear_misc" title="@{endure_gear_misc}">
+            <select class="input character-skill-gear" name="attr_endure_gear_misc" title="@{endure_gear_misc}">
               <option value="6">+6</option>
               <option value="5">+5</option>
               <option value="4">+4</option>
@@ -828,10 +839,10 @@
               <option value="1">+1</option>
               <option value="0" selected>+0</option>
             </select>
-            <button type="action" name="act_dice_pool_endure" class="toggle-monster-only" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-              <span class="readonly character-skill-total toggle-monster-only" name="attr_endure_total" value="0" title="@{endure_total}">0</span>
+            <button type="action" name="act_dice_pool_endure" class="" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <span class="readonly character-skill-total" name="attr_endure_total" value="0" title="@{endure_total}">0</span>
             </button>
-            <!-- monster stats -->
+            <!-- monster stats
             <select class="input monster" name="attr_endure_monster" title="@{endure_monster}" style="width: 3em; margin: 0;">
               <option value="0" selected>0</option>
               <option value="1">1</option>
@@ -872,8 +883,11 @@
               <option value="1">+1</option>
               <option value="0" selected>+0</option>
             </select>
-            <span class="readonly monster" name="attr_endure_monster_total" value="0" title="@{endure_monster_total}">0</span>
-            <!-- end monster stats -->
+            
+            <button type="action" name="act_dice_pool_endure_monster" class="monster" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <span class="readonly character-skill-total monster" name="attr_endure_monster_total" value="0" title="@{endure_monster_total}">0</span>
+            </button>
+            <end monster stats -->
 
             <!-- expand 2nd row -->
             <!--<input class="expand toggle-monster-only" type="checkbox" name="attr_expand_endure" value="1" data-i18n-title="show-hide" title="show/hide" /><span class="toggle-monster-only"></span>
@@ -891,9 +905,8 @@
           <span class="skills-row chartype-background-dark" chartype-background-dark data-i18n-list-item="fight">
             <span class="skill-name" data-i18n="fight-as-skill" name="attr_fight_name">Fight</span>
             <span class="small-caps skill-name" data-i18n="strength-abbr">Str&nbsp;<span name="attr_strength_total"></span></span>
-            <button type="action" name="act_dice_pool_fight_monster" class="monster" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice."><span data-i18n="fight-as-skill">fight</span>&nbsp;(<span data-i18n="monster">Monster</span>)</button>
-            <input class="input-number character-skill-level toggle-monster-only" type="number" name="attr_fight" value="0" min="0" title="@{fight}" />
-            <select class="input character-skill-mod toggle-monster-only" name="attr_fight_skill_misc" title="@{fight_skill_misc}">
+            <input class="input-number character-skill-level" type="number" name="attr_fight" value="0" min="0" title="@{fight}" />
+            <select class="input character-skill-mod" name="attr_fight_skill_misc" title="@{fight_skill_misc}">
               <option value="6">+6</option>
               <option value="5">+5</option>
               <option value="4">+4</option>
@@ -908,7 +921,7 @@
               <option value="-5">-5</option>
               <option value="-6">-6</option>
             </select>
-            <select class="input character-skill-gear toggle-monster-only" name="attr_fight_gear_misc" title="@{fight_gear_misc}">
+            <select class="input character-skill-gear" name="attr_fight_gear_misc" title="@{fight_gear_misc}">
               <option value="6">+6</option>
               <option value="5">+5</option>
               <option value="4">+4</option>
@@ -917,10 +930,10 @@
               <option value="1">+1</option>
               <option value="0" selected>+0</option>
             </select>
-            <button type="action" name="act_dice_pool_fight" class="toggle-monster-only" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-              <span class="readonly character-skill-total toggle-monster-only" name="attr_fight_total" value="0" title="@{fight_total}">0</span>
+            <button type="action" name="act_dice_pool_fight" class="" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <span class="readonly character-skill-total" name="attr_fight_total" value="0" title="@{fight_total}">0</span>
             </button>
-            <!-- monster stats -->
+            <!-- monster stats
             <select class="input monster" name="attr_fight_monster" title="@{fight_monster}" style="width: 3em; margin: 0;">
               <option value="0" selected>0</option>
               <option value="1">1</option>
@@ -961,8 +974,10 @@
               <option value="1">+1</option>
               <option value="0" selected>+0</option>
             </select>
-            <span class="readonly monster" name="attr_fight_monster_total" value="0" title="@{fight_monster_total}">0</span>
-            <!-- end monster stats -->
+            <button type="action" name="act_dice_pool_monster_fight" class="monster" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <span class="readonly character-skill-total monster" name="attr_fight_monster_total" value="0" title="@{fight_monster_total}">0</span>
+            </button>
+            end monster stats -->
 
             <!-- expand 2nd row -->
             <!--<input class="expand toggle-monster-only" type="checkbox" name="attr_expand_fight" value="1" data-i18n-title="show-hide" title="show/hide" /><span class="toggle-monster-only"></span>
@@ -981,9 +996,8 @@
           <span class="skills-row chartype-background-dark" data-i18n-list-item="force">
             <span class="skill-name" data-i18n="force" name="attr_force_name">Force</span>
             <span class="small-caps skill-name" data-i18n="strength-abbr">Str&nbsp;<span name="attr_strength_total"></span></span>
-            <button type="action" name="act_dice_pool_force_monster" class="monster" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice."><span data-i18n="force">force</span>&nbsp;(<span data-i18n="monster">Monster</span>)</button>
-            <input class="input-number toggle-monster-only" type="number" name="attr_force" value="0" min="0" title="@{force}" />
-            <select class="input toggle-monster-only" name="attr_force_skill_misc" title="@{force_skill_misc}">
+            <input class="input-number" type="number" name="attr_force" value="0" min="0" title="@{force}" />
+            <select class="input" name="attr_force_skill_misc" title="@{force_skill_misc}">
               <option value="6">+6</option>
               <option value="5">+5</option>
               <option value="4">+4</option>
@@ -998,7 +1012,7 @@
               <option value="-5">-5</option>
               <option value="-6">-6</option>
             </select>
-            <select class="input toggle-monster-only" name="attr_force_gear_misc" title="@{force_gear_misc}">
+            <select class="input" name="attr_force_gear_misc" title="@{force_gear_misc}">
               <option value="6">+6</option>
               <option value="5">+5</option>
               <option value="4">+4</option>
@@ -1007,10 +1021,10 @@
               <option value="1">+1</option>
               <option value="0" selected>+0</option>
             </select>
-            <button type="action" name="act_dice_pool_force" class="toggle-monster-only" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-              <span class="readonly toggle-monster-only" name="attr_force_total" value="0" title="@{force_total}">0</span>
+            <button type="action" name="act_dice_pool_force" class="" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <span class="readonly" name="attr_force_total" value="0" title="@{force_total}">0</span>
             </button>
-              <!-- monster stats -->
+              <!-- monster stats
             <select class="input monster" name="attr_force_monster" title="@{force_monster}" style="width: 3em; margin: 0;">
               <option value="0" selected>0</option>
               <option value="1">1</option>
@@ -1051,8 +1065,10 @@
               <option value="1">+1</option>
               <option value="0" selected>+0</option>
             </select>
-            <span class="readonly monster" name="attr_force_monster_total" value="0" title="@{force_monster_total}">0</span>
-            <!-- end monster stats -->
+            <button type="action" name="act_dice_pool_monster_force" class="monster" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <span class="readonly monster" name="attr_force_monster_total" value="0" title="@{force_monster_total}">0</span>
+            </button>
+            end monster stats -->
 
             <!-- expand 2nd row -->
             <!--<input class="expand toggle-monster-only" type="checkbox" name="attr_expand_force" value="1" data-i18n-title="show-hide" title="show/hide" /><span class="toggle-monster-only"></span>
@@ -2249,7 +2265,7 @@
       </div>
     </div>
 
-    <div class="character-armor box chartype-background-light toggle-dice-only toggle-monster-only ">
+    <div class="character-armor box chartype-background-light toggle-dice-only">
       <div class="armor-container">
         <div class="armor-grid">
           <div class="armor-box header">
@@ -4305,19 +4321,16 @@
   
   /* Monster strength-based skill total calcs */
   const monster_attributes = {
-    "crafting monster": "crafting_monster",
     "endure monster": "endure_monster",
     "fight monster": "fight_monster",
     "force monster": "force_monster",
   };
   const monster_misc = {
-      "crafting monster": "crafting_skill_misc_monster",
       "endure monster": "endure_skill_misc_monster",
       "fight monster": "fight_skill_misc_monster",
       "force monster": "force_skill_misc_monster",
     },
     monster_miscGear = {
-      "crafting monster": "crafting_gear_misc_monster",
       "endure monster": "endure_gear_misc_monster",
       "fight monster": "fight_gear_misc_monster",
       "force monster": "force_gear_misc_monster",

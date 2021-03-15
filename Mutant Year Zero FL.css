@@ -330,10 +330,11 @@ input.sheet-monster_only:checked~div.sheet-character .sheet-monster+span.sheet-m
   justify-self: center;
   align-self: center;
   line-height: .85em;
-  width: 1em;
+  -min-width: 1em;
+  width: 100%;
   display: flex;
   justify-content: center;
-  padding: 2px 0 0 0;
+  -padding: 0 0 0 2px;
   cursor: help;
 }
 
@@ -2071,23 +2072,60 @@ input[name="attr_chartype"][value="Robot"]:checked ~ div.sheet-character-grid .s
 /* -----------------------------------Monster Tab layout */
 
 input.sheet-monster_only:checked ~ div.sheet-character .sheet-character-grid {
-  grid-template-columns: auto auto 22em;
+  grid-template-columns: 32% 32% 35%;
   margin: 20px 0 0 0;
-  padding: 0;
+  -padding: 0;
 }
 
 input.sheet-monster_only:checked
   ~ div.sheet-character
   .sheet-character-attributes {
-  height: fit-content;
-  grid-column: 1/3;
-  grid-row-start: 1;
+    -height: fit-content;
+    -width: 100%;
+    grid-column: 1/3;
+    grid-row-start: 1;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 4em auto;
+}
+
+input.sheet-monster_only:checked
+  ~ div.sheet-character
+  .sheet-monster-stat1 {
+    -height: fit-content;
+    margin: 0;
+    width: 100%;
+    height: 4em;
+    grid-column: 1/span 2;
+    grid-row-start: 1;
+    display: flex;
+}
+
+input.sheet-monster_only:checked
+  ~ div.sheet-character
+  .sheet-attributes-grid {
+    -height: fit-content;
+    padding: 0;
+    width: 100%;
+    grid-column: 1/span 2;
+    grid-row-start: 2;
+}
+
+input.sheet-monster_only:checked
+  ~ div.sheet-character
+  div.sheet-attributes-box1
+  h1 {
+    display: none;
 }
 
 input.sheet-monster_only:checked ~ div.sheet-character .sheet-monster-attacks {
   grid-column: 1/3;
   grid-row-start: 2;
-  border: none;
+}
+
+input.sheet-monster_only:checked ~ div.sheet-character .sheet-character-weapons {
+  grid-column: 1/3;
+  grid-row-start: 3;
 }
 
 input.sheet-monster_only:checked
@@ -2098,28 +2136,53 @@ input.sheet-monster_only:checked
   margin: 0 0 0 0;
   border: none;
   grid-column-start: 3;
-  grid-row-end: span 4;
+  grid-row-end: span 10;
   grid-row-start: 1;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
 }
 
-input.sheet-monster_only:checked ~ div.sheet-character .sheet-character-skills {
-  margin-top: 2px;
-  grid-column-start: 3;
-  grid-row-start: 3;
+input.sheet-monster_only:checked
+  ~ div.sheet-character
+  .sheet-monster-description {
+    grid-column: 1;
+    grid-row-start: 1;
+    width: 95%;
+}
+
+.sheet-monster-description textarea {
+  margin: 3px 8px 3px 3px;
+  width: 95%;
+  min-height: 5em;
 }
 
 input.sheet-monster_only:checked
   ~ div.sheet-character
   .sheet-character-dice_pool {
-  grid-column-start: 3;
-  grid-row: span 2;
-  grid-row-start: 1;
+    grid-column: 1;
+    grid-row-start: 2;
+    width: 95%;
+}
+
+input.sheet-monster_only:checked 
+  ~ div.sheet-character 
+  .sheet-character-skills {
+    margin-top: 2px;
+    grid-column: 1;
+    grid-row-start: 3;
+    width: 95%;
+}
+
+input.sheet-monster_only:checked ~ div.sheet-character .sheet-character-armor {
+  -height: fit-content;
+  grid-column: 1/3;
+  grid-row-start: 4;
 }
 
 input.sheet-monster_only:checked ~ div.sheet-character .sheet-character-notes {
-  height: fit-content;
+  -height: fit-content;
   grid-column: 1/3;
-  grid-row-start: 3;
+  grid-row-start: 5;
 }
 /* ---------------------------------- Monster Stats */
 
@@ -2133,6 +2196,7 @@ input.sheet-monster_only:checked ~ div.sheet-character .sheet-character-notes {
   margin-top: 1.5em;
 }
 
+/*
 input.sheet-monster_only:checked ~ div.sheet-character .sheet-attributes-grid {
   margin: 0;
   padding: 0 1em 0 1em;
@@ -2148,7 +2212,7 @@ input.sheet-monster_only:checked
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 3px;
-}
+} */
 
 input.sheet-monster_only:checked
   ~ div.sheet-character
@@ -2163,14 +2227,17 @@ input.sheet-monster_only:checked
   .sheet-attributes-box16
   input.sheet-skull {
   margin: -10px -28px -10px -10px;
+
 }
 
 input.sheet-monster_only:checked ~ div.sheet-character .sheet-monster-stat1 {
-  display: grid;
-  padding: 0 2px 0 2px;
-  margin: 0 -6px 0 -6px;
-  grid-row-gap: 2px;
-  grid-template-columns: 4em 7em auto 3em 3em 8em 4em 4em auto;
+  -display: grid;
+  display: flex;
+  width: 100%;
+  -padding: 0 2px 0 2px;
+  -margin: 0 -6px 0 -6px;
+  -grid-row-gap: 2px;
+  -grid-template-columns: 4em 7em auto 3em 3em 8em 4em 4em auto;
 }
 
 .sheet-monster-stat1 input[type="text"].sheet-header-h1 {
@@ -2186,8 +2253,9 @@ input.sheet-monster_only:checked ~ div.sheet-character .sheet-monster-stat1 {
 .sheet-monster-stats-box1 {
   height: 4em;
   margin: 0;
-  grid-column: 1/10;
-  grid-row-start: 1;
+  -grid-column: 1/10;
+  -grid-row-start: 1;
+  width: 100%
 }
 
 .sheet-monster-stats-box2 {
@@ -2313,11 +2381,12 @@ input.sheet-monster_only:checked
   display: grid;
   grid-column-gap: 1px;
   grid-row-gap: 2px;
-  grid-template-columns: 1em 2em auto 2.5em 2.5em 7em 6em;
+  grid-template-columns: 7em auto 2.5em 2.5em 5em 3em;
+  
 }
 
 .sheet-monster-attacks-box {
-  grid-column: 1/8;
+  grid-column: 1/7;
   grid-row-start: 1;
 }
 
@@ -2329,6 +2398,7 @@ input.sheet-monster_only:checked
 .sheet-monster-attacks-box2 {
   grid-column-start: 2;
   grid-row-start: 1;
+  width: 98%
 }
 
 .sheet-monster-attacks-box3 {
@@ -2357,19 +2427,9 @@ input.sheet-monster_only:checked
 }
 
 .sheet-monster-attacks-box8 {
-  grid-column: 1/8;
+  grid-column: 1/7;
   grid-row-start: 2;
-}
-
-.sheet-monster-attacks-box8 {
-  padding: 0;
-  margin: -2px -7px 0 -7px;
-  border: 10px solid #000;
-  border-top-width: 0;
-  border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20wide%20column%20border.png);
-  border-image-slice: 0 20 20 20;
-  border-image-width: 0 10px 10px 10px;
-  border-image-repeat: repeat;
+  margin-left: 5px;
   background-color: inherit;
 }
 
@@ -3290,6 +3350,12 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   min-width: 2.5em;
   max-width: 2.5em;
 }
+
+.sheet-skills-row button {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 /* list ordering of skills by attribute group */
 .sheet-skills-grid {
   display: flex;
@@ -3347,8 +3413,8 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 }
 
 .sheet-skills-grid button {
-  text-align: left;
-  padding-left: 0.8em;
+  text-align: center;
+  -padding-left: 0.8em;
 }
 
 input.sheet-monster_only:checked ~ div.sheet-character .sheet-skills-grid button {
@@ -4902,7 +4968,7 @@ button[type="roll"]:hover {
 }
 
 button[type="action"] > span {
-  font-size: 95%;
+  -font-size: 95%;
   color: #333;
 }
 

@@ -2389,6 +2389,7 @@
               <button type="action" class="armor-button" name="act_armor-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
                 <span class="readonly character-skill-total ar-total" name="attr_ar_total" value="0" title="@{ar_total}">0</span>
               </button>
+              <input type="hidden" class="hidden" name="attr_armor-equipped-list" value="" hidden readonly />
             </span>
         </div>
       </div>
@@ -2714,9 +2715,9 @@
           <span class="ark-influence ark-influence-col ark-influence-col4"><input type="number" name="attr_cogsofhel_kilgore" class="input-number" value="0" min="0" max="2" /></span>
           <span class="ark-influence ark-influence-col ark-influence-col5"><input type="number" name="attr_cogsofhel_morningstar" class="input-number" value="0" min="0" max="2" /></span>
     
-        </div>
-        
+        </div>    
     </div>
+
       <div class="ark-influence-total ark-influence-grid">
         <div class="ark-influence-header header">
           <h1 data-i18n="total-influence-u">
@@ -3057,337 +3058,375 @@
 
       {{#subtitle}}
       <div class="template-grid-item template-span-six template-subtitle">
-        &ldquo;<span>{{subtitle}}</span>&rdquo;
+        &ldquo;<span>{{subtitle}}</span>&rdquo;<br />
       </div>
       {{/subtitle}}
 
       <!--- dice pool -->
       {{#rollTotal() attribute-die-one 1}}
-      <div class="template-grid-item template-span-one template-white-dice">
+      <div class="template-grid-item template-span-one template-dice template-yellow-dice">
         {{#rollWasFumble() attribute-roll-one}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" />
+        <span data-i18n-title="success" title="Bane">&#9763;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" /> -->
         {{/rollWasFumble() attribute-roll-one}} {{#rollBetween() attribute-roll-one 2 5}} {{attribute-roll-one}}
         {{/rollBetween() attribute-roll-one 2 5}} {{#rollWasCrit() attribute-roll-one}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" />
+        <span data-i18n-title="success" title="Success">&#9762;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" /> -->
         {{/rollWasCrit() attribute-roll-one}}
       </div>
       {{/rollTotal() attribute-die-one 1}} {{#rollTotal() attribute-die-two 1}}
-      <div class="template-grid-item template-span-two template-white-dice">
+      <div class="template-grid-item template-span-two template-dice template-yellow-dice">
         {{#rollWasFumble() attribute-roll-two}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" />
+        <span data-i18n-title="success" title="Bane">&#9763;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" /> -->
         {{/rollWasFumble() attribute-roll-two}} {{#rollBetween() attribute-roll-two 2 5}} {{attribute-roll-two}}
         {{/rollBetween() attribute-roll-two 2 5}} {{#rollWasCrit() attribute-roll-two}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" />
+        <span data-i18n-title="success" title="Success">&#9762;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" /> -->
         {{/rollWasCrit() attribute-roll-two}}
       </div>
       {{/rollTotal() attribute-die-two 1}} {{#rollTotal() skill-die-one 1}}
-      <div class="template-grid-item template-span-three template-maroon-dice">
+      <div class="template-grid-item template-span-three template-dice template-green-dice">
         {{#rollBetween() skill-roll-one 1 5}} {{skill-roll-one}} {{/rollBetween() skill-roll-one 1 5}}
         {{#rollWasCrit() skill-roll-one}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() skill-roll-one}}
       </div>
       {{/rollTotal() skill-die-one 1}} {{#rollTotal() skill-die-two 1}}
-      <div class="template-grid-item template-span-four template-maroon-dice">
+      <div class="template-grid-item template-span-four template-dice template-green-dice">
         {{#rollBetween() skill-roll-two 1 5}} {{skill-roll-two}} {{/rollBetween() skill-roll-two 1 5}}
         {{#rollWasCrit() skill-roll-two}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() skill-roll-two}}
       </div>
       {{/rollTotal() skill-die-two 1}} {{#rollTotal() negative-die-one 1}}
-      <div class="template-grid-item template-span-three template-purple-dice">
+      <div class="template-grid-item template-span-three template-dice template-red-dice">
         {{#rollBetween() negative-roll-one 1 5}} {{negative-roll-one}} {{/rollBetween() negative-roll-one 1 5}}
         {{#rollWasCrit() negative-roll-one}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() negative-roll-one}}
       </div>
       {{/rollTotal() negative-die-one 1}} {{#rollTotal() negative-die-two 1}}
-      <div class="template-grid-item template-span-four template-purple-dice">
+      <div class="template-grid-item template-span-four template-dice template-red-dice">
         {{#rollBetween() negative-roll-two 1 5}} {{negative-roll-two}} {{/rollBetween() negative-roll-two 1 5}}
         {{#rollWasCrit() negative-roll-two}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() negative-roll-two}}
       </div>
       {{/rollTotal() negative-die-two 1}} {{#rollTotal() gear-die-one 1}}
-      <div class="template-grid-item template-span-five template-black-dice">
+      <div class="template-grid-item template-span-five template-dice template-black-dice">
         {{#rollWasFumble() gear-roll-one}}
-        <span data-i18n-title="bane" title="Bane"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /></span>
+        <span data-i18n-title="bane" title="Bane">&#128165;
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /> --></span>
         {{/rollWasFumble() gear-roll-one}} {{#rollBetween() gear-roll-one 2 5}} {{gear-roll-one}}
         {{/rollBetween() gear-roll-one 2 5}} {{#rollWasCrit() gear-roll-one}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() gear-roll-one}}
       </div>
       {{/rollTotal() gear-die-one 1}} {{#rollTotal() gear-die-two 1}}
-      <div class="template-grid-item template-span-shix template-black-dice">
+      <div class="template-grid-item template-span-shix template-dice template-black-dice">
         {{#rollWasFumble() gear-roll-two}}
-        <span data-i18n-title="bane" title="Bane"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /></span>
+        <span data-i18n-title="bane" title="Bane">&#128165;
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /> --></span>
         {{/rollWasFumble() gear-roll-two}} {{#rollBetween() gear-roll-two 2 5}} {{gear-roll-two}}
         {{/rollBetween() gear-roll-two 2 5}} {{#rollWasCrit() gear-roll-two}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() gear-roll-two}}
       </div>
       {{/rollTotal() gear-die-two 1}}
       <!--- BEGIN ROW TWO --->
       {{#rollTotal() attribute-die-three 1}}
-      <div class="template-grid-item template-span-one template-white-dice">
+      <div class="template-grid-item template-span-one template-dice template-yellow-dice">
         {{#rollWasFumble() attribute-roll-three}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" />
+        <span data-i18n-title="success" title="Bane">&#9763;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" /> -->
         {{/rollWasFumble() attribute-roll-three}} {{#rollBetween() attribute-roll-three 2 5}} {{attribute-roll-three}}
         {{/rollBetween() attribute-roll-three 2 5}} {{#rollWasCrit() attribute-roll-three}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" />
+        <span data-i18n-title="success" title="Success">&#9762;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" /> -->
         {{/rollWasCrit() attribute-roll-three}}
       </div>
       {{/rollTotal() attribute-die-three 1}} {{#rollTotal() attribute-die-four 1}}
-      <div class="template-grid-item template-span-two template-white-dice">
+      <div class="template-grid-item template-span-two template-dice template-yellow-dice">
         {{#rollWasFumble() attribute-roll-four}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" />
+        <span data-i18n-title="success" title="Bane">&#9763;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" /> -->
         {{/rollWasFumble() attribute-roll-four}} {{#rollBetween() attribute-roll-four 2 5}} {{attribute-roll-four}}
         {{/rollBetween() attribute-roll-four 2 5}} {{#rollWasCrit() attribute-roll-four}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" />
+        <span data-i18n-title="success" title="Success">&#9762;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" /> -->
         {{/rollWasCrit() attribute-roll-four}}
       </div>
       {{/rollTotal() attribute-die-four 1}} {{#rollTotal() skill-die-three 1}}
-      <div class="template-grid-item template-span-three template-maroon-dice">
+      <div class="template-grid-item template-span-three template-dice template-green-dice">
         {{#rollBetween() skill-roll-three 1 5}} {{skill-roll-three}} {{/rollBetween() skill-roll-three 1 5}}
         {{#rollWasCrit() skill-roll-three}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() skill-roll-three}}
       </div>
       {{/rollTotal() skill-die-three 1}} {{#rollTotal() skill-die-four 1}}
-      <div class="template-grid-item template-span-four template-maroon-dice">
+      <div class="template-grid-item template-span-four template-dice template-green-dice">
         {{#rollBetween() skill-roll-four 1 5}} {{skill-roll-four}} {{/rollBetween() skill-roll-four 1 5}}
         {{#rollWasCrit() skill-roll-four}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() skill-roll-four}}
       </div>
       {{/rollTotal() skill-die-four 1}} {{#rollTotal() negative-die-three 1}}
-      <div class="template-grid-item template-span-three template-purple-dice">
+      <div class="template-grid-item template-span-three template-dice template-red-dice">
         {{#rollBetween() negative-roll-three 1 5}} {{negative-roll-three}} {{/rollBetween() negative-roll-three 1 5}}
         {{#rollWasCrit() negative-roll-three}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() negative-roll-three}}
       </div>
       {{/rollTotal() negative-die-three 1}} {{#rollTotal() gear-die-three 1}}
-      <div class="template-grid-item template-span-five template-black-dice">
+      <div class="template-grid-item template-span-five template-dice template-black-dice">
         {{#rollWasFumble() gear-roll-three}}
-        <span data-i18n-title="bane" title="Bane"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /></span>
+        <span data-i18n-title="bane" title="Bane">&#128165;
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /> --></span>
         {{/rollWasFumble() gear-roll-three}} {{#rollBetween() gear-roll-three 2 5}} {{gear-roll-three}}
         {{/rollBetween() gear-roll-three 2 5}} {{#rollWasCrit() gear-roll-three}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() gear-roll-three}}
       </div>
       {{/rollTotal() gear-die-three 1}} {{#rollTotal() gear-die-four 1}}
-      <div class="template-grid-item template-span-shix template-black-dice">
+      <div class="template-grid-item template-span-shix template-dice template-black-dice">
         {{#rollWasFumble() gear-roll-four}}
-        <span data-i18n-title="bane" title="Bane"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /></span>
+        <span data-i18n-title="bane" title="Bane">&#128165;
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /> --></span>
         {{/rollWasFumble() gear-roll-four}} {{#rollBetween() gear-roll-four 2 5}} {{gear-roll-four}}
         {{/rollBetween() gear-roll-four 2 5}} {{#rollWasCrit() gear-roll-four}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() gear-roll-four}}
       </div>
       {{/rollTotal() gear-die-four 1}}
       <!--- BEGIN ROW THREE -->
       {{#rollTotal() attribute-die-five 1}}
-      <div class="template-grid-item template-span-one template-white-dice">
+      <div class="template-grid-item template-span-one template-dice template-yellow-dice">
         {{#rollWasFumble() attribute-roll-five}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" />
+        <span data-i18n-title="success" title="Bane">&#9763;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" /> -->
         {{/rollWasFumble() attribute-roll-five}} {{#rollBetween() attribute-roll-five 2 5}} {{attribute-roll-five}}
         {{/rollBetween() attribute-roll-five 2 5}} {{#rollWasCrit() attribute-roll-five}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" />
+        <span data-i18n-title="success" title="Success">&#9762;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" /> -->
         {{/rollWasCrit() attribute-roll-five}}
       </div>
       {{/rollTotal() attribute-die-five 1}} {{#rollTotal() attribute-die-six 1}}
-      <div class="template-grid-item template-span-two template-white-dice">
+      <div class="template-grid-item template-span-two template-dice template-yellow-dice">
         {{#rollWasFumble() attribute-roll-six}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" />
+        <span data-i18n-title="success" title="Bane">&#9763;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" /> -->
         {{/rollWasFumble() attribute-roll-six}} {{#rollBetween() attribute-roll-six 2 5}} {{attribute-roll-six}}
         {{/rollBetween() attribute-roll-six 2 5}} {{#rollWasCrit() attribute-roll-six}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" />
+        <span data-i18n-title="success" title="Success">&#9762;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" /> -->
         {{/rollWasCrit() attribute-roll-six}}
       </div>
       {{/rollTotal() attribute-die-six 1}} {{#rollTotal() skill-die-five 1}}
-      <div class="template-grid-item template-span-three template-maroon-dice">
+      <div class="template-grid-item template-span-three template-dice template-green-dice">
         {{#rollBetween() skill-roll-five 1 5}} {{skill-roll-five}} {{/rollBetween() skill-roll-five 1 5}}
         {{#rollWasCrit() skill-roll-five}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() skill-roll-five}}
       </div>
       {{/rollTotal() skill-die-five 1}} {{#rollTotal() skill-die-six 1}}
-      <div class="template-grid-item template-span-four template-maroon-dice">
+      <div class="template-grid-item template-span-four template-dice template-green-dice">
         {{#rollBetween() skill-roll-six 1 5}} {{skill-roll-six}} {{/rollBetween() skill-roll-six 1 5}}
         {{#rollWasCrit() skill-roll-six}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() skill-roll-six}}
       </div>
       {{/rollTotal() skill-die-six 1}} {{#rollTotal() gear-die-five 1}}
-      <div class="template-grid-item template-span-five template-black-dice">
+      <div class="template-grid-item template-span-five template-dice template-black-dice">
         {{#rollWasFumble() gear-roll-five}}
-        <span data-i18n-title="bane" title="Bane"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /></span>
+        <span data-i18n-title="bane" title="Bane">&#128165;
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /> --></span>
         {{/rollWasFumble() gear-roll-five}} {{#rollBetween() gear-roll-five 2 5}} {{gear-roll-five}}
         {{/rollBetween() gear-roll-five 2 5}} {{#rollWasCrit() gear-roll-five}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() gear-roll-five}}
       </div>
       {{/rollTotal() gear-die-five 1}} {{#rollTotal() gear-die-six 1}}
-      <div class="template-grid-item template-span-shix template-black-dice">
+      <div class="template-grid-item template-span-shix template-dice template-black-dice">
         {{#rollWasFumble() gear-roll-six}}
-        <span data-i18n-title="bane" title="Bane"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /></span>
+        <span data-i18n-title="bane" title="Bane">&#128165;
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /> --></span>
         {{/rollWasFumble() gear-roll-six}} {{#rollBetween() gear-roll-six 2 5}} {{gear-roll-six}}
         {{/rollBetween() gear-roll-six 2 5}} {{#rollWasCrit() gear-roll-six}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() gear-roll-six}}
       </div>
       {{/rollTotal() gear-die-six 1}}
       <!--- BEGIN ROW FOUR -->
       {{#rollTotal() attribute-die-seven 1}}
-      <div class="template-grid-item template-span-one template-white-dice">
+      <div class="template-grid-item template-span-one template-dice template-yellow-dice">
         {{#rollWasFumble() attribute-roll-seven}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" />
+        <span data-i18n-title="success" title="Bane">&#9763;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" /> -->
         {{/rollWasFumble() attribute-roll-seven}} {{#rollBetween() attribute-roll-seven 2 5}} {{attribute-roll-seven}}
         {{/rollBetween() attribute-roll-seven 2 5}} {{#rollWasCrit() attribute-roll-seven}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" />
+        <span data-i18n-title="success" title="Success">&#9762;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" /> -->
         {{/rollWasCrit() attribute-roll-seven}}
       </div>
       {{/rollTotal() attribute-die-seven 1}} {{#rollTotal() attribute-die-eight 1}}
-      <div class="template-grid-item template-span-two template-white-dice">
+      <div class="template-grid-item template-span-two template-dice template-yellow-dice">
         {{#rollWasFumble() attribute-roll-eight}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" />
+        <span data-i18n-title="success" title="Bane">&#9763;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" /> -->
         {{/rollWasFumble() attribute-roll-eight}} {{#rollBetween() attribute-roll-eight 2 5}} {{attribute-roll-eight}}
         {{/rollBetween() attribute-roll-eight 2 5}} {{#rollWasCrit() attribute-roll-eight}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" />
+        <span data-i18n-title="success" title="Success">&#9762;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" /> -->
         {{/rollWasCrit() attribute-roll-eight}}
       </div>
       {{/rollTotal() attribute-die-eight 1}} {{#rollTotal() skill-die-seven 1}}
-      <div class="template-grid-item template-span-three template-maroon-dice">
+      <div class="template-grid-item template-span-three template-dice template-green-dice">
         {{#rollBetween() skill-roll-seven 1 5}} {{skill-roll-seven}} {{/rollBetween() skill-roll-seven 1 5}}
         {{#rollWasCrit() skill-roll-seven}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() skill-roll-seven}}
       </div>
       {{/rollTotal() skill-die-seven 1}} {{#rollTotal() skill-die-eight 1}}
-      <div class="template-grid-item template-span-four template-maroon-dice">
+      <div class="template-grid-item template-span-four template-dice template-green-dice">
         {{#rollBetween() skill-roll-eight 1 5}} {{skill-roll-eight}} {{/rollBetween() skill-roll-eight 1 5}}
         {{#rollWasCrit() skill-roll-eight}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() skill-roll-eight}}
       </div>
       {{/rollTotal() skill-die-eight 1}} {{#rollTotal() gear-die-seven 1}}
-      <div class="template-grid-item template-span-five template-black-dice">
+      <div class="template-grid-item template-span-five template-dice template-black-dice">
         {{#rollWasFumble() gear-roll-seven}}
-        <span data-i18n-title="bane" title="Bane"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /></span>
+        <span data-i18n-title="bane" title="Bane">&#128165;
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /> --></span>
         {{/rollWasFumble() gear-roll-seven}} {{#rollBetween() gear-roll-seven 2 5}} {{gear-roll-seven}}
         {{/rollBetween() gear-roll-seven 2 5}} {{#rollWasCrit() gear-roll-seven}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() gear-roll-seven}}
       </div>
       {{/rollTotal() gear-die-seven 1}} {{#rollTotal() gear-die-eight 1}}
-      <div class="template-grid-item template-span-shix template-black-dice">
+      <div class="template-grid-item template-span-shix template-dice template-black-dice">
         {{#rollWasFumble() gear-roll-eight}}
-        <span data-i18n-title="bane" title="Bane"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /></span>
+        <span data-i18n-title="bane" title="Bane">&#128165;
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /> --></span>
         {{/rollWasFumble() gear-roll-eight}} {{#rollBetween() gear-roll-eight 2 5}} {{gear-roll-eight}}
         {{/rollBetween() gear-roll-eight 2 5}} {{#rollWasCrit() gear-roll-eight}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() gear-roll-eight}}
       </div>
       {{/rollTotal() gear-die-eight 1}}
       <!--- BEGIN ROW FIVE -->
       {{#rollTotal() attribute-die-nine 1}}
-      <div class="template-grid-item template-span-one template-white-dice">
+      <div class="template-grid-item template-span-one template-dice template-yellow-dice">
         {{#rollWasFumble() attribute-roll-nine}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" />
+        <span data-i18n-title="success" title="Bane">&#9763;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" /> -->
         {{/rollWasFumble() attribute-roll-nine}} {{#rollBetween() attribute-roll-nine 2 5}} {{attribute-roll-nine}}
         {{/rollBetween() attribute-roll-nine 2 5}} {{#rollWasCrit() attribute-roll-nine}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" />
+        <span data-i18n-title="success" title="Success">&#9762;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" /> -->
         {{/rollWasCrit() attribute-roll-nine}}
       </div>
       {{/rollTotal() attribute-die-nine 1}} {{#rollTotal() attribute-die-ten 1}}
-      <div class="template-grid-item template-span-two template-white-dice">
+      <div class="template-grid-item template-span-two template-dice template-yellow-dice">
         {{#rollWasFumble() attribute-roll-ten}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" />
+        <span data-i18n-title="success" title="Bane">&#9763;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" /> -->
         {{/rollWasFumble() attribute-roll-ten}} {{#rollBetween() attribute-roll-ten 2 5}} {{attribute-roll-ten}}
         {{/rollBetween() attribute-roll-ten 2 5}} {{#rollWasCrit() attribute-roll-ten}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" />
+        <span data-i18n-title="success" title="Success">&#9762;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" /> -->
         {{/rollWasCrit() attribute-roll-ten}}
       </div>
       {{/rollTotal() attribute-die-ten 1}} {{#rollTotal() skill-die-nine 1}}
-      <div class="template-grid-item template-span-three template-maroon-dice">
+      <div class="template-grid-item template-span-three template-dice template-green-dice">
         {{#rollBetween() skill-roll-nine 1 5}} {{skill-roll-nine}} {{/rollBetween() skill-roll-nine 1 5}}
         {{#rollWasCrit() skill-roll-nine}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() skill-roll-nine}}
       </div>
       {{/rollTotal() skill-die-nine 1}} {{#rollTotal() skill-die-ten 1}}
-      <div class="template-grid-item template-span-four template-maroon-dice">
+      <div class="template-grid-item template-span-four template-dice template-green-dice">
         {{#rollBetween() skill-roll-ten 1 5}} {{skill-roll-ten}} {{/rollBetween() skill-roll-ten 1 5}}
         {{#rollWasCrit() skill-roll-ten}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() skill-roll-ten}}
       </div>
       {{/rollTotal() skill-die-ten 1}} {{#rollTotal() gear-die-nine 1}}
-      <div class="template-grid-item template-span-five template-black-dice">
+      <div class="template-grid-item template-span-five template-dice template-black-dice">
         {{#rollWasFumble() gear-roll-nine}}
-        <span data-i18n-title="bane" title="Bane"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /></span>
+        <span data-i18n-title="bane" title="Bane">&#128165;
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /> --></span>
         {{/rollWasFumble() gear-roll-nine}} {{#rollBetween() gear-roll-nine 2 5}} {{gear-roll-nine}}
         {{/rollBetween() gear-roll-nine 2 5}} {{#rollWasCrit() gear-roll-nine}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() gear-roll-nine}}
       </div>
       {{/rollTotal() gear-die-nine 1}} {{#rollTotal() gear-die-ten 1}}
-      <div class="template-grid-item template-span-shix template-black-dice">
+      <div class="template-grid-item template-span-shix template-dice template-black-dice">
         {{#rollWasFumble() gear-roll-ten}}
-        <span data-i18n-title="bane" title="Bane"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /></span>
+        <span data-i18n-title="bane" title="Bane">&#128165;
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /> --></span>
         {{/rollWasFumble() gear-roll-ten}} {{#rollBetween() gear-roll-ten 2 5}} {{gear-roll-ten}}
         {{/rollBetween() gear-roll-ten 2 5}} {{#rollWasCrit() gear-roll-ten}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() gear-roll-ten}}
       </div>
       {{/rollTotal() gear-die-ten 1}}
       <!--- BEGIN ROW SIX -->
       {{#rollTotal() attribute-die-eleven 1}}
-      <div class="template-grid-item template-span-one template-white-dice">
+      <div class="template-grid-item template-span-one template-dice template-yellow-dice">
         {{#rollWasFumble() attribute-roll-eleven}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" />
+        <span data-i18n-title="success" title="Bane">&#9763;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" /> -->
         {{/rollWasFumble() attribute-roll-eleven}} {{#rollBetween() attribute-roll-eleven 2 5}}
         {{attribute-roll-eleven}} {{/rollBetween() attribute-roll-eleven 2 5}} {{#rollWasCrit() attribute-roll-eleven}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" />
+        <span data-i18n-title="success" title="Success">&#9762;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" /> -->
         {{/rollWasCrit() attribute-roll-eleven}}
       </div>
       {{/rollTotal() attribute-die-eleven 1}} {{#rollTotal() attribute-die-twelve 1}}
-      <div class="template-grid-item template-span-two template-white-dice">
+      <div class="template-grid-item template-span-two template-dice template-yellow-dice">
         {{#rollWasFumble() attribute-roll-twelve}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" />
+        <span data-i18n-title="success" title="Bane">&#9763;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_black.png" alt="Bane" class="template-bane" /> -->
         {{/rollWasFumble() attribute-roll-twelve}} {{#rollBetween() attribute-roll-twelve 2 5}}
         {{attribute-roll-twelve}} {{/rollBetween() attribute-roll-twelve 2 5}} {{#rollWasCrit() attribute-roll-twelve}}
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" />
+        <span data-i18n-title="success" title="Success">&#9762;</span>
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_black.png" alt="Success" class="template-success" /> -->
         {{/rollWasCrit() attribute-roll-twelve}}
       </div>
       {{/rollTotal() attribute-die-twelve 1}} {{#rollTotal() gear-die-eleven 1}}
-      <div class="template-grid-item template-span-five template-black-dice">
+      <div class="template-grid-item template-span-five template-dice template-black-dice">
         {{#rollWasFumble() gear-roll-eleven}}
-        <span data-i18n-title="bane" title="Bane"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /></span>
+        <span data-i18n-title="bane" title="Bane">&#128165;
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /> --></span>
         {{/rollWasFumble() gear-roll-eleven}} {{#rollBetween() gear-roll-eleven 2 5}} {{gear-roll-eleven}}
         {{/rollBetween() gear-roll-eleven 2 5}} {{#rollWasCrit() gear-roll-eleven}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() gear-roll-eleven}}
       </div>
       {{/rollTotal() gear-die-eleven 1}} {{#rollTotal() gear-die-twelve 1}}
-      <div class="template-grid-item template-span-shix template-black-dice">
+      <div class="template-grid-item template-span-shix template-dice template-black-dice">
         {{#rollWasFumble() gear-roll-twelve}}
-        <span data-i18n-title="bane" title="Bane"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /></span>
+        <span data-i18n-title="bane" title="Bane">&#128165;
+        <!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/bane_skull_white.png" alt="Bane" class="template-bane" /> --></span>
         {{/rollWasFumble() gear-roll-twelve}} {{#rollBetween() gear-roll-twelve 2 5}} {{gear-roll-twelve}}
         {{/rollBetween() gear-roll-twelve 2 5}} {{#rollWasCrit() gear-roll-twelve}}
-        <span data-i18n-title="success" title="Success"><img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /></span>
+        <span data-i18n-title="success" title="Success">&#9762;<!-- <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/success_swords_white.png" alt="Success" class="template-success" /> --></span>
         {{/rollWasCrit() gear-roll-twelve}}
       </div>
       {{/rollTotal() gear-die-twelve 1}}
       <!--- d66 -->
       <!-- increased range of each d66 dice to allow for custom rolls 0-100-->
       {{#rollTotal() d66-die-one 1}}
-      <div class="template-grid-item template-span-three template-maroon-dice">
+      <div class="template-grid-item template-span-three template-dice template-green-dice">
         {{#rollBetween() d66-roll-one 0 100}} {{d66-roll-one}} {{/rollBetween() d66-roll-one 0 100}}
       </div>
       {{/rollTotal() d66-die-one 1}} {{#rollTotal() d66-die-two 1}}
-      <div class="template-grid-item template-span-four template-maroon-dice">
+      <div class="template-grid-item template-span-four template-dice template-green-dice">
         {{#rollBetween() d66-roll-two 0 100}} {{d66-roll-two}} {{/rollBetween() d66-roll-two 0 100}}
       </div>
       {{/rollTotal() d66-die-two 1}}
@@ -3395,247 +3434,94 @@
       <!--- dice pool column labels in footer-->
       {{#attribute-die-one}}
       <div class="template-grid-item template-span-left">
-        <span class="template-smaller sheet-small-caps" data-i18n="base-dice">Base Dice</span>
+        <span class="template-smaller sheet-small-caps template-label-dice-column" data-i18n="base-dice">Base Dice</span>
       </div>
       <div class="template-grid-item template-span-center">
-        <span class="template-smaller sheet-small-caps" data-i18n="skill-dice">Skill Dice</span>
+        <span class="template-smaller sheet-small-caps template-label-dice-column" data-i18n="skill-dice">Skill Dice</span>
       </div>
       <div class="template-grid-item template-span-right">
-        <span class="template-smaller sheet-small-caps" data-i18n="gear-dice">Gear Dice</span>
+        <span class="template-smaller sheet-small-caps template-label-dice-column" data-i18n="gear-dice">Gear Dice</span>
       </div>
       {{/attribute-die-one}}
 
       <!--- attack -->
-      <div class="template-grid-item template-span-six condensed">
-        {{#weapon-bonus}}
-        <span class="label" data-i18n="bonus">Bonus</span>:&nbsp;{{weapon-bonus}}
-        {{/weapon-bonus}}
-        {{#weapon-bonus-max}}/{{weapon-bonus-max}}
-        {{/weapon-bonus-max}}
-        {{#weapon-bonus-misc}} &nbsp;&#177;&nbsp;<span class="label" data-i18n="misc-abbr">Misc</span>:&nbsp;{{weapon-bonus-misc}}
+      {{#weapon-bonus}}
+      <div class="template-grid-item template-span-six condensed template-footer">
+        <span class="label" data-i18n="bonus">Bonus</span><span>:&nbsp;{{weapon-bonus}}</span>
+          {{#weapon-bonus-max}}<span>/{{weapon-bonus-max}}</span>{{/weapon-bonus-max}}
+        {{#weapon-bonus-misc}} 
+          <span>&nbsp;&#177;&nbsp; <span class="label" data-i18n="modifier-abbr">Mod</span>:&nbsp;{{weapon-bonus-misc}}</span>
         {{/weapon-bonus-misc}} 
         {{#weapon-damage}}
-        <span class="label" data-i18n="damage">Damage</span>:&nbsp;{{weapon-damage}}
+          <span><br /><span class="label" data-i18n="damage-abbr">Damage</span>:&nbsp;{{weapon-damage}}</span>
         {{/weapon-damage}}
         {{#weapon-damage-misc}}&nbsp;&#177;&nbsp;
-        <span class="label" data-i18n="misc-abbr">Misc</span>:&nbsp;{{weapon-damage-misc}}
+          <span class="label" data-i18n="modifier-abbr">Mod</span><span>:&nbsp;{{weapon-damage-misc}}</span>
         {{/weapon-damage-misc}}
         {{#attack-features}}
-        <span>( {{attack-features}} )</span>
+          <span><br /><span class="label" data-i18n="features">Features</span>:&nbsp;{{attack-features}}</span>
         {{/attack-features}}
 
-        <div class="template-grid-item template-span-six">{{#weapon-range}}<span class="label"data-i18n="range">Range</span>:&nbsp;{{weapon-range}}
-          {{/weapon-range}} 
-          {{#weapon-features}}
-          <span class="label" data-i18n="features">Features</span>:&nbsp;{{weapon-features}}
-          {{/weapon-features}}</div>
+        {{#weapon-range}}
+          <div class="template-grid-item template-span-six"><span class="label"data-i18n="range">Range</span><span>:&nbsp;{{weapon-range}}</span></div>
+        {{/weapon-range}} 
+        {{#weapon-features}}
+          <div class="template-grid-item template-span-six"><span class="label" data-i18n="features">Features</span><span>:&nbsp;{{weapon-features}}</span></div>
+        {{/weapon-features}}
 
         {{#attack-description}}
-        <hr class="template-span-six" style="margin: 5px 10px 5px 10px;" />
-        <div class="template-grid-item template-span-six scroll-text">
-        {{attack-description}}
-        </div>
+          <hr class="template-span-six" style="margin: 5px 10px 5px 10px;" />
+          <div class="template-grid-item template-span-six scroll-text">
+          {{attack-description}}
+          </div>
         {{/attack-description}}
       </div>
+      {{/weapon-bonus}}
 
       <!--- armor/shield -->
       {{#rollTotal() armor-equipped}}
-      {{#armor-name}}
-      <div class="template-grid-item template-span-six">
-        <span><b>{{armor-name}}</b></span>
-      </div>
-      <div class="template-grid-item template-span-six condensed">
-        {{#armor-rating}}<span class="label" data-i18n="armor-rating-abbr">AR</span>:&nbsp;{{armor-rating}}{{/armor-rating}}
-        {{#armor-rating-max}}/{{armor-rating-max}}{{/armor-rating-max}}
-        {{#armor-rating-misc}}&nbsp;&#177;&nbsp;<span class="label" data-i18n="misc-abbr">Misc</span>:&nbsp;{{armor-rating-misc}}{{/armor-rating-misc}}
-        {{#armor-rating-total}}&nbsp;=&nbsp;<span class="label" data-i18n="total">Total</span>:&nbsp;{{armor-rating-total}}{{/armor-rating-total}}
-      </div>
-      {{/armor-name}}
+        {{#armor-name}}
+        <div class="template-grid-item template-span-six template-footer">
+          <span class="strong bold">{{armor-name}}</span>
+        </div>
+        <div class="template-grid-item template-span-six condensed template-footer">
+          <span>{{#armor-rating}}<span class="label" data-i18n="armor-rating-abbr">AR</span>:&nbsp;{{armor-rating}}{{/armor-rating}}</span>
+          <span>{{#armor-rating-max}}/{{armor-rating-max}}{{/armor-rating-max}}</span>
+          <span>{{#armor-rating-misc}}&nbsp;&#177;&nbsp;<span class="label" data-i18n="modifier-abbr">Mod</span>:&nbsp;{{armor-rating-misc}}{{/armor-rating-misc}}</span>
+          <span>{{#armor-rating-total}}&nbsp;=&nbsp;<span class="label" data-i18n="total">Total</span>:&nbsp;{{armor-rating-total}}{{/armor-rating-total}}</span>
+        </div>
+        {{/armor-name}}
       {{/rollTotal() armor-equipped}}
 
-      {{#rollTotal() armor1-equipped 1}}
-      {{#armor1-name}}
-      <div class="template-grid-item template-span-six">
-        <span><b>{{armor1-name}}</b></span>
-      </div>
-      <div class="template-grid-item template-span-six condensed">
-        {{#armor1-rating}}<span class="label" data-i18n="armor-rating-abbr">AR</span>:&nbsp;{{armor1-rating}}{{/armor1-rating}}
-        {{#armor1-rating-max}}/{{armor1-rating-max}}{{/armor1-rating-max}}
-        {{#armor1-rating-misc}}&nbsp;&#177;&nbsp;<span class="label" data-i18n="misc-abbr">Misc</span>:&nbsp;{{armor1-rating-misc}}{{/armor1-rating-misc}}
-        {{#armor1-rating-total}}&nbsp;=&nbsp;<span class="label" data-i18n="total">Total</span>:&nbsp;{{armor1-rating-total}}{{/armor1-rating-total}}
-      </div>
-      {{/armor1-name}}
-      {{/rollTotal() armor1-equipped 1}}
-
-      {{#rollTotal() armor2-equipped 1}}
-      {{#armor2-name}}
-      <div class="template-grid-item template-span-six">
-        <span><b>{{armor2-name}}</b></span>
-      </div>
-      <div class="template-grid-item template-span-six condensed">
-        {{#armor2-rating}}<span class="label" data-i18n="armor-rating-abbr">AR</span>:&nbsp;{{armor2-rating}}{{/armor2-rating}}
-        {{#armor2-rating-max}}/{{armor2-rating-max}}{{/armor2-rating-max}}
-        {{#armor2-rating-misc}}&nbsp;&#177;&nbsp;<span class="label" data-i18n="misc-abbr">Misc</span>:&nbsp;{{armor2-rating-misc}}{{/armor2-rating-misc}}
-        {{#armor2-rating-total}}&nbsp;=&nbsp;<span class="label" data-i18n="total">Total</span>:&nbsp;{{armor2-rating-total}}{{/armor2-rating-total}}
-      </div>
-      {{/armor2-name}}
-      {{/rollTotal() armor2-equipped 1}}
-
-      {{#rollTotal() armor3-equipped 1}}
-      {{#armor3-name}}
-      <div class="template-grid-item template-span-six">
-        <span><b>{{armor3-name}}</b></span>
-      </div>
-      <div class="template-grid-item template-span-six condensed">
-        {{#armor3-rating}}<span class="label" data-i18n="armor-rating-abbr">AR</span>:&nbsp;{{armor3-rating}}{{/armor3-rating}}
-        {{#armor3-rating-max}}/{{armor3-rating-max}}{{/armor3-rating-max}}
-        {{#armor3-rating-misc}}&nbsp;&#177;&nbsp;<span class="label" data-i18n="misc-abbr">Misc</span>:&nbsp;{{armor3-rating-misc}}{{/armor3-rating-misc}}
-        {{#armor3-rating-total}}&nbsp;=&nbsp;<span class="label" data-i18n="total">Total</span>:&nbsp;{{armor3-rating-total}}{{/armor3-rating-total}}
-      </div>
-      {{/armor3-name}}
-      {{/rollTotal() armor3-equipped 1}}
-
-      {{#rollTotal() armor4-equipped 1}}
-      {{#armor4-name}}
-      <div class="template-grid-item template-span-six">
-        <span><b>{{armor4-name}}</b></span>
-      </div>
-      <div class="template-grid-item template-span-six condensed">
-        {{#armor4-rating}}<span class="label" data-i18n="armor-rating-abbr">AR</span>:&nbsp;{{armor4-rating}}{{/armor4-rating}}
-        {{#armor4-rating-max}}/{{armor4-rating-max}}{{/armor4-rating-max}}
-        {{#armor4-rating-misc}}&nbsp;&#177;&nbsp;<span class="label" data-i18n="misc-abbr">Misc</span>:&nbsp;{{armor4-rating-misc}}{{/armor4-rating-misc}}
-        {{#armor4-rating-total}}&nbsp;=&nbsp;<span class="label" data-i18n="total">Total</span>:&nbsp;{{armor4-rating-total}}{{/armor4-rating-total}}
-      </div>
-      {{/armor4-name}}
-      {{/rollTotal() armor4-equipped 1}}
-
       <!--skills-->
-      <div class="template-grid-item template-span-six condensed">
-        {{#skill-base}}<span class="label" data-i18n="attr-abbr">Attr</span>:&nbsp; {{skill-base}}{{/skill-base}}
-        {{#skill-skill}}&nbsp;<span class="label" data-i18n="skill">Skill</span>:&nbsp; {{skill-skill}}{{/skill-skill}}
-        {{#skill-bonus-misc-skill}}&nbsp;&#177;&nbsp;<span class="label" data-i18n="misc-abbr">Misc</span>:&nbsp;
-        {{skill-bonus-misc-skill}}{{/skill-bonus-misc-skill}} {{#skill-bonus-misc-gear}}&nbsp;&#177;&nbsp;<span class="label" data-i18n="misc-abbr">Misc</span>:&nbsp; {{skill-bonus-misc-gear}}{{/skill-bonus-misc-gear}}
-        {{#skill-notes}}
-        <hr class="template-span-six" style="margin: 5px 10px 5px 10px;" />
-        <div class="template-grid-item template-span-six scroll-text"><span>{{skill-notes}}</span></div>
-        {{/skill-notes}}
+      {{#skill-base}}
+      <div class="template-grid-item template-span-six condensed template-footer">
+        <span class="label" data-i18n="base">Base</span><span>:&nbsp; {{skill-base}}</span>
+        <span>{{#skill-skill}}&nbsp;<span class="label" data-i18n="skill">Skill</span>:&nbsp; {{skill-skill}}{{/skill-skill}}</span>
+        <span>{{#skill-bonus-misc-skill}}&nbsp;&#177;&nbsp;<span class="label" data-i18n="modifier-abbr">Mod</span>:&nbsp;</span>
+        <span>{{skill-bonus-misc-skill}}{{/skill-bonus-misc-skill}} {{#skill-bonus-misc-gear}}&nbsp;&#177;&nbsp;<span class="label" data-i18n="gear">Gear</span>:&nbsp; {{skill-bonus-misc-gear}}{{/skill-bonus-misc-gear}}</span>
       </div>
+      {{/skill-base}}
 
       {{#free-text}}
-      <div class="template-grid-item template-span-six free-text scroll-text"><span>{{free-text}}</span></div>
+      <div class="template-grid-item template-span-six free-text scroll-text template-footer"><span>{{free-text}}</span></div>
       {{/free-text}}
       {{#footer}}
       <div class="template-grid-item template-span-six template-footer">{{footer}}</div>
       {{/footer}}
 
       {{#allprops() character_name name character_id name_link subtitle free-text footer attribute-die-one attribute-die-two attribute-die-three attribute-die-four attribute-die-five attribute-die-six attribute-die-seven attribute-die-eight attribute-die-nine attribute-die-ten attribute-die-eleven attribute-die-twelve skill-die-one skill-die-two skill-die-three skill-die-four skill-die-five skill-die-six skill-die-seven skill-die-eight skill-die-nine skill-die-ten negative-die-one negative-die-two negative-die-three gear-die-one gear-die-two gear-die-three gear-die-four gear-die-five gear-die-six gear-die-seven gear-die-eight gear-die-nine gear-die-ten gear-die-eleven gear-die-twelve artifact-die-eight artifact-die-ocho artifact-die-ten artifact-die-twelve attribute-roll-one attribute-roll-two attribute-roll-three attribute-roll-four attribute-roll-five attribute-roll-six attribute-roll-seven attribute-roll-eight attribute-roll-nine attribute-roll-ten attribute-roll-eleven attribute-roll-twelve skill-roll-one skill-roll-two skill-roll-three skill-roll-four skill-roll-five skill-roll-six skill-roll-seven skill-roll-eight skill-roll-nine skill-roll-ten negative-roll-one negative-roll-two negative-roll-three gear-roll-one gear-roll-two gear-roll-three gear-roll-four gear-roll-five gear-roll-six gear-roll-seven gear-roll-eight gear-roll-nine gear-roll-ten gear-roll-eleven gear-roll-twelve artifact-roll-eight artifact-roll-ocho artifact-roll-ten artifact-roll-twelve consumable-die-six consumable-die-eight d66-die-one d66-roll-one d66-die-two d66-roll-two consumable-die-ten consumable-die-twelve consumable-roll-six consumable-roll-eight consumable-roll-ten consumable-roll-twelve push-query weapon-bonus weapon-bonus-max weapon-bonus-misc weapon-damage weapon-damage-misc attack-features weapon-range weapon-features attack-description spell-rank spell-willpower spell-range spell-duration spell-ingredients spell-description willpower-total armor1-equipped armor1-name armor1-rating armor1-rating-max armor1-rating-total armor1-rating-misc armor2-equipped armor2-name armor2-rating armor2-rating-max armor2-rating-misc armor2-rating-total armor3-equipped armor3-name armor3-rating armor3-rating-max armor3-rating-misc armor3-rating-total armor4-equipped armor4-name armor4-rating armor4-rating-max armor4-rating-misc armor4-rating-total shield1-name shield1-base shield1-skill shield1-bonus shield1-bonus-max shield1-bonus-misc skill-base skill-skill skill-bonus-misc-skill skill-bonus-misc-gear skill-notes}}
-      <div class="template-grid-item template-span-half">
-        <span>**{{key}}**:</span>
+      <div class="template-grid-item template-span-half template-footer">
+        <span class="allprops allprops-key">**{{key}}**:</span>
       </div>
-      <div class="template-grid-item template-span-2nd-half">
-        <span>{{value}}</span>
+      <div class="template-grid-item template-span-2nd-half template-footer">
+        <span class="allprops allprops-value">{{value}}</span>
       </div>
       {{/allprops() character_name name character_id name_link subtitle free-text footer attribute-die-one attribute-die-two attribute-die-three attribute-die-four attribute-die-five attribute-die-six attribute-die-seven attribute-die-eight attribute-die-nine attribute-die-ten attribute-die-eleven attribute-die-twelve skill-die-one skill-die-two skill-die-three skill-die-four skill-die-five skill-die-six skill-die-seven skill-die-eight skill-die-nine skill-die-ten negative-die-one negative-die-two negative-die-three gear-die-one gear-die-two gear-die-three gear-die-four gear-die-five gear-die-six gear-die-seven gear-die-eight gear-die-nine gear-die-ten gear-die-eleven gear-die-twelve artifact-die-eight artifact-die-ocho artifact-die-ten artifact-die-twelve attribute-roll-one attribute-roll-two attribute-roll-three attribute-roll-four attribute-roll-five attribute-roll-six attribute-roll-seven attribute-roll-eight attribute-roll-nine attribute-roll-ten attribute-roll-eleven attribute-roll-twelve skill-roll-one skill-roll-two skill-roll-three skill-roll-four skill-roll-five skill-roll-six skill-roll-seven skill-roll-eight skill-roll-nine skill-roll-ten negative-roll-one negative-roll-two negative-roll-three gear-roll-one gear-roll-two gear-roll-three gear-roll-four gear-roll-five gear-roll-six gear-roll-seven gear-roll-eight gear-roll-nine gear-roll-ten gear-roll-eleven gear-roll-twelve artifact-roll-eight artifact-roll-ocho artifact-roll-ten artifact-roll-twelve consumable-die-six consumable-die-eight d66-die-one d66-roll-one d66-die-two d66-roll-two consumable-die-ten consumable-die-twelve consumable-roll-six consumable-roll-eight consumable-roll-ten consumable-roll-twelve push-query weapon-bonus weapon-bonus-max weapon-bonus-misc weapon-damage weapon-damage-misc attack-features weapon-range weapon-features attack-description spell-rank spell-willpower spell-range spell-duration spell-ingredients spell-description willpower-total armor1-equipped armor1-name armor1-rating armor1-rating-max armor1-rating-total armor1-rating-misc armor2-equipped armor2-name armor2-rating armor2-rating-max armor2-rating-misc armor2-rating-total armor3-equipped armor3-name armor3-rating armor3-rating-max armor3-rating-misc armor3-rating-total armor4-equipped armor4-name armor4-rating armor4-rating-max armor4-rating-misc armor4-rating-total shield1-name shield1-base shield1-skill shield1-bonus shield1-bonus-max shield1-bonus-misc skill-base skill-skill skill-bonus-misc-skill skill-bonus-misc-gear skill-notes}}
     </div>
   </div>
 </rolltemplate>
 
-<rolltemplate class="sheet-rolltemplate-myz">
-  <div class="template-wrap">
-      <div class="template-grid">
-          <div class="template-grid-item template-span-six template-header">
-              {{#character_name}}
-              <div class="template-grid-item template-span-left template-header">
-              {{#character_id}}[{{character_name}}](https://journal.roll20.net/character/{{character_id}}){{/character_id}}
-              {{^character_id}}{{character_name}}{{/character_id}}
-              </div>
-              {{/character_name}}
-              {{#name}}
-              <div class="template-grid-item template-span-center template-header">◇</div>
-              {{/name}}                
-              {{#name}}
-              <div class="template-grid-item template-span-right template-header">
-              {{#name_link}}[{{name}}]({{name_link}}){{/name_link}}
-              {{^name_link}}{{name}}{{/name_link}}
-              </div>
-              {{/name}}
-          </div>
-          {{#subtitle}}<div class="template-grid-item template-span-six template-subtitle"><span>{{subtitle}}</span></div>{{/subtitle}}
-
-  <!--- dice pool -->
-      {{#base1}}<div class="template-span-one template-base-dice dice">{{base1}}</div>{{/base1}}
-      {{#base2}}<div class="template-span-two template-base-dice dice">{{base2}}</div>{{/base2}}
-      {{#skill1}}<div class="template-span-three template-skill-dice dice">{{skill1}}</div>{{/skill1}}
-      {{#skill2}}<div class="template-span-four template-skill-dice dice">{{skill2}}</div>{{/skill2}}
-      {{#negative1}}<div class="template-span-three template-purple-dice dice">{{negative1}}</div>{{/negative1}}
-      {{#negative2}}<div class="template-span-four template-purple-dice dice">{{negative2}}</div>{{/negative2}}
-      {{#gear1}}<div class="template-span-five template-gear-dice dice">{{gear1}}</div>{{/gear1}}
-      {{#gear2}}<div class="template-span-shix template-gear-dice dice">{{gear2}}</div>{{/gear2}}
-      <!--- BEGIN ROW TWO --->
-      {{#base3}}<div class="template-span-one template-base-dice dice">{{base3}}</div>{{/base3}}
-      {{#base4}}<div class="template-span-two template-base-dice dice">{{base4}}</div>{{/base4}}
-      {{#skill3}}<div class="template-span-three template-skill-dice dice">{{skill3}}</div>{{/skill3}}
-      {{#skill4}}<div class="template-span-four template-skill-dice dice">{{skill4}}</div>{{/skill4}}
-      {{#negative3}}<div class="template-span-three template-purple-dice dice">{{negative3}}</div>{{/negative3}}
-      {{#gear3}}<div class="template-span-five template-gear-dice dice">{{gear3}}</div>{{/gear3}}
-      {{#gear4}}<div class="template-span-shix template-gear-dice dice">{{gear4}}</div>{{/gear4}}
-      <!--- BEGIN ROW THREE -->
-      {{#base5}}<div class="template-span-one template-base-dice dice">{{base5}}</div>{{/base5}}
-      {{#base6}}<div class="template-span-two template-base-dice dice">{{base6}}</div>{{/base6}}
-      {{#skill5}}<div class="template-span-three template-skill-dice dice">{{skill5}}</div>{{/skill5}}
-      {{#skill6}}<div class="template-span-four template-skill-dice dice">{{skill6}}</div>{{/skill6}}
-      {{#gear5}}<div class="template-span-five template-gear-dice dice">{{gear5}}</div>{{/gear5}}
-      {{#gear6}}<div class="template-span-shix template-gear-dice dice">{{gear6}}</div>{{/gear6}}
-      <!--- BEGIN ROW FOUR -->
-      {{#base7}}<div class="template-span-one template-base-dice dice">{{base7}}</div>{{/base7}}
-      {{#base8}}<div class="template-span-two template-base-dice dice">{{base8}}</div>{{/base8}}
-      {{#skill7}}<div class="template-span-three template-skill-dice dice">{{skill7}}</div>{{/skill7}}
-      {{#gear7}}<div class="template-span-five template-gear-dice dice">{{gear7}}</div>{{/gear7}}
-      {{#gear8}}<div class="template-span-shix template-gear-dice dice">{{gear8}}</div>{{/gear8}}
-      <!--- BEGIN ROW FIVE -->
-      {{#base9}}<div class="template-span-one template-base-dice dice">{{base7}}</div>{{/base9}}
-      {{#base10}}<div class="template-span-two template-base-dice dice">{{base10}}</div>{{/base10}}
-      {{#gear9}}<div class="template-span-five template-gear-dice dice">{{gear9}}</div>{{/gear9}}
-      {{#gear10}}<div class="template-span-shix template-gear-dice dice">{{gear10}}</div>{{/gear10}}
-      <!--- BEGIN ROW SIX -->
-      {{#gear11}}<div class="template-span-five template-gear-dice dice">{{gear11}}</div>{{/gear11}}
-      {{#gear12}}<div class="template-span-shix template-gear-dice dice">{{gear12}}</div>{{/gear12}}
-      <!-- ROT & MUTATION points -->
-      {{#other1}}<div class="template-other-dice dice">{{other1}}</div>{{/other1}}
-      {{#other2}}<div class="template-other-dice dice">{{other2}}</div>{{/other2}}
-      {{#other3}}<div class="template-other-dice dice">{{other3}}</div>{{/other3}}
-      {{#other4}}<div class="template-other-dice dice">{{other4}}</div>{{/other4}}
-      {{#other5}}<div class="template-other-dice dice">{{other5}}</div>{{/other5}}
-      {{#other6}}<div class="template-other-dice dice">{{other6}}</div>{{/other6}}
-      {{#other7}}<div class="template-other-dice dice">{{other7}}</div>{{/other7}}
-      {{#other8}}<div class="template-other-dice dice">{{other8}}</div>{{/other8}}
-      {{#other9}}<div class="template-other-dice dice">{{other9}}</div>{{/other9}}
-      {{#other10}}<div class="template-other-dice dice">{{other10}}</div>{{/other10}}
-<!--- dice pool column labels in footer-->            
-          {{#attribute-die-one}}
-          <div class="template-grid-item template-span-left">
-              <span class="template-smaller" data-i18n="attribute-dice dice">Attribute Dice</span>
-          </div>
-          <div class="template-grid-item template-span-center">
-              <span class="template-smaller" data-i18n="skill-dice dice">Skill Dice</span>
-          </div>
-          <div class="template-grid-item template-span-right">
-              <span class="template-smaller" data-i18n="gear-dice dice">Gear Dice</span>
-          </div>
-          {{/attribute-die-one}}
-
-<!--- attack -->
-          {{#weapon-bonus}}{{#weapon-damage}}{{#weapon-range}}
-          <div class="template-grid-item template-span-six">
-              <span class="label" data-i18n="bonus">Bonus</span>:&nbsp;{{weapon-bonus}}
-              <span class="label" data-i18n="damage">Damage</span>:&nbsp;{{weapon-damage}}
-              <span class="label" data-i18n="range">Range</span>:&nbsp;{{weapon-range}}
-          </div>
-          {{/weapon-range}}{{/weapon-damage}}{{/weapon-bonus}}
-          {{#weapon-features}}<div class="template-grid-item template-span-six">{{weapon-features}}</div>{{/weapon-features}}
-      </div>
-  </div>
-</rolltemplate>
 
 <script type="text/worker">
   /* beautify preserve:start */
@@ -4205,7 +4091,7 @@
 
   /* set repeating armor rating */
   on("change:repeating_armor:armor_bonus change:repeating_armor:armor_bonus_max change:repeating_armor:armor_bonus_misc", function () {
-    clog("Change Detected: Repeating Armor Bonus - recalculating Bonus totals");
+    clog("Change Detected: Repeating Armor Rating - recalculating rating totals");
     // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
     getAttrs(["repeating_armor_armor_bonus", "repeating_armor_armor_bonus_misc", "repeating_armor_armor_bonus_max", "repeating_armor_armor_ar"], function (values) {
       const armor_bonus_misc = int(values.repeating_armor_armor_bonus_misc),

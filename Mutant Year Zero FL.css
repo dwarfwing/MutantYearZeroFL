@@ -432,7 +432,7 @@ input[name="attr_strength"][value="41"] ~ input.sheet-skull:nth-of-type(1n+45) +
 input[name="attr_strength"][value="42"] ~ input.sheet-skull:nth-of-type(1n+46) + span::before,
 input[name="attr_strength"][value="43"] ~ input.sheet-skull:nth-of-type(1n+47) + span::before,
 input[name="attr_strength"][value="44"] ~ input.sheet-skull:nth-of-type(1n+48) + span::before,
-input[name="attr_strength"][value="45"] ~ input.sheet-skull:nth-of-type(1n+49) + span::before
+input[name="attr_strength"][value="45"] ~ input.sheet-skull:nth-of-type(1n+49) + span::before,
 input[name="attr_strength"][value="46"] ~ input.sheet-skull:nth-of-type(1n+50) + span::before,
 input[name="attr_strength"][value="47"] ~ input.sheet-skull:nth-of-type(1n+51) + span::before,
 input[name="attr_strength"][value="48"] ~ input.sheet-skull:nth-of-type(1n+52) + span::before,
@@ -1742,7 +1742,7 @@ input.sheet-npc_only:checked
   padding: 0;
   border: none;
   grid-column: 1/span 2;
-  grid-row-start: 5;
+  grid-row-start: 4;
   overflow: hidden;
 }
 
@@ -1827,7 +1827,7 @@ input.sheet-dice_only:checked
 
 .sheet-character-experience {
   height: 2.25em;
-  grid-column-start: 3 / span 1;
+  grid-column-start: 3;
   overflow: hidden;
   font-weight: bold;
   display: flex;
@@ -2579,7 +2579,7 @@ input.sheet-npc_only:checked ~ div.sheet-character .sheet-character-column3 {
 }
 
 .sheet-appearance-grid > div:first-child {
-  padding: 0 -10px 0 -10px;
+  -padding: 0 -10px 0 -10px;
 }
 
 .sheet-appearance-grid > .sheet-appearance-box {
@@ -3712,13 +3712,13 @@ span.sheet-armor-box3.sheet-header {
 .sheet-consumables-box1 {
   grid-column-start: 2;
   grid-row-start: 1;
-  align-content: right;
+  align-content: flex-end;
 }
 
 .sheet-consumables-box2 {
   grid-column-start: 5;
   grid-row-start: 1;
-  align-content: right;
+  align-content: flex-end;
 }
 /*
 .sheet-consumables-box3 {
@@ -3729,7 +3729,7 @@ span.sheet-armor-box3.sheet-header {
 .sheet-consumables-box4 {
   grid-column-start: 1;
   grid-row-start: 2;
-  align-content: right;
+  align-content: flex-end;
 }
 
 .sheet-consumables-box5 {
@@ -3745,7 +3745,7 @@ span.sheet-armor-box3.sheet-header {
 .sheet-consumables-box7 {
   grid-column-start: 4;
   grid-row-start: 2;
-  align-content: right;
+  align-content: flex-end;
 }
 
 .sheet-consumables-box8 {
@@ -3761,7 +3761,7 @@ span.sheet-armor-box3.sheet-header {
 .sheet-consumables-box10 {
   grid-column-start: 1;
   grid-row-start: 3;
-  align-content: right;
+  align-content: flex-end;
 }
 
 .sheet-consumables-box11 {
@@ -3777,7 +3777,7 @@ span.sheet-armor-box3.sheet-header {
 .sheet-consumables-box13 {
   grid-column-start: 4;
   grid-row-start: 3;
-  align-content: right;
+  align-content: flex-end;
 }
 
 .sheet-consumables-box14 {
@@ -4054,7 +4054,7 @@ span.sheet-armor-box3.sheet-header {
   grid-row-start: 1;
   grid-column: 1/3;
   width: 100%;
-  justify-self: space-between;
+  justify-self:stretch;
 }
 .sheet-vehicle-grid > div > input {
   margin: 0 6px 0 6px;
@@ -4257,7 +4257,7 @@ span.sheet-armor-box3.sheet-header {
 }
 .sheet-relationships-box3 {
   justify-content: center;
-  align-content: top;
+  align-content:flex-start;
 }
 
 .sheet-relationships-box11,
@@ -4478,7 +4478,7 @@ span.sheet-armor-box3.sheet-header {
 }
 
 .sheet-ark-notes {
-  grid-column-start: 1/4;
+  grid-column: 1/4;
   grid-row-start: 4;
 }
 
@@ -5101,7 +5101,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 }
 
 .sheet-rolltemplate-forbiddenlands span.sheet-label {
-  font-family: "IM Fell English", "Times New Roman", Times, serif;
+  font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   font-weight: bold;
 }
 
@@ -5110,18 +5110,20 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   width: 240px;
   margin: 5px 0 5px -20px;
   padding: 5px 0 5px 0;
-  border: 5px solid #000;
+  border: 3px solid #000;
   border-radius: 5px;
-  border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/border_small_fixed.png);
-  border-image-slice: 74;
-  border-image-width: 50px 80px 50px 80px;
-  border-image-outset: 6 4 4 4;
-  border-image-repeat: stretch repeat;
-  background-color: #f1f1f1;
+  -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/border_small_fixed.png);
+  -border-image-slice: 74;
+  -border-image-width: 50px 80px 50px 80px;
+  -border-image-outset: 6 4 4 4;
+  -border-image-repeat: stretch repeat;
+  -background-color: #f1f1f1;
+  background: rgb(124,78,8);
+  background: linear-gradient(0deg, rgba(124,78,8,1) 0%, rgba(224,184,15,1) 100%);
 }
 
 .sheet-rolltemplate-forbiddenlands div.sheet-template-header {
-  font-family: "IM Fell English", "Times New Roman", Times, serif;
+  font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   font-size: 1em;
   font-weight: bold;
   display: flex;
@@ -5169,7 +5171,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 }
 
 .sheet-rolltemplate-forbiddenlands .sheet-template-grid-item.sheet-condensed {
-  line-height: 1.2em;
+  -line-height: 1.2em;
   font-size: 0.95em;
 }
 
@@ -5179,7 +5181,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 }
 
 .sheet-rolltemplate-forbiddenlands div.sheet-template-subtitle {
-  font-family: "IM Fell English", "Times New Roman", Times, serif;
+  font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   font-size: 1em;
   font-weight: bold;
   display: flex;
@@ -5187,8 +5189,10 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   justify-content: center;
   margin: 0 -5px 0px -5px;
   padding: 0 2px 0 2px;
+  color: #111;
 }
 
+/*
 .sheet-rolltemplate-forbiddenlands .sheet-template-white-dice ~ .sheet-template-span-left,
 .sheet-rolltemplate-forbiddenlands .sheet-template-white-dice ~ .sheet-template-span-center,
 .sheet-rolltemplate-forbiddenlands .sheet-template-white-dice ~ .sheet-template-span-right,
@@ -5197,18 +5201,34 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 .sheet-rolltemplate-forbiddenlands .sheet-template-red-dice ~ .sheet-template-span-right,
 .sheet-rolltemplate-forbiddenlands .sheet-template-black-dice ~ .sheet-template-span-left,
 .sheet-rolltemplate-forbiddenlands .sheet-template-black-dice ~ .sheet-template-span-center,
-.sheet-rolltemplate-forbiddenlands .sheet-template-black-dice ~ .sheet-template-span-right {
+.sheet-rolltemplate-forbiddenlands .sheet-template-black-dice ~ .sheet-template-span-right,
+.sheet-rolltemplate-forbiddenlands .sheet-template-yellow-dice ~ .sheet-template-span-left,
+.sheet-rolltemplate-forbiddenlands .sheet-template-yellow-dice ~ .sheet-template-span-center,
+.sheet-rolltemplate-forbiddenlands .sheet-template-yellow-dice ~ .sheet-template-span-right,
+.sheet-rolltemplate-forbiddenlands .sheet-template-green-dice ~ .sheet-template-span-left,
+.sheet-rolltemplate-forbiddenlands .sheet-template-green-dice ~ .sheet-template-span-center,
+.sheet-rolltemplate-forbiddenlands .sheet-template-green-dice ~ .sheet-template-span-right ,*/
+.sheet-rolltemplate-forbiddenlands .sheet-template-dice ~ .sheet-template-span-left,
+.sheet-rolltemplate-forbiddenlands .sheet-template-dice ~ .sheet-template-span-center,
+.sheet-rolltemplate-forbiddenlands .sheet-template-dice ~ .sheet-template-span-right {
   margin: 5px 1px 0 1px;
   border-radius: 0;
-  background-color: #ddd;
+  background-color: #111;
+  color: #EEE;
 }
 
+.sheet-rolltemplate-forbiddenlands div.sheet-template-footer span,
+.sheet-rolltemplate-forbiddenlands div.sheet-template-footer label  {
+  font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
+  color: #111;
+}
 .sheet-rolltemplate-forbiddenlands div.sheet-template-footer {
-  font-family: "IM Fell English", "Times New Roman", Times, serif;
-  font-size: 0.75em;
+  font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
+  -font-size: 0.75em;
   margin: 5px;
   padding: 2px;
-  text-align: justify;
+  -text-align: justify;
+  text-align: center;
 }
 
 .sheet-rolltemplate-forbiddenlands div.sheet-free-text {
@@ -5230,7 +5250,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 }
 
 .sheet-rolltemplate-forbiddenlands .sheet-template-grid {
-  font-family: "IM Fell English", "Times New Roman", Times, serif;
+  font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   display: grid;
   margin: 3px 2px 2px 2px;
   padding: 0;
@@ -5240,7 +5260,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 }
 
 .sheet-rolltemplate-forbiddenlands .sheet-template-grid-item {
-  padding: 0 3px 0 3px;
+  -padding: 0 3px 0 3px;
   text-align: center;
   border: none;
   border-radius: 5px;
@@ -5350,7 +5370,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 }
 
 .sheet-rolltemplate-forbiddenlands .sheet-template-inline {
-  font-family: "IM Fell English", "Times New Roman", Times, serif;
+  font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   font-size: 2em;
   line-height: 0;
   display: inline-block;
@@ -5364,15 +5384,29 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 }
 
 /* add drop shadow to dice */
+/*
 .sheet-rolltemplate-forbiddenlands .sheet-template-white-dice,
 .sheet-rolltemplate-forbiddenlands .sheet-template-maroon-dice,
 .sheet-rolltemplate-forbiddenlands .sheet-template-black-dice,
 .sheet-rolltemplate-forbiddenlands .sheet-template-green-dice,
 .sheet-rolltemplate-forbiddenlands .sheet-template-blue-dice,
 .sheet-rolltemplate-forbiddenlands .sheet-template-orange-dice,
-.sheet-rolltemplate-forbiddenlands .sheet-template-purple-dice {
+.sheet-rolltemplate-forbiddenlands .sheet-template-yellow-dice,
+.sheet-rolltemplate-forbiddenlands .sheet-template-purple-dice,
+.sheet-rolltemplate-forbiddenlands .sheet-template-red-dice, */
+.sheet-rolltemplate-forbiddenlands .sheet-template-dice {
   margin: 1px;
   box-shadow: -3px 2px 3px #000;
+  line-height: 0;
+  padding: 3px;
+  text-align: center;
+  border-radius: 5px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  height: 2em;
+  width: 2em;
 }
 
 .sheet-rolltemplate-forbiddenlands
@@ -5382,11 +5416,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 }
 
 .sheet-rolltemplate-forbiddenlands .sheet-template-white-dice {
-  line-height: 0;
-  padding: 3px;
-  text-align: center;
   border: 1px solid #000;
-  border-radius: 5px;
   background-color: #fff;
 }
 
@@ -5401,12 +5431,8 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 }
 
 .sheet-rolltemplate-forbiddenlands .sheet-template-black-dice {
-  line-height: 0;
-  padding: 3px;
-  text-align: center;
   color: #fff;
   border: 1px solid transparent;
-  border-radius: 5px;
   background-color: #000;
 }
 
@@ -5440,6 +5466,12 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   background-color: #ff8c00;
 }
 
+.sheet-rolltemplate-forbiddenlands .sheet-template-yellow-dice {
+  color: #000;
+  border: 1px solid #000;
+  background-color: rgb(235, 212, 4);
+}
+
 .sheet-rolltemplate-forbiddenlands .sheet-template-purple-dice {
   line-height: 0;
   padding: 3px;
@@ -5450,24 +5482,38 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   background-color: #800080;
 }
 
+.sheet-rolltemplate-forbiddenlands .sheet-template-red-dice {
+  color: #fff;
+  border: 1px solid #000;
+  background-color: #c00202;
+}
+
 .sheet-rolltemplate-forbiddenlands .sheet-template-grid-item span.inlinerollresult {
   background-color: transparent;
   border: none;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-white-dice > .inlinerollresult,
-.sheet-rolltemplate-forbiddenlands .sheet-template-maroon-dice > .inlinerollresult,
-.sheet-rolltemplate-forbiddenlands .sheet-template-black-dice > .inlinerollresult,
-.sheet-rolltemplate-forbiddenlands .sheet-template-green-dice > .inlinerollresult,
-.sheet-rolltemplate-forbiddenlands .sheet-template-blue-dice > .inlinerollresult,
-.sheet-rolltemplate-forbiddenlands .sheet-template-orange-dice > .inlinerollresult,
-.sheet-rolltemplate-forbiddenlands .sheet-template-purple-dice > .inlinerollresult {
-  font-family: "IM Fell English", "Times New Roman", Times, serif;
+/*
+.sheet-rolltemplate-forbiddenlands .sheet-template-dice > .inlinerollresult {
+  font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   font-size: 2em;
   line-height: 1em;
   font-weight: normal;
   padding: 0;
-  margin: -4px 0 0 0;
+  -margin: -4px 0 0 0;
+  display: inline-block;
+  border: none;
+  background-color: transparent;
+}
+*/
+
+.sheet-rolltemplate-forbiddenlands .sheet-template-dice > span {
+  font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  line-height: 1em;
+  font-weight: normal;
+  padding: 0;
+  -margin: -4px 0 0 0;
   display: inline-block;
   border: none;
   background-color: transparent;
@@ -5475,7 +5521,8 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 
 .sheet-rolltemplate-forbiddenlands .sheet-template-green-dice > div > .sheet-template-inline,
 .sheet-rolltemplate-forbiddenlands .sheet-template-blue-dice > div > .sheet-template-inline,
-.sheet-rolltemplate-forbiddenlands .sheet-template-orange-dice > div > .sheet-template-inline {
+.sheet-rolltemplate-forbiddenlands .sheet-template-orange-dice > div > .sheet-template-inline,
+.sheet-rolltemplate-forbiddenlands .sheet-template-yellow-dice > div > .sheet-template-inline {
   font-size: 2.25em;
   font-variant: diagonal-fractions;
   text-shadow: 1px 1px 1px black;

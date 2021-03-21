@@ -663,6 +663,14 @@ input.sheet-hidden.sheet-api-toggle-show:checked ~ .sheet-template-roll {
   display: none;
 }
 
+input.sheet-hidden.sheet-api-toggle-show:not(:checked) ~ .sheet-dice-rolls-copy {
+  display: none;
+}
+
+.sheet-dice-rolls-copy-button::before {
+  content: "" !important; 
+}
+
 div.sheet-grid-item.sheet-api-roll {
   display: none;
 }
@@ -677,6 +685,10 @@ input.sheet-hidden.sheet-api-toggle-show:checked
   button::after {
   margin-right: 2px;
   content: "w/API";
+}
+
+input.sheet-hidden.sheet-api-toggle-show:checked button.sheet-dice-footer-api {
+  background: #a60100;
 }
 
 /* repcontrol */
@@ -3189,6 +3201,10 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   margin: 0 0 2px 0;
   grid-area: sheet-dice-footer-api;
 }
+.sheet-api-toggle-show:checked .sheet-dice-footer-api {
+  background: #a60100; 
+}
+
 
 /*----------------------------------- Column 3 */
 

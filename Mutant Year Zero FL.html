@@ -1594,6 +1594,7 @@
           </div>
           <div class="dice-rolls">
             <input class="hidden api-toggle-show" type="checkbox" name="attr_api_toggle" value="1" />
+            <input class="hidden" name="attr_api_dice_command" value="@{whisper_option_api} [[(@{skill})d6]] [[(@{attribute})d6]] [[(@{gear})d6]] --Character|@{character_name} --Roll|@{current_preset}" hidden readonly />
             <div class="template-roll dice-rolls-roll">
               <input class="hidden roll-indicator" type="checkbox" name="attr_roll_the_dice_flag" value="1" readonly />
               <span class="box-indicator">
@@ -1616,6 +1617,12 @@
               </button>
               <input type="hidden" name="attr_translation_push_query" value="push-query" />
             </div>
+            <!-- Needs to be handled in dice pool and clear dice pool
+            <div class="api-button dice-rolls-copy hidden">
+              <input type="checkbox" class="dice-pool dice-rolls-copy-button" name="attr_command_toggle" value="@{whisper_option_api} [[(@{skill})d6]] [[(@{attribute})d6]] [[(@{gear})d6]] --Character|@{character_name} --Roll|@{current_preset}" title="Copy macro">
+                &nbsp;<span>&#12283;</span>&nbsp;
+              </button>
+            </div>-->
             <div class="dice-rolls-d66">
               <button class="dice-pool" type="roll" name="roll_d66" value="@{whisper_option} &{template:forbiddenlands} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{d66-roll}}} {{subtitle}} {{free-text}}  {{d66-die-one=[[ 1 ]] }} {{d66-roll-one=[[ 1d6 ]] }} {{d66-die-two=[[ 1 ]] }} {{d66-roll-two=[[ 1d6 ]] }} {{footer}}" data-i18n-title="roll-dice-66" title="Roll d66!">
                 &nbsp;<span class="small-caps" data-i18n="die-66-u">D66</span>&nbsp;
@@ -1628,6 +1635,12 @@
             <span class="label dice-preset-header" data-i18n="current-preset">Current Preset</span>
             <input type="text" class="header-h1 dice-preset-preset chartype-background-light" name="attr_current_preset">
           </div>
+          <!-- Needs to be set in dice pool function
+          <div class="dice-command hidden">
+            <span class="label dice-preset-header" data-i18n="current-preset">Current command</span>
+            <input type="text" class="dice-preset-preset chartype-background-light" name="attr_dicecommand">
+          </div>
+          -->
           <div class="dice-footer">
             <button type="action" name="act_dice_pool_clear" class="small-caps dice-footer-clear" data-i18n-title="reset-dice" title="Reset dice pool." data-i18n="clear-dice-pool">
               Clear Dice Pool
@@ -2918,8 +2931,8 @@
     <div>
       <span data-i18n="whisper-options-api">API Whisper Options:</span>
       <select name="attr_whisper_option_api" title="@{whisper_option_api}">
-        <option value="!forl" data-i18n="whisper-nothing" selected>Do not whisper rolls(default).</option>
-        <option value="!wforl" data-i18n="whisper-rolls">Whisper all rolls to the GM.</option>
+        <option value="!myz" data-i18n="whisper-nothing" selected>Do not whisper rolls(default).</option>
+        <option value="!wmyz" data-i18n="whisper-rolls">Whisper all rolls to the GM.</option>
         <option value="@{translation_whisper_api_macro_query}" data-i18n="whisper-query">Use a query.</option>
       </select>
     </div>
@@ -4408,7 +4421,7 @@
         api_toggle: buttonState,
       });
     });
-  });
+  });  
   
   /* set weapon dice pool */
   on("clicked:repeating_weapons:attack-roll", function () {

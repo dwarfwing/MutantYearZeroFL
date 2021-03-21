@@ -2141,8 +2141,12 @@
           <h1 data-i18n="vehicle-u">VEHICLE</h1>
         </div>
         <input class="expand" type="checkbox" name="attr_expand_vehicle1" value="1" data-i18n-title="show-hide" title="show/hide" style="margin-top: 3.35em;" /><span></span>
-        <input class="vehicle-box2 input" type="text" name="attr_vehicle_name" value="" title="@{vehicle_name}" data-i18n-placeholder="name" placeholder="name" />
+        <input class="vehicle-box2 input" type="text" name="attr_vehicle_name" value="" title="@{vehicle_name}" data-i18n-placeholder="name" placeholder="Name" />
         
+        <!-- expand 2nd row -->
+        <textarea class="vehicle-box-desc vehicle-row2 input-textarea" name="attr_vehicle_description"
+          title="@{vehicle_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+
         <!-- First row of stats -->
         <div class="vehicle-box3">
           <span class="label" data-i18n="bonus">Bonus</span>
@@ -2176,9 +2180,6 @@
           <input class="input-number" type="number" name="attr_vehicle_seats" value="1" title="@{vehicle_seats}" />
           <span class="label" data-i18n="seats">Seats</span>
         </div>
-        <!-- expand 2nd row -->
-        <textarea class="vehicle-box-desc vehicle-row2 input-textarea" name="attr_vehicle_description"
-          title="@{vehicle_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
 
         <!-- vehicle gear -->
 

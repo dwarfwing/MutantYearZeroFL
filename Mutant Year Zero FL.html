@@ -662,6 +662,7 @@
                 <option value="-6">-6</option>
               </select>
               <span class="weapons-box50 readonly" name="attr_weapon_damage_total" value="0" data-i18n-title="weapon-damage-total" title="Total damage included with the attack. @{repeating_weapons_$X_weapon_damage_total}">0</span>
+
               <!-- expand 2nd row -->
               <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
               <!-- 2nd row -->
@@ -1484,7 +1485,7 @@
       </div>
 
       <!-- DICE POOL GRID-->
-      <div class="box chartype-background-light character-dice_pool">
+      <div class="character-dice_pool box chartype-background-light">
         <div class="dice_pool-grid">
           <div class="dice-header dice_pool-box1 toggle-dice-only header">
             <h1 data-i18n="dice-pool-u">DICE POOL</h1>
@@ -1654,6 +1655,11 @@
     </div>
 
     <div class="character-column3 box toggle-dice-only toggle-monster-only ">
+      <input type="checkbox" class="hidden force-show-mutations" name="attr_force_show_mutations" value="1" />
+      <input type="checkbox" class="hidden force-show-animalpowers" name="attr_force_show_animalpowers" value="1" />
+      <input type="checkbox" class="hidden force-show-contacts" name="attr_force_show_contacts" value="1" />
+      <input type="checkbox" class="hidden force-show-biomech" name="attr_force_show_biomech" value="1" />
+      <input type="checkbox" class="hidden force-show-modules" name="attr_force_show_modules" value="1" />
 
       <div class="character-experience box sheet-header toggle-dice-only toggle-monster-only toggle-npc-only">
         <div class="experience-grid">
@@ -1886,7 +1892,7 @@
         </div>
       </div>
 
-      <div class="character-biomechs character sheet-box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
+      <div class="character-biomech character sheet-box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
         <div class="talents-grid">
           <div class="talents-box header">
             <h1 data-i18n="biomechatronics-u">BIOMECHATRONICS</h1>
@@ -2953,6 +2959,31 @@
     <div>
       <span data-i18n="adv-vehicleencumbrance">Advanced vehicle encumbrance:</span>
       <input type="checkbox" name="attr_vehicle_advancedencumbrance" value="1" title="@{vehicle_advancedencumbrance}" style="vertical-align: center;"  />
+    </div>
+    <div>
+      <div><span data-i18n="traits-visibility">Visibility of character traits</span>:</div>
+      <div>
+        <div style="margin-left: 10px;">
+          <input type="checkbox" name="attr_force_show_mutations" label="Mutations" value="1" title="@{force_show_mutations}" style="vertical-align: center;" />
+          <span data-i18n="mutations">Mutations</span>
+        </div>
+        <div style="margin-left: 10px;">
+          <input type="checkbox" name="attr_force_show_animalpowers" label="Animal powers" value="1" title="@{force_show_animalpowers}" style="vertical-align: center;" />
+          <span data-i18n="animalpowers">Animal powers</span>
+        </div>
+        <div style="margin-left: 10px;">
+          <input type="checkbox" name="attr_force_show_contacts" label="Contacts" value="1" title="@{force_show_contacts}" style="vertical-align: center;" />
+          <span data-i18n="contacts">Contacts</span>
+        </div>
+        <div style="margin-left: 10px;">
+          <input type="checkbox" name="attr_force_show_biomech" label="Biomechatronics" value="1" title="@{force_show_biomech}" style="vertical-align: center;" />
+          <span data-i18n="biomechatronics">Biomechatronics</span>
+        </div>
+        <div style="margin-left: 10px;">
+          <input type="checkbox" name="attr_force_show_modules" label="Modules" value="1" title="@{force_show_modules}" style="vertical-align: center;" />
+          <span data-i18n="modules">Modules</span>
+        </div>
+      </div>
     </div>
   </div>
   <div class="announcements toggle-dice-only toggle-monster-only">

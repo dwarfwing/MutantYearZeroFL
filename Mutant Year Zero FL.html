@@ -488,92 +488,88 @@
 
     <div class="character-weapons box chartype-background-light toggle-dice-only">
       <div class="weapons-grid">
-        <div class="weapons-box header">
+        <div class="weapons-box weapons-box0 header">
           <h1 style="margin-top: -21px;"></h1>
         </div>
-        <div class="weapons-box-header header">
+        <div class="weapons-box weapons-box-header header">
           <h1 data-i18n="weapon-u" style="margin-top: -21px;">WEAPONS</h1>
         </div>
-        <div class="weapons-box-skill column-header">
+        <div class="weapons-box weapons-box-skill column-header">
           <h1 data-i18n="skill" style="margin-top: -21px;">SKILL</h1>
         </div>
-        <div class="weapons-box-gear column-header">
+        <div class="weapons-box weapons-box-gear column-header">
           <h1 data-i18n="gear" style="margin-top: -21px;">GEAR</h1>
         </div>
-        <div class="weapons-box-damage column-header">
+        <div class="weapons-box weapons-box-damage column-header">
           <h1 data-i18n="damage" style="margin-top: -21px;">DAMAGE</h1>
         </div>
-        <div class="weapons-box1 column-header">
-          <span data-i18n="attack-abbrv">Attk</span>
-        </div>
-        <div class="weapons-box2 column-header">
-          <span data-i18n="parry">Parry</span>
-        </div>
-        <div class="weapons-box3 column-header">
+        <div class="weapons-box weapons-box3 column-header">
           <span data-i18n="name">Name</span>
         </div>
-        <div class="weapons-box4 column-header">
+        <div class="weapons-box weapons-box4 column-header">
           <span data-i18n="type">Type</span>
         </div>
-        <div class="weapons-box5 column-header">
+        <div class="weapons-box weapons-box5 column-header">
           <span data-i18n="attr-abbr">Attr</span>
         </div>
-        <div class="weapons-box6 column-header">
+        <div class="weapons-box weapons-box6 column-header separator">
           <span>|</span>
         </div>
-        <div class="weapons-box7 column-header">
+        <div class="weapons-box weapons-box7 column-header">
           <span data-i18n="modifier-abbr">Mod</span>
         </div>
-        <div class="weapons-box8 column-header">
+        <div class="weapons-box weapons-box8 column-header">
           <span data-i18n="skill">Skill</span>
         </div>
-        <div class="weapons-box9 column-header">
+        <div class="weapons-box weapons-box9 column-header separator">
           <span> | </span>
         </div>
-        <div class="weapons-box11 column-header">
+        <div class="weapons-box weapons-box11 column-header">
           <span data-i18n="bonus-abbr">Bonus</span>
         </div>
-        <div class="weapons-box12 column-header">
+        <div class="weapons-box weapons-box12 column-header">
           <span data-i18n="max-abbr">Max</span>
         </div>
-        <div class="weapons-box13 column-header">
+        <div class="weapons-box weapons-box13 column-header">
           <span data-i18n="modifier-abbr">Mod</span>
         </div>
-        <div class="weapons-box14 column-header">
+        <div class="weapons-box weapons-box14 column-header">
           <span data-i18n="total-abbr">Sum</span>
         </div>
-
-        <div class="weapons-box16 column-header">
+        <div class="weapons-box weapons-box16 column-header separator">
           <span>|</span>
         </div>
-        <div class="weapons-box17 column-header">
+        <div class="weapons-box weapons-box17 column-header">
           <span data-i18n="base">Base</span>
         </div>
-        <div class="weapons-box18 column-header">
+        <div class="weapons-box weapons-box18 column-header">
           <span data-i18n="modifier-abbr">Mod</span>
         </div>
-        <div class="weapons-box19 column-header">
+        <div class="weapons-box weapons-box19 column-header">
           <span data-i18n="damage-abbr">Dmg</span>
         </div>
-        <div class="weapons-box27">
+        <div class="weapons-box weapons-box20 column-header separator">
+          <span>|</span>
+        </div>
+        <div class="weapons-box weapons-box2 column-header">
+          <span data-i18n="parry">Parry</span>
+        </div>
+        <div class="weapons-box weapons-box1 column-header">
+          <span data-i18n="attack-abbrv">Attk</span>
+        </div>
+        <div class="weapons-box-repeating">
           <fieldset class="repeating_weapons">
             <div class="weapons-grid weapons-repeating chartype-background-light">
               <input type="hidden" name="attr_weapon_damage_misc" value="0" readonly />
-              <button class="weapons-box28 roll-button" type="action" name="act_attack-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-                t
-              </button>
-              <button class="weapons-box29 roll-button" type="action" name="act_attack-parry-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-                t
-              </button>
-              <input class="weapons-box30 input" type="text" name="attr_weapon_name" value="" title="@{repeating_weapons_$X_weapon_name}" />
-              <select class="weapons-box31 input" name="attr_weapon_skill" title="@{repeating_weapons_$X_weapon_skill}">
+              <input class="weapons-box weapons-box30 input" type="text" name="attr_weapon_name" value="" title="@{repeating_weapons_$X_weapon_name}" />
+              <select class="weapons-box weapons-box31 input" name="attr_weapon_skill" title="@{repeating_weapons_$X_weapon_skill}">
                 <option value="0" data-i18n="melee" selected>Melee</option>
                 <option value="1" data-i18n="ranged">Ranged</option>
               </select>
-              <span class="weapons-box32 readonly" name="attr_weapon_base_total" value="0" data-i18n-title="weapon-type-base" title="BASE dice as per weapon/skill type. @{repeating_weapons_$X_weapon_base_total}">0</span>
-              <span class="weapons-box33 readonly separator"> | </span>
+              <span class="weapons-box weapons-box32 readonly" name="attr_weapon_base_total" value="0" data-i18n-title="weapon-type-base" title="BASE dice as per weapon/skill type. @{repeating_weapons_$X_weapon_base_total}">0</span>
+              <span class="weapons-box weapons-box33 readonly separator"> | </span>
               <!--<span class="weapons-box34 readonly" name="attr_weapon_skill_value" value="0" data-i18n-title="weapon-type-skill" title="SKILL dice as per weapon/skill type. @{repeating_weapons_$X_weapon_skill_value}">0</span>-->
-              <select class="weapons-box34 input" name="attr_weapon_skill_misc" data-i18n-title="weapon-skill-misc" title="Miscellaneous attack modifier (adjusts SKILL dice). @{repeating_weapons_$X_weapon_skill_misc}">
+              <select class="weapons-box weapons-box34 input" name="attr_weapon_skill_misc" data-i18n-title="weapon-skill-misc" title="Miscellaneous attack modifier (adjusts SKILL dice). @{repeating_weapons_$X_weapon_skill_misc}">
                 <option value="6">+6</option>
                 <option value="5">+5</option>
                 <option value="4">+4</option>
@@ -588,9 +584,9 @@
                 <option value="-5">-5</option>
                 <option value="-6">-6</option>
               </select>
-              <span class="weapons-box35 readonly" name="attr_weapon_skill_total" value="0" data-i18n-title="weapon-skill-total" title="Total Skill dice included with the attack. @{repeating_weapons_$X_weapon_skill_total}">0</span>
-              <span class="weapons-box37 readonly separator"> | </span>
-              <select class="weapons-box38 input" name="attr_weapon_bonus" data-i18n-title="weapon-bonus" title="Record the weapon's CURRENT bonus up to MAX (adjusts Gear dice). @{repeating_weapons_$X_weapon_bonus}">
+              <span class="weapons-box weapons-box35 readonly" name="attr_weapon_skill_total" value="0" data-i18n-title="weapon-skill-total" title="Total Skill dice included with the attack. @{repeating_weapons_$X_weapon_skill_total}">0</span>
+              <span class="weapons-box weapons-box37 readonly separator"> | </span>
+              <select class="weapons-box weapons-box38 input" name="attr_weapon_bonus" data-i18n-title="weapon-bonus" title="Record the weapon's CURRENT bonus up to MAX (adjusts Gear dice). @{repeating_weapons_$X_weapon_bonus}">
                 <option value="0" selected>+0</option>
                 <option value="1">+1</option>
                 <option value="2">+2</option>
@@ -605,7 +601,7 @@
                 <option value="11">+11</option>
                 <option value="12">+12</option>
               </select>
-              <select class="weapons-box39 input" name="attr_weapon_bonus_max" data-i18n-title="weapon-bonus-max" title="Record the weapon's UNDAMAGED bonus. @{repeating_weapons_$X_weapon_bonus_max}">
+              <select class="weapons-box weapons-box39 input" name="attr_weapon_bonus_max" data-i18n-title="weapon-bonus-max" title="Record the weapon's UNDAMAGED bonus. @{repeating_weapons_$X_weapon_bonus_max}">
                 <option value="0" selected>0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -620,7 +616,7 @@
                 <option value="11">11</option>
                 <option value="12">12</option>
               </select>
-              <select class="weapons-box40 input" name="attr_weapon_bonus_misc" data-i18n-title="weapon-bonus-misc" title="Miscellaneous bonus modifier (adjusts Gear dice). @{repeating_weapons_$X_weapon_bonus_misc}">
+              <select class="weapons-box weapons-box40 input" name="attr_weapon_bonus_misc" data-i18n-title="weapon-bonus-misc" title="Miscellaneous bonus modifier (adjusts Gear dice). @{repeating_weapons_$X_weapon_bonus_misc}">
                 <option value="6">+6</option>
                 <option value="5">+5</option>
                 <option value="4">+4</option>
@@ -629,9 +625,9 @@
                 <option value="1">+1</option>
                 <option value="0" selected>+0</option>
               </select>
-              <span class="weapons-box41 readonly" name="attr_weapon_bonus_total" value="0" data-i18n-title="weapon-bonus-total" title="Total GEAR dice included with the attack. @{repeating_weapons_$X_weapon_bonus_total}">0</span>
-              <span class="weapons-box47 readonly separator"> | </span>
-              <select class="weapons-box48 input" name="attr_weapon_damage" data-i18n-title="weapon-damage" title="Damage as per weapon tables. @{repeating_weapons_$X_weapon_damage}">
+              <span class="weapons-box weapons-box41 readonly" name="attr_weapon_bonus_total" value="0" data-i18n-title="weapon-bonus-total" title="Total GEAR dice included with the attack. @{repeating_weapons_$X_weapon_bonus_total}">0</span>
+              <span class="weapons-box weapons-box47 readonly separator"> | </span>
+              <select class="weapons-box weapons-box48 input" name="attr_weapon_damage" data-i18n-title="weapon-damage" title="Damage as per weapon tables. @{repeating_weapons_$X_weapon_damage}">
                 <option value="0" selected>0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -646,7 +642,7 @@
                 <option value="11">11</option>
                 <option value="12">12</option>
               </select>
-              <select class="weapons-box49 input" name="attr_weapon_damage_misc" data-i18n-title="modifier-damage-abbr" title="Miscellaneous damage modifier. @{repeating_weapons_$X_weapon_damage_misc}">
+              <select class="weapons-box weapons-box49 input" name="attr_weapon_damage_misc" data-i18n-title="modifier-damage-abbr" title="Miscellaneous damage modifier. @{repeating_weapons_$X_weapon_damage_misc}">
                 <option value="6">+6</option>
                 <option value="5">+5</option>
                 <option value="4">+4</option>
@@ -661,41 +657,44 @@
                 <option value="-5">-5</option>
                 <option value="-6">-6</option>
               </select>
-              <span class="weapons-box50 readonly" name="attr_weapon_damage_total" value="0" data-i18n-title="weapon-damage-total" title="Total damage included with the attack. @{repeating_weapons_$X_weapon_damage_total}">0</span>
+              <span class="weapons-box weapons-box50 readonly" name="attr_weapon_damage_total" value="0" data-i18n-title="weapon-damage-total" title="Total damage included with the attack. @{repeating_weapons_$X_weapon_damage_total}">0</span>
+              <span class="weapons-box weapons-box59 readonly separator"> | </span>
+              <button class="weapons-box weapons-box60 roll-button" type="action" name="act_attack-parry-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+                t
+              </button>
+              <button class="weapons-box weapons-box61 roll-button" type="action" name="act_attack-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+                t
+              </button>
               <!-- expand 2nd row -->
               <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
               <!-- 2nd row -->
               <div class="weapons-subgrid">
-                <div class="weapons-box51">
-                  <span data-i18n="grip">Grip</span>
+                <div class="weapons-box weapons-box71">
+                  <span data-i18n="grip">Grip</span>:
                 </div>
-                <select class="weapons-box52 input" name="attr_weapon_grip" title="@{repeating_weapons_$X_weapon_grip}" title="@{repeating_weapons_$X_weapon_grip}">
+                <select class="weapons-box weapons-box72 input" name="attr_weapon_grip" title="@{repeating_weapons_$X_weapon_grip}" title="@{repeating_weapons_$X_weapon_grip}">
                   <option data-i18n="not-applicable-abbr" value="n/a">n/a</option>
                   <option data-i18n="one-hand-abbr" value="1H" selected>1H</option>
                   <option data-i18n="two-hand-abbr" value="2H">2H</option>
                 </select>
-                <div class="weapons-box53">
-                  <span data-i18n="range">Range</span>
+                <div class="weapons-box weapons-box73">
+                  <span data-i18n="range">Range</span>:
                 </div>
-                <select class="weapons-box54 input" name="attr_weapon_range" title="@{repeating_weapons_$X_weapon_range}">
+                <select class="weapons-box weapons-box74 input" name="attr_weapon_range" title="@{repeating_weapons_$X_weapon_range}">
                   <option value="Arm" selected data-i18n="arms-length-abbr">Arm's L.</option>
                   <option value="Near" data-i18n="near">Near</option>
                   <option value="Short" data-i18n="short">Short</option>
                   <option value="Long" data-i18n="long">Long</option>
                   <option value="Distant" data-i18n="distant">Distant</option>
                 </select>
-                <div class="weapons-box55">
-                  <span data-i18n="carried-abbr">Carr</span>
+                <div class="weapons-box weapons-box75">
+                  <span data-i18n="carried">Carried</span>:
                 </div>
-                <select class="weapons-box56 input" name="attr_weapon_carried" title="@{repeating_weapons_$X_weapon_carried}">
-                  <option data-i18n="yes" value="1" selected>Yes</option>
-                  <option data-i18n="no" value="0">No</option>
-                  <option data-i18n="vehicle" value="0">vehicle</option>
-                </select>
-                <div class="weapons-box57">
-                  <span data-i18n="weight-abbr">Wt</span>
+                <input type="checkbox" class="weapons-box weapons-box76 input" name="attr_weapon_carried" value="1" title="@{repeating_weapons_$X_weapon_carried}" />
+                <div class="weapons-box weapons-box77">
+                  <span data-i18n="weight-abbr">Wt</span>:
                 </div>
-                <select class="weapons-box58 input" name="attr_weapon_weight" title="@{repeating_weapons_$X_weapon_weight}">
+                <select class="weapons-box weapons-box78 input" name="attr_weapon_weight" title="@{repeating_weapons_$X_weapon_weight}">
                   <option data-i18n="tiny-abbr" value="0" selected>T</option>
                   <option data-i18n="quarter-abbr" value="0.25">Q</option>
                   <option data-i18n="light-abbr" value="0.5">L</option>
@@ -710,10 +709,11 @@
                   <option value="9">9</option>
                   <option value="10">10</option>
                 </select>
-                <div class="weapons-box59">
-                  <span data-i18n="features">Features</span>
+                <div class="weapons-box weapons-box79">
+                  <span data-i18n="features">Features</span>:
                 </div>
-                <input class="weapons-box60 input" type="text" name="attr_weapon_features" value="" title="@{repeating_weapons_$X_weapon_features}" />
+                <input class="weapons-box weapons-box80 input" type="text" name="attr_weapon_features" value="" title="@{repeating_weapons_$X_weapon_features}" />
+                <span class="weapons-box weapons-box81"></span>
               </div>
             </div>
           </fieldset>

@@ -2794,139 +2794,147 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   padding: 0 0 2px 0;
   grid-column-gap: 2px;
   grid-row-gap: 2px;
-  grid-template-columns: 2em 2em auto 4em 2.25em 4px 2.25em 2.25em 4px 2.25em 2.25em 2.25em 2.25em 4px 2.25em 2.25em 2.25em;
+  grid-template-columns: auto 4em 2.25em 4px 2.25em 2.25em 4px 2.25em 2.25em 2.25em 2.25em 4px 2.25em 2.25em 2.25em 4px 2em 2em;
 }
 
-.sheet-weapons-box {
-  grid-column: 1/18;
+.sheet-weapons-box0 {
+  grid-column: 1/19;
   grid-row-start: 1;
 }
 
 .sheet-weapons-box-header {
-  grid-column: 1/8;
+  grid-column: 1/5;
   grid-row-start: 1;
 }
 
 .sheet-weapons-box-skill {
-  grid-column: 7/9;
+  grid-column: 5/7;
   grid-row-start: 1;
 }
 
 .sheet-weapons-box-gear {
-  grid-column: 10/15;
+  grid-column: 8/12;
   grid-row-start: 1;
 }
 
 .sheet-weapons-box-damage {
-  grid-column: 15/18;
+  grid-column: 12/15;
   grid-row-start: 1;
 }
 
+.sheet-weapons-box.sheet-readonly.sheet-separator {
+  line-height: 100%;
+  font-size: 2.25em;
+  align-self: center;
+  padding-bottom: 2px;
+  color: #999;
+}
+
 .sheet-weapons-box1 {
-  grid-column-start: 1;
   grid-row-start: 1;
+  grid-column-start: 18;
 }
 
 .sheet-weapons-box2 {
   grid-row-start: 1;
-  grid-column-start: 2;
+  grid-column-start: 17;
 }
 
 .sheet-weapons-box3 {
   grid-row-start: 1;
-  grid-column-start: 3;
+  grid-column-start: 1;
 }
 
 .sheet-weapons-box4 {
   grid-row-start: 1;
-  grid-column-start: 4;
+  grid-column-start: 2;
 }
 
 .sheet-weapons-box5 {
   grid-row-start: 1;
-  grid-column-start: 5;
+  grid-column-start: 3;
 }
 
 
 .sheet-weapons-box6 {
   grid-row-start: 1;
-  grid-column-start: 6;
+  grid-column-start: 4;
 }
 
 .sheet-weapons-box7 {
   grid-row-start: 1;
-  grid-column-start: 7;
+  grid-column-start: 5;
 }
 
 .sheet-weapons-box8 {
   grid-row-start: 1;
-  grid-column-start: 8;
+  grid-column-start: 6;
 }
 
 .sheet-weapons-box9 {
   grid-row-start: 1;
-  grid-column-start: 9;
+  grid-column-start: 7;
 }
 
 .sheet-weapons-box11 {
   grid-row-start: 1;
-  grid-column-start: 10;
+  grid-column-start: 8;
   justify-self: right;
 }
 
 .sheet-weapons-box12 {
   grid-row-start: 1;
-  grid-column-start: 11;
+  grid-column-start: 9;
   justify-self: left;
 }
 
 .sheet-weapons-box12 span::before {
   content: "/";
-  padding: 0 2px 0 0;
+  padding: 0 2px 0 2px;
 }
 
 .sheet-weapons-box13 {
   grid-row-start: 1;
-  grid-column-start: 12;
+  grid-column-start: 10;
 }
 
 .sheet-weapons-box14 {
   grid-row-start: 1;
-  grid-column-start: 13;
+  grid-column-start: 11;
 }
 
 .sheet-weapons-box16 {
   grid-row-start: 1;
-  grid-column-start: 14;
+  grid-column-start: 12;
 }
 
 .sheet-weapons-box17 {
   grid-row-start: 1;
-  grid-column-start: 15;
+  grid-column-start: 13;
 }
 
 .sheet-weapons-box18 {
   grid-row-start: 1;
-  grid-column-start: 16;
+  grid-column-start: 14;
 }
 
 .sheet-weapons-box19 {
   grid-row-start: 1;
-  grid-column-start: 17;
+  grid-column-start: 15;
 }
 
-.sheet-weapons-box27 {
-  grid-column: 1/18;
+.sheet-weapons-box20 {
+  grid-row-start: 1;
+  grid-column-start: 16;
+}
+
+.sheet-weapons-box-repeating {
+  grid-column: 1/19;
   grid-row-start: 2;
 }
 
-.sheet-weapons-box28 {
+.sheet-weapons-box30 {
   grid-column-start: 1;
-}
-
-.sheet-weapons-box29-separator {
-  align-content:center;
-  justify-content: center;
 }
 
 .sheet-weapons-box33,
@@ -2937,29 +2945,29 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   -margin-right: 5px;
 }
 
-.sheet-readonly.sheet-separator {
-  line-height: 100%;
-  font-size: 1.75em;
-  align-self: center;
-  padding-bottom: 4px;
-}
-
 .sheet-weapons-subgrid {
-  grid-column: 1/18;
+  grid-column: 1/19;
   grid-row-start: 3;
   display: grid;
-  grid-template-columns: 4em 3em 4em 5em 3em 4em 2em 3em 6em auto;
-  padding: 0 0 2px 0;
-  grid-column-gap: 2px;
+  grid-template-columns: 2.5em 2.25em 3.5em 4em 4em 1em 2em 2.25em 4.5em auto 0.2em;
+  padding: 0 0 5px 0;
+  grid-column-gap: 6px;
   justify-items: center;
   align-items: baseline;
 }
 
-.sheet-weapons-box51 {
+.sheet-weapons-box71 {
   grid-column-start: 1;
   grid-row-start: 1;
 }
 
+.sheet-weapons-box71, 
+.sheet-weapons-box73,
+.sheet-weapons-box75,
+.sheet-weapons-box77,
+.sheet-weapons-box79 {
+  justify-self: flex-end;
+}
 
 /* ----------------------------------Skill and Dice Pool grids */
 

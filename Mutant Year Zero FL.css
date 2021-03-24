@@ -2822,139 +2822,147 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   padding: 0 0 2px 0;
   grid-column-gap: 2px;
   grid-row-gap: 2px;
-  grid-template-columns: 2em 2em auto 4em 2.25em 4px 2.25em 2.25em 4px 2.25em 2.25em 2.25em 2.25em 4px 2.25em 2.25em 2.25em;
+  grid-template-columns: auto 4em 2.25em 4px 2.25em 2.25em 4px 2.25em 2.25em 2.25em 2.25em 4px 2.25em 2.25em 2.25em 4px 2em 2em;
 }
 
-.sheet-weapons-box {
-  grid-column: 1/18;
+.sheet-weapons-box0 {
+  grid-column: 1/19;
   grid-row-start: 1;
 }
 
 .sheet-weapons-box-header {
-  grid-column: 1/8;
+  grid-column: 1/5;
   grid-row-start: 1;
 }
 
 .sheet-weapons-box-skill {
-  grid-column: 7/9;
+  grid-column: 5/7;
   grid-row-start: 1;
 }
 
 .sheet-weapons-box-gear {
-  grid-column: 10/15;
+  grid-column: 8/12;
   grid-row-start: 1;
 }
 
 .sheet-weapons-box-damage {
-  grid-column: 15/18;
+  grid-column: 12/15;
   grid-row-start: 1;
+}
+
+.sheet-weapons-box.sheet-readonly.sheet-separator {
+  line-height: 100%;
+  font-size: 2.25em;
+  align-self: center;
+  padding-bottom: 2px;
+  color: #999;
 }
 
 .sheet-weapons-box1 {
   grid-row-start: 1;
-  grid-column-start: 1;
+  grid-column-start: 18;
 }
 
 .sheet-weapons-box2 {
   grid-row-start: 1;
-  grid-column-start: 2;
+  grid-column-start: 17;
 }
 
 .sheet-weapons-box3 {
   grid-row-start: 1;
-  grid-column-start: 3;
+  grid-column-start: 1;
 }
 
 .sheet-weapons-box4 {
   grid-row-start: 1;
-  grid-column-start: 4;
+  grid-column-start: 2;
 }
 
 .sheet-weapons-box5 {
   grid-row-start: 1;
-  grid-column-start: 5;
+  grid-column-start: 3;
 }
 
 
 .sheet-weapons-box6 {
   grid-row-start: 1;
-  grid-column-start: 6;
+  grid-column-start: 4;
 }
 
 .sheet-weapons-box7 {
   grid-row-start: 1;
-  grid-column-start: 7;
+  grid-column-start: 5;
 }
 
 .sheet-weapons-box8 {
   grid-row-start: 1;
-  grid-column-start: 8;
+  grid-column-start: 6;
 }
 
 .sheet-weapons-box9 {
   grid-row-start: 1;
-  grid-column-start: 9;
+  grid-column-start: 7;
 }
 
 .sheet-weapons-box11 {
   grid-row-start: 1;
-  grid-column-start: 10;
+  grid-column-start: 8;
   justify-self: right;
 }
 
 .sheet-weapons-box12 {
   grid-row-start: 1;
-  grid-column-start: 11;
+  grid-column-start: 9;
   justify-self: left;
 }
 
 .sheet-weapons-box12 span::before {
   content: "/";
-  padding: 0 2px 0 0;
+  padding: 0 2px 0 2px;
 }
 
 .sheet-weapons-box13 {
   grid-row-start: 1;
-  grid-column-start: 12;
+  grid-column-start: 10;
 }
 
 .sheet-weapons-box14 {
   grid-row-start: 1;
-  grid-column-start: 13;
+  grid-column-start: 11;
 }
 
 .sheet-weapons-box16 {
   grid-row-start: 1;
-  grid-column-start: 14;
+  grid-column-start: 12;
 }
 
 .sheet-weapons-box17 {
   grid-row-start: 1;
-  grid-column-start: 15;
+  grid-column-start: 13;
 }
 
 .sheet-weapons-box18 {
   grid-row-start: 1;
-  grid-column-start: 16;
+  grid-column-start: 14;
 }
 
 .sheet-weapons-box19 {
   grid-row-start: 1;
-  grid-column-start: 17;
+  grid-column-start: 15;
 }
 
-.sheet-weapons-box27 {
-  grid-column: 1/18;
+.sheet-weapons-box20 {
+  grid-row-start: 1;
+  grid-column-start: 16;
+}
+
+.sheet-weapons-box-repeating {
+  grid-column: 1/19;
   grid-row-start: 2;
 }
 
-.sheet-weapons-box28 {
+.sheet-weapons-box30 {
   grid-column-start: 1;
-}
-
-.sheet-weapons-box29-separator {
-  align-content:center;
-  justify-content: center;
 }
 
 .sheet-weapons-box33,
@@ -2965,29 +2973,29 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   -margin-right: 5px;
 }
 
-.sheet-readonly.sheet-separator {
-  line-height: 100%;
-  font-size: 1.75em;
-  align-self: center;
-  padding-bottom: 4px;
-}
-
 .sheet-weapons-subgrid {
-  grid-column: 1/18;
+  grid-column: 1/19;
   grid-row-start: 3;
   display: grid;
-  grid-template-columns: 4em 3em 4em 5em 3em 4em 2em 3em 6em auto;
-  padding: 0 0 2px 0;
-  grid-column-gap: 2px;
+  grid-template-columns: 2.5em 2.25em 3.5em 4em 4em 1em 2em 2.25em 4.5em auto 0.2em;
+  padding: 0 0 5px 0;
+  grid-column-gap: 6px;
   justify-items: center;
   align-items: baseline;
 }
 
-.sheet-weapons-box51 {
+.sheet-weapons-box71 {
   grid-column-start: 1;
   grid-row-start: 1;
 }
 
+.sheet-weapons-box71, 
+.sheet-weapons-box73,
+.sheet-weapons-box75,
+.sheet-weapons-box77,
+.sheet-weapons-box79 {
+  justify-self: flex-end;
+}
 
 /* ----------------------------------Skill and Dice Pool grids */
 
@@ -4097,58 +4105,58 @@ span.sheet-armor-box3.sheet-header {
   grid-column: 1/3;
 }
 
-.sheet-vehicle-box3 { /*Bonus label*/
+.sheet-vehicle-box-desc {
   grid-row-start: 3;
+  grid-column: 1/3;
+  display: inline-block;
+}
+
+.sheet-vehicle-box3 { /*Bonus label*/
+  grid-row-start: 4;
   grid-column-start: 1;
   justify-self: end;
 }
 
 .sheet-vehicle-box4 { /* Carry Capacity label */
-  grid-row-start: 3;
+  grid-row-start: 4;
   grid-column-start: 2;
   justify-self: start;
 }
 
 .sheet-vehicle-box5 {  /*Armor label*/
-  grid-row-start: 4;
+  grid-row-start: 5;
   grid-column-start: 1;
   justify-self: end;
 }
 
 .sheet-vehicle-box7 { /*Resilience label*/
-  grid-row-start: 4;
+  grid-row-start: 5;
   grid-column: 2;
   justify-self: start;
 }
 
 .sheet-vehicle-box9 { /*Fuel label*/
-  grid-row-start: 5;
+  grid-row-start: 6;
   grid-column-start: 1;
   justify-self: end;
 }
 
 .sheet-vehicle-box11 {  /*Fuel cap label*/
-  grid-row-start: 5;
+  grid-row-start: 6;
   grid-column: 2;
   justify-self: start;
 }
 
 .sheet-vehicle-box13 { /*Occupancy label*/
-  grid-row-start: 6;
+  grid-row-start: 7;
   grid-column-start: 1;
   justify-self: end;
 }
 
 .sheet-vehicle-box15 {  /*Seats label*/
-  grid-row-start: 6;
+  grid-row-start: 7;
   grid-column: 2;
   justify-self: start;
-}
-
-.sheet-vehicle-box-desc {
-  grid-row-start: 7;
-  grid-column: 1/3;
-  display: inline-block;
 }
 
 
@@ -5124,20 +5132,20 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 
 /* ROLL TEMPLATE STYLING */
 
-.sheet-rolltemplate-forbiddenlands .sheet-small-caps {
+.sheet-rolltemplate-mutantyearzero .sheet-small-caps {
   font-variant-caps: small-caps;
 }
 
-.sheet-rolltemplate-forbiddenlands {
+.sheet-rolltemplate-mutantyearzero {
   padding: 12px 0 12px 0;
 }
 
-.sheet-rolltemplate-forbiddenlands span.sheet-label {
+.sheet-rolltemplate-mutantyearzero span.sheet-label {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   font-weight: bold;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-wrap {
+.sheet-rolltemplate-mutantyearzero .sheet-template-wrap {
   box-sizing: border-box;
   width: 240px;
   margin: 5px 0 5px -20px;
@@ -5154,7 +5162,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   background: linear-gradient(0deg, rgba(124,78,8,1) 0%, rgba(224,184,15,1) 100%);
 }
 
-.sheet-rolltemplate-forbiddenlands div.sheet-template-header {
+.sheet-rolltemplate-mutantyearzero div.sheet-template-header {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   font-size: 1em;
   font-weight: bold;
@@ -5173,46 +5181,46 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   background-color: #000;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-header a {
+.sheet-rolltemplate-mutantyearzero .sheet-template-header a {
   color: #fff;
 }
 
-.sheet-rolltemplate-forbiddenlands
+.sheet-rolltemplate-mutantyearzero
   .sheet-template-span-left.sheet-template-header {
   justify-content: center;
   width: 43%;
 }
 
-.sheet-rolltemplate-forbiddenlands
+.sheet-rolltemplate-mutantyearzero
   .sheet-template-span-center.sheet-template-header {
   z-index: 1;
 }
 
-.sheet-rolltemplate-forbiddenlands
+.sheet-rolltemplate-mutantyearzero
   .sheet-template-span-right.sheet-template-header {
   justify-content: center;
   width: 43%;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-grid-item.sheet-right {
+.sheet-rolltemplate-mutantyearzero .sheet-template-grid-item.sheet-right {
   justify-self: right;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-grid-item.sheet-left {
+.sheet-rolltemplate-mutantyearzero .sheet-template-grid-item.sheet-left {
   justify-self: left;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-grid-item.sheet-condensed {
+.sheet-rolltemplate-mutantyearzero .sheet-template-grid-item.sheet-condensed {
   -line-height: 1.2em;
   font-size: 0.95em;
 }
 
-.sheet-rolltemplate-forbiddenlands
+.sheet-rolltemplate-mutantyearzero
   .sheet-template-grid-item.sheet-template-span-six.sheet-template-header:empty {
   display: none;
 }
 
-.sheet-rolltemplate-forbiddenlands div.sheet-template-subtitle {
+.sheet-rolltemplate-mutantyearzero div.sheet-template-subtitle {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   font-size: 1em;
   font-weight: bold;
@@ -5225,36 +5233,36 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 }
 
 /*
-.sheet-rolltemplate-forbiddenlands .sheet-template-white-dice ~ .sheet-template-span-left,
-.sheet-rolltemplate-forbiddenlands .sheet-template-white-dice ~ .sheet-template-span-center,
-.sheet-rolltemplate-forbiddenlands .sheet-template-white-dice ~ .sheet-template-span-right,
-.sheet-rolltemplate-forbiddenlands .sheet-template-red-dice ~ .sheet-template-span-left,
-.sheet-rolltemplate-forbiddenlands .sheet-template-red-dice ~ .sheet-template-span-center,
-.sheet-rolltemplate-forbiddenlands .sheet-template-red-dice ~ .sheet-template-span-right,
-.sheet-rolltemplate-forbiddenlands .sheet-template-black-dice ~ .sheet-template-span-left,
-.sheet-rolltemplate-forbiddenlands .sheet-template-black-dice ~ .sheet-template-span-center,
-.sheet-rolltemplate-forbiddenlands .sheet-template-black-dice ~ .sheet-template-span-right,
-.sheet-rolltemplate-forbiddenlands .sheet-template-yellow-dice ~ .sheet-template-span-left,
-.sheet-rolltemplate-forbiddenlands .sheet-template-yellow-dice ~ .sheet-template-span-center,
-.sheet-rolltemplate-forbiddenlands .sheet-template-yellow-dice ~ .sheet-template-span-right,
-.sheet-rolltemplate-forbiddenlands .sheet-template-green-dice ~ .sheet-template-span-left,
-.sheet-rolltemplate-forbiddenlands .sheet-template-green-dice ~ .sheet-template-span-center,
-.sheet-rolltemplate-forbiddenlands .sheet-template-green-dice ~ .sheet-template-span-right ,*/
-.sheet-rolltemplate-forbiddenlands .sheet-template-dice ~ .sheet-template-span-left,
-.sheet-rolltemplate-forbiddenlands .sheet-template-dice ~ .sheet-template-span-center,
-.sheet-rolltemplate-forbiddenlands .sheet-template-dice ~ .sheet-template-span-right {
+.sheet-rolltemplate-mutantyearzero .sheet-template-white-dice ~ .sheet-template-span-left,
+.sheet-rolltemplate-mutantyearzero .sheet-template-white-dice ~ .sheet-template-span-center,
+.sheet-rolltemplate-mutantyearzero .sheet-template-white-dice ~ .sheet-template-span-right,
+.sheet-rolltemplate-mutantyearzero .sheet-template-red-dice ~ .sheet-template-span-left,
+.sheet-rolltemplate-mutantyearzero .sheet-template-red-dice ~ .sheet-template-span-center,
+.sheet-rolltemplate-mutantyearzero .sheet-template-red-dice ~ .sheet-template-span-right,
+.sheet-rolltemplate-mutantyearzero .sheet-template-black-dice ~ .sheet-template-span-left,
+.sheet-rolltemplate-mutantyearzero .sheet-template-black-dice ~ .sheet-template-span-center,
+.sheet-rolltemplate-mutantyearzero .sheet-template-black-dice ~ .sheet-template-span-right,
+.sheet-rolltemplate-mutantyearzero .sheet-template-yellow-dice ~ .sheet-template-span-left,
+.sheet-rolltemplate-mutantyearzero .sheet-template-yellow-dice ~ .sheet-template-span-center,
+.sheet-rolltemplate-mutantyearzero .sheet-template-yellow-dice ~ .sheet-template-span-right,
+.sheet-rolltemplate-mutantyearzero .sheet-template-green-dice ~ .sheet-template-span-left,
+.sheet-rolltemplate-mutantyearzero .sheet-template-green-dice ~ .sheet-template-span-center,
+.sheet-rolltemplate-mutantyearzero .sheet-template-green-dice ~ .sheet-template-span-right ,*/
+.sheet-rolltemplate-mutantyearzero .sheet-template-dice ~ .sheet-template-span-left,
+.sheet-rolltemplate-mutantyearzero .sheet-template-dice ~ .sheet-template-span-center,
+.sheet-rolltemplate-mutantyearzero .sheet-template-dice ~ .sheet-template-span-right {
   margin: 5px 1px 0 1px;
   border-radius: 0;
   background-color: #111;
   color: #EEE;
 }
 
-.sheet-rolltemplate-forbiddenlands div.sheet-template-footer span,
-.sheet-rolltemplate-forbiddenlands div.sheet-template-footer label  {
+.sheet-rolltemplate-mutantyearzero div.sheet-template-footer span,
+.sheet-rolltemplate-mutantyearzero div.sheet-template-footer label  {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   color: #111;
 }
-.sheet-rolltemplate-forbiddenlands div.sheet-template-footer {
+.sheet-rolltemplate-mutantyearzero div.sheet-template-footer {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   -font-size: 0.75em;
   margin: 5px;
@@ -5263,7 +5271,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   text-align: center;
 }
 
-.sheet-rolltemplate-forbiddenlands div.sheet-free-text {
+.sheet-rolltemplate-mutantyearzero div.sheet-free-text {
   font-size: 1em;
   line-height: inherit;
   margin: -10px 5px 2px 5px;
@@ -5271,7 +5279,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   text-align: left;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-grid .sheet-scroll-text {
+.sheet-rolltemplate-mutantyearzero .sheet-template-grid .sheet-scroll-text {
   font-size: 1em;
   line-height: inherit;
   overflow-y: auto;
@@ -5281,7 +5289,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   text-align: left;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-grid {
+.sheet-rolltemplate-mutantyearzero .sheet-template-grid {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   display: grid;
   margin: 3px 2px 2px 2px;
@@ -5291,7 +5299,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   grid-template-columns: repeat(6, 1fr);
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-grid-item {
+.sheet-rolltemplate-mutantyearzero .sheet-template-grid-item {
   -padding: 0 3px 0 3px;
   text-align: center;
   border: none;
@@ -5305,103 +5313,103 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   text-align: left;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-span-six {
+.sheet-rolltemplate-mutantyearzero .sheet-template-span-six {
   grid-column: 1 / 7;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-span-half {
+.sheet-rolltemplate-mutantyearzero .sheet-template-span-half {
   line-height: 1em;
   grid-column: 1 / 4;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-span-2nd-half {
+.sheet-rolltemplate-mutantyearzero .sheet-template-span-2nd-half {
   line-height: 1em;
   grid-column: 4 / 7;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-span-left {
+.sheet-rolltemplate-mutantyearzero .sheet-template-span-left {
   grid-column: 1 / 3;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-span-center {
+.sheet-rolltemplate-mutantyearzero .sheet-template-span-center {
   grid-column: 3 / 5;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-span-right {
+.sheet-rolltemplate-mutantyearzero .sheet-template-span-right {
   grid-column: 5 / 7;
 }
 
 /* used for consumable's single dice roll */
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-span-center-die {
+.sheet-rolltemplate-mutantyearzero .sheet-template-span-center-die {
   width: 38%;
   margin-left: 24%;
   grid-column: 3 / 5;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-span-one {
+.sheet-rolltemplate-mutantyearzero .sheet-template-span-one {
   grid-column: 1 / 2;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-span-two {
+.sheet-rolltemplate-mutantyearzero .sheet-template-span-two {
   grid-column: 2 / 3;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-span-three {
+.sheet-rolltemplate-mutantyearzero .sheet-template-span-three {
   grid-column: 3 / 4;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-span-four {
+.sheet-rolltemplate-mutantyearzero .sheet-template-span-four {
   grid-column: 4 / 5;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-span-five {
+.sheet-rolltemplate-mutantyearzero .sheet-template-span-five {
   grid-column: 5 / 6;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-span-shix {
+.sheet-rolltemplate-mutantyearzero .sheet-template-span-shix {
   grid-column: 6 / 7;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-artifact-1 {
+.sheet-rolltemplate-mutantyearzero .sheet-template-artifact-1 {
   background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/dice_legendary_success_1.png);
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-artifact-2 {
+.sheet-rolltemplate-mutantyearzero .sheet-template-artifact-2 {
   background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/dice_legendary_success_2.png);
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-artifact-3 {
+.sheet-rolltemplate-mutantyearzero .sheet-template-artifact-3 {
   background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/dice_legendary_success_3.png);
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-artifact-4 {
+.sheet-rolltemplate-mutantyearzero .sheet-template-artifact-4 {
   background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/dice_legendary_success_4.png);
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-success {
+.sheet-rolltemplate-mutantyearzero .sheet-template-success {
   max-width: 100%;
   height: auto;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-bane {
+.sheet-rolltemplate-mutantyearzero .sheet-template-bane {
   max-width: 100%;
   height: auto;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-bold {
+.sheet-rolltemplate-mutantyearzero .sheet-template-bold {
   font-weight: bold;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-inline {
+.sheet-rolltemplate-mutantyearzero .sheet-template-inline {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   font-size: 2em;
   line-height: 0;
@@ -5411,22 +5419,22 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   background-color: transparent;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-smaller {
+.sheet-rolltemplate-mutantyearzero .sheet-template-smaller {
   font-size: 0.85em;
 }
 
 /* add drop shadow to dice */
 /*
-.sheet-rolltemplate-forbiddenlands .sheet-template-white-dice,
-.sheet-rolltemplate-forbiddenlands .sheet-template-maroon-dice,
-.sheet-rolltemplate-forbiddenlands .sheet-template-black-dice,
-.sheet-rolltemplate-forbiddenlands .sheet-template-green-dice,
-.sheet-rolltemplate-forbiddenlands .sheet-template-blue-dice,
-.sheet-rolltemplate-forbiddenlands .sheet-template-orange-dice,
-.sheet-rolltemplate-forbiddenlands .sheet-template-yellow-dice,
-.sheet-rolltemplate-forbiddenlands .sheet-template-purple-dice,
-.sheet-rolltemplate-forbiddenlands .sheet-template-red-dice, */
-.sheet-rolltemplate-forbiddenlands .sheet-template-dice {
+.sheet-rolltemplate-mutantyearzero .sheet-template-white-dice,
+.sheet-rolltemplate-mutantyearzero .sheet-template-maroon-dice,
+.sheet-rolltemplate-mutantyearzero .sheet-template-black-dice,
+.sheet-rolltemplate-mutantyearzero .sheet-template-green-dice,
+.sheet-rolltemplate-mutantyearzero .sheet-template-blue-dice,
+.sheet-rolltemplate-mutantyearzero .sheet-template-orange-dice,
+.sheet-rolltemplate-mutantyearzero .sheet-template-yellow-dice,
+.sheet-rolltemplate-mutantyearzero .sheet-template-purple-dice,
+.sheet-rolltemplate-mutantyearzero .sheet-template-red-dice, */
+.sheet-rolltemplate-mutantyearzero .sheet-template-dice {
   margin: 1px;
   box-shadow: -3px 2px 3px #000;
   line-height: 0;
@@ -5441,18 +5449,18 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   width: 2em;
 }
 
-.sheet-rolltemplate-forbiddenlands
+.sheet-rolltemplate-mutantyearzero
   .sheet-template-grid-item.sheet-template-span-six.sheet-template-header {
   margin-bottom: 5px;
   box-shadow: 0 2px 7px #000;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-white-dice {
+.sheet-rolltemplate-mutantyearzero .sheet-template-white-dice {
   border: 1px solid #000;
   background-color: #fff;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-maroon-dice {
+.sheet-rolltemplate-mutantyearzero .sheet-template-maroon-dice {
   line-height: 0;
   padding: 3px;
   text-align: center;
@@ -5462,13 +5470,13 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   background-color: #a60100;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-black-dice {
+.sheet-rolltemplate-mutantyearzero .sheet-template-black-dice {
   color: #fff;
   border: 1px solid transparent;
   background-color: #000;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-green-dice {
+.sheet-rolltemplate-mutantyearzero .sheet-template-green-dice {
   line-height: 0;
   padding: 3px;
   text-align: center;
@@ -5478,7 +5486,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   background-color: #235402;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-blue-dice {
+.sheet-rolltemplate-mutantyearzero .sheet-template-blue-dice {
   line-height: 0;
   padding: 3px;
   text-align: center;
@@ -5488,7 +5496,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   background-color: #0088af;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-orange-dice {
+.sheet-rolltemplate-mutantyearzero .sheet-template-orange-dice {
   line-height: 0;
   padding: 3px;
   text-align: center;
@@ -5498,13 +5506,13 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   background-color: #ff8c00;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-yellow-dice {
+.sheet-rolltemplate-mutantyearzero .sheet-template-yellow-dice {
   color: #000;
   border: 1px solid #000;
   background-color: rgb(235, 212, 4);
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-purple-dice {
+.sheet-rolltemplate-mutantyearzero .sheet-template-purple-dice {
   line-height: 0;
   padding: 3px;
   text-align: center;
@@ -5514,19 +5522,19 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   background-color: #800080;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-red-dice {
+.sheet-rolltemplate-mutantyearzero .sheet-template-red-dice {
   color: #fff;
   border: 1px solid #000;
   background-color: #c00202;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-grid-item span.inlinerollresult {
+.sheet-rolltemplate-mutantyearzero .sheet-template-grid-item span.inlinerollresult {
   background-color: transparent;
   border: none;
 }
 
 /*
-.sheet-rolltemplate-forbiddenlands .sheet-template-dice > .inlinerollresult {
+.sheet-rolltemplate-mutantyearzero .sheet-template-dice > .inlinerollresult {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   font-size: 2em;
   line-height: 1em;
@@ -5539,7 +5547,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 }
 */
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-dice > span {
+.sheet-rolltemplate-mutantyearzero .sheet-template-dice > span {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   font-size: 2em;
   line-height: 1em;
@@ -5551,26 +5559,26 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   background-color: transparent;
 }
 
-.sheet-rolltemplate-forbiddenlands .sheet-template-green-dice > div > .sheet-template-inline,
-.sheet-rolltemplate-forbiddenlands .sheet-template-blue-dice > div > .sheet-template-inline,
-.sheet-rolltemplate-forbiddenlands .sheet-template-orange-dice > div > .sheet-template-inline,
-.sheet-rolltemplate-forbiddenlands .sheet-template-yellow-dice > div > .sheet-template-inline {
+.sheet-rolltemplate-mutantyearzero .sheet-template-green-dice > div > .sheet-template-inline,
+.sheet-rolltemplate-mutantyearzero .sheet-template-blue-dice > div > .sheet-template-inline,
+.sheet-rolltemplate-mutantyearzero .sheet-template-orange-dice > div > .sheet-template-inline,
+.sheet-rolltemplate-mutantyearzero .sheet-template-yellow-dice > div > .sheet-template-inline {
   font-size: 2.25em;
   font-variant: diagonal-fractions;
   text-shadow: 1px 1px 1px black;
 }
 
-.sheet-rolltemplate-forbiddenlands .inlinerollresult.fullcrit {
+.sheet-rolltemplate-mutantyearzero .inlinerollresult.fullcrit {
   color: inherit;
   border: none;
 }
 
-.sheet-rolltemplate-forbiddenlands .inlinerollresult.fullfail {
+.sheet-rolltemplate-mutantyearzero .inlinerollresult.fullfail {
   color: inherit;
   border: none;
 }
 
-.sheet-rolltemplate-forbiddenlands .inlinerollresult.importantroll {
+.sheet-rolltemplate-mutantyearzero .inlinerollresult.importantroll {
   color: inherit;
   border: none;
 }

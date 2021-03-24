@@ -2989,90 +2989,55 @@
   </div>
   <div class="announcements toggle-dice-only toggle-monster-only">
     <h3 data-i18n="latest-announcements">Latest Announcements</h3>
-    <span class="footer">11/12/20</span>
+    <span class="footer">05/04/21</span>
     <ol style="margin: 0 2em 0 2em; padding: 0 1em 0 3em;">
-      <span>v1.75</span>
-      <li>Fixed a translation error that caused the dice pool to show "false" when the Melee skill was selected.</li>
+      <span>v1.00</span> <!-- Also need to update the version in Sheet worker code below -->
+      <li>Published to Roll20.</li>
     </ol>
     <br />
     <input type="checkbox" class="announcements-older-show" name="attr_show_announcements_old" value="1" data-i18n-title="old-announcements" />
     <span data-i18n-title="old-announcements">&nbsp;</span>
     <span class="announcements-older-show">
       <ol>
-        <span>v1.74</span>
-        <li>Updated the sheet with the an "offical" FBL logo. The english logo will be used unless a translation has been completed which also has an offical logo in the same language. The swedish translation will use the "svärdets sång" logo.</li>
-        <span>v1.73</span>
-        <li>Brazilian Portuguese translation added.(thank you Teuri)</li>
-        <span>v1.72</span>
-        <li>Updated the language files to include the latest changes to the translation.json</li>
-        <span>v1.71</span>
-        <li>Updated version checking(sheetworker). Thank you GiGs.</li>
-        <li>Added two additional rows of armor. Use button under 2nd row to show/hide additional rows as needed.  Armor Rating dice are included for all <b>donned</b> armor. Armor weight is included toward encumbrance if the armor is <b>carried</b>.</li>
-        <li>Updated roll template for the additional rows of armor. Details about the armor are only included in the roll if the armor is donned and includes a name.</li>
-        <li>Updated armor artifact dice. A single artifact die will be included for a given column (mighty, mighty 2, epic, and legendary) even if multiple rows have been selected.  This is necessary due to the limits of the roll template.</li>
-        <li>Corrected a few misspelled attributes. Converted automatically using version checking routine.</li>
+        <span>v0.01</span>
+        <li>Updated the sheet with the an "offical" Mutant Year Zero logo.</li>
+        <li>Updated version. </li>
+        <li>Added a selection for Character Type a la MYZ Alternative sheet. The chosen character type determines what is included in the sheet as well as the color scheme.</li>
+        <li>Updated roll template for MYZ dice.</li>
+        <li>Updated the API roll macro to use the Mutant Year Zero macro (!myz). </li>
+        <li>Made Armor a repeatable section with one row per armor item, with encumberance and total Armor Rating as a button to use for Armor Rolls. </li>
+        <li>Added item weight Quarter, to allow assigning 0.25 weight units to items (if wanted). Also added titles to weight dropdowns.</li>
+        <li>Modified the consumables for MYZ  rules. </li>
+        <li>Added the Money section for Elysium and Currency project. </li>
+        <li>Added the Mutations, Animal Powers, Modules, Biomech and Contacts traits for the different character types.  </li>
+        <li>Added Rot points. Please note there is no functionality for Permanent rot points nor Rot rolls.</li>
+        <li>Made it possible to force display the different traits, e.g. in case Biomechatroid animals, mutated humans, etc.   </li>
+        <li>Default sheet settings have been added. Make default changes from the campaign Settings page. These defaults 
+            will apply to all new sheets. To apply these changes to all existing sheets as well, you must also use the 
+            "Apply Default Settings" button found at the bottom of the sidebar's "My Settings" page.</li>
+        <li>Option in Settings; "Sort Skills by Attribute". Enabled by default to match the paper sheet.</li>
+        <li>The range of each d66 dice to allow for custom rolls 0-100(normally, each d6 allows 1-6). 
+            While this does not effect the d66 roll on the sheet, it does allow more flexibility for custom macros if desired.
+            <br /><b>d100 Roll macro example;</b> <br /><textarea style="height: auto;"> @{selected|whisper_option} &amp;{template:mutantyearzero} 
+            {{character_name=@{selected|character_name}}} {{character_id=@{selected|character_id}}} {{name=D100 Roll}} {{d66-die-one=[[ 1 ]] }} {{d66-roll-one=[[ 1d10-1 ]] }} {{d66-die-two=[[ 1 ]] }} {{d66-roll-two=[[ 1d10-1 ]] }}</textarea></li>
+        <li>Skills, weapons, and armor have additional Modifiers for to make updating the Dice pool easier.</li>
+        <li>Profession skills added as a repeating section at the bottom of skill list, with same columns in the list as the normal skills. 
+            The skill attribute is selecteable through a dropdown. </li>
+        <li>All Attributes are "rollable".</li>
+        <li>Added option to configure one Vehicle, including advanced vehicle information such as Resilience, Armor, Fuel, Occupants. </li>
+        <li>Added option to include gear on/in the vehicle. </li>
+        <li>Option in Settings: Enable the advanced encymberance for vehicles, thus including the occupants and fuel in the encumberance calculation. </li>
+        <li>Repeating row text "+Add" and "Modify" with simple icons.</li>
+        <li>Swedish translations have been added. </li>
+        <li>Biohazards used to indicate the damage on Attributes. </li>
+        <li>Removed a toggleable 2nd row to each skill.</li>
+        <li>Added an Ark page, which dependent on the character type will display the relevant items such as Projects, Development levels and Sectors.</li>
+        <li>Updated the Monster page to align with updated lists and displayed boxes, as well as the MYZ monster features.</li>
+        <li>Added Appearance box at top of the sheet. </li>
+        <li>Added the Relationship section. </li>
 
-        <span>v1.70</span>
-        <li>Expanded item weight beyond Heavy.</li>
-
-        <span>v1.69</span>
-        <li>updated the Consumable reminder footnote; 'be sure to manually reduce the consumable die on the sheet if you roll bane of 1 or 2.'</li>
-
-        <span>v1.68</span>
-        <li>Default sheet settings have been added. Make default changes from the campaign Settings page. These defaults will apply to all new sheets. To apply these changes to all existing sheets as well, you must also use the           "Apply Default Settings" button found at the bottom of the sidebar's "My           Settings" page.</li>
-        <li>Option added to Settings; group Skills by their primary attribute. Disabled by default to match existing sheet.</li>
-        <li>Option added to Settings; sort Stockpile resources alphabetically. Enabled by default to match existing sheet.</li>
-
-        <span>v1.67</span>
-        <li>Updated the Consumables resource dice reminder used for the Swedish translation.</li>
-
-        <span>v1.66</span>
-        <li>Increased the range of each d66 dice to allow for custom rolls 0-100(normally, each d6 allows 1-6). While this does not effect the d66 roll on the sheet, it does allow more flexibility for custom macros if desired.
-          <br /><b>d100 Roll macro example;</b> <br /><textarea style="height: auto;"> @{selected|whisper_option} &amp;{template:mutantyearzero} {{character_name=@{selected|character_name}}} {{character_id=@{selected|character_id}}} {{name=D100 Roll}} {{d66-die-one=[[ 1 ]] }} {{d66-roll-one=[[ 1d10-1 ]] }} {{d66-die-two=[[ 1 ]] }} {{d66-roll-two=[[ 1d10-1 ]] }}</textarea></li>
-        <li>Fixed the translation list ordering for Skills and Stockpile.</li>
-
-        <span>v1.65</span>
-        <li>Added Misc Gear modifier to Skills.</li>
-        <li>All Attributes are now "rollable".</li>
-        <li>Fixed missing whisper option for notes rolls.</li>
-        <li>Replaced the repeating row text "+Add" and "Modify" with simple icons.</li>
-        <li>Swedish translations have been added. Thank you Magnus M.</li>
-
-        <span>v1.64</span>
-        <li>Bug fix: shield shove/parry rolls were erroneously including strength as gear dice.</li>
-        <li>Optimized the css that reduces the opacity of damage skulls above the attribute's max value. Purely cosmetic.</li>
-
-        <span>v1.63</span>
-        <li>Added a toggleable 2nd row to each skill.</li>
-        <li>Added Artifact dice, Misc Skill modifier, and Notes to each skill.</li>
-        <li>Updated the roll template for skill rolls.</li>
-        <li>Added Misc Skill modifier to strength-based monster skills.</li>
-        <li>Visual enhancement; reduced the opacity of damage skulls that are beyond the character's max value.</li>
-
-        <span>v1.62</span>
-        <li>Added the 'IM Fell English' webfont to better match Forbidden Lands style.</li>
-        <li>Updated all image links to point to the images located on roll20's github repo.</li>
-        <li>Updated Armor and Shield Misc modifier to adjust Skill dice, not Gear dice.</li>
-        <li>Fixed negative skill dice bug.</li>
-        <li>Updated shield shove/parry roll template.</li>
-
-        <span>v1.61</span>
-        <li>fixed strength bug that reset strength to "0" for previously created characters.</li>
-        <li>fixed encumbrance calculation bug introduced in last update.</li>
-        <li>added event listener to repeating weapons to recalc attributes when added/changed.</li>
-        <li>refinements to the roll template.</li>
-        <li>coming soon; 1. Change armor/shield Misc modifier to adjust Skill dice instead of Gear dice. 2. Skills will
-          get a Misc field and artifact dice.</li>
-
-        <span>v1.60</span>
-        <li>added an attribute for 'willpower_max'. Now you track willpower using a linked token bar.</li>
-        <li>small updates to roll templates; removed whitespace for empty elements, adjusted the show/hide logic to better work with custom macros.</li>
-        <li>updated the Reputation roll to use Age + Reputation.</li>
-        <li>spells now roll Base dice(was rolling Gear dice) and Total WP is now displayed in the roll template.</li>
-        <li>fixed monster strength vs pc/npc strength incompatibilities.(Thank you GiGs!)</li>
-        <li>added columns for misc attack and damage bonuses, skill total, attack total, and damage total.</li>
-        <li>added artifact dice (d8, d8, d10, d12) to weapons, armor, and shield that add artifact dice to the dice pool.</li>
-        <li>added an expandable 2nd row to weapons, armor, and shield to show/hide additional attributes.</li>
+        <li>Added the fonts Oswald and Didact Gothic to make similar to paper sheet. </li>
+        <li>Fixed Profession skill dice pool calculation bug (Thanks GiGs).</li>
       </ol>
     </span>
     <!--<input type="checkbox" class="announcements-show" name="attr_show_announcements" value="1" data-i18n-title="close-announcements" title="Close Announcements" style="margin: 10px 0 0 -10px; position: relative;" />
@@ -3792,7 +3757,7 @@
     // set the sheet version you are upgrading sheet to, 
     //and set show_announcement to 1 if you want to force an announcement to be shown.
     // don't set a code_version; we use the switch below for that.
-    let new_version = 1.75;
+    let new_version = 1.00;
     let show_announcement = 0;
     if (!old_version) old_version = 0;
     switch (true) {
@@ -3827,7 +3792,7 @@
   
   /*** UPDATE THIS ***/
   // MUST set the version to a specific value here, the one where the sheet was updated like this.  
-      const current_version = 1.75;
+      const current_version = 1.00;
       setter.version = current_version;
   
       setAttrs(setter, { silent: true }, versionator(current_version));

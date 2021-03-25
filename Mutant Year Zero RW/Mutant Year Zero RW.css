@@ -1,27 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Didact+Gothic|Oswald:wght@300&display=swap');
-/*@font-face {
-  font-family: 'DidactGothic';
-  src: URL('https://dwarfwing.github.io/MutantYearZeroFL/docs/font/DidactGothic-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'DidactGothic';
-  src: URL('https://dwarfwing.github.io/MutantYearZeroFL/font/DidactGothic-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'BigNoodleTitling';
-  src: url('https://dwarfwing.github.io/MutantYearZeroFL/docs/font/BigNoodleTitling.woff2') format('woff2'),
-      url('https://dwarfwing.github.io/MutantYearZeroFL/docs/font/BigNoodleTitling.woff') format('woff'),
-      URL('https://dwarfwing.github.io/MutantYearZeroFL/docs/font/big_noodle_titling.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}*/
 
 .charsheet {
   background-color: #fff;
@@ -3462,7 +3439,7 @@ input.sheet-monster_only:checked ~ div.sheet-character .sheet-skills-grid button
 }
 
 .sheet-skills-box1 {
-  grid-column: 1/7;
+  grid-column: 1/6;
   grid-row-start: 1;
   grid-template-columns: auto 2em 2em 2em 2em 2em;
   background-color: #000;
@@ -3973,7 +3950,7 @@ span.sheet-armor-box3.sheet-header {
 .sheet-gear-box5 {
   grid-column: 1/5;
   grid-row-start: 2;
-  margin: 0 10px 0 6px;
+  -margin: 0 10px 0 6px;
 }
 
 .sheet-gear-weight {

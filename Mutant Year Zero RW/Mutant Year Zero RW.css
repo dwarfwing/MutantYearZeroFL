@@ -878,8 +878,8 @@ input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-character-biomec
 input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-appearance-grid {
   display: grid;
   padding: 0;
-  grid-column-gap: 2px;
-  grid-row-gap: 10px;
+  column-gap: 2px;
+  row-gap: 10px;
   grid-template-columns: 5em 2fr 0.6fr;
 }
 input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-appearance-grid .sheet-header {
@@ -1106,10 +1106,11 @@ input.sheet-tab.sheet-settings:checked::after {
 
 span.sheet-logo-image {
   /*background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL_logo.png);*/
-  background-image: url(http://i.imgur.com/juUlixw.jpg);
+  /*background-image: url(https://i.imgur.com/juUlixw.jpg);*/
   /*background-image: ".\images\myz-logo.png";*/
   /*background-image: url(https://frialigan.se/wp-content/uploads/2019/04/FBL_logo_gradient_600.png);*/
   /*background-image: url(https://github.com/dwarfwing/MutantYearZeroFL/blob/main/images/MYZ-logo.png);*/
+  background-image: url(https://github.com/dwarfwing/MutantYearZeroRW/blob/main/Mutant%20Year%20Zero%20RW/images/MYZ-logo.png?raw=true);
   background-size: contain;
   background-repeat: no-repeat;
   background-position:right;
@@ -1123,8 +1124,10 @@ span.sheet-logo-image {
 
 span.sheet-logo-image.lang-sv {
   
-  background-image: url(http://i.imgur.com/juUlixw.jpg);
+  background-image: url(https://github.com/dwarfwing/MutantYearZeroRW/blob/main/Mutant%20Year%20Zero%20RW/images/MYZ-logo.png?raw=true);
+  
   /*
+  background-image: url(https://i.imgur.com/juUlixw.jpg);
   background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL_logo_sv.png);
   background-image: url(https://frialigan.se/wp-content/uploads/2019/04/FBL_SWE_logo_gradient.png);
 */
@@ -1443,9 +1446,8 @@ input.sheet-expand:checked ~ .sheet-input-textarea {
 .sheet-character-grid {
   display: grid;
   margin: -10px 0 0 0;
-  grid-column-gap: 4px;
-  grid-row-gap: 4px;
-  -grid-template-columns: 33% auto 33%;
+  column-gap: 4px;
+  row-gap: 4px;
   grid-template-columns: 33% 33% auto;
 }
 
@@ -2241,7 +2243,7 @@ input.sheet-monster_only:checked ~ div.sheet-character .sheet-monster-stat1 {
   width: 100%;
   -padding: 0 2px 0 2px;
   -margin: 0 -6px 0 -6px;
-  -grid-row-gap: 2px;
+  -row-gap: 2px;
   -grid-template-columns: 4em 7em auto 3em 3em 8em 4em 4em auto;
 }
 
@@ -2384,8 +2386,8 @@ input.sheet-monster_only:checked
   ~ div.sheet-character
   .sheet-monster-attacks-grid {
   display: grid;
-  grid-column-gap: 1px;
-  grid-row-gap: 2px;
+  column-gap: 1px;
+  row-gap: 2px;
   grid-template-columns: 7em auto 2.5em 2.5em 5em 3em;
   
 }
@@ -2513,8 +2515,8 @@ input.sheet-npc_only:checked ~ div.sheet-character .sheet-character-column3 {
 .sheet-details-grid {
   display: grid;
   padding: 2em 0 2em 0;
-  grid-column-gap: 2px;
-  grid-row-gap: 1em;
+  column-gap: 2px;
+  row-gap: 1em;
   grid-template-columns: auto 2em 3em auto;
   grid-template-rows: auto auto auto;
   align-items: center;
@@ -2577,8 +2579,8 @@ input.sheet-npc_only:checked ~ div.sheet-character .sheet-character-column3 {
 .sheet-appearance-grid {
   display: grid;
   padding: 0;
-  grid-column-gap: 2px;
-  grid-row-gap: 10px;
+  column-gap: 2px;
+  row-gap: 10px;
   grid-template-columns: 5em auto;
   grid-template-rows: 3em auto auto auto;
 }
@@ -2744,8 +2746,8 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 .sheet-injuries-grid {
   display: grid;
   padding: 0 0 2px 0;
-  grid-column-gap: 2px;
-  grid-row-gap: 2px;
+  column-gap: 2px;
+  row-gap: 2px;
   grid-template-columns: 1fr 6em 6em 2fr 8em;
 }
 
@@ -2797,8 +2799,8 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 .sheet-weapons-grid {
   display: grid;
   padding: 0 0 2px 0;
-  grid-column-gap: 2px;
-  grid-row-gap: 2px;
+  column-gap: 2px;
+  row-gap: 2px;
   grid-template-columns: auto 4em 2.25em 4px 2.25em 2.25em 4px 2.25em 2.25em 2.25em 2.25em 4px 2.25em 2.25em 2.25em 4px 2em 2em;
 }
 
@@ -2956,7 +2958,7 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   display: grid;
   grid-template-columns: 2.5em 2.25em 3.5em 4em 4em 1em 2em 2.25em 4.5em auto 0.2em;
   padding: 0 0 5px 0;
-  grid-column-gap: 6px;
+  column-gap: 6px;
   justify-items: center;
   align-items: baseline;
 }
@@ -3293,8 +3295,8 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 
 .sheet-talents-grid {
   display: grid;
-  grid-column-gap: 2px;
-  grid-row-gap: 2px;
+  column-gap: 2px;
+  row-gap: 2px;
   grid-template-columns: auto 4em 3em;
   -grid-template-columns: auto 4em;
 }
@@ -3402,8 +3404,8 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   -position: relative;
   display: grid;
   padding: 1px 0 1px 0;
-  grid-column-gap: 2px;
-  grid-row-gap: 0;
+  column-gap: 2px;
+  row-gap: 0;
   grid-template-columns: auto 2.25em 2.5em 2.5em 2.5em 2.5em;
   -align-items: center;
 }
@@ -3553,8 +3555,8 @@ div.sheet-repeating-skill-grid button {
 .sheet-armor-grid {
   display: grid;
   padding-bottom: 2px;
-  grid-column-gap: 2px;
-  grid-row-gap: 2px;
+  column-gap: 2px;
+  row-gap: 2px;
   grid-template-columns: auto 3em 3em 3em 3em 3em 3em 8em 3em;
   -grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
   -justify-items: center;
@@ -3566,8 +3568,8 @@ div.sheet-repeating-skill-grid button {
   display: grid;
   justify-self: end;
   padding-bottom: 2px;
-  grid-column-gap: 4px;
-  grid-row-gap: 2px;
+  column-gap: 4px;
+  row-gap: 2px;
   grid-template-columns: auto 3em 3em 3em 3em 3em 3em 3em 6em;
   justify-items: right;
   align-items: baseline;
@@ -3577,7 +3579,7 @@ div.sheet-repeating-skill-grid button {
   display: grid;
   align-items: center;
   height: 3em;
-  grid-column-gap: 2px;
+  column-gap: 2px;
   grid-template-columns: auto auto auto auto auto auto;
 }
 
@@ -3705,7 +3707,7 @@ span.sheet-armor-box3.sheet-header {
 
 .sheet-consumables-grid {
   display: grid;
-  grid-row-gap: 2px;
+  row-gap: 2px;
   grid-template-columns: auto 3.25em 0.2em auto 3.25em 0.2em;
   padding-bottom: 8px;
 }
@@ -3822,7 +3824,7 @@ span.sheet-armor-box3.sheet-header {
 .sheet-coins-grid {
   display: grid;
   margin: 0 0 0 3px;
-  grid-row-gap: 4px;
+  row-gap: 4px;
   -grid-template-columns: 7em repeat(3, 1fr);
   grid-template-columns: auto 4em auto 5em;
   grid-template-rows: auto;
@@ -3909,15 +3911,15 @@ span.sheet-armor-box3.sheet-header {
 
 .sheet-gear-grid {
   display: grid;
-  grid-row-gap: 2px;
-  grid-column-gap: 1px;
+  row-gap: 2px;
+  column-gap: 1px;
   grid-template-columns: auto 3em 2em 4em;
   grid-template-rows: auto;
 }
 
 .sheet-gear-subgrid {
   display: grid;
-  grid-column-gap: 2px;
+  column-gap: 2px;
   grid-template-columns: 4em 3em 9em 3em;
 }
 
@@ -3957,7 +3959,7 @@ span.sheet-armor-box3.sheet-header {
   display: grid;
   justify-content: end;
   grid-column: 1/5;
-  grid-column-gap: 5px;
+  column-gap: 5px;
   grid-row-start: 3;
   grid-template-columns: auto 3em;
   justify-items: end;
@@ -3980,7 +3982,7 @@ span.sheet-armor-box3.sheet-header {
   justify-content: end;
   padding-right: 5px;
   grid-column: 1/5;
-  grid-column-gap: 0.25em;
+  column-gap: 0.25em;
   grid-row-start: 4;
   grid-template-columns: auto 3em 1em auto 3em;
 }
@@ -4018,7 +4020,7 @@ span.sheet-armor-box3.sheet-header {
   grid-column: 1/span 4;
   display: grid;
   margin-top: 2px;
-  grid-column-gap: 2px;
+  column-gap: 2px;
   grid-template-columns: auto 5em;
   justify-content: end;
 
@@ -4048,8 +4050,8 @@ span.sheet-armor-box3.sheet-header {
 .sheet-vehicle-grid {
   position: relative;
   display: grid;
-  grid-row-gap: 2px;
-  -grid-column-gap: 2px;
+  row-gap: 2px;
+  -column-gap: 2px;
   grid-template-columns: 1fr 1fr;
   -grid-template-rows: auto;
   -justify-content: space-around;
@@ -4148,7 +4150,7 @@ span.sheet-armor-box3.sheet-header {
 
 .sheet-vehiclegear-grid {
   display: grid;
-  grid-row-gap: 2px;
+  row-gap: 2px;
   grid-template-columns: auto 3em 2em 3em;
   grid-template-rows: auto;
   width: 100%;
@@ -4156,8 +4158,8 @@ span.sheet-armor-box3.sheet-header {
 
 .sheet-vehiclegear-subgrid {
   display: grid;
-  grid-column-gap: 2px;
-  grid-row-gap: 2px;
+  column-gap: 2px;
+  row-gap: 2px;
   grid-template-columns: 4em 3em 9em 3em;
 }
 
@@ -4220,7 +4222,7 @@ span.sheet-armor-box3.sheet-header {
   height: 4em;
   padding-right: 5px;
   grid-column: 1/5;
-  grid-column-gap: 0.25em;
+  column-gap: 0.25em;
   grid-row-start: 4;
   grid-template-columns: auto 3em 1em auto 3em;
 }
@@ -4257,8 +4259,8 @@ span.sheet-armor-box3.sheet-header {
 .sheet-relationships-grid {
   width: 100%;
   display: grid;
-  grid-column-gap: 4px;
-  grid-row-gap: 3px;
+  column-gap: 4px;
+  row-gap: 3px;
   grid-template-columns: 8rem auto 1rem;
 }
 
@@ -4291,8 +4293,8 @@ span.sheet-armor-box3.sheet-header {
 .sheet-relationships-grid-repeating {
   width: 100%;
   display: grid;
-  grid-column-gap: 4px;
-  grid-row-gap: 3px;
+  column-gap: 4px;
+  row-gap: 3px;
   grid-template-columns: 15rem auto 3rem;
 }
 
@@ -4305,8 +4307,8 @@ span.sheet-armor-box3.sheet-header {
 .sheet-relationship-box1 .sheet-relationships-grid {
   width: 100%;
   display: grid;
-  grid-column-gap: 4px;
-  grid-row-gap: 3px;
+  column-gap: 4px;
+  row-gap: 3px;
   grid-template-columns: 8rem auto 1rem;
 }
 
@@ -4341,8 +4343,8 @@ span.sheet-armor-box3.sheet-header {
 /* ---------------------------------- Notes */
 .sheet-notes-grid {
   display: grid;
-  grid-column-gap: 4px;
-  grid-row-gap: 3px;
+  column-gap: 4px;
+  row-gap: 3px;
   grid-template-columns: 15rem auto;
 }
 
@@ -4392,8 +4394,8 @@ span.sheet-armor-box3.sheet-header {
 
 .sheet-spells-grid {
   display: grid;
-  grid-column-gap: 2px;
-  grid-row-gap: 2px;
+  column-gap: 2px;
+  row-gap: 2px;
   grid-template-columns: 2.5em auto 3em 3em 5.5em 6em 11.5em;
 }
 
@@ -4453,8 +4455,8 @@ span.sheet-armor-box3.sheet-header {
 .sheet-ark-grid {
   display: grid;
   margin: 21px 5px 0 5px;
-  grid-column-gap: 4px;
-  grid-row-gap: 4px;
+  column-gap: 4px;
+  row-gap: 4px;
   grid-template-columns: 1fr 1fr 1fr;
   -grid-template-rows: repeat(4, auto);
 }
@@ -4508,7 +4510,7 @@ span.sheet-armor-box3.sheet-header {
 
 .sheet-ark-development-grid {
   display: grid;
-  -grid-row-gap: 2px;
+  -row-gap: 2px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: space-around;
   -width: 87%;
@@ -4580,7 +4582,7 @@ span.sheet-armor-box3.sheet-header {
 
 .sheet-ark-details-grid {
   display: grid;
-  grid-row-gap: 2px;
+  row-gap: 2px;
   grid-template-columns: 1fr 1fr;
   justify-content: space-around;
   -width: 87%;
@@ -4669,8 +4671,8 @@ span.sheet-armor-box3.sheet-header {
 
 .sheet-ark-bosses-grid {
   display: grid;
-  grid-column-gap: 2px;
-  grid-row-gap: 2px;
+  column-gap: 2px;
+  row-gap: 2px;
   grid-template-columns: auto 5em;
 }
 
@@ -4725,8 +4727,8 @@ span.sheet-armor-box3.sheet-header {
 .sheet-ark-projects-grid {
   display: grid;
   flex-direction: column;
-  grid-row-gap: 2px;
-  grid-column-gap: 10px;
+  row-gap: 2px;
+  column-gap: 10px;
   grid-template-columns: 1fr 1.5fr 1fr 0.5fr 0.5fr;
   width: 100%;
 }
@@ -4904,8 +4906,8 @@ span.sheet-armor-box3.sheet-header {
 .sheet-ark-notes-grid {
   width: 100%;
   display: grid;
-  grid-column-gap: 2px;
-  grid-row-gap: 2px;
+  column-gap: 2px;
+  row-gap: 2px;
   grid-template-columns: 250px auto;
   grid-template-rows: auto;
 }

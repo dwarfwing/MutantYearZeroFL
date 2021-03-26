@@ -3738,10 +3738,10 @@
     if (!old_version) old_version = 0;
     switch (true) {
       //add checks for updates here
-      case old_version < 1.71:
+      /*case old_version < 1.71:
         clog("updating to version 1.71");
         update_to_1_71(old_version);
-        break;
+        break;*/
       default:
         // if reach this, all codeversion upgrades are complete
         // can run your recalculate function to show announcements
@@ -3766,8 +3766,8 @@
         if (v[key]) setter[key] = v[value];
       });
   
-  /*** UPDATE THIS ***/
-  // MUST set the version to a specific value here, the one where the sheet was updated like this.  
+      /*** UPDATE THIS ***/
+      // MUST set the version to a specific value here, the one where the sheet was updated like this.  
       const current_version = 1.00;
       setter.version = current_version;
   

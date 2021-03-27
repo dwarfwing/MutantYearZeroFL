@@ -2677,7 +2677,7 @@ input.sheet-npc_only:checked ~ div.sheet-character .sheet-character-column3 {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 4px;
   -padding-top: 6px;
-  margin: 0 10px 10px 10px;
+  margin: 0 10px 5px 10px;
   align-content: center;
 }
 
@@ -3360,6 +3360,7 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 .sheet-character-talents .sheet-talents-box2 {
   display: block;
   grid-column: 3;
+  padding-top: 1.75em;
 }
 .sheet-character-talents .sheet-talents-box3 {
   display: none;

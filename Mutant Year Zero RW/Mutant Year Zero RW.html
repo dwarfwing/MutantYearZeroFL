@@ -329,22 +329,22 @@
         <div class="conditions-box2"><input class="input xbox conditions-hungry" type="checkbox" name="attr_hungry" value="1" data-i18n-title="condition-hungry" title="@{hungry}" /><span></span></div>
         <input class="hidden conditions-hungry" type="checkbox" name="attr_hungry" value="1" />
         <div class="conditions-box3">
-          <span class="header-h1 conditions-hungry" data-i18n="hungry">Hungry</span>
+          <span class="header-h1 conditions-hungry" data-i18n="hungry-condition">Hungry</span>
         </div>
         <div class="conditions-box4"><input class="input xbox conditions-sleepy" type="checkbox" name="attr_sleepy" value="1" data-i18n-title="condition-sleepy" title="@{sleepy}" /><span></span></div>
         <input class="hidden conditions-sleepy" type="checkbox" name="attr_sleepy" value="1" />
         <div class="conditions-box5">
-          <span class="header-h1 conditions-sleepy" data-i18n="sleepy">Sleepy</span>
+          <span class="header-h1 conditions-sleepy" data-i18n="sleepy-condition">Sleepy</span>
         </div>
         <div class="conditions-box6"><input class="input xbox conditions-thirsty" type="checkbox" name="attr_thirsty" value="1" data-i18n-title="condition-thirsty" title="@{thirsty}" /><span></span></div>
         <input class="hidden conditions-thirsty" type="checkbox" name="attr_thirsty" value="1" />
         <div class="conditions-box7">
-          <span class="header-h1 conditions-thirsty" data-i18n="thirsty">Thirsty</span>
+          <span class="header-h1 conditions-thirsty" data-i18n="thirsty-condition">Thirsty</span>
         </div>
         <div class="conditions-box8"><input class="input xbox conditions-cold" type="checkbox" name="attr_cold" value="1" data-i18n-title="condition-cold" title="@{cold}" /><span></span></div>
         <input class="hidden conditions-cold" type="checkbox" name="attr_cold" value="1" />
         <div class="conditions-box9">
-          <span class="header-h1 conditions-cold" data-i18n="cold">Cold</span>
+          <span class="header-h1 conditions-cold" data-i18n="cold-condition">Cold</span>
         </div>
       </div>
     </div>
@@ -749,7 +749,8 @@
           
           <span>
             <div class="skills-box1 header">
-              <h1 data-i18n="skill-u">SKILLS</h1>
+              <h1 class="char-mutant char-animal char-human" data-i18n="skill-u" name="attr_skill_name">SKILLS</h1>
+              <h1 class="char-robot" data-i18n="programs-u" name="attr_skill_name">PROGRAMS</h1> <!-- data-i18n="skill-u" -->
             </div>
             <div class="skills-box-base column-header">
               <span data-i18n="attribute-abbr">Attr</span>
@@ -769,8 +770,8 @@
           </span>
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="comprehend">
-            <span class="skill-name" data-i18n="comprehend" name="attr_comprehend_name">Comprehend</span>
-            <span class="small-caps skill-name" data-i18n="wits-abbr">Wit&nbsp;<span class="readonly" name="attr_wits_total"></span></span>
+            <span class="skill-name" name="attr_comprehend_name">Comprehend</span><!-- data-i18n="comprehend" --> <!-- data-i18n="wits-abbr"-->
+            <span class="small-caps skill-name" name="attr_wits_abbr">Wit<!-- &nbsp;<span class="readonly" name="attr_wits_total"></span> --></span>
             <input class="input-number character-skill-level" type="number" name="attr_comprehend" value="0" min="0" title="@{comprehend}" />
             <select class="input character-skill-mod" name="attr_comprehend_skill_misc" title="@{comprehend_skill_misc}">
               <option value="6">+6</option>
@@ -814,7 +815,7 @@
           
           <span class="skills-row chartype-background-dark" data-i18n-list-item="endure">
             <span class="skill-name" data-i18n="endure" name="attr_endure_name">Endure</span>
-            <span class="small-caps skill-name" data-i18n="strength-abbr">Str&nbsp;<span name="attr_strength_total"></span></span>
+            <span class="small-caps skill-name" name="attr_strength_abbr">Str<!-- &nbsp;<span name="attr_strength_total"></span> --></span>
             <input class="input-number character-skill-level" type="number" name="attr_endure" value="0" min="0" title="@{endure}" />
             <select class="input character-skill-mod" name="attr_endure_skill_misc" title="@{endure_skill_misc}">
               <option value="6">+6</option>
@@ -905,7 +906,7 @@
 
           <span class="skills-row chartype-background-dark" chartype-background-dark data-i18n-list-item="fight">
             <span class="skill-name" data-i18n="fight-as-skill" name="attr_fight_name">Fight</span>
-            <span class="small-caps skill-name" data-i18n="strength-abbr">Str&nbsp;<span name="attr_strength_total"></span></span>
+            <span class="small-caps skill-name" name="attr_strength_abbr">Str<!-- &nbsp;<span name="attr_strength_total"></span> --></span>
             <input class="input-number character-skill-level" type="number" name="attr_fight" value="0" min="0" title="@{fight}" />
             <select class="input character-skill-mod" name="attr_fight_skill_misc" title="@{fight_skill_misc}">
               <option value="6">+6</option>
@@ -996,7 +997,7 @@
           
           <span class="skills-row chartype-background-dark" data-i18n-list-item="force">
             <span class="skill-name" data-i18n="force" name="attr_force_name">Force</span>
-            <span class="small-caps skill-name" data-i18n="strength-abbr">Str&nbsp;<span name="attr_strength_total"></span></span>
+            <span class="small-caps skill-name" name="attr_strength_abbr">Str<!-- &nbsp;<span name="attr_strength_total"></span> --></span>
             <input class="input-number" type="number" name="attr_force" value="0" min="0" title="@{force}" />
             <select class="input" name="attr_force_skill_misc" title="@{force_skill_misc}">
               <option value="6">+6</option>
@@ -1086,7 +1087,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="heal">
             <span class="skill-name" data-i18n="heal" name="attr_heal_name">Heal</span>
-            <span class="small-caps skill-name" data-i18n="empathy-abbr">Emp&nbsp;<span name="attr_empathy_total"></span></span>
+            <span class="small-caps skill-name" name="attr_empathy_abbr">Emp<!-- &nbsp;<span name="attr_empathy_total"></span> --></span>
             <input class="input-number" type="number" name="attr_heal" value="0" min="0" title="@{heal}" />
             <select class="input" name="attr_heal_skill_misc" title="@{heal_skill_misc}">
               <option value="6">+6</option>
@@ -1130,7 +1131,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="know_the_zone">
             <span class="skill-name" data-i18n="know-the-zone" name="attr_know_the_zone_name">Know the Zone</span>
-            <span class="small-caps skill-name" data-i18n="wits-abbr">Wit&nbsp;<span name="attr_wits_total"></span></span>
+            <span class="small-caps skill-name" name="attr_wits_abbr">Wit<!-- &nbsp;<span name="attr_wits_total"></span> --></span>
             <input class="input-number character-skill-level" type="number" name="attr_know_the_zone" value="0" min="0" title="@{know_the_zone}" />
             <select class="input character-skill-mod" name="attr_know_the_zone_skill_misc" title="@{know_the_zone_skill_misc}">
               <option value="6">+6</option>
@@ -1174,7 +1175,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="manipulate">
             <span class="skill-name" data-i18n="manipulate" name="attr_manipulate_name">Manipulate</span>
-            <span class="small-caps skill-name" data-i18n="empathy-abbr">Emp&nbsp;<span name="attr_empathy_total"></span></span>
+            <span class="small-caps skill-name" name="attr_empathy_abbr">Emp<!-- &nbsp;<span name="attr_empathy_total"></span> --></span>
             <input class="input-number character-skill-level" type="number" name="attr_manipulate" value="0" min="0" title="@{manipulate}" />
             <select class="input character-skill-mod" name="attr_manipulate_skill_misc" title="@{manipulate_skill_misc}">
               <option value="6">+6</option>
@@ -1218,7 +1219,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="move">
             <span class="skill-name" data-i18n="move" name="attr_move_name">Move</span>
-            <span class="small-caps skill-name" data-i18n="agility-abbr">Agi&nbsp;<span name="attr_agility_total"></span></span>
+            <span class="small-caps skill-name" name="attr_agility_abbr">Agi<!-- &nbsp;<span name="attr_agility_total"></span> --></span>
             <input class="input-number character-skill-level" type="number" name="attr_move" value="0" min="0" title="@{move}" />
             <select class="input character-skill-mod" name="attr_move_skill_misc" title="@{move_skill_misc}">
               <option value="6">+6</option>
@@ -1262,7 +1263,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="scout">
             <span class="skill-name" data-i18n="scout" name="attr_scout_name">Scout</span>
-            <span class="small-caps skill-name" data-i18n="wits-abbr">Wit&nbsp;<span name="attr_wits_total"></span></span>
+            <span class="small-caps skill-name" name="attr_wits_abbr">Wit<!-- &nbsp;<span name="attr_wits_total"></span> --></span>
             <input class="input-number character-skill-level" type="number" name="attr_scout" value="0" min="0" title="@{scout}" />
             <select class="input character-skill-mod" name="attr_scout_skill_misc" title="@{scout_skill_misc}">
               <option value="6">+6</option>
@@ -1306,7 +1307,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="sense_emotion">
             <span class="skill-name" data-i18n="sense-emotion" name="attr_sense_emotion_name">Sense emotion</span>
-            <span class="small-caps skill-name" data-i18n="empathy-abbr">Emp&nbsp;<span name="attr_empathy_total"></span></span>
+            <span class="small-caps skill-name" name="attr_empathy_abbr">Emp<!-- &nbsp;<span name="attr_empathy_total"></span> --></span>
             <input class="input-number character-skill-level" type="number" name="attr_sense_emotion" value="0" min="0" title="@{sense_emotion}" />
             <select class="input character-skill-mod" name="attr_sense_emotion_skill_misc" title="@{sense_emotion_skill_misc}">
               <option value="6">+6</option>
@@ -1350,7 +1351,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="shoot"> 
             <span class="skill-name" data-i18n="shoot" name="attr_shoot_name">Shoot</span>
-            <span class="small-caps skill-name" data-i18n="agility-abbr">Agi&nbsp;<span name="attr_agility_total"></span></span>
+            <span class="small-caps skill-name" name="attr_agility_abbr">Agi<!-- </span>&nbsp;<span name="attr_agility_total"> --></span>
             <input class="input-number character-skill-level" type="number" name="attr_shoot" value="0" min="0" title="@{shoot}" />
             <select class="input character-skill-mod" name="attr_shoot_skill_misc" title="@{shoot_skill_misc}">
               <option value="6">+6</option>
@@ -1394,7 +1395,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="sneak">
             <span class="skill-name" data-i18n="sneak" name="attr_sneak_name">Sneak</span>
-            <span class="small-caps skill-name" data-i18n="agility-abbr">Agi&nbsp;<span name="attr_agility_total" title="@{agility_total}"></span></span>
+            <span class="small-caps skill-name" name="attr_agility_abbr">Agi<!--&nbsp;<span name="attr_agility_total" title="@{agility_total}"></span>--></span>
             <input class="input-number character-skill-level" type="number" name="attr_sneak" value="0" min="0" title="@{sneak}" />
             <select class="input character-skill-mod" name="attr_sneak_skill_misc" title="@{sneak_skill_misc}">
               <option value="6">+6</option>
@@ -1443,12 +1444,26 @@
               <input class="skill-name chartype-background-light" class="input" type="text" name="attr_pskill_name" />
               <span class="small-caps skill-name">
                 <input type="hidden" name="attr_pskill_base" value="0" min="0" title="@{pskills_$X_pskill_base}" readonly />
-                <select class="input character-skill-mod chartype-background-light" name="attr_pskill_attr" title="@{pskills_$X_pskill_attr}">
+                <select class="input character-skill-mod chartype-background-light char-mutant char-human" name="attr_pskill_attr" title="@{pskills_$X_pskill_attr}">
+                  <option value="" selected disabled hidden data-i18n="base">Base</option>
+                  <option value="strength" data-i18n="strength-abbr">Str</option>
+                  <option value="agility" data-i18n="agility-abbr">Agi</option>
+                  <option value="wits" data-i18n="wits-abbr" >Wit</option>
+                  <option value="empathy" data-i18n="empathy-abbr">Emp</option>
+                </select>
+                <select class="input character-skill-mod chartype-background-light char-animal" name="attr_pskill_attr" title="@{pskills_$X_pskill_attr}">
                   <option value="" selected disabled hidden data-i18n="base">Base</option>
                   <option value="strength" data-i18n="strength-abbr">Str</option>
                   <option value="agility" data-i18n="agility-abbr">Agi</option>
                   <option value="wits" data-i18n="wits-abbr">Wit</option>
-                  <option value="empathy" data-i18n="empathy-abbr">Emp</option>
+                  <option value="empathy" data-i18n="instinct-abbr">Ins</option> 
+                </select>
+                <select class="input character-skill-mod chartype-background-light char-robot" name="attr_pskill_attr" title="@{pskills_$X_pskill_attr}">
+                  <option value="" selected disabled hidden data-i18n="base">Base</option>
+                  <option value="strength" data-i18n="servos-abbr">Srv</option>
+                  <option value="agility" data-i18n="stability-abbr">Stb</option>
+                  <option value="wits" data-i18n="processor-abbr">Prc</option>
+                  <option value="empathy" data-i18n="network-abbr">Net</option> 
                 </select>
               </span>
               <input class="input-number character-skill-level" type="number" name="attr_pskill_level" value="0" min="0" title="@{pskills_$X_proffskill_level}" />
@@ -1676,7 +1691,8 @@
       <div class="character-talents sheet-box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
         <div class="talents-grid">
           <div class="talents-box header">
-            <h1 data-i18n="talent-u">TALENTS</h1>
+            <h1 class="char-mutant char-animal char-human" data-i18n="talent-u">TALENTS</h1>
+            <h1 class="char-robot" data-i18n="secondary-functions-u">SECONDARY FUNCTIONS</h1>
           </div>
           <div class="talents-box2 column-header">
             <span data-i18n="type">Type</span>
@@ -3519,132 +3535,108 @@
     //object reference for Race specific attribute names
   
     //Upate sheet labels when chartype attribute changes
-    on("change:chartype", function(eventInfo) {
+    on("change:chartype sheet:opened", function(eventInfo) {
         
         var character_types = {
-            "Mutant":{strength_name:"Strength",
-                        agility_name: "Agility",
-                        wits_name: "Wits",
-                        empathy_name:"Empathy",
-                        damage_name: "Damage",
-                        fatigue_name: "Fatigue",
-                        confusion_name: "Confusion",
-                        doubt_name: "Doubt",
-                        appearance_name: "Appearance",
-                        face_name: "Face",
-                        body_name: "Body",
-                        clothing_name: "Clothing",
-                        skill_name: "Skills",
-                        mutation_name: "Mutations",
-                        talent_name: "Talents",
-                        mutation_points_name: "Mutation Points",
-                        role_name:"Role",
-                        rank_name: "Rank",
-                        endure_name: "Endure",
-                        force_name: "Force",
-                        fight_name: "Fight",
-                        sneak_name: "Sneak",
-                        move_name: "Move",
-                        shoot_name: "Shoot",
-                        scout_name: "Scout",
-                        comprehend_name: "Comprehend",
-                        know_the_zone_name: "Know the Zone",
-                        sense_emotion_name:"Sense Emotion",
-                        manipulate_name:"Manipulate",
-                        heal_name:"Heal" },
+            "Mutant":{  strength_name:getTranslationByKey("strength"),
+                        agility_name: getTranslationByKey("agility"),
+                        wits_name: getTranslationByKey("wits"),
+                        empathy_name: getTranslationByKey("empathy"),
+                        strength_abbr:getTranslationByKey("strength-abbr"),
+                        agility_abbr: getTranslationByKey("agility-abbr"),
+                        wits_abbr: getTranslationByKey("wits-abbr"),
+                        empathy_abbr: getTranslationByKey("empathy-abbr"),
+                        damage_name: getTranslationByKey("damage"),
+                        fatigue_name: getTranslationByKey("fatigue"),
+                        confusion_name: getTranslationByKey("confusion"),
+                        doubt_name: getTranslationByKey("doubt"),
+                        endure_name: getTranslationByKey("endure"),
+                        force_name: getTranslationByKey("force"),
+                        fight_name: getTranslationByKey("fight"),
+                        sneak_name: getTranslationByKey("sneak"),
+                        move_name: getTranslationByKey("move"),
+                        shoot_name: getTranslationByKey("shoot"),
+                        scout_name: getTranslationByKey("scout"),
+                        comprehend_name: getTranslationByKey("comprehend"),
+                        know_the_zone_name: getTranslationByKey("know-the-zone"),
+                        sense_emotion_name: getTranslationByKey("sense-emotion"),
+                        manipulate_name: getTranslationByKey("manipulate"),
+                        heal_name: getTranslationByKey("heal") },
                         
-            "Animal":{strength_name:"Strength",
-                        agility_name: "Agility",
-                        wits_name: "Wits",
-                        empathy_name:"Instinct",
-                        damage_name: "Damage",
-                        fatigue_name: "Fatigue",
-                        confusion_name: "Confusion",
-                        doubt_name: "Doubt",
-                        appearance_name: "Appearance",
-                        face_name: "Face",
-                        body_name: "Body",
-                        clothing_name: "Clothing",
-                        skill_name: "Skills",
-                        mutation_name: "Animal Powers",
-                        talent_name: "Talents",
-                        mutation_points_name: "Feral Points",
-                        role_name:"Role",
-                        rank_name: "Rank",
-                        endure_name: "Endure",
-                        force_name: "Force",
-                        fight_name: "Fight)",
-                        sneak_name: "Sneak",
-                        move_name: "Move",
-                        shoot_name: "Shoot",
-                        scout_name: "Scout",
-                        comprehend_name: "Comprehend",
-                        know_the_zone_name: "Know Nature",
-                        sense_emotion_name:"Sense Emotion",
-                        manipulate_name:"Dominate",
-                        heal_name:"Heal" },
+            "Animal":{  strength_name:getTranslationByKey("strength"),
+                        agility_name: getTranslationByKey("agility"),
+                        wits_name: getTranslationByKey("wits"),
+                        empathy_name: getTranslationByKey("instinct"),
+                        strength_abbr:getTranslationByKey("strength-abbr"),
+                        agility_abbr: getTranslationByKey("agility-abbr"),
+                        wits_abbr: getTranslationByKey("wits-abbr"),
+                        empathy_abbr: getTranslationByKey("instinct-abbr"),
+                        damage_name: getTranslationByKey("damage"),
+                        fatigue_name: getTranslationByKey("fatigue"),
+                        confusion_name: getTranslationByKey("confusion"),
+                        doubt_name: getTranslationByKey("doubt"),
+                        endure_name: getTranslationByKey("endure"),
+                        force_name: getTranslationByKey("force"),
+                        fight_name: getTranslationByKey("fight"),
+                        sneak_name: getTranslationByKey("sneak"),
+                        move_name: getTranslationByKey("move"),
+                        shoot_name: getTranslationByKey("shoot"),
+                        scout_name: getTranslationByKey("scout"),
+                        comprehend_name: getTranslationByKey("comprehend"),
+                        know_the_zone_name: getTranslationByKey("know-nature"),
+                        sense_emotion_name: getTranslationByKey("sense-emotion-animal"),
+                        manipulate_name: getTranslationByKey("dominate"),
+                        heal_name: getTranslationByKey("heal") },
               
-            "Robot":{strength_name:"Servos",
-                        agility_name: "Stability",
-                        wits_name: "Processor",
-                        empathy_name:"Network",
-                        damage_name: "Damage",
-                        fatigue_name: "Damage",
-                        confusion_name: "Damage",
-                        doubt_name: "Damage",
-                        appearance_name: "Chassis Parts",
-                        face_name: "Head",
-                        body_name: "Torso",
-                        clothing_name: "Undercarriage",
-                        skill_name: "Programs",
-                        mutation_name: "Modules",
-                        talent_name: "Secondary Functions",
-                        mutation_points_name: "Energy Points",
-                        role_name:"Model",
-                        rank_name: "Heirarchy",
-                        endure_name: "Overload",
-                        force_name: "Force",
-                        fight_name: "Assault",
-                        sneak_name: "Infiltrate",
-                        move_name: "Move",
-                        shoot_name: "Shoot",
-                        scout_name: "Scan",
-                        comprehend_name: "Datamine",
-                        know_the_zone_name: "Analyze",
-                        sense_emotion_name:"Question",
-                        manipulate_name:"Interact",
-                        heal_name:"Repair" },
-              
-            "Human":{strength_name:"Strength",
-                        agility_name: "Agility",
-                        wits_name: "Wits",
-                        empathy_name:"Empathy",
-                        damage_name: "Damage",
-                        fatigue_name: "Fatigue",
-                        confusion_name: "Confusion",
-                        doubt_name: "Doubt",
-                        appearance_name: "Appearance",
-                        face_name: "Face",
-                        body_name: "Body",
-                        clothing_name: "Clothing",
-                        skill_name: "Skills",
-                        mutation_name: "Abilities",
-                        talent_name: "Talents",
-                        mutation_points_name: "Power Points",
-                        role_name:"Role",
-                        rank_name: "Rank",
-                        endure_name: "Endure",
-                        force_name: "Force",
-                        fight_name: "Fight",
-                        sneak_name: "Sneak",
-                        move_name: "Move",
-                        shoot_name: "Shoot",
-                        scout_name: "Scout",
-                        comprehend_name: "Comprehend",
-                        know_the_zone_name: "Know the Zone",
-                        sense_emotion_name:"Sense Emotion",
-                        manipulate_name:"Manipulate",
-                        heal_name:"Heal" },
+            "Robot":{   strength_name:getTranslationByKey("servos"),
+                        agility_name: getTranslationByKey("stability"),
+                        wits_name: getTranslationByKey("processor"),
+                        empathy_name: getTranslationByKey("network"),
+                        strength_abbr:getTranslationByKey("servos-abbr"),
+                        agility_abbr: getTranslationByKey("stability-abbr"),
+                        wits_abbr: getTranslationByKey("processor-abbr"),
+                        empathy_abbr: getTranslationByKey("network-abbr"),
+                        damage_name: getTranslationByKey("damage"),
+                        fatigue_name: getTranslationByKey("damage"),
+                        confusion_name: getTranslationByKey("damage"),
+                        doubt_name: getTranslationByKey("damage"),
+                        endure_name: getTranslationByKey("overload"),
+                        force_name: getTranslationByKey("force-robot"),
+                        fight_name: getTranslationByKey("assault"),
+                        sneak_name: getTranslationByKey("infiltrate"),
+                        move_name: getTranslationByKey("move-robot"),
+                        shoot_name: getTranslationByKey("shoot-robot"),
+                        scout_name: getTranslationByKey("scan"),
+                        comprehend_name: getTranslationByKey("datamine"),
+                        know_the_zone_name: getTranslationByKey("analyze"),
+                        sense_emotion_name: getTranslationByKey("question"),
+                        manipulate_name: getTranslationByKey("interact"),
+                        heal_name: getTranslationByKey("repair") },
+
+            "Human":{   strength_name:getTranslationByKey("strength"),
+                        agility_name: getTranslationByKey("agility"),
+                        wits_name: getTranslationByKey("wits"),
+                        empathy_name: getTranslationByKey("empathy"),
+                        strength_abbr:getTranslationByKey("strength-abbr"),
+                        agility_abbr: getTranslationByKey("agility-abbr"),
+                        wits_abbr: getTranslationByKey("wits-abbr"),
+                        empathy_abbr: getTranslationByKey("empathy-abbr"),
+                        damage_name: getTranslationByKey("damage"),
+                        fatigue_name: getTranslationByKey("fatigue"),
+                        confusion_name: getTranslationByKey("confusion"),
+                        doubt_name: getTranslationByKey("doubt"),
+                        endure_name: getTranslationByKey("endure"),
+                        force_name: getTranslationByKey("force"),
+                        fight_name: getTranslationByKey("fight"),
+                        sneak_name: getTranslationByKey("sneak"),
+                        move_name: getTranslationByKey("move"),
+                        shoot_name: getTranslationByKey("shoot"),
+                        scout_name: getTranslationByKey("scout"),
+                        comprehend_name: getTranslationByKey("comprehend"),
+                        know_the_zone_name: getTranslationByKey("know-the-zone"),
+                        sense_emotion_name: getTranslationByKey("sense-emotion"),
+                        manipulate_name: getTranslationByKey("manipulate"),
+                        heal_name: getTranslationByKey("heal") },
         };   
         
         getAttrs(["chartype"], function(values) {
@@ -3660,21 +3652,14 @@
             setAttrs({agility_name: race_att_names.agility_name});
             setAttrs({wits_name: race_att_names.wits_name});
             setAttrs({empathy_name: race_att_names.empathy_name});
-                                    
+            setAttrs({strength_abbr: race_att_names.strength_abbr});
+            setAttrs({agility_abbr: race_att_names.agility_abbr});
+            setAttrs({wits_abbr: race_att_names.wits_abbr});
+            setAttrs({empathy_abbr: race_att_names.empathy_abbr});
             setAttrs({damage_name: race_att_names.damage_name});
             setAttrs({fatigue_name: race_att_names.fatigue_name});
             setAttrs({confusion_name: race_att_names.confusion_name});
             setAttrs({doubt_name: race_att_names.doubt_name});
-            setAttrs({appearance_name: race_att_names.appearance_name});
-            setAttrs({face_name: race_att_names.face_name});
-            setAttrs({body_name: race_att_names.body_name});
-            setAttrs({clothing_name: race_att_names.clothing_name});
-            setAttrs({skill_name: race_att_names.skill_name});
-            setAttrs({mutation_name: race_att_names.mutation_name});
-            setAttrs({talent_name: race_att_names.talent_name});
-            setAttrs({mutation_points_name: race_att_names.mutation_points_name});
-            setAttrs({role_name: race_att_names.role_name});
-            setAttrs({rank_name: race_att_names.rank_name});
             setAttrs({endure_name: race_att_names.endure_name});
             setAttrs({force_name: race_att_names.force_name});
             setAttrs({fight_name: race_att_names.fight_name});

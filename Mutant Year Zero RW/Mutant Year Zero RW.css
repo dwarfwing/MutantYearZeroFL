@@ -2070,7 +2070,7 @@ input[name="attr_chartype"][value="Robot"]:checked ~ div.sheet-character-grid .s
 }
 
 .sheet-attributes-grid button[type="action"] {
-  width: 100%;
+  width: 80%;
   height: 1.65em;
   padding: 0;
   font-size: .875em;
@@ -2674,9 +2674,10 @@ input.sheet-npc_only:checked ~ div.sheet-character .sheet-character-column3 {
 
 .sheet-conditions-grid {
   display: grid;
-  grid-template-columns: 1fr 2em 1fr 2em 1fr 2em 1fr 2em 1fr 1fr;
-  padding-top: 6px;
-  padding-bottom: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 4px;
+  -padding-top: 6px;
+  margin: 0 10px 5px 10px;
   align-content: center;
 }
 
@@ -2687,50 +2688,55 @@ input.sheet-npc_only:checked ~ div.sheet-character .sheet-character-column3 {
 }
 
 .sheet-conditions-box2 {
-  grid-column-start: 2;
+  grid-column-start: 1;
   grid-row-start: 2;
+  justify-self: center;
 }
 
 .sheet-conditions-box3 {
-  grid-column-start: 3;
-  grid-row-start: 2;
+  grid-column-start: 1;
+  grid-row-start: 3;
   font-size: 0.8em;
-  padding-right: 5px;
+  justify-self: center;
 }
 
 .sheet-conditions-box4 {
-  grid-column-start: 4;
+  grid-column-start: 2;
   grid-row-start: 2;
+  justify-self: center;
 }
 
 .sheet-conditions-box5 {
-  grid-column-start: 5;
-  grid-row-start: 2;
+  grid-column-start: 2;
+  grid-row-start: 3;
   font-size: 0.8em;
-  padding-right: 5px;
+  justify-self: center;
 }
 
 .sheet-conditions-box6 {
-  grid-column-start: 6;
+  grid-column-start: 3;
   grid-row-start: 2;
+  justify-self: center;
 }
 
 .sheet-conditions-box7 {
-  grid-column-start: 7;
-  grid-row-start: 2;
+  grid-column-start: 3;
+  grid-row-start: 3;
   font-size: 0.8em;
-  padding-right: 5px;
+  justify-self: center;
 }
 
 .sheet-conditions-box8 {
-  grid-column-start: 8;
+  grid-column-start: 4;
   grid-row-start: 2;
+  justify-self: center;
 }
 
 .sheet-conditions-box9 {
-  grid-column-start: 9;
-  grid-row-start: 2;
+  grid-column-start: 4;
+  grid-row-start: 3;
   font-size: 0.8em;
+  justify-self: center;
 }
 
 input.sheet-conditions-hungry:checked ~ div > span.sheet-conditions-hungry,
@@ -3354,6 +3360,7 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 .sheet-character-talents .sheet-talents-box2 {
   display: block;
   grid-column: 3;
+  padding-top: 1.75em;
 }
 .sheet-character-talents .sheet-talents-box3 {
   display: none;

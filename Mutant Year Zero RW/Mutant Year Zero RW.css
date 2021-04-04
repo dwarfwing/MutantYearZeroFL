@@ -832,17 +832,21 @@ input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-border-
   border-color: #1b6764; 
 }
 
-
+/*
 .sheet-character-mutations,
 .sheet-character-modules, 
 .sheet-character-animalpowers, 
 .sheet-character-contacts,
 .sheet-character-biomech,
-.sheet-character-chassis,
+.sheet-character-chassis,*/
 .sheet-char-mutant,
 .sheet-char-robot,
 .sheet-char-animal,
-.sheet-char-human {
+.sheet-char-human,
+.sheet-char-mutant-grid,
+.sheet-char-robot-grid,
+.sheet-char-animal-grid,
+.sheet-char-human-grid {
   display: none;
 }
 
@@ -851,8 +855,18 @@ input[name="attr_force_show_mutations"]:checked ~ .sheet-character-mutations,
 input[name="attr_force_show_animalpowers"]:checked ~ .sheet-character-animalpowers,
 input[name="attr_force_show_contacts"]:checked ~ .sheet-character-contacts,
 input[name="attr_force_show_biomech"]:checked ~ .sheet-character-biomech,
-input[name="attr_force_show_modules"]:checked ~ .sheet-character-modules {
+input[name="attr_force_show_modules"]:checked ~ .sheet-character-modules,
+input[name="attr_force_show_vehicle"]:checked ~ .sheet-vehicle-grid {
   display: grid;
+}
+
+input[name="attr_force_show_money"]:checked ~ .sheet-character-money,
+input[name="attr_force_show_arklevels"]:checked ~ .sheet-ark-development,
+input[name="attr_force_show_arkdetails"]:checked ~ .sheet-ark-details,
+input[name="attr_force_show_arkdetails"]:checked ~ .sheet-ark-bosses,
+input[name="attr_force_show_arkdetails"]:checked ~ .sheet-ark-other,
+input[name="attr_force_show_projects"]:checked ~ .sheet-ark-projects {
+  display: block;
 }
 /*
 input[name="attr_force_show_mutations"]:not(:checked) ~ .sheet-character-mutations,
@@ -863,6 +877,7 @@ input[name="attr_force_show_modules"]:not(:checked) ~ .sheet-character-modules {
   display: none;
 } */
 
+/*
 input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-char-mutant,
 input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-character-mutations, 
 input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-char-robot,
@@ -871,8 +886,21 @@ input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-char-animal,
 input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-character-animalpowers, 
 input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-char-human,
 input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-character-contacts,
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-character-biomech {
+input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-character-biomech
+*/
+
+
+input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-char-mutant,
+input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-char-robot,
+input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-char-animal,
+input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-char-human {
   display: block;
+}
+input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-char-mutant-grid,
+input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-char-robot-grid,
+input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-char-animal-grid,
+input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-char-human-grid {
+  display: grid;
 }
 
 input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-appearance-grid {
@@ -885,7 +913,6 @@ input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-appearance-grid 
 input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-appearance-grid .sheet-header {
   display: flex;
 }
-
 input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-conditions-grid {
   display: none;
 }
@@ -906,6 +933,10 @@ input.sheet-monster_only:checked ~ div.sheet-character,
 input.sheet-settings:checked ~ div.sheet-settings {
   display: inline-block;
   -margin-top: -30px;
+}
+
+.sheet-tab-content.sheet-settings {
+  margin-top: 30px !important;
 }
 
 input.sheet-settings:checked ~ .sheet-character-type {
@@ -1515,11 +1546,11 @@ div.sheet-talents-box {
 div.sheet-character-weapons div.sheet-header,
 div.sheet-gear-box1,
 div.sheet-gear-box6,
-div.sheet-coins-box .sheet-header,
+div.sheet-money-box .sheet-header,
 div.sheet-vehicle-box1,
 div.sheet-vehiclegear-box1,
 div.sheet-consumables-box1,
-div.sheet-coins-box,
+div.sheet-money-box,
 div.sheet-experience-grid,
 div.sheet-willpower-box1,
 div.sheet-spells-box,
@@ -1816,7 +1847,7 @@ input.sheet-dice_only:checked
   -background-position-x: center;
 }
 
-.sheet-character-coins,
+.sheet-character-money,
 .sheet-character-consumables {
   grid-column-start: 3;
   padding: 0;
@@ -3826,9 +3857,9 @@ span.sheet-armor-box3.sheet-header {
   -margin-right: -25px;
 }
 
-/* ---------------------------------- Coins */
+/* ---------------------------------- money */
 
-.sheet-coins-grid {
+.sheet-money-grid {
   display: grid;
   margin: 0 0 0 3px;
   row-gap: 4px;
@@ -3838,77 +3869,77 @@ span.sheet-armor-box3.sheet-header {
   padding: 0px 5px 8px 5px;
 }
 
-.sheet-coins-grid div[class$="-header"] {
+.sheet-money-grid div[class$="-header"] {
   margin: 0 -7px 0 -9px;
 }
 
-.sheet-coins-grid > div {
+.sheet-money-grid > div {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.sheet-coins-box {
+.sheet-money-box {
   grid-column: 1/5;
   grid-row-start: 1;
 }
 
-.sheet-coins-box1 {
+.sheet-money-box1 {
   grid-column-start: 1;
   grid-row-start: 1;
 }
 
-.sheet-coins-box2 {
+.sheet-money-box2 {
   grid-column-start: 2;
   grid-row-start: 1;
 }
 
-.sheet-coins-box3 {
+.sheet-money-box3 {
   grid-column-start: 3;
   grid-row-start: 1;
 }
 
-.sheet-coins-box4 {
+.sheet-money-box4 {
   grid-column-start: 4;
   grid-row-start: 1;
 }
 
-.sheet-coins-box5 {
+.sheet-money-box5 {
   grid-column-start: 1;
   grid-row-start: 2;
 }
 
-.sheet-coins-box6 {
+.sheet-money-box6 {
   grid-column-start: 2;
   grid-row-start: 2;
 }
 
-.sheet-coins-box7 {
+.sheet-money-box7 {
   grid-column-start: 1;
   grid-row-start: 3;
 }
 
-.sheet-coins-box8 {
+.sheet-money-box8 {
   grid-column-start: 2;
   grid-row-start: 3;
 }
 
-.sheet-coins-box9 {
+.sheet-money-box9 {
   grid-column-start: 1;
   grid-row-start: 4;
 }
 
-.sheet-coins-box10 {
+.sheet-money-box10 {
   grid-column-start: 2;
   grid-row-start: 4;
 }
 
-.sheet-coins-box11 {
+.sheet-money-box11 {
   grid-column-start: 3;
   grid-row-start: 4;
 }
 
-.sheet-coins-box12 {
+.sheet-money-box12 {
   grid-column-start: 4;
   grid-row-start: 4;
 }
@@ -4056,7 +4087,7 @@ span.sheet-armor-box3.sheet-header {
 
 .sheet-vehicle-grid {
   position: relative;
-  display: grid;
+  -display: grid; /* Done above in char type traits */
   row-gap: 2px;
   -column-gap: 2px;
   grid-template-columns: 1fr 1fr;
@@ -4504,6 +4535,11 @@ span.sheet-armor-box3.sheet-header {
 }
 
 .sheet-ark-notes {
+  grid-column: 1/4;
+  grid-row-start: 5;
+}
+
+.sheet-ark-influence {
   grid-column: 1/4;
   grid-row-start: 4;
 }
@@ -4955,6 +4991,19 @@ span.sheet-armor-box3.sheet-header {
 .sheet-ark-notes-box4 {
   grid-column-start: 2;
   grid-row-start: 2;
+}
+
+/* --------------------- SETTINGS OPTIONS */
+
+.sheet-traits-vis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.sheet-traits-vis-col1 {
+  grid-column-start: 1;
+}
+.sheet-traits-vis-col2 {
+  grid-column-start: 2;
 }
 
 /* GRID STYLING */

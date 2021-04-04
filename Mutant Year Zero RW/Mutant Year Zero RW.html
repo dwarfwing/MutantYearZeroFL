@@ -2580,39 +2580,54 @@
 
 <div class="wrapper tab-content ark">
   <div class="ark-grid">
+    <input type="checkbox" class="hidden force-show-arklevels" name="attr_force_show_arklevels" value="1" />
     <input type="checkbox" class="hidden force-show-arkdetails" name="attr_force_show_arkdetails" value="1" />
     <input type="checkbox" class="hidden force-show-projects" name="attr_force_show_projects" value="1" />
 
     <div class="box ark-development chartype-background-dark char-human char-robot char-mutant">
       <div class="ark-development-grid">
         <div class="ark-development-box1 header">
-          <h1 data-i18n="development-u">
-            DEVELOPMENT
-          </h1>
+          <h1 data-i18n="development-u">DEVELOPMENT</h1>
         </div>
         <div class="ark-development-subheader ark-development-subheader1 column-header">
-          <span data-i18n="foodsupply-u">Food Supply</span>
+          <span class="char-mutant char-animal" data-i18n="foodsupply">Food Supply</span>
+          <span class="char-robot" data-i18n="energy">Energy</span>
+          <span class="char-human" data-i18n="production">Production</span>
         </div>
         <div class="ark-development-subheader ark-development-subheader2 column-header">
-          <span data-i18n="culture">Culture</span>
+          <span class="char-mutant char-animal" data-i18n="culture">Culture</span>
+          <span class="char-robot" data-i18n="production">Production</span>
+          <span class="char-human" data-i18n="security">Security</span>
         </div>
         <div class="ark-development-subheader ark-development-subheader3 column-header">
-          <span data-i18n="technology">Technology</span>
+          <span class="char-mutant char-animal" data-i18n="technology">Technology</span>
+          <span class="char-robot" data-i18n="defence">Defence</span>
+          <span class="char-human" data-i18n="culture">Culture</span>
         </div>
         <div class="ark-development-subheader ark-development-subheader4 column-header">
-          <span data-i18n="warfare">Warfare</span>
+          <span class="char-mutant char-animal" data-i18n="warfare">Warfare</span>
+          <span class="char-robot" data-i18n="information">Information</span>
+          <span class="char-human" data-i18n="science">Science</span>
         </div>      
         <div class="ark-development-col ark-development-col1">
-          <input type="number" class="input-number" name="attr_ark_dev_food" />
+          <input type="number" class="input-number char-mutant char-animal" name="attr_ark_dev_food" />
+          <input type="number" class="input-number char-robot" name="attr_ark_dev_energy" />
+          <input type="number" class="input-number char-human" name="attr_ark_dev_prod" />
         </div>
         <div class="ark-development-col ark-development-col2">
-          <input type="number" class="input-number" name="attr_ark_dev_cult" />
+          <input type="number" class="input-number char-mutant char-animal" name="attr_ark_dev_cult" />
+          <input type="number" class="input-number char-robot" name="attr_ark_dev_prod" />
+          <input type="number" class="input-number char-human" name="attr_ark_dev_sec" />
         </div>
         <div class="ark-development-col ark-development-col3">
-          <input type="number" class="input-number" name="attr_ark_dev_tech" />
+          <input type="number" class="input-number char-mutant char-animal" name="attr_ark_dev_tech" />
+          <input type="number" class="input-number char-robot" name="attr_ark_dev_def" />
+          <input type="number" class="input-number char-human" name="attr_ark_dev_cult" />
         </div>
         <div class="ark-development-col ark-development-col4">
-          <input type="number" class="input-number" name="attr_ark_dev_war" />
+          <input type="number" class="input-number char-mutant char-animal" name="attr_ark_dev_war" />
+          <input type="number" class="input-number char-robot" name="attr_ark_dev_info" />
+          <input type="number" class="input-number char-human" name="attr_ark_dev_sci" />
         </div>
       </div>
     </div>
@@ -2945,11 +2960,11 @@
     <span style="display: none;" data-i18n="whisper-query">Whisper roll?</span>
     <span style="display: none;" data-i18n="yes">yes</span>
     <span style="display: none;" data-i18n="no">no</span>
-    <div>
+    <!--<div>
       <span data-i18n="sort-skills">Sort Skills by Attribute:</span>
       <input type="checkbox" name="attr_skill_order_group" value="1" title="@{skill_order_group}" style="vertical-align: middle;" />
     </div>
-    <!--<div>
+    <div>
       <span data-i18n="sort-stockpile">Sort Stockpile resources alphabetically:</span>
       <input type="checkbox" name="attr_stockpile_order_group" value="1" title="@{stockpile_order_group}" style="vertical-align: text-top;" checked />
     </div>-->
@@ -2981,16 +2996,6 @@
             <input type="checkbox" name="attr_force_show_modules" label="Modules" value="1" title="@{force_show_modules}" style="vertical-align: center;" />
             <span data-i18n="show-modules">Show Modules</span>
           </div>
-        </div>
-        <div class="traits-vis-col2">
-          <div style="margin-left: 10px;">
-            <input type="checkbox" name="attr_force_show_arkdetails" label="Ark details" value="1" title="@{force_show_arkdetails}" style="vertical-align: center;" />
-            <span data-i18n="show-arkdetails">Show Ark details</span>
-          </div>
-          <div style="margin-left: 10px;">
-            <input type="checkbox" name="attr_force_show_projects" label="Ark projects" value="1" title="@{force_show_projects}" style="vertical-align: center;" />
-            <span data-i18n="show-projects">Show Ark projects</span>
-          </div>
           <div style="margin-left: 10px;">
             <input type="checkbox" name="attr_force_show_money" label="Money" value="1" title="@{force_show_money}" style="vertical-align: center;" />
             <span data-i18n="show-money">Show Money</span>
@@ -2998,6 +3003,20 @@
           <div style="margin-left: 10px;">
             <input type="checkbox" name="attr_force_show_vehicle" label="Vehicle" value="1" title="@{force_show_vehicle}" style="vertical-align: center;" />
             <span data-i18n="show-vehicle">Show Vehicle</span>
+          </div>
+        </div>
+        <div class="traits-vis-col2">
+          <div style="margin-left: 10px;">
+            <input type="checkbox" name="attr_force_show_arklevels" label="Ark details" value="1" title="@{force_show_arklevels}" style="vertical-align: center;" />
+            <span data-i18n="show-arklevels">Show Ark development levels</span>
+          </div>
+          <div style="margin-left: 10px;">
+            <input type="checkbox" name="attr_force_show_arkdetails" label="Ark details" value="1" title="@{force_show_arkdetails}" style="vertical-align: center;" />
+            <span data-i18n="show-arkdetails">Show Ark details</span>
+          </div>
+          <div style="margin-left: 10px;">
+            <input type="checkbox" name="attr_force_show_projects" label="Ark projects" value="1" title="@{force_show_projects}" style="vertical-align: center;" />
+            <span data-i18n="show-projects">Show Ark projects</span>
           </div>
         </div>
       </div>

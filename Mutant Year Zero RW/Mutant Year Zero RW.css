@@ -861,6 +861,7 @@ input[name="attr_force_show_vehicle"]:checked ~ .sheet-vehicle-grid {
 }
 
 input[name="attr_force_show_money"]:checked ~ .sheet-character-money,
+input[name="attr_force_show_arklevels"]:checked ~ .sheet-ark-development,
 input[name="attr_force_show_arkdetails"]:checked ~ .sheet-ark-details,
 input[name="attr_force_show_arkdetails"]:checked ~ .sheet-ark-bosses,
 input[name="attr_force_show_arkdetails"]:checked ~ .sheet-ark-other,

@@ -5300,11 +5300,14 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 .sheet-rolltemplate-mutantyearzero div.sheet-template-footer {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   -font-size: 0.75em;
-  margin: 5px;
+  -margin: 5px;
   padding: 2px;
   -text-align: justify;
   text-align: center;
 }
+.sheet-rolltemplate-mutantyearzero div.sheet-template-footer .sheet-right-align {
+  text-align: right;
+} 
 
 .sheet-rolltemplate-mutantyearzero div.sheet-free-text {
   font-size: 1em;
@@ -5509,6 +5512,10 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   color: #fff;
   border: 1px solid transparent;
   background-color: #000;
+}
+
+.sheet-rolltemplate-mutantyearzero .sheet-template-black-dice .span[title="Bane"] {
+  font-family: 'Segoe UI Symbol',symbol;
 }
 
 .sheet-rolltemplate-mutantyearzero .sheet-template-green-dice {

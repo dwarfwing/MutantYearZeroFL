@@ -259,7 +259,7 @@
 	"modules-u": "MODULES",
 	"money-u": "MONEY",
 	"money": "Money",
-	"monster": "Monster",
+	"monster": "Npc/Monster",
 	"monster-attack": "Monster Attack",
 	"monster-attacks-u": "MONSTER ATTACKS",
 	"monster-name": "Monster's Name/Type",

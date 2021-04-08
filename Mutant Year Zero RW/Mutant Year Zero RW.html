@@ -190,69 +190,62 @@
         <div class="attributes-box3">
           <!-- PC or Monster Strength attr_strength updates pc/monster str depending on sheet tab-->
           <input class="broken-str" type="hidden" name="attr_strength" value="0" />
-          <input class="input-number broken-str monster" type="number" name="attr_strength_monster" value="0" min="0" max="48" title="@{strength_monster}" />
+          <input class="input-number broken-str monster" type="number" name="attr_strength_monster" value="0" min="0" max="40" title="@{strength_monster}" />
           <input class="input-number broken-str toggle-monster-only" type="number" name="attr_strength_pc" value="0" min="0" max="6" title="@{strength_pc}" />
         </div>
         <div class="attributes-box4">
           <input class="broken-str" type="hidden" name="attr_strength" />
           <input type="radio" name="attr_damage" value="0" style="margin: 4px 8px 3px 2px;" data-i18n-title="no-damage" title="No Damage" checked />
-          <input class="skull biohaz" type="radio" name="attr_damage" value="1" title="1 @{damage}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_damage" value="2" title="2 @{damage}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_damage" value="3" title="3 @{damage}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_damage" value="4" title="4 @{damage}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_damage" value="5" title="5 @{damage}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_damage" value="6" title="6 @{damage}" /><span></span>
-          <input class="skull biohaz monster" type="radio" name="attr_damage" value="7" title="7 @{damage}" /><span></span>
-          <input class="skull biohaz monster" type="radio" name="attr_damage" value="8" title="8 @{damage}" /><span></span>
-          <input class="skull biohaz monster" type="radio" name="attr_damage" value="9" title="9 @{damage}" /><span></span>
-          <input class="skull biohaz monster" type="radio" name="attr_damage" value="10" title="10 @{damage}" /><span></span>
-          <input class="skull biohaz monster" type="radio" name="attr_damage" value="11" title="11 @{damage}" /><span></span>
-          <input class="skull biohaz monster" type="radio" name="attr_damage" value="12" title="12 @{damage}" /><span></span>
+          <input class="skull biohaz" type="radio" name="attr_damage" value="1" title="1 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_damage" value="2" title="2 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_damage" value="3" title="3 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_damage" value="4" title="4 @{damage}" /><span>&#x2623;</span><span class="break-at-four"><br /></span>
+          <input class="skull biohaz" type="radio" name="attr_damage" value="5" title="5 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_damage" value="6" title="6 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_damage" value="7" title="7 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_damage" value="8" title="8 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_damage" value="9" title="9 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_damage" value="10" title="10 @{damage}" /><span>&#x2623;</span>
           <!--force line break for 2nd row of skulls-->
           <div class="monster" style="width: 102%; height: 3px;">&nbsp;</div>
           <span class="monster" style="width: 21px;"></span>
-          <input class="skull biohaz monster" type="radio" name="attr_damage" value="13" title="13 @{damage}" /><span></span>
-          <input class="skull biohaz monster" type="radio" name="attr_damage" value="14" title="14 @{damage}" /><span></span>
-          <input class="skull biohaz monster" type="radio" name="attr_damage" value="15" title="15 @{damage}" /><span></span>
-          <input class="skull biohaz monster" type="radio" name="attr_damage" value="16" title="16 @{damage}" /><span></span>
-          <input class="skull biohaz monster" type="radio" name="attr_damage" value="17" title="17 @{damage}" /><span></span>
-          <input class="skull biohaz monster" type="radio" name="attr_damage" value="18" title="18 @{damage}" /><span></span>
-          <input class="skull biohaz monster" type="radio" name="attr_damage" value="19" title="19 @{damage}" /><span></span>
-          <input class="skull biohaz monster" type="radio" name="attr_damage" value="20" title="20 @{damage}" /><span></span>
-          <input class="skull biohaz monster" type="radio" name="attr_damage" value="21" title="21 @{damage}" /><span></span>
-          <input class="skull biohaz monster" type="radio" name="attr_damage" value="22" title="22 @{damage}" /><span></span>
-          <input class="skull biohaz monster" type="radio" name="attr_damage" value="23" title="23 @{damage}" /><span></span>
-          <input class="skull biohaz monster" type="radio" name="attr_damage" value="24" title="24 @{damage}" /><span></span>
+          <input class="skull biohaz monster" type="radio" name="attr_damage" value="11" title="11 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_damage" value="12" title="12 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_damage" value="13" title="13 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_damage" value="14" title="14 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_damage" value="15" title="15 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_damage" value="16" title="16 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_damage" value="17" title="17 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_damage" value="18" title="18 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_damage" value="19" title="19 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_damage" value="20" title="20 @{damage}" /><span>&#x2623;</span>
           <!--force line break for 3rd row of skulls-->
           <div class="monster" style="width: 102%; height: 3px;">&nbsp;</div>
-          <input class="monster extra-damage-show" type="checkbox" name="attr_show_more_damage" value="1" data-i18n-title="extra-damage" title="Toggle extra damage tracking (25-48)" style="padding-top: 6px;" />
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="25" title="25 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="26" title="26 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="27" title="27 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="28" title="28 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="29" title="29 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="30" title="30 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="31" title="31 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="32" title="32 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="33" title="33 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="34" title="34 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="35" title="35 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="36" title="36 @{damage}" /><span></span>
+          <span class="monster" style="width: 21px;"></span>
+          <!--input class="monster extra-damage-show" type="checkbox" name="attr_show_more_damage" value="1" data-i18n-title="extra-damage" title="Toggle extra damage tracking (25-48)" style="padding-top: 6px;" /-->
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="21" title="21 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="22" title="22 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="23" title="23 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="24" title="24 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="25" title="25 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="26" title="26 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="27" title="27 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="28" title="28 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="29" title="29 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="30" title="30 @{damage}" /><span>&#x2623;</span>
           <!--force line break for 4th row of skulls-->
           <div class="monster" style="width: 102%; height: 3px;">&nbsp;</div>
           <span class="monster" style="width: 21px;"></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="37" title="37 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="38" title="38 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="39" title="39 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="40" title="40 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="41" title="41 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="42" title="42 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="43" title="43 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="44" title="44 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="45" title="45 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="46" title="46 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="47" title="47 @{damage}" /><span></span>
-          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="48" title="48 @{damage}" /><span></span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="31" title="31 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="32" title="32 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="33" title="33 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="34" title="34 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="35" title="35 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="36" title="36 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="37" title="37 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="38" title="38 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="39" title="39 @{damage}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="40" title="40 @{damage}" /><span>&#x2623;</span>
         </div>
         <div class="attributes-box5">
           <span class="input-span broken-str" name="attr_strength_total" value="0" title="@{strength_total}">0</span>
@@ -269,12 +262,21 @@
         <div class="attributes-box8">
           <input class="broken-agi" type="hidden" name="attr_agility" />
           <input type="radio" name="attr_fatigue" value="0" style="margin: 4px 8px 3px 2px;" data-i18n-title="no-damage" title="No Damage" checked />
-          <input class="skull biohaz" type="radio" name="attr_fatigue" value="1" title="1 @{fatigue}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_fatigue" value="2" title="2 @{fatigue}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_fatigue" value="3" title="3 @{fatigue}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_fatigue" value="4" title="4 @{fatigue}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_fatigue" value="5" title="5 @{fatigue}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_fatigue" value="6" title="6 @{fatigue}" /><span></span>
+          <input class="skull biohaz" type="radio" name="attr_fatigue" value="1" title="1 @{fatigue}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_fatigue" value="2" title="2 @{fatigue}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_fatigue" value="3" title="3 @{fatigue}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_fatigue" value="4" title="4 @{fatigue}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_fatigue" value="5" title="5 @{fatigue}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_fatigue" value="6" title="6 @{fatigue}" /><span>&#x2623;</span>
+          <!--force line break for 2nd row of skulls-->
+          <div class="monster" style="width: 102%; height: 3px;">&nbsp;</div>
+          <span class="monster" style="width: 21px;"></span>
+          <input class="skull biohaz monster" type="radio" name="attr_fatigue" value="7" title="7 @{fatigue}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_fatigue" value="8" title="8 @{fatigue}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_fatigue" value="9" title="9 @{fatigue}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_fatigue" value="10" title="10 @{fatigue}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_fatigue" value="11" title="11 @{fatigue}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_fatigue" value="12" title="12 @{fatigue}" /><span>&#x2623;</span>
         </div>
         <div class="attributes-box9">
           <span class="input-span broken-agi" name="attr_agility_total" value="0" title="@{agility_total}">0</span>
@@ -291,12 +293,21 @@
         <div class="attributes-box12">
           <input class="broken-wit" type="hidden" name="attr_wits" />
           <input type="radio" name="attr_confusion" value="0" style="margin: 4px 8px 3px 2px;" data-i18n-title="no-damage" title="No Damage" checked />
-          <input class="skull biohaz" type="radio" name="attr_confusion" value="1" title="1 @{confusion}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_confusion" value="2" title="2 @{confusion}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_confusion" value="3" title="3 @{confusion}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_confusion" value="4" title="4 @{confusion}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_confusion" value="5" title="5 @{confusion}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_confusion" value="6" title="6 @{confusion}" /><span></span>
+          <input class="skull biohaz" type="radio" name="attr_confusion" value="1" title="1 @{confusion}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_confusion" value="2" title="2 @{confusion}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_confusion" value="3" title="3 @{confusion}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_confusion" value="4" title="4 @{confusion}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_confusion" value="5" title="5 @{confusion}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_confusion" value="6" title="6 @{confusion}" /><span>&#x2623;</span>
+          <!--force line break for 2nd row of skulls-->
+          <div class="monster" style="width: 102%; height: 3px;">&nbsp;</div>
+          <span class="monster" style="width: 21px;"></span>
+          <input class="skull biohaz monster" type="radio" name="attr_confusion" value="7" title="7 @{confusion}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_confusion" value="8" title="8 @{confusion}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_confusion" value="9" title="9 @{confusion}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_confusion" value="10" title="10 @{confusion}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_confusion" value="11" title="11 @{confusion}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_confusion" value="12" title="12 @{confusion}" /><span>&#x2623;</span>
         </div>
         <div class="attributes-box13">
           <span class="input-span broken-wit" name="attr_wits_total" value="0" title="@{wits_total}">0</span>
@@ -313,12 +324,21 @@
         <div class="attributes-box16">
           <input class="broken-emp" type="hidden" name="attr_empathy" />
           <input type="radio" name="attr_doubt" value="0" style="margin: 4px 8px 3px 2px;" data-i18n-title="no-damage" title="No Damage" checked />
-          <input class="skull biohaz" type="radio" name="attr_doubt" value="1" title="1 @{doubt}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_doubt" value="2" title="2 @{doubt}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_doubt" value="3" title="3 @{doubt}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_doubt" value="4" title="4 @{doubt}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_doubt" value="5" title="5 @{doubt}" /><span></span>
-          <input class="skull biohaz" type="radio" name="attr_doubt" value="6" title="6 @{doubt}" /><span></span>
+          <input class="skull biohaz" type="radio" name="attr_doubt" value="1" title="1 @{doubt}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_doubt" value="2" title="2 @{doubt}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_doubt" value="3" title="3 @{doubt}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_doubt" value="4" title="4 @{doubt}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_doubt" value="5" title="5 @{doubt}" /><span>&#x2623;</span>
+          <input class="skull biohaz" type="radio" name="attr_doubt" value="6" title="6 @{doubt}" /><span>&#x2623;</span>
+          <!--force line break for 2nd row of skulls-->
+          <div class="monster" style="width: 102%; height: 3px;">&nbsp;</div>
+          <span class="monster" style="width: 21px;"></span>
+          <input class="skull biohaz monster" type="radio" name="attr_doubt" value="7" title="7 @{doubt}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_doubt" value="8" title="8 @{doubt}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_doubt" value="9" title="9 @{doubt}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_doubt" value="10" title="10 @{doubt}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_doubt" value="11" title="11 @{doubt}" /><span>&#x2623;</span>
+          <input class="skull biohaz monster" type="radio" name="attr_doubt" value="12" title="12 @{doubt}" /><span>&#x2623;</span>
         </div>
         <div class="attributes-box17">
           <span class="input-span broken-emp" name="attr_empathy_total" value="0" title="@{empathy_total}">0</span>
@@ -4700,8 +4720,10 @@
       getAttrs([stat, "tab"], function (values) {
         const total = int(values[stat]);
         const tab = int(values.tab);
-        const max = tab === 3 && stat === "strength_monster" ? 6 : 48;
-        //            const max = 48;
+        var max = tab === 3 ? 12 : 6;
+        // const max attribute = 12 for monsters; 
+        max = tab === 3 && stat === "strength_monster" ? 12 : 40;
+        // const max strength = 40 for monsters; 
         const settings = checkMax(stat, total, max);
         if (settings) setAttrs(settings);
       });

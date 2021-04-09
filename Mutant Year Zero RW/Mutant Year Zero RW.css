@@ -2157,7 +2157,7 @@ input[name="attr_chartype"][value="Robot"]:checked ~ div.sheet-character-grid .s
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  margin: 0 -5px 5px -3px;
+  -margin: 0 -5px 5px -3px;
   -border-bottom: 1px solid #000; 
 }
 
@@ -2228,7 +2228,7 @@ input[name="attr_chartype"][value="Robot"]:checked ~ div.sheet-character-grid .s
   width: 80%;
   height: 1.65em;
   padding: 0;
-  font-size: .875em;
+  -font-size: .875em;
 }
 
 /* -----------------------------------Monster Tab layout */

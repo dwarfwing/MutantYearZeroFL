@@ -866,7 +866,26 @@ button.btn.btn-danger.pictos.repcontrol_del:hover {
 
 /* ------------------- CHARACTER TYPE VISIBILITY */
 
-
+input[name="attr_chartype"][value="Mutant"] ~ div .sheet-header,
+input[name="attr_chartype"][value="Mutant"] ~ div .sheet-column-header,
+input[name="attr_chartype"][value="Mutant"] ~ div .sheet-chartype-background-darkest {
+  background-color: #764621; 
+}
+input[name="attr_chartype"][value="Animal"] ~ div .sheet-header,
+input[name="attr_chartype"][value="Animal"] ~ div .sheet-column-header,
+input[name="attr_chartype"][value="Animal"] ~ div .sheet-chartype-background-darkest {
+  background-color: #687569; 
+}
+input[name="attr_chartype"][value="Robot"] ~ div .sheet-header,
+input[name="attr_chartype"][value="Robot"] ~ div .sheet-column-header,
+input[name="attr_chartype"][value="Robot"] ~ div .sheet-chartype-background-darkest {
+  background-color: #035974; 
+}
+input[name="attr_chartype"][value="Human"] ~ div .sheet-header,
+input[name="attr_chartype"][value="Human"] ~ div .sheet-column-header,
+input[name="attr_chartype"][value="Human"] ~ div .sheet-chartype-background-darkest {
+  background-color: #1b6764; 
+}
 
 input[name="attr_chartype"][value="Mutant"] ~ div .sheet-chartype-background-dark {
   background-color: #cd8b41; 
@@ -881,7 +900,6 @@ input[name="attr_chartype"][value="Human"] ~ div .sheet-chartype-background-dark
   background-color: #68a98f; 
 }
 
-
 input[name="attr_chartype"][value="Mutant"] ~ div .sheet-chartype-background-light {
   background-color: #efd6b8; 
 }
@@ -893,28 +911,6 @@ input[name="attr_chartype"][value="Robot"] ~ div .sheet-chartype-background-ligh
 }
 input[name="attr_chartype"][value="Human"] ~ div .sheet-chartype-background-light {
   background-color: #e2edea; 
-}
-
-
-input[name="attr_chartype"][value="Mutant"] ~ div .sheet-header,
-input[name="attr_chartype"][value="Mutant"] ~ div .sheet-column-header,
-input[name="attr_chartype"][value="Mutant"] ~ div .sheet-chartype-border-darkest {
-  background-color: #764621; 
-}
-input[name="attr_chartype"][value="Animal"] ~ div .sheet-header,
-input[name="attr_chartype"][value="Animal"] ~ div .sheet-column-header,
-input[name="attr_chartype"][value="Animal"] ~ div .sheet-chartype-border-darkest {
-  background-color: #687569; 
-}
-input[name="attr_chartype"][value="Robot"] ~ div .sheet-header,
-input[name="attr_chartype"][value="Robot"] ~ div .sheet-column-header,
-input[name="attr_chartype"][value="Robot"] ~ div .sheet-chartype-border-darkest {
-  background-color: #035974; 
-}
-input[name="attr_chartype"][value="Human"] ~ div .sheet-header,
-input[name="attr_chartype"][value="Human"] ~ div .sheet-column-header,
-input[name="attr_chartype"][value="Human"] ~ div .sheet-chartype-border-darkest {
-  background-color: #1b6764; 
 }
 
 /* -------------------------- BORDERS */
@@ -1761,7 +1757,8 @@ div.sheet-ark-development-grid h1 {
 }
 
 div.sheet-experience-grid,
-div.sheet-vehiclegear-box6.sheet-header  {
+div.sheet-vehiclegear-box6.sheet-header ,
+div.sheet-vehiclegear-box6.sheet-column-header  {
   background-size: cover;
   -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header6.jpg");
 }
@@ -4192,13 +4189,21 @@ span.sheet-armor-box3.sheet-header {
 }
 
 .sheet-gear-box6 {
+  width: 100%;
   display: grid;
-  justify-content: end;
-  padding-right: 5px;
+  -justify-content: end;
+  height: 3em;
+  -padding-right: 5px;
   grid-column: 1/5;
   column-gap: 0.25em;
   grid-row-start: 4;
   grid-template-columns: auto 3em 1em auto 3em;
+}
+
+
+.sheet-gear-box6 span {
+  color: #FFF;
+
 }
 
 .sheet-carry-separator {
@@ -4237,11 +4242,14 @@ span.sheet-armor-box3.sheet-header {
   column-gap: 2px;
   grid-template-columns: auto 5em;
   justify-content: end;
+  padding: 5px; 
+  margin-bottom: 3px;
 
 }
 
 .sheet-gear-box12 {
   margin-top: 7px;
+  padding-right: 5px;
 }
 
 /* ---------------------------------- Vehicle */
@@ -4356,7 +4364,7 @@ span.sheet-armor-box3.sheet-header {
 /* ---------------------------------- Vehicle Gear */
 
 .sheet-vehiclegear-box {
-  grid-row-start: 7;
+  grid-row-start: 8;
   grid-column: 1/3; 
   display:flex;
   width: 100%;
@@ -4431,14 +4439,21 @@ span.sheet-armor-box3.sheet-header {
 }
 
 .sheet-vehiclegear-box6 {
+  width: 100%;
   display: grid;
-  justify-content: end;
-  height: 4em;
-  padding-right: 5px;
+  -justify-content: end;
+  overflow: hidden;
+  height: 3em;
+  -padding-right: 5px;
   grid-column: 1/5;
   column-gap: 0.25em;
   grid-row-start: 4;
   grid-template-columns: auto 3em 1em auto 3em;
+}
+
+.sheet-vehiclegear-box6 span {
+  color: #FFF;
+
 }
 
 .sheet-vehiclegear-box7 {

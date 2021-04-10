@@ -406,8 +406,8 @@
               <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
               <input class="monster-attacks-box1 input" type="text" name="attr_attack_name" value="" title="@{repeating_monster_$X_attack_name}" data-i18n-placeholder="name" placeholder="Name" />
               <input class="monster-attacks-box2 input-text" type="text" name="attr_attack_features" value="" title="@{repeating_monster_$X_attack_features}" />
-              <input class="monster-attacks-box3 input-number" type="text" name="attr_attack_dice" value="0" title="@{repeating_monster_$X_attack_dice}" />
-              <input class="monster-attacks-box4 input-number" type="text" name="attr_attack_damage" value="0" title="@{repeating_monster_$X_attack_damage}" />
+              <input class="monster-attacks-box3 input-number" type="number" name="attr_attack_dice" value="0" title="@{repeating_monster_$X_attack_dice}" />
+              <input class="monster-attacks-box4 input-number" type="number" name="attr_attack_damage" value="0" title="@{repeating_monster_$X_attack_damage}" />
               <select class="monster-attacks-box5 input" name="attr_attack_range" title="@{repeating_monster_$X_attack_range}">
                 <option value="n/a" data-i18n="not-applicable-abbr">n/a</option>
                 <option value="Arm" data-i18n="arms-length-abbr" selected>Arm's L.</option>
@@ -2147,7 +2147,7 @@
             <input class="input-number" type="text" name="attr_armor_encumbrance" value="0" title="@{armor_encumbrance}" readonly />
           </div>
         </div>
-        <div class="gear-box6 header">
+        <div class="gear-box6 column-header chartype-background-dark">
           <div class="gear">
             <span class="label encumberance" data-i18n="encumbrance">Encumbrance</span>
           </div>
@@ -2165,7 +2165,7 @@
             <input class="input-number" type="text" name="attr_carry" value="((2*(@{strength}))*@{pack_rat})" title="@{carry} = 2 x @{strength} x @{pack_rat}" disabled />
           </div>
         </div>
-        <div class="gear-subgrid2 chartype-background-light" style="margin-bottom: 1em;">
+        <div class="gear-subgrid2 chartype-background-light">
           <div class="gear-box12">
             <span class="label" data-i18n-title="pack-rat-title" data-i18n="pack-rat">Pack Rat Talent?&nbsp;</span>
           </div>
@@ -2227,16 +2227,16 @@
 
         <div class="vehiclegear-box chartype-background-light">
           <div class="vehiclegear-grid chartype-background-light">
-            <div class="vehiclegear-box1 header">
+            <div class="vehiclegear-box1 header chartype-background-dark">
               <h1 data-i18n="gear-on-vehicle">Gear on vehicle</h1>
             </div>
-            <div class="vehiclegear-box2 column-header">
+            <div class="vehiclegear-box2 column-header chartype-background-dark">
               <span data-i18n="quantity-abbr">Qty</span>
             </div>
-            <div class="vehiclegear-box3 column-header">
+            <div class="vehiclegear-box3 column-header chartype-background-dark">
               <span data-i18n="carried-abbr">Carried</span>
             </div>
-            <div class="vehiclegear-box4 column-header">
+            <div class="vehiclegear-box4 column-header chartype-background-dark">
               <span data-i18n="weight-abbr">Wt</span>
             </div>
             <div class="vehiclegear-box5">
@@ -2284,7 +2284,7 @@
                 <input class="input-number" type="text" name="attr_vehicle_fuel_weight" value="0" title="@{vehicle_fuel_weight}" readonly />
               </div>
             </div>
-            <div class="vehiclegear-box6 header">
+            <div class="vehiclegear-box6 column-header chartype-background-dark">
               <input type="hidden" name="attr_vehicle_overencumbered" hidden readonly />
               <div class="vehiclegear">
                 <span class="label encumberance" data-i18n="encumbrance">Encumbrance</span>

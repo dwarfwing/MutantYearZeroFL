@@ -41,14 +41,6 @@
             ],
             "default": "!myz"
         },
-        {
-            "attribute": "skill_order_group",
-            "type": "checkbox",
-            "value": "1",
-            "checked": "checked",
-            "displayname": "Sort Skills by attribute:",
-            "displaytranslationkey": "sort-skills"
-        },
 		{
             "attribute": "vehicle_advancedencumbrance",
             "type": "checkbox",

@@ -1307,12 +1307,8 @@ input.sheet-tab.sheet-settings:checked::after {
 }
 
 span.sheet-logo-image {
-  /*background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL_logo.png);*/
-  /*background-image: url(https://i.imgur.com/juUlixw.jpg);*/
-  /*background-image: ".\images\myz-logo.png";*/
-  /*background-image: url(https://frialigan.se/wp-content/uploads/2019/04/FBL_logo_gradient_600.png);*/
-  /*background-image: url(https://github.com/dwarfwing/MutantYearZeroFL/blob/main/images/MYZ-logo.png);*/
   background-image: url(https://github.com/dwarfwing/MutantYearZeroRW/blob/main/Mutant%20Year%20Zero%20RW/images/MYZ-logo.png?raw=true);
+  /*background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero%20RW/images/MYZ-logo.png);*/
   background-size: contain;
   background-repeat: no-repeat;
   background-position:right;
@@ -1328,12 +1324,7 @@ span.sheet-logo-image {
 span.sheet-logo-image.lang-sv {
   
   background-image: url(https://github.com/dwarfwing/MutantYearZeroRW/blob/main/Mutant%20Year%20Zero%20RW/images/MYZ-logo.png?raw=true);
-  
-  /*
-  background-image: url(https://i.imgur.com/juUlixw.jpg);
-  background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL_logo_sv.png);
-  background-image: url(https://frialigan.se/wp-content/uploads/2019/04/FBL_SWE_logo_gradient.png);
-*/
+  /*background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero%20RW/images/MYZ-logo.png);*/
 }
 
 input {
@@ -1795,12 +1786,6 @@ div.sheet-ark-other-grid h1 {
   border: 2px solid #000;
   grid-column: 1/span 3;
   grid-row-start: 1;
-  -background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20top%20banner.png);
-  -background-repeat: no-repeat;
-  -background-size: 100% 110px;
-  -background-position-y: top;
-  -background-position-x: center;
-  -height: 86px;
   display: flex;
   justify-content: space-evenly;
   justify-self: stretch;
@@ -1817,13 +1802,7 @@ input.sheet-monster_only:checked
   background-image: none;
   padding: 0;
   margin: -2px 0px 0 0px;
-  -border: 7px solid #000;
   border: 2px solid #000;
-  -border-top-width: 0;
-  -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20wide%20column%20border.png);
-  -border-image-slice: 0 20 20 20;
-  -border-image-width: 0 10px 10px 10px;
-  -border-image-repeat: repeat;
   background-color: inherit;
   height: 100%;
 }
@@ -1836,11 +1815,6 @@ input.sheet-npc_only:checked
   margin: -2px 0px 0 0px;
   -border: 7px solid #000;
   border: 2px solid #000;
-  -border-top-width: 0;
-  -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20wide%20column%20border.png);
-  -border-image-slice: 0 20 20 20;
-  -border-image-width: 0 10px 10px 10px;
-  -border-image-repeat: repeat;
   background-color: inherit;
   height: 100%;
 }
@@ -1863,14 +1837,6 @@ input.sheet-npc_only:checked
   margin: 0;
   -border: 10px solid #000;
   border: 2px solid #000;
-  -border-top-width: 0;
-  -border-bottom-width: 18px;
-  -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20small%20column%20border.png);
-  -border-image-slice: 0 25 40 25;
-  -border-image-width: 0 15px 30px 15px;
-  -border-image-repeat: repeat;
-  -background-color: inherit;
-  -height: 85%;
   overflow: hidden;
 }
 
@@ -1889,12 +1855,6 @@ input.sheet-npc_only:checked
   margin: 0 0 5px 0;
   -border: 7px solid #000;
   border: 2px solid #000;
-  -border-top-width: 0;
-  -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20large%20box%20border.png);
-  -border-image-slice: 0 20 20 20;
-  -border-image-width: 0 10px 10px 10px;
-  -border-image-repeat: repeat;
-  -background-color: inherit;
   overflow: hidden;
 }
 
@@ -1938,12 +1898,6 @@ input.sheet-npc_only:checked
   padding: 0 0px 0 0px;
   -margin: -2px 0px 0 0px;
   border: 3px solid #000;
-  -border-top-width: 0;
-  -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20wide%20column%20border.png);
-  -border-image-slice: 0 20 20 20;
-  -border-image-width: 0 10px 10px 10px;
-  -border-image-repeat: repeat;
-  -background-color: inherit;
   overflow: hidden;
 }
 
@@ -2013,25 +1967,10 @@ input.sheet-dice_only:checked
   overflow: hidden;
 }
 
-.sheet-character-consumables {
-  -grid-column-start: 3;
-  -background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/consumables.png);
-  -background-repeat: no-repeat;
-  -background-position-x: center;
-}
-
 .sheet-character-money,
 .sheet-character-consumables {
   grid-column-start: 3;
   padding: 0;
-  -border: 7px solid #000;
-  -border: 2px solid #000;
-  -border-top-width: 0;
-  -border-bottom-width: 18px;
-  -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20column%20border.png);
-  -border-image-slice: 0 25 40 25;
-  -border-image-width: 0 15px 15px 15px;
-  -border-image-repeat: repeat;
   background-color: inherit;
   overflow: hidden;
 }
@@ -2059,12 +1998,6 @@ input.sheet-dice_only:checked
   padding: 0;
   -border: 7px solid #000;
   border: 2px solid #000;
-  -border-top-width: 0;
-  -border-bottom-width: 5px;
-  -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20small%20column%20border.png);
-  -border-image-slice: 0 25 40 25;
-  -border-image-width: 0 15px 15px 15px;
-  -border-image-repeat: repeat;
   background-color: inherit;
   overflow: hidden;
 }
@@ -2262,15 +2195,7 @@ input[name="attr_chartype"][value="Robot"] ~ div.sheet-character-grid .sheet-hea
   height: 34px;
   color: #555;
   cursor: help;
-  /*
-  border: 1px solid #000;
-  border-radius: 50%;
-  background-color: #eee;
-  border-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20ring.png);
-  border-image-slice: 11;
-  border-image-width: 6px;
-  border-image-outset: 0px;
-  */
+
 }
 
 .sheet-attributes-grid button[type="action"] {
@@ -4254,15 +4179,7 @@ span.sheet-armor-box3.sheet-header {
 .sheet-vehiclegear-box5,
 .sheet-talents-grid .sheet-talents-box4,
 .sheet-gear-box5 {
-  -padding: 3px 3px 8px 2px;
-  -margin: -2px -7px 0 -7px;
-  -border: 2px solid #000;
-  -border: 10px solid #000;
-  -border-top-width: 0;
-  -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20wide%20column%20border.png);
-  -border-image-slice: 0 20 20 20;
-  -border-image-width: 0 10px 10px 10px;
-  -border-image-repeat: repeat;
+
   background-color: inherit;
 }
 
@@ -4696,12 +4613,6 @@ span.sheet-armor-box3.sheet-header {
   -border: none;
   grid-column: 1;
   grid-row-start: 2;
-  -background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20top%20banner.png);
-  -background-repeat: no-repeat;
-  -background-size: 100% 110px;
-  -background-position-y: top;
-  -background-position-x: center;
-  -display: flex;
   justify-content: space-evenly;
   justify-self: stretch;
 }
@@ -4887,14 +4798,7 @@ span.sheet-armor-box3.sheet-header {
   grid-row-start: 5;
   padding: 10px;
   margin: 0 1px 0 0 ;
-  -border: 2px solid #000;
-  -border: 10px solid #000;
-  -border-top-width: 18px;
-  -border-bottom-width: 18px;
-  -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20column%20box%20border.png);
-  -border-image-slice: 25 25 35 25;
-  -border-image-width: 15px 15px 15px 15px;
-  -border-image-repeat: round;
+
   background-color: inherit;
   -width: 100%;
 }
@@ -5386,12 +5290,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   padding: 5px 0 5px 0;
   border: 3px solid #000;
   border-radius: 5px;
-  -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/border_small_fixed.png);
-  -border-image-slice: 74;
-  -border-image-width: 50px 80px 50px 80px;
-  -border-image-outset: 6 4 4 4;
-  -border-image-repeat: stretch repeat;
-  -background-color: #f1f1f1;
+
   background: rgb(124,78,8);
   background: linear-gradient(0deg, rgba(124,78,8,1) 0%, rgba(224,184,15,1) 100%);
 }
@@ -5608,30 +5507,6 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   grid-column: 6 / 7;
 }
 
-.sheet-rolltemplate-mutantyearzero .sheet-template-artifact-1 {
-  background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/dice_legendary_success_1.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.sheet-rolltemplate-mutantyearzero .sheet-template-artifact-2 {
-  background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/dice_legendary_success_2.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.sheet-rolltemplate-mutantyearzero .sheet-template-artifact-3 {
-  background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/dice_legendary_success_3.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.sheet-rolltemplate-mutantyearzero .sheet-template-artifact-4 {
-  background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/dice_legendary_success_4.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
 .sheet-rolltemplate-mutantyearzero .sheet-template-success {
   max-width: 100%;
   height: auto;
@@ -5661,16 +5536,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 }
 
 /* add drop shadow to dice */
-/*
-.sheet-rolltemplate-mutantyearzero .sheet-template-white-dice,
-.sheet-rolltemplate-mutantyearzero .sheet-template-maroon-dice,
-.sheet-rolltemplate-mutantyearzero .sheet-template-black-dice,
-.sheet-rolltemplate-mutantyearzero .sheet-template-green-dice,
-.sheet-rolltemplate-mutantyearzero .sheet-template-blue-dice,
-.sheet-rolltemplate-mutantyearzero .sheet-template-orange-dice,
-.sheet-rolltemplate-mutantyearzero .sheet-template-yellow-dice,
-.sheet-rolltemplate-mutantyearzero .sheet-template-purple-dice,
-.sheet-rolltemplate-mutantyearzero .sheet-template-red-dice, */
+
 .sheet-rolltemplate-mutantyearzero .sheet-template-dice {
   margin: 1px;
   box-shadow: -3px 2px 3px #000;
@@ -5773,20 +5639,6 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   background-color: transparent;
   border: none;
 }
-
-/*
-.sheet-rolltemplate-mutantyearzero .sheet-template-dice > .inlinerollresult {
-  font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
-  font-size: 2em;
-  line-height: 1em;
-  font-weight: normal;
-  padding: 0;
-  -margin: -4px 0 0 0;
-  display: inline-block;
-  border: none;
-  background-color: transparent;
-}
-*/
 
 .sheet-rolltemplate-mutantyearzero .sheet-template-dice > span {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;

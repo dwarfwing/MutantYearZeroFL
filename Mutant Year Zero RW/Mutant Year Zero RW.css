@@ -4796,6 +4796,11 @@ span.sheet-armor-box3.sheet-header {
   grid-row-start: 2;
 }
 
+.sheet-ark-development-col .sheet-input-number {
+  width: 4em !important;
+  max-height: 3.5em !important;
+  height: 3.1em !important;
+}
 
 /* ---------------------------------- ark Details */
 
@@ -5110,6 +5115,12 @@ span.sheet-armor-box3.sheet-header {
   justify-content: center;
   border-right: 1px solid #ccc;
   padding: 3px;
+}
+
+.sheet-ark-influence-col .sheet-input-number {
+  width: 3.5em !important;
+  max-height: 2.25em !important;
+  height: 2.25em !important;
 }
 
 

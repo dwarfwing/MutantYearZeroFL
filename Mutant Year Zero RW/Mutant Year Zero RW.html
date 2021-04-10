@@ -3064,43 +3064,43 @@
     <span class="announcements-older-show">
       <ol>
         <span>v0.01</span>
-        <li>Updated the sheet with the an "offical" Mutant Year Zero logo.</li>
+        <li>Updated the sheet with the offical Mutant Year Zero logo.</li>
         <li>Updated version. </li>
-        <li>Added a selection for Character Type a la MYZ Alternative sheet. The chosen character type determines what is included in the sheet as well as the color scheme.</li>
+        <li>Added a selection for Character Type a la MYZ Alternative sheet, in a dropdown integrated in the tabs. The chosen character type determines what is included in the sheet as well as the color scheme.</li>
         <li>Updated roll template for MYZ dice.</li>
-        <li>Updated the API roll macro to use the Mutant Year Zero macro (!myz). </li>
+        <li>Updated API roll macro to use the Mutant Year Zero macro (!myz). </li>
         <li>Made Armor a repeatable section with one row per armor item, with encumberance and total Armor Rating as a button to use for Armor Rolls. </li>
         <li>Added item weight Quarter, to allow assigning 0.25 weight units to items (if wanted). Also added titles to weight dropdowns.</li>
-        <li>Modified the consumables for MYZ  rules. </li>
-        <li>Added the Money section for Elysium and Currency project. </li>
-        <li>Added the Mutations, Animal Powers, Modules, Biomech and Contacts traits for the different character types.  </li>
+        <li>Modified consumables for MYZ rules. </li>
+        <li>Added Money section for Elysium and Currency project. </li>
+        <li>Added Mutations, Animal Powers, Modules, Biomech and Contacts traits for the different character types.  </li>
         <li>Added Rot points. Please note there is no functionality for Permanent rot points nor Rot rolls.</li>
-        <li>Made it possible to force display the different traits, e.g. in case Biomechatroid animals, mutated humans, etc.   </li>
+        <li>Made it possible to force display of the different traits, e.g. in case Biomechatroid animals, mutated humans, etc.   </li>
         <li>Default sheet settings have been added. Make default changes from the campaign Settings page. These defaults 
             will apply to all new sheets. To apply these changes to all existing sheets as well, you must also use the 
-            "Apply Default Settings" button found at the bottom of the sidebar's "My Settings" page.</li>
-        <li>Option in Settings; "Sort Skills by Attribute". Enabled by default to match the paper sheet.</li>
+            "Apply Default Settings" button found at the bottom of the sidebar's "My Settings" page. 
+            Currently, Advanced vehicle encumbrance is the only seeting available this way.</li>
         <li>The range of each d66 dice to allow for custom rolls 0-100(normally, each d6 allows 1-6). 
             While this does not effect the d66 roll on the sheet, it does allow more flexibility for custom macros if desired.
             <br /><b>d100 Roll macro example;</b> <br /><textarea style="height: auto;"> @{selected|whisper_option} &amp;{template:mutantyearzero} 
             {{character_name=@{selected|character_name}}} {{character_id=@{selected|character_id}}} {{name=D100 Roll}} {{d66-die-one=[[ 1 ]] }} {{d66-roll-one=[[ 1d10-1 ]] }} {{d66-die-two=[[ 1 ]] }} {{d66-roll-two=[[ 1d10-1 ]] }}</textarea></li>
         <li>Skills, weapons, and armor have additional Modifiers for to make updating the Dice pool easier.</li>
-        <li>Profession skills added as a repeating section at the bottom of skill list, with same columns in the list as the normal skills. 
+        <li>Profession specific skills added as a repeating section at the bottom of skill list, with same columns in the list as the normal skills. 
             The skill attribute is selecteable through a dropdown. </li>
-        <li>All Attributes are "rollable".</li>
+        <li>All Attributes are rollable, using the Dice pool.</li>
         <li>Added option to configure one Vehicle, including advanced vehicle information such as Resilience, Armor, Fuel, Occupants. </li>
         <li>Added option to include gear on/in the vehicle. </li>
         <li>Option in Settings: Enable the advanced encymberance for vehicles, thus including the occupants and fuel in the encumberance calculation. </li>
         <li>Repeating row text "+Add" and "Modify" with simple icons.</li>
         <li>Swedish translations have been added. </li>
         <li>Biohazards used to indicate the damage on Attributes. </li>
-        <li>Removed a toggleable 2nd row to each skill.</li>
-        <li>Added an Ark page, which dependent on the character type will display the relevant items such as Projects, Development levels and Sectors.</li>
-        <li>Updated the Monster page to align with updated lists and displayed boxes, as well as the MYZ monster features.</li>
+        <li>Removed toggleable 2nd row to each skill.</li>
+        <li>Added Ark page, which dependent on the character type will display the relevant items such as Projects, Development levels, Influence and Sectors.</li>
+        <li>Updated Monster page to align with updated lists and displayed boxes, as well as the MYZ monster features.</li>
         <li>Added Appearance box at top of the sheet. </li>
-        <li>Added the Relationship section. </li>
-
-        <li>Added the fonts Oswald and Didact Gothic to make similar to paper sheet. </li>
+        <li>Added Relationship section at the bottom of the character sheet. </li>
+        <li>Added fonts Oswald and Didact Gothic to make similar to paper sheet. </li>
+        <li>Added Swedish translation. </li>
         <li>Fixed Profession skill dice pool calculation bug (Thanks GiGs).</li>
       </ol>
     </span>

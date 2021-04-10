@@ -1290,7 +1290,7 @@ input.sheet-tab.sheet-settings:checked::after {
   -margin-top: 10px;
   color: #000;
   -border: 2px solid #000;
-  -border-top: 4px solid #000;
+  border-top: 1px solid #CCC;
   border-bottom: 4px solid #000;
   -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20wrapper%20border.png);
   -border-image-slice: 67 0 70 0;

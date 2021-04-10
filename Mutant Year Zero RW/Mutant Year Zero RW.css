@@ -1106,7 +1106,7 @@ input[type="radio"].sheet-tab-alt {
   font-size: 1.1em;
   display: inline-block;
   width: 124px;
-  height: 28px;
+  height: 22px;
   cursor: pointer;
   border: 0;
   outline: none;
@@ -1130,7 +1130,7 @@ span.sheet-tab-alt + span,
   line-height: 18px;
   display: block;
   width: 120px;
-  height: 28px;
+  height: 22px;
   -padding-bottom: 1px;
   content: attr(title);
   text-align: center;
@@ -1149,18 +1149,15 @@ span.sheet-tab-alt + span,
   color: #444;
   font-size: 1.1em;
   width: 120px;
-  height: 30px;
+  height: 24px;
   background: #FFF;
   text-align: center;
   text-align-last: center;
   border: 2px solid #ccc;
   border-bottom: 0;
   border-radius: 4px 4px 0 0;
-  -margin-top: 6px;
-  -margin-left: -1px;
   margin-bottom: 0;
-  padding-bottom: 4px;
-  -opacity: 0.5;
+  padding: 0;
 }
 
 span.sheet-select-chartype,
@@ -1175,14 +1172,14 @@ span.sheet-tab-alt + span {
 
 input[type="radio"].sheet-tab.sheet-settings {
   font-family: "pictos";
-  width: 28px;
+  width: 24px;
   -margin-left: -2px;
   -z-index: 0;
 }
 
 input.sheet-tab.sheet-settings::before {
   font-family: "pictos";
-  width: 28px;
+  width: 24px;
   content: "y";
   -margin: 0 0 0 2px;
 }
@@ -1213,7 +1210,7 @@ input.sheet-tab.sheet-monster_only:hover::before {
   font-weight: bold;
   -z-index: 3;
   -width: 120px;
-  -height: 28px;
+  -height: 23px;
   -margin: -3px 0 0 0;
   -border-color: #aaa;
   -border-bottom-color: transparent;
@@ -1222,7 +1219,7 @@ input.sheet-tab.sheet-monster_only:hover::before {
 
 input.sheet-tab.sheet-settings:hover::before {
   -z-index: 3;
-  -width: 28px;
+  -width: 23px;
   border-color: #aaa;
   -border-bottom-color: transparent;
   background: #EEE;
@@ -1239,7 +1236,7 @@ input.sheet-tab:hover::before {
 
 input.sheet-tab:hover::before {
   -font-weight: bold;
-  -height: 28px;
+  -height: 23px;
   -margin: -3px 0 0 -2px;
   -background: #EEE;
 }
@@ -1248,7 +1245,7 @@ input.sheet-tab:checked::before,
 input.sheet-tab:checked:hover::before {
   font-weight: bold;
   -width: 120px;
-  -height: 28px;
+  -height: 23px;
   -margin: -3px 0 0 -2px;
   color: #fff;
   border: 2px solid #000;
@@ -1259,7 +1256,7 @@ input.sheet-tab:checked:hover::before {
 
 input.sheet-tab.sheet-settings:checked::before,
 input.sheet-tab.sheet-settings:checked:hover::before {
-  width: 28px;
+  width: 24px;
 }
 
 /* hides radio selector */

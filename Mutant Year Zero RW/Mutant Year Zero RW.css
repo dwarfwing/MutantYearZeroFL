@@ -295,6 +295,24 @@ hr.sheet-horizontal-rule::before {
   justify-self: right;
 }
 
+span.sheet-separator-s {
+  width: 5px;
+  min-width: 5px;
+}
+span.sheet-separator-m {
+  width: 15px;
+  min-width: 15px;
+}
+span.sheet-separator-l {
+  width: 25px;
+  min-width: 25px;
+}
+span.sheet-separator-xl {
+  width: 50px;
+  min-width: 50px;
+}
+
+
 .sheet-center,
 .sheet-grid-item.sheet-center {
   text-align: center;
@@ -1100,8 +1118,7 @@ input.sheet-npc_only:checked ~ div.sheet-character .sheet-npc + span {
 
 /** TABS *****************************/
 
-input[type="radio"].sheet-tab,
-input[type="radio"].sheet-tab-alt {
+input[type="radio"].sheet-tab {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   font-size: 1.1em;
   display: inline-block;
@@ -1114,17 +1131,18 @@ input[type="radio"].sheet-tab-alt {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
+
+input[type="radio"].sheet-tab:first-of-class {
+ margin-left: 15px;
+}
+
 input[type="radio"].sheet-tab + input,
-input[type="radio"].sheet-tab-alt + input,
 input[type="radio"].sheet-tab + select,
-input[type="radio"].sheet-tab-alt + select,
 select.sheet-select-chartype + input {
   margin-left: -4px;
 }
 
-
 input.sheet-tab::before,
-span.sheet-tab-alt + span,
 .sheet-select-chartype {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   line-height: 18px;
@@ -1160,8 +1178,7 @@ span.sheet-tab-alt + span,
   padding: 0;
 }
 
-span.sheet-select-chartype,
-span.sheet-tab-alt + span {
+span.sheet-select-chartype {
   margin-left: -120px;
 }
 
@@ -1316,7 +1333,7 @@ span.sheet-logo-image {
   height: 55px;
   -margin: -15px 0 0 0;
   display: inline-block;
-  margin-top: -20px;
+  margin-top: 20px;
   -margin-left: 60px;
   text-align: right;
 }

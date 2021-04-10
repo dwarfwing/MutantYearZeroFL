@@ -866,93 +866,95 @@ button.btn.btn-danger.pictos.repcontrol_del:hover {
 
 /* ------------------- CHARACTER TYPE VISIBILITY */
 
-input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-background-dark {
+
+
+input[name="attr_chartype"][value="Mutant"] ~ div .sheet-chartype-background-dark {
   background-color: #cd8b41; 
 }
-input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-background-dark {
+input[name="attr_chartype"][value="Animal"] ~ div .sheet-chartype-background-dark {
   background-color: #67a83f; 
 }
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-chartype-background-dark  {
+input[name="attr_chartype"][value="Robot"] ~ div .sheet-chartype-background-dark  {
   background-color: #8bb2ce; 
 }
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-background-dark {
+input[name="attr_chartype"][value="Human"] ~ div .sheet-chartype-background-dark {
   background-color: #68a98f; 
 }
 
 
-input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-background-light {
+input[name="attr_chartype"][value="Mutant"] ~ div .sheet-chartype-background-light {
   background-color: #efd6b8; 
 }
-input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-background-light {
+input[name="attr_chartype"][value="Animal"] ~ div .sheet-chartype-background-light {
   background-color: #d6ead8; 
 }
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-chartype-background-light {
+input[name="attr_chartype"][value="Robot"] ~ div .sheet-chartype-background-light {
   background-color: #e4eef5; 
 }
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-background-light {
+input[name="attr_chartype"][value="Human"] ~ div .sheet-chartype-background-light {
   background-color: #e2edea; 
 }
 
 
-input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-header,
-input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-column-header,
-input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-border-darkest {
+input[name="attr_chartype"][value="Mutant"] ~ div .sheet-header,
+input[name="attr_chartype"][value="Mutant"] ~ div .sheet-column-header,
+input[name="attr_chartype"][value="Mutant"] ~ div .sheet-chartype-border-darkest {
   background-color: #764621; 
 }
-input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-header,
-input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-column-header,
-input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-border-darkest {
+input[name="attr_chartype"][value="Animal"] ~ div .sheet-header,
+input[name="attr_chartype"][value="Animal"] ~ div .sheet-column-header,
+input[name="attr_chartype"][value="Animal"] ~ div .sheet-chartype-border-darkest {
   background-color: #687569; 
 }
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-header,
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-column-header,
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-chartype-border-darkest {
+input[name="attr_chartype"][value="Robot"] ~ div .sheet-header,
+input[name="attr_chartype"][value="Robot"] ~ div .sheet-column-header,
+input[name="attr_chartype"][value="Robot"] ~ div .sheet-chartype-border-darkest {
   background-color: #035974; 
 }
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-header,
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-column-header,
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-border-darkest {
+input[name="attr_chartype"][value="Human"] ~ div .sheet-header,
+input[name="attr_chartype"][value="Human"] ~ div .sheet-column-header,
+input[name="attr_chartype"][value="Human"] ~ div .sheet-chartype-border-darkest {
   background-color: #1b6764; 
 }
 
 /* -------------------------- BORDERS */
-input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-border-dark {
+input[name="attr_chartype"][value="Mutant"] ~ div .sheet-chartype-border-dark {
   border-color: #cd8b41; 
 }
-input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-border-dark {
+input[name="attr_chartype"][value="Animal"] ~ div .sheet-chartype-border-dark {
   border-color: #67a83f; 
 }
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-chartype-border-dark  {
+input[name="attr_chartype"][value="Robot"] ~ div .sheet-chartype-border-dark  {
   border-color: #8bb2ce; 
 }
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-border-dark {
+input[name="attr_chartype"][value="Human"] ~ div .sheet-chartype-border-dark {
   border-color: #68a98f; 
 }
 
 
-input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-border-light {
+input[name="attr_chartype"][value="Mutant"] ~ div .sheet-chartype-border-light {
   border-color: #efd6b8; 
 }
-input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-border-light {
+input[name="attr_chartype"][value="Animal"] ~ div .sheet-chartype-border-light {
   border-color: #d6ead8; 
 }
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-chartype-border-light {
+input[name="attr_chartype"][value="Robot"] ~ div .sheet-chartype-border-light {
   border-color: #e4eef5; 
 }
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-border-light {
+input[name="attr_chartype"][value="Human"] ~ div .sheet-chartype-border-light {
   border-color: #e2edea; 
 }
 
-input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-chartype-border-darkest {
+input[name="attr_chartype"][value="Mutant"] ~ div .sheet-chartype-border-darkest {
   border-color: #764621; 
 }
-input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-chartype-border-darkest {
+input[name="attr_chartype"][value="Animal"] ~ div .sheet-chartype-border-darkest {
   border-color: #687569; 
 }
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-chartype-border-darkest  {
+input[name="attr_chartype"][value="Robot"] ~ div .sheet-chartype-border-darkest  {
   border-color: #035974; 
 }
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-chartype-border-darkest {
+input[name="attr_chartype"][value="Human"] ~ div .sheet-chartype-border-darkest {
   border-color: #1b6764; 
 }
 
@@ -1002,42 +1004,42 @@ input[name="attr_force_show_modules"]:not(:checked) ~ .sheet-character-modules {
 } */
 
 /*
-input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-char-mutant,
-input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-character-mutations, 
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-char-robot,
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-character-modules, 
-input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-char-animal,
-input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-character-animalpowers, 
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-char-human,
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-character-contacts,
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-character-biomech
+input[name="attr_chartype"][value="Mutant"] ~ div .sheet-char-mutant,
+input[name="attr_chartype"][value="Mutant"] ~ div .sheet-character-mutations, 
+input[name="attr_chartype"][value="Robot"] ~ div .sheet-char-robot,
+input[name="attr_chartype"][value="Robot"] ~ div .sheet-character-modules, 
+input[name="attr_chartype"][value="Animal"] ~ div .sheet-char-animal,
+input[name="attr_chartype"][value="Animal"] ~ div .sheet-character-animalpowers, 
+input[name="attr_chartype"][value="Human"] ~ div .sheet-char-human,
+input[name="attr_chartype"][value="Human"] ~ div .sheet-character-contacts,
+input[name="attr_chartype"][value="Human"] ~ div .sheet-character-biomech
 */
 
 
-input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-char-mutant,
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-char-robot,
-input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-char-animal,
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-char-human {
+input[name="attr_chartype"][value="Mutant"] ~ div .sheet-char-mutant,
+input[name="attr_chartype"][value="Robot"] ~ div .sheet-char-robot,
+input[name="attr_chartype"][value="Animal"] ~ div .sheet-char-animal,
+input[name="attr_chartype"][value="Human"] ~ div .sheet-char-human {
   display: block;
 }
-input[name="attr_chartype"][value="Mutant"]:checked ~ div .sheet-char-mutant-grid,
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-char-robot-grid,
-input[name="attr_chartype"][value="Animal"]:checked ~ div .sheet-char-animal-grid,
-input[name="attr_chartype"][value="Human"]:checked ~ div .sheet-char-human-grid {
+input[name="attr_chartype"][value="Mutant"] ~ div .sheet-char-mutant-grid,
+input[name="attr_chartype"][value="Robot"] ~ div .sheet-char-robot-grid,
+input[name="attr_chartype"][value="Animal"] ~ div .sheet-char-animal-grid,
+input[name="attr_chartype"][value="Human"] ~ div .sheet-char-human-grid {
   display: grid;
 }
 
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-appearance-grid {
+input[name="attr_chartype"][value="Robot"] ~ div .sheet-appearance-grid {
   display: grid;
   padding: 0;
   column-gap: 2px;
   row-gap: 10px;
   grid-template-columns: 5em 2fr 0.6fr;
 }
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-appearance-grid .sheet-header {
+input[name="attr_chartype"][value="Robot"] ~ div .sheet-appearance-grid .sheet-header {
   display: flex;
 }
-input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-conditions-grid {
+input[name="attr_chartype"][value="Robot"] ~ div .sheet-conditions-grid {
   display: none;
 }
 
@@ -1047,7 +1049,10 @@ input[name="attr_chartype"][value="Robot"]:checked ~ div .sheet-conditions-grid 
 div.sheet-tab-content {
   display: none;
   -margin-top: -50px;
-  border-top: 1px solid #fff;
+  -border-top: 1px solid #fff;
+  padding: 5px;
+  background-color: #DDD;
+
 }
 
 input.sheet-character:checked ~ div.sheet-character,
@@ -1056,11 +1061,6 @@ input.sheet-npc_only:checked ~ div.sheet-character,
 input.sheet-monster_only:checked ~ div.sheet-character,
 input.sheet-settings:checked ~ div.sheet-settings {
   display: inline-block;
-  -margin-top: -30px;
-}
-
-.sheet-tab-content.sheet-settings {
-  margin-top: 30px !important;
 }
 
 input.sheet-settings:checked ~ .sheet-character-type {
@@ -1102,49 +1102,93 @@ input.sheet-npc_only:checked ~ div.sheet-character .sheet-npc + span {
   display: block;
 }
 
-/* Inputs */
-input[type="radio"].sheet-tab {
-  font-family: "Times New Roman", Times, serif;
+/** TABS *****************************/
+
+input[type="radio"].sheet-tab,
+input[type="radio"].sheet-tab-alt {
+  font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   font-size: 1.1em;
-  position: relative;
-  z-index: 1;
-  float: left;
-  width: 120px;
-  height: 20px;
-  margin: 14px 1px 10px 1px;
+  display: inline-block;
+  width: 124px;
+  height: 28px;
   cursor: pointer;
-  border: none;
+  border: 0;
   outline: none;
+  opacity: 1;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
-
-input[type="radio"].sheet-tab.sheet-settings {
-  font-family: "pictos";
-  width: 20px;
-  margin-left: -2px;
-  z-index: 0;
+input[type="radio"].sheet-tab + input,
+input[type="radio"].sheet-tab-alt + input,
+input[type="radio"].sheet-tab + select,
+input[type="radio"].sheet-tab-alt + select,
+select.sheet-select-chartype + input {
+  margin-left: -4px;
 }
 
-input.sheet-tab::before {
+
+input.sheet-tab::before,
+span.sheet-tab-alt + span,
+.sheet-select-chartype {
+  font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   line-height: 18px;
   display: block;
   width: 120px;
-  height: 16px;
-  padding-bottom: 1px;
+  height: 28px;
+  -padding-bottom: 1px;
   content: attr(title);
   text-align: center;
   color: #444;
   border: 2px solid #ccc;
-  border-bottom: 2px solid transparent;
+  border-bottom: 0;
   border-radius: 4px 4px 0 0;
   background: #ddd;
 }
 
+.sheet-select-chartype {
+  display: inline-block;  
+  vertical-align: top;;
+  font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
+  line-height: 18px;
+  color: #444;
+  font-size: 1.1em;
+  width: 120px;
+  height: 30px;
+  background: #ddd;
+  text-align: center;
+  text-align-last: center;
+  border: 2px solid #ccc;
+  border-bottom: 0;
+  border-radius: 4px 4px 0 0;
+  -margin-top: 6px;
+  -margin-left: -1px;
+  margin-bottom: 0;
+  padding-bottom: 4px;
+  -opacity: 0.5;
+}
+
+span.sheet-select-chartype,
+span.sheet-tab-alt + span {
+  margin-left: -120px;
+}
+
+.sheet-select-chartype:hover {
+  -background-color: #CCC;
+  opacity: 1; 
+}
+
+input[type="radio"].sheet-tab.sheet-settings {
+  font-family: "pictos";
+  width: 28px;
+  -margin-left: -2px;
+  -z-index: 0;
+}
+
 input.sheet-tab.sheet-settings::before {
-  width: 20px;
+  font-family: "pictos";
+  width: 28px;
   content: "y";
-  margin: 0 0 0 2px;
+  -margin: 0 0 0 2px;
 }
 
 input.sheet-tab.sheet-character:checked,
@@ -1152,8 +1196,9 @@ input.sheet-tab.sheet-ark:checked,
 input.sheet-tab.sheet-npc:checked,
 input.sheet-tab.sheet-monster_only:checked,
 input.sheet-tab.sheet-settings:checked {
-  z-index: 2;
+  -z-index: 2;
   opacity: 1;
+  border: 0;
 }
 
 input.sheet-tab.sheet-character:hover,
@@ -1161,7 +1206,7 @@ input.sheet-tab.sheet-ark:hover,
 input.sheet-tab.sheet-npc:hover,
 input.sheet-tab.sheet-monster_only:hover,
 input.sheet-tab.sheet-settings:hover {
-  z-index: 3;
+  -z-index: 3;
   opacity: 1;
 }
 
@@ -1169,54 +1214,56 @@ input.sheet-tab.sheet-character:hover::before,
 input.sheet-tab.sheet-ark:hover::before,
 input.sheet-tab.sheet-npc:hover::before,
 input.sheet-tab.sheet-monster_only:hover::before {
-  z-index: 3;
-  width: 120px;
-  height: 22px;
-  margin: -3px 0 0 0;
-  border-color: #aaa;
-  border-bottom-color: transparent;
+  font-weight: bold;
+  -z-index: 3;
+  -width: 120px;
+  -height: 28px;
+  -margin: -3px 0 0 0;
+  -border-color: #aaa;
+  -border-bottom-color: transparent;
   background: #f5f5f5;
 }
 
 input.sheet-tab.sheet-settings:hover::before {
-  z-index: 3;
-  width: 22px;
+  -z-index: 3;
+  -width: 28px;
   border-color: #aaa;
-  border-bottom-color: transparent;
+  -border-bottom-color: transparent;
   background: #f5f5f5;
 }
 
 input.sheet-tab:active,
 input.sheet-tab:focus {
-  outline: none;
+  -outline: none;
 }
 
 input.sheet-tab:hover::before {
-  background: #e3e3e3;
+  -background: #e3e3e3;
 }
 
 input.sheet-tab:hover::before {
-  font-weight: bold;
-  height: 20px;
-  margin: -3px 0 0 -2px;
-  background: #e3e3e3;
+  -font-weight: bold;
+  -height: 28px;
+  -margin: -3px 0 0 -2px;
+  -background: #e3e3e3;
 }
 
 input.sheet-tab:checked::before,
 input.sheet-tab:checked:hover::before {
   font-weight: bold;
-  width: 120px;
-  height: 20px;
-  margin: -3px 0 0 -2px;
+  -width: 120px;
+  -height: 28px;
+  -margin: -3px 0 0 -2px;
   color: #fff;
-  border: 2px solid #444;
-  border-bottom: 2px solid transparent;
+  border: 2px solid #000;
+  border-bottom: 0;
+  border-radius: 4px 4px 0 0;
   background: #000;
 }
 
 input.sheet-tab.sheet-settings:checked::before,
 input.sheet-tab.sheet-settings:checked:hover::before {
-  width: 20px;
+  width: 28px;
 }
 
 /* hides radio selector */
@@ -1228,6 +1275,8 @@ input.sheet-tab.sheet-settings:checked::after {
   opacity: 0;
 }
 
+/* SHEEET *********************/
+
 .sheet-wrapper {
   -font-family: "IM Fell English", "Times New Roman", Times, serif;
   -font-family: Helvetica, Verdana, Arial, sans-serif;
@@ -1238,10 +1287,10 @@ input.sheet-tab.sheet-settings:checked::after {
   width: 100%;
   min-width: 820px;
   -padding: 70px 0 50px 0;
-  margin-top: 10px;
+  -margin-top: 10px;
   color: #000;
   -border: 2px solid #000;
-  border-top: 4px solid #000;
+  -border-top: 4px solid #000;
   border-bottom: 4px solid #000;
   -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20wrapper%20border.png);
   -border-image-slice: 67 0 70 0;
@@ -1251,12 +1300,17 @@ input.sheet-tab.sheet-settings:checked::after {
   background-color: inherit;
 }
 
+/* LOGO ************************/
+
 .sheet-logo {
   min-width: 820px;
+  width: 100%;
   max-height: 56px;
-  -margin-top: -50px;
+  margin-top: -40px;
   margin-right: 50px;
   -text-align: right;
+  line-height: 24px;
+  text-align: right;
 }
 
 span.sheet-logo-image {
@@ -1269,12 +1323,13 @@ span.sheet-logo-image {
   background-size: contain;
   background-repeat: no-repeat;
   background-position:right;
-  width: 350px;
-  height: 155px;
+  width: 150px;
+  height: 55px;
   -margin: -15px 0 0 0;
   display: inline-block;
-  margin-top: -60px;
-  margin-left: 60px;
+  margin-top: -20px;
+  -margin-left: 60px;
+  text-align: right;
 }
 
 span.sheet-logo-image.lang-sv {
@@ -1770,7 +1825,7 @@ input.sheet-monster_only:checked
   margin: -2px 0px 0 0px;
   -border: 7px solid #000;
   border: 2px solid #000;
-  border-top-width: 0;
+  -border-top-width: 0;
   -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20wide%20column%20border.png);
   -border-image-slice: 0 20 20 20;
   -border-image-width: 0 10px 10px 10px;
@@ -1787,7 +1842,7 @@ input.sheet-npc_only:checked
   margin: -2px 0px 0 0px;
   -border: 7px solid #000;
   border: 2px solid #000;
-  border-top-width: 0;
+  -border-top-width: 0;
   -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20wide%20column%20border.png);
   -border-image-slice: 0 20 20 20;
   -border-image-width: 0 10px 10px 10px;
@@ -2104,10 +2159,10 @@ input.sheet-dice_only:checked
 
 
 /*
-input[name="attr_chartype"][value="Mutant"]:checked ~ div.sheet-character-grid .sheet-heading-box3,
-input[name="attr_chartype"][value="Mutant"]:checked ~ div.sheet-character-grid .sheet-heading-box9,
-input[name="attr_chartype"][value="Robot"]:checked ~ div.sheet-character-grid .sheet-heading-box3,
-input[name="attr_chartype"][value="Robot"]:checked ~ div.sheet-character-grid .sheet-heading-box7 {
+input[name="attr_chartype"][value="Mutant"] ~ div.sheet-character-grid .sheet-heading-box3,
+input[name="attr_chartype"][value="Mutant"] ~ div.sheet-character-grid .sheet-heading-box9,
+input[name="attr_chartype"][value="Robot"] ~ div.sheet-character-grid .sheet-heading-box3,
+input[name="attr_chartype"][value="Robot"] ~ div.sheet-character-grid .sheet-heading-box7 {
   display:none;
 }
 */

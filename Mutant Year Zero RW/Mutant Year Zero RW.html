@@ -2968,7 +2968,7 @@
 <div class="wrapper tab-content zonelog">
   <div class="box">
       <div class="grid log-grid log-grid-header chartype-background-darkest"> 
-          <h1 class="header" data-i18n="zone-log">Zone Log</h1>
+          <h1 class="header" data-i18n="zone-log-u">Zone Log</h1>
       </div>
       <div class="grid log-grid log-grid-column-header chartype-background-darkest">
           <h2 class="column-header log-box log-column1" data-i18n="coordinates">Coordinates</h2>
@@ -2987,10 +2987,18 @@
                   <input class="input-number log-box log-column3" name="attr_rot_level" title="@{repeating_log_$X_rot_level}" type="number" value="" />
                   <input class="input log-box log-column4" name="attr_threat" title="@{repeating_log_$X_threat}" type="checkbox" /><span></span>
                   <input class="input-text log-box log-column5" name="attr_threat_notes" title="@{repeating_log_$X_threat_notes}" type="text" value="" />
-                  <label class="log-resouces log-box log-column6 center" title="artifacts" data-i18n-title="artifacts" data-i18n="a">A</label><input class="input log-resouces log-box log-column7 center" name="attr_artifacts" title="@{repeating_log_$X_artifacts}" type="checkbox" /><span></span>
-                  <label class="log-resouces log-box log-column8 center" title="bullets" data-i18n-title="bullets" data-i18n="b">B</label><input class="input log-resouces log-box log-column9 center" name="attr_bullets" title="@{repeating_log_$X_bullets}" type="checkbox" /><span></span>
-                  <label class="log-resouces log-box log-column10 center" title="grub" data-i18n-title="grub" data-i18n="g">G</label><input class="input log-resouces log-box log-column11 center" name="attr_grub" title="@{repeating_log_$X_grub}" type="checkbox" /><span></span>
-                  <label class="log-resouces log-box log-column12 center" title="water" data-i18n-title="water" data-i18n="w">W</label><input class="input log-resouces log-box log-column13 center" name="attr_water" title="@{repeating_log_$X_water}" type="checkbox" /><span></span>
+                  <div class="log-box log-column6">
+                    <label class="log-resources" title="artifacts" data-i18n-title="artifacts" data-i18n="a">A</label><input class="input log-resources log-box log-column7 center" name="attr_artifacts" title="@{repeating_log_$X_artifacts}" type="checkbox" />
+                  </div>
+                  <div class="log-box log-column7">
+                    <label class="log-resources" title="bullets" data-i18n-title="bullets" data-i18n="b">B</label><input class="input log-resources log-box log-column9 center" name="attr_bullets" title="@{repeating_log_$X_bullets}" type="checkbox" />
+                  </div>
+                  <div class="log-box log-column8">
+                    <label class="log-resources" title="grub" data-i18n-title="grub" data-i18n="g">G</label><input class="input log-resources log-box log-column11 center" name="attr_grub" title="@{repeating_log_$X_grub}" type="checkbox" />
+                  </div>
+                  <div class="log-box log-column9">
+                    <label class="log-resources" title="water" data-i18n-title="water" data-i18n="w">W</label><input class="input log-resources log-box log-column13 center" name="attr_water" title="@{repeating_log_$X_water}" type="checkbox" />
+                  </div>
                   <textarea class="input-textarea log-box log-comments" data-i18n-placeholder="comment" name="attr_comment" placholder="Comment" title="@{repeating_log_$X_comment}" value="" ></textarea>
               </div>
               <hr />

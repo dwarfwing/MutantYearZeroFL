@@ -34,8 +34,10 @@
 	"armor-u": "ARMOR",
 	"arms-length-abbr": "Arm's L.",
 	"arrows": "Arrows",
-	"artifact": "Artifact Dice",
-	"artifact-bonus": "Artifact Bonus",
+	"artefact": "Artefact",
+	"artefacts": "Artefacts",
+	"artifact": "Artifact",
+	"artifacts": "Artifacts",
 	"assault": "Assault",
 	"attack": "Attack",
 	"attack-abbrv": "Atk",
@@ -208,6 +210,7 @@
 	"gold": "Gold",
 	"grain": "Grain",
 	"grip": "Grip",
+	"grub": "Grub",
 	"hate": "Hate",
 	"head": "Head",
 	"heal": "Heal",
@@ -574,5 +577,6 @@
 	"yes": "Yes",
 	"yes-1": "Yes,-1",
 	"young-1": "Young",
-	"zone-log": "Zone Log"
+	"zone-log": "Zone Log",
+	"zone-log-u": "ZONE LOG"
 }	

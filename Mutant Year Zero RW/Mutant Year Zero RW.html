@@ -2,7 +2,7 @@
 <input type="hidden" name="attr_version" value="0" />
 <!-- ADDED recalc checkbox to force sheet worker events. temp unhide for testing purposes-->
 <input class="hidden" name="attr_recalc1" type="checkbox" />
-
+<input class="tab" type="hidden" name="attr_tab" value="character">
 <input class="hidden attr-chartype-selected" name="attr_chartype" value="(@{chartype})" type="hidden" hidden readonly />
 
 <!-- LOGO -->
@@ -10,20 +10,37 @@
   <span class="sheet-logo-image lang-sv"></span>
 </div>
 
-<!--tabs-->
+<!--tabs
 <span class="separator-m">&nbsp;</span>
 <input class="tab character" name="attr_tab" data-i18n-title="character" title="Character" type="radio" value="1" checked />
 <input class="tab ark" name="attr_tab" data-i18n-title="ark" title="Ark" type="radio" value="2" />
 <input class="tab monster_only" name="attr_tab" data-i18n-title="npc-monster" title="NPC/Monster" type="radio" value="3" />
-<!--<input class="tab npc_only" name="attr_tab" data-i18n-title="npc" title="NPC" type="radio" value="4" />-->
 <select class="input-text select-chartype" name="attr_chartype" value="">
-  <option value="Character Type" data-i18n="chartype" selected hidden disabled>Character type</option>
+  <option value="Character Type" data-i18n="chartype" value="Mutant" selected hidden disabled>Character type</option>
   <option class="character-type" value="Mutant" data-i18n="mutant">Mutant</option>
   <option class="character-type" value="Animal" data-i18n="animal">Animal</option>
   <option class="character-type" value="Robot" data-i18n="robot">Robot</option>
   <option class="character-type" value="Human" data-i18n="human">Human</option>
 </select>
 <input class="tab settings" name="attr_tab" data-i18n-title="settings" title="Settings" type="radio" value="5" />
+-->
+
+<!--tabs-->
+<div class="grid-tabs">
+  <button class="tab character" title="Character" name="act_tab_character" type="action">Character</button>
+  <button class="tab ark" data-i18n="ark" name="act_tab_ark" title="Ark" type="action">Ark</button>
+  <button class="tab zonelog" data-i18n="zone-log" name="act_tab_zonelog" title="Zone Log" type="action">Zone Log</button>
+  <button class="tab npc" data-i18n="npc-monster" name="act_tab_npc" title="NPC" type="action">NPC/Monster</button>
+  <select class="input-text select-chartype" name="attr_chartype" value="">
+      <option value="Character Type" data-i18n="chartype" value="Mutant" selected hidden disabled>Type</option>
+      <option class="character-type" value="Mutant" data-i18n="mutant">Mutant</option>
+      <option class="character-type" value="Animal" data-i18n="animal">Animal</option>
+      <option class="character-type" value="Robot" data-i18n="robot">Robot</option>
+      <option class="character-type" value="Human" data-i18n="human">Human</option>
+</select>
+  <button class="tab settings" data-i18n-title="settings" name="act_tab_settings" title="Settings" type="action" value="5">y</button>
+  <!--img alt="Mutant Year Zero" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/logo.jpg"-->
+</div>
 
 <div class="wrapper tab-content character">
 
@@ -2948,6 +2965,41 @@
   </div>
 </div>
 
+<div class="wrapper tab-content zonelog">
+  <div class="box">
+      <div class="grid log-grid log-grid-header chartype-background-darkest"> 
+          <h1 class="header" data-i18n="zone-log">Zone Log</h1>
+      </div>
+      <div class="grid log-grid log-grid-column-header chartype-background-darkest">
+          <h2 class="column-header log-box log-column1" data-i18n="coordinates">Coordinates</h2>
+          <h2 class="column-header log-box log-column2" data-i18n="terrain">Terrain</h2>
+          <h2 class="column-header log-box log-column3" data-i18n="rot-level">Rot Level</h2>
+          <h2 class="column-header log-box log-column4" data-i18n="threat">Threat</h2>
+          <h2 class="column-header log-box log-column5" data-i18n="threat-notes">Threat Notes</h2>
+          <h2 class="column-header log-box log-column6-13" data-i18n="resources-found">Resources Found</h2>
+      </div>
+      <div class="repeating-log-grid">
+          <fieldset class="repeating_log">
+               <div class="grid log-grid">
+                  <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
+                  <input class="input-text log-box log-column1" name="attr_coordinates" title="@{repeating_log_$X_coordinates}" type="text"value=""  />
+                  <input class="input-text log-box log-column2" name="attr_terrain" title="@{repeating_log_$X_terrain}" type="text" value="" />
+                  <input class="input-number log-box log-column3" name="attr_rot_level" title="@{repeating_log_$X_rot_level}" type="number" value="" />
+                  <input class="input log-box log-column4" name="attr_threat" title="@{repeating_log_$X_threat}" type="checkbox" /><span></span>
+                  <input class="input-text log-box log-column5" name="attr_threat_notes" title="@{repeating_log_$X_threat_notes}" type="text" value="" />
+                  <label class="log-resouces log-box log-column6 center" title="artifacts" data-i18n-title="artifacts" data-i18n="a">A</label><input class="input log-resouces log-box log-column7 center" name="attr_artifacts" title="@{repeating_log_$X_artifacts}" type="checkbox" /><span></span>
+                  <label class="log-resouces log-box log-column8 center" title="bullets" data-i18n-title="bullets" data-i18n="b">B</label><input class="input log-resouces log-box log-column9 center" name="attr_bullets" title="@{repeating_log_$X_bullets}" type="checkbox" /><span></span>
+                  <label class="log-resouces log-box log-column10 center" title="grub" data-i18n-title="grub" data-i18n="g">G</label><input class="input log-resouces log-box log-column11 center" name="attr_grub" title="@{repeating_log_$X_grub}" type="checkbox" /><span></span>
+                  <label class="log-resouces log-box log-column12 center" title="water" data-i18n-title="water" data-i18n="w">W</label><input class="input log-resouces log-box log-column13 center" name="attr_water" title="@{repeating_log_$X_water}" type="checkbox" /><span></span>
+                  <textarea class="input-textarea log-box log-comments" data-i18n-placeholder="comment" name="attr_comment" placholder="Comment" title="@{repeating_log_$X_comment}" value="" ></textarea>
+              </div>
+              <hr />
+          </fieldset>
+      </div>
+  </div>
+</div>
+
+
 <div class="wrapper tab-content settings">
 
   <!--announcements/updates-->
@@ -3769,6 +3821,15 @@
   
   /* END RACE TYPE UPDATES */
   
+
+  /* Switch between tabs. From version 1.12, using buttons.*/
+  [`character`, `ark`, `monster`, `zonelog`, 'npc', 'settings'].forEach(attr => {
+      on(`clicked:tab_${attr}`, () => {
+          setAttrs({tab: attr});
+      });
+  });
+  
+
   /* number and log handling */
   const int = (score, on_error = 0) => parseInt(score) || on_error;
   const float = (score, on_error = 0) => parseFloat(score) || on_error;
@@ -3804,10 +3865,10 @@
   
   const versionator = (old_version) => {
     // set the sheet version you are upgrading sheet to, 
-    //and set show_announcement to 1 if you want to force an announcement to be shown.
+    // and set show_announcement to 1 if you want to force an announcement to be shown.
     // don't set a code_version; we use the switch below for that.
-    let new_version = 1.00;
-    let show_announcement = 0;
+    let new_version = 2.01;
+    let show_announcement = 1;
     if (!old_version) old_version = 0;
     switch (true) {
       //add checks for updates here
@@ -3848,6 +3909,34 @@
       clog("updating misspelled attributes");
     });
   };*/
+
+  /* Upgrade to 2.01 version from previous version */
+  const update_to_2_01 = (old_version) => {
+    // Upgrade attributes and damage
+    
+    // Upgrade skills
+
+    // Upgrade apprearance
+
+    // Upgrade armor to repeating section
+    GetAttrs(["armor1_ar", "armor1_bonus", "armor1_damage", "armor1_name"], function(values) {
+      var newrowid = generateRowID();
+      var newrowattrs = {};
+      newrowattrs["repeating_armor_" + newrowid + "_name"] = armor1_name;
+      newrowattrs["repeating_armor_" + newrowid + "_ar"] = int(armor1_ar);
+      newrowattrs["repeating_armor_" + newrowid + "_equipped"] = 1;
+      newrowattrs["repeating_armor_" + newrowid + "_bonus_max"] = int(armor1_bonus);
+      newrowattrs["repeating_armor_" + newrowid + "_weapon_bonus_misc"] = 0;
+      setAttrs(newrowattrs);
+    });
+    // Upgrade gear and consumables
+
+    // Upgrade relationships etc
+
+    // Upgrade Ark sheet 
+
+
+  };
   
   on("sheet:opened", () => {
     getAttrs(["version"], (v) => {

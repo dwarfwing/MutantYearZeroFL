@@ -1150,7 +1150,7 @@ button.sheet-tab {
   border: 2px solid #ccc;
   border-bottom: 0;
   border-radius: 4px 4px 0 0 !important;
-  margin-bottom: 0;
+  margin-bottom: -4px;
   padding: 0;
 }
 
@@ -1192,7 +1192,7 @@ button.sheet-tab.sheet-character {
   border: 2px solid #ccc;
   border-bottom: 0;
   border-radius: 4px 4px 0 0 !important;
-  margin-bottom: 0;
+  margin-bottom: -4px;
   padding: 0;
 }
 
@@ -1209,6 +1209,8 @@ button.sheet-tab.sheet-character {
 button.sheet-tab.sheet-settings  {
   font-family: "pictos";
   width: 24px;
+  height: 26px;
+  -margin-top: -4px;
   -margin-left: -2px;
   -z-index: 0;
 }
@@ -1227,19 +1229,21 @@ button.sheet-tab.sheet-npc:hover,
 button.sheet-tab.sheet-monster_only:hover,
 button.sheet-tab.sheet-settings:hover,
 button.sheet-tab:hover,
+button.sheet-tab:active,
+button.sheet-tab:focus,
 input.sheet-tab.sheet-character:hover::before,
 input.sheet-tab.sheet-ark:hover::before,
 input.sheet-tab.sheet-npc:hover::before,
 input.sheet-tab.sheet-monster_only:hover::before {
-  font-weight: bold;
+  font-weight: bold !important;
   -z-index: 3;
   -width: 120px;
   -height: 23px;
   -margin: -3px 0 0 0;
   -border-color: #aaa;
   -border-bottom-color: transparent;
-  background: #EEE;
-  color: #000;
+  background: #EEE !important;
+  color: #000 !important;
 }
 
 /* Active tab */
@@ -1247,12 +1251,17 @@ input.sheet-tab[value="character"] ~ div button[name="act_tab_character"],
 input.sheet-tab[value="ark"] ~ div button[name="act_tab_ark"],
 input.sheet-tab[value="zonelog"] ~ div button[name="act_tab_zonelog"],
 input.sheet-tab[value="npc"] ~ div button[name="act_tab_npc"],
-input.sheet-tab[value="settings"] ~ div button[name="act_tab_settings"] {
+input.sheet-tab[value="settings"] ~ div button[name="act_tab_settings"],
+input.sheet-tab[value="character"] ~ div button[name="act_tab_character"]:hover,
+input.sheet-tab[value="ark"] ~ div button[name="act_tab_ark"]:hover,
+input.sheet-tab[value="zonelog"] ~ div button[name="act_tab_zonelog"]:hover,
+input.sheet-tab[value="npc"] ~ div button[name="act_tab_npc"]:hover,
+input.sheet-tab[value="settings"] ~ div button[name="act_tab_settings"]:hover {
     -color           : #fcd67b;
     -background-color: #8c4110;
-    color: #CCC;
-    background-color: #000;
-    border: 2px solid #000;
+    color: #CCC !important;
+    background-color: #000 !important;
+    border: 2px solid #000 !important;
     border-bottom: 0;
     border-radius: 4px 4px 0 0;
 }
@@ -3573,22 +3582,22 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   flex-direction: column;
 }
 
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(2) { order: 8;} /* Comprehend */
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(3) { order: 1;} /* Endure */
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(4) { order: 3;} /* Fight */
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(5) { order: 2;} /* Force */
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(6) { order: 12;} /* Heal */
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(7) { order: 9;} /* Know the Zone */
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(8) { order: 11;} /* Manipulate */
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(9) { order: 5;} /* Move */
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(10) { order: 7;} /* Scout */
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(11) { order: 10;} /* Sense emotion */
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(12) { order: 6;} /* Shoot */
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(13) { order: 4;} /* Sneak */
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(14) { order: 13;} /* Profession */
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(15) { order: 14;} /* Profession */
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(16) { order: 15;} /* Profession */
-
+/* Skill re-ordering disabled
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(2) { order: 8;} /* Comprehend 
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(3) { order: 1;} /* Endure 
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(4) { order: 3;} /* Fight 
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(5) { order: 2;} /* Force 
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(6) { order: 12;} /* Heal 
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(7) { order: 9;} /* Know the Zone 
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(8) { order: 11;} /* Manipulate 
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(9) { order: 5;} /* Move 
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(10) { order: 7;} /* Scout 
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(11) { order: 10;} /* Sense emotion 
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(12) { order: 6;} /* Shoot 
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(13) { order: 4;} /* Sneak 
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(14) { order: 13;} /* Profession 
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(15) { order: 14;} /* Profession 
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(16) { order: 15;} /* Profession 
 /* end list order */
 
 .sheet-skills-grid>span,

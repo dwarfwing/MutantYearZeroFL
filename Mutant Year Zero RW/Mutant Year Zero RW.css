@@ -1191,7 +1191,8 @@ button.sheet-tab.sheet-character {
   text-align-last: center;
   border: 2px solid #ccc;
   border-bottom: 0;
-  border-radius: 4px 4px 0 0 !important;
+  border-radius: 4px 4px 0 0 !important; 
+  margin-top: 0.5px;
   margin-bottom: -4px;
   padding: 0;
 }
@@ -3582,22 +3583,22 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   flex-direction: column;
 }
 
-/* Skill re-ordering disabled
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(2) { order: 8;} /* Comprehend 
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(3) { order: 1;} /* Endure 
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(4) { order: 3;} /* Fight 
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(5) { order: 2;} /* Force 
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(6) { order: 12;} /* Heal 
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(7) { order: 9;} /* Know the Zone 
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(8) { order: 11;} /* Manipulate 
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(9) { order: 5;} /* Move 
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(10) { order: 7;} /* Scout 
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(11) { order: 10;} /* Sense emotion 
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(12) { order: 6;} /* Shoot 
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(13) { order: 4;} /* Sneak 
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(14) { order: 13;} /* Profession 
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(15) { order: 14;} /* Profession 
-.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(16) { order: 15;} /* Profession 
+/* Skill re-ordering  */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(2) { order: 8;} /* Comprehend  */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(3) { order: 1;} /* Endure  */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(4) { order: 3;} /* Fight  */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(5) { order: 2;} /* Force  */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(6) { order: 12;} /* Heal  */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(7) { order: 9;} /* Know the Zone  */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(8) { order: 11;} /* Manipulate  */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(9) { order: 5;} /* Move  */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(10) { order: 7;} /* Scout  */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(11) { order: 10;} /* Sense emotion  */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(12) { order: 6;} /* Shoot  */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(13) { order: 4;} /* Sneak  */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(14) { order: 13;} /* Profession  */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(15) { order: 14;} /* Profession  */
+.sheet-skill-order-group:checked ~ .sheet-skills-grid span.sheet-skills-row:nth-of-type(16) { order: 15;} /* Profession  */
 /* end list order */
 
 .sheet-skills-grid>span,
@@ -5337,18 +5338,24 @@ div.sheet-log-grid input[name="attr_water"] + span, */
   grid-column: 1 / 10;
   grid-row: 3;
   justify-content: stretch;
+  text-align: left;
+  padding: 3px;
   width: 98%;
   -margin-bottom: 4px;
 }
 
 div.sheet-repeating-log-grid .repcontainer .repitem hr {
-  margin: 3px 5px 2px 5px;
+  color: #999;
+  padding: 3px 5px 2px 5px;
+  margin: 0;
 }
 
 div.sheet-ark-bosses-repeating .repcontainer .repitem,
 div.sheet-repeating-log-grid .repcontainer .repitem,
 div.sheet-weapons-box .repcontainer .repitem {
   -margin-top: 1%;
+  padding: 3px 5px 3px 5px;
+  margin: 0;
 }
 
 /* --------------------- SETTINGS OPTIONS */

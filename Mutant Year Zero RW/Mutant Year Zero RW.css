@@ -48,6 +48,9 @@ input.sheet-announcements-show {
 }
 
 input.sheet-announcements-show:hover + span,
+input.sheet-tab[value="monster"]
+~ div.sheet-character
+input[type="checkbox"].sheet-extra-damage-show:hover,
 input.sheet-monster_only:checked
   ~ div.sheet-character
   input[type="checkbox"].sheet-extra-damage-show:hover {
@@ -112,6 +115,9 @@ input.sheet-armor-show-more:checked + span ~ .sheet-armor-show-more {
 }
 
 /* Hide actual checkbox */
+input.sheet-tab[value="monster"]
+  ~ div.sheet-character
+  input[type="checkbox"].sheet-extra-damage-show,
 input.sheet-monster_only:checked
   ~ div.sheet-character
   input[type="checkbox"].sheet-extra-damage-show {
@@ -122,6 +128,9 @@ input.sheet-monster_only:checked
   z-index: 1;
 }
 
+input.sheet-tab[value="monster"]
+~ div.sheet-character
+input[type="checkbox"].sheet-extra-damage-show:checked,
 input.sheet-monster_only:checked
   ~ div.sheet-character
   input[type="checkbox"].sheet-extra-damage-show:checked {
@@ -129,11 +138,19 @@ input.sheet-monster_only:checked
   display: flex;
   padding: 2px 0 0 0;
 }
-
+input.sheet-tab[value="monster"]
+  ~ div.sheet-character
+  input[type="checkbox"].sheet-extra-damage-show:not(:checked)
+  ~ .sheet-extra-damage-show,
 input.sheet-monster_only:checked
   ~ div.sheet-character
   input[type="checkbox"].sheet-extra-damage-show:not(:checked)
   ~ .sheet-extra-damage-show,
+input.sheet-tab[value="monster"]
+  ~ div.sheet-character
+  input[type="checkbox"].sheet-extra-damage-show:not(:checked)
+  ~ .sheet-extra-damage-show
+  + ::before,
 input.sheet-monster_only:checked
   ~ div.sheet-character
   input[type="checkbox"].sheet-extra-damage-show:not(:checked)
@@ -311,6 +328,7 @@ span.sheet-separator-xl {
 }
 
 span.sheet-readonly,
+input.sheet-tab[value="monster"]~div.sheet-character .sheet-monster+span.sheet-monster.sheet-readonly
 input.sheet-monster_only:checked~div.sheet-character .sheet-monster+span.sheet-monster.sheet-readonly {
   font-size: 18px;
   color: #555;
@@ -1066,7 +1084,6 @@ input.sheet-settings:checked ~ div.sheet-settings {
 }
 /* USING buttons in v2.01 */
 input.sheet-tab[value="character"] ~ div.sheet-character,
-input.sheet-tab[value="npc"] ~ div.sheet-character,
 input.sheet-tab[value="monster"] ~ div.sheet-character,
 input.sheet-tab[value="ark"] ~ div.sheet-ark,
 input.sheet-tab[value="zonelog"] ~ div.sheet-zonelog,
@@ -1074,11 +1091,11 @@ input.sheet-tab[value="settings"] ~ div.sheet-settings  {
    display: inline-block;
 }
 
-input.sheet-settings:checked ~ .sheet-character-type {
+/* input.sheet-settings:checked ~ .sheet-character-type {
   display: none;
-}
+} */
 
-input.sheet-monster_only:checked
+/* input.sheet-monster_only:checked
   ~ div.sheet-character
   .sheet-toggle-monster-only,
 input.sheet-tab[value="monster"]
@@ -1091,37 +1108,38 @@ input.sheet-npc_only:checked
   ~ div.sheet-character
   .sheet-toggle-npc-only {
   display: none;
-}
+} */
 
-/* Monster View */
-.sheet-monster,
-.sheet-monster + span {
+/* NPC - Monster View */
+.sheet-toggle-monster-only,
+input.sheet-tab[value="monster"] ~ div.sheet-character .sheet-toggle-pc-only,
+input.sheet-tab[value="monster"] ~ div.sheet-character ~ div .sheet-toggle-pc-only,
+input.sheet-monster_only:checked ~ div.sheet-character div.sheet-toggle-pc-only,
+input.sheet-monster_only:checked ~ div.sheet-character div.sheet-toggle-pc-only + span {
   display: none;
 }
 
 input.sheet-tab[value="monster"] ~ div.sheet-character .sheet-monster,
-input.sheet-tab[value="monster"] ~ div.sheet-character input.sheet-monster,
-input.sheet-tab[value="monster"] ~ div.sheet-character .sheet-monster + span,
+input.sheet-tab[value="monster"] ~ div.sheet-character ~ div .sheet-monster,
+input.sheet-tab[value="monster"] ~ div.sheet-character .sheet-toggle-monster-only,
+input.sheet-tab[value="monster"] ~ div.sheet-character ~ div .sheet-toggle-monster-only,
 input.sheet-monster_only:checked ~ div.sheet-character .sheet-monster,
-input.sheet-monster_only:checked ~ div.sheet-character input.sheet-monster,
 input.sheet-monster_only:checked ~ div.sheet-character .sheet-monster + span {
   display: block;
 }
 
-/* NPC View */
-.sheet-npc,
-.sheet-npc + span {
-  display: none;
+input.sheet-tab[value="monster"] ~ div.sheet-character .sheet-monster-grid,
+input.sheet-tab[value="monster"] ~ div.sheet-character ~ div .sheet-monster-grid,
+input.sheet-monster_only:checked ~ div.sheet-character .sheet-monster-grid {
+  display: grid;
 }
 
-input.sheet-tab[value="npc"] ~ div.sheet-character .sheet-npc,
-input.sheet-tab[value="npc"] ~ div.sheet-character input.sheet-npc,
-input.sheet-tab[value="npc"] ~ div.sheet-character .sheet-npc + span
-input.sheet-npc_only:checked ~ div.sheet-character .sheet-npc,
-input.sheet-npc_only:checked ~ div.sheet-character input.sheet-npc,
-input.sheet-npc_only:checked ~ div.sheet-character .sheet-npc + span {
-  display: block;
+input.sheet-tab[value="monster"] ~ div.sheet-character .sheet-monster-flex,
+input.sheet-tab[value="monster"] ~ div.sheet-character ~ div .sheet-monster-flex,
+input.sheet-monster_only:checked ~ div.sheet-character .sheet-monster-flex {
+  display: flex;
 }
+
 
 /** TABS *****************************/
 
@@ -1132,7 +1150,8 @@ div.sheet-grid-tabs {
 /* input[type="radio"].sheet-tab, */
 button.sheet-tab {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
-  display: inline-block;
+  display: inline-block; 
+  vertical-align: bottom;
   width: 100px;
   height: 22px;
   margin-left: -4px;
@@ -1148,9 +1167,9 @@ button.sheet-tab {
   text-align: center;
   text-align-last: center;
   border: 2px solid #ccc;
-  border-bottom: 0;
+  border-bottom: 0 !important;
   border-radius: 4px 4px 0 0 !important;
-  margin-bottom: -4px;
+  -margin-bottom: -4px;
   padding: 0;
 }
 
@@ -1178,22 +1197,22 @@ button.sheet-tab.sheet-character {
 
 .sheet-select-chartype {
   display: inline-block;  
-  vertical-align: top;
+  vertical-align: bottom;
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   line-height: 18px;
   color: #444;
   font-size: 1.1em;
   width: 98px;
-  height: 24px;
+  height: 25px;
   margin-left: -4px;
   background: #FFF;
   text-align: center;
   text-align-last: center;
   border: 2px solid #ccc;
-  border-bottom: 0;
+  border-bottom: 0 !important;
   border-radius: 4px 4px 0 0 !important; 
   margin-top: 0.5px;
-  margin-bottom: -4px;
+  margin-bottom: 0;
   padding: 0;
 }
 
@@ -1210,7 +1229,8 @@ button.sheet-tab.sheet-character {
 button.sheet-tab.sheet-settings  {
   font-family: "pictos";
   width: 24px;
-  height: 26px;
+  height: 23px; 
+  vertical-align: bottom;
   -margin-top: -4px;
   -margin-left: -2px;
   -z-index: 0;
@@ -1251,19 +1271,19 @@ input.sheet-tab.sheet-monster_only:hover::before {
 input.sheet-tab[value="character"] ~ div button[name="act_tab_character"],
 input.sheet-tab[value="ark"] ~ div button[name="act_tab_ark"],
 input.sheet-tab[value="zonelog"] ~ div button[name="act_tab_zonelog"],
-input.sheet-tab[value="npc"] ~ div button[name="act_tab_npc"],
+input.sheet-tab[value="monster"] ~ div button[name="act_tab_monster"],
 input.sheet-tab[value="settings"] ~ div button[name="act_tab_settings"],
 input.sheet-tab[value="character"] ~ div button[name="act_tab_character"]:hover,
 input.sheet-tab[value="ark"] ~ div button[name="act_tab_ark"]:hover,
 input.sheet-tab[value="zonelog"] ~ div button[name="act_tab_zonelog"]:hover,
-input.sheet-tab[value="npc"] ~ div button[name="act_tab_npc"]:hover,
+input.sheet-tab[value="monster"] ~ div button[name="act_tab_monster"]:hover,
 input.sheet-tab[value="settings"] ~ div button[name="act_tab_settings"]:hover {
     -color           : #fcd67b;
     -background-color: #8c4110;
     color: #CCC !important;
     background-color: #000 !important;
     border: 2px solid #000 !important;
-    border-bottom: 0;
+    border-bottom: 0 !important;
     border-radius: 4px 4px 0 0;
 }
 
@@ -1708,7 +1728,7 @@ input.sheet-expand:checked ~ .sheet-input-textarea {
 
 .sheet-character-grid {
   display: grid;
-  margin: -10px 0 0 0;
+  -margin: -10px 0 0 0;
   column-gap: 4px;
   row-gap: 4px;
   grid-template-columns: 42% 25% auto;
@@ -1865,24 +1885,15 @@ div.sheet-ark-other-grid h1 {
 }
 
 /* monster version of attributes */
+input.sheet-tab[value="monster"] 
+~ div.sheet-character
+.sheet-character-attributes,
 input.sheet-monster_only:checked
   ~ div.sheet-character
   .sheet-character-attributes {
   background-image: none;
   padding: 0;
   margin: -2px 0px 0 0px;
-  border: 2px solid #000;
-  background-color: inherit;
-  height: 100%;
-}
-/* npc version of attributes */
-input.sheet-npc_only:checked
-  ~ div.sheet-character
-  .sheet-character-attributes {
-  background-image: none;
-  padding: 0;
-  margin: -2px 0px 0 0px;
-  -border: 7px solid #000;
   border: 2px solid #000;
   background-color: inherit;
   height: 100%;
@@ -1899,7 +1910,6 @@ input.sheet-npc_only:checked
   grid-column: 1/3;
 }
 
-/* add fbl applique border/backgrounds */
 .sheet-character-attributes,
 .sheet-character-appearance {
   padding: 0 0 10px 0;
@@ -1925,6 +1935,7 @@ input.sheet-npc_only:checked
   -border: 7px solid #000;
   border: 2px solid #000;
   overflow: hidden;
+  height: fit-content;
 }
 
 .sheet-character-injuries,
@@ -2242,6 +2253,7 @@ input[name="attr_chartype"][value="Robot"] ~ div.sheet-character-grid .sheet-hea
   -justify-content: space-between;
   width: 45%;
   min-width: 9.25em;
+  align-self: center;
 }
 
 .sheet-attributes-box1 {
@@ -2276,12 +2288,16 @@ input[name="attr_chartype"][value="Robot"] ~ div.sheet-character-grid .sheet-hea
 
 /* -----------------------------------Monster Tab layout */
 
+input.sheet-tab[value="monster"] ~ div.sheet-character .sheet-character-grid,
 input.sheet-monster_only:checked ~ div.sheet-character .sheet-character-grid {
   grid-template-columns: 32% 32% 35%;
   margin: 20px 0 0 0;
   -padding: 0;
 }
 
+input.sheet-tab[value="monster"]
+~ div.sheet-character
+.sheet-character-attributes,
 input.sheet-monster_only:checked
   ~ div.sheet-character
   .sheet-character-attributes {
@@ -2294,6 +2310,9 @@ input.sheet-monster_only:checked
     grid-template-rows: 4em auto;
 }
 
+input.sheet-tab[value="monster"]
+~ div.sheet-character
+.sheet-monster-stat1,
 input.sheet-monster_only:checked
   ~ div.sheet-character
   .sheet-monster-stat1 {
@@ -2306,6 +2325,9 @@ input.sheet-monster_only:checked
     display: flex;
 }
 
+input.sheet-tab[value="monster"]
+~ div.sheet-character
+.sheet-attributes-grid,
 input.sheet-monster_only:checked
   ~ div.sheet-character
   .sheet-attributes-grid {
@@ -2316,20 +2338,26 @@ input.sheet-monster_only:checked
     grid-row-start: 2;
 }
 
+input.sheet-tab[value="monster"] ~ div.sheet-character div.sheet-attributes-box1 h1,
 input.sheet-monster_only:checked ~ div.sheet-character div.sheet-attributes-box1 h1 {
     display: none;
 }
 
+input.sheet-tab[value="monster"] ~ div.sheet-character .sheet-monster-attacks,
 input.sheet-monster_only:checked ~ div.sheet-character .sheet-monster-attacks {
   grid-column: 1/3;
   grid-row-start: 2;
 }
 
+input.sheet-tab[value="monster"] ~ div.sheet-character .sheet-character-weapons,
 input.sheet-monster_only:checked ~ div.sheet-character .sheet-character-weapons {
   grid-column: 1/3;
   grid-row-start: 3;
 }
 
+input.sheet-tab[value="monster"]
+  ~ div.sheet-character
+  .sheet-box.sheet-character-skill-dice-box,
 input.sheet-monster_only:checked
   ~ div.sheet-character
   .sheet-box.sheet-character-skill-dice-box {
@@ -2344,6 +2372,9 @@ input.sheet-monster_only:checked
   grid-template-rows: auto auto;
 }
 
+input.sheet-tab[value="monster"]
+~ div.sheet-character
+.sheet-monster-description,
 input.sheet-monster_only:checked
   ~ div.sheet-character
   .sheet-monster-description {
@@ -2358,6 +2389,9 @@ input.sheet-monster_only:checked
   min-height: 5em;
 }
 
+input.sheet-tab[value="monster"]
+~ div.sheet-character
+.sheet-character-dice_pool,
 input.sheet-monster_only:checked
   ~ div.sheet-character
   .sheet-character-dice_pool {
@@ -2366,6 +2400,9 @@ input.sheet-monster_only:checked
     width: 95%;
 }
 
+input.sheet-tab[value="monster"]
+~ div.sheet-character 
+.sheet-character-skills,
 input.sheet-monster_only:checked 
   ~ div.sheet-character 
   .sheet-character-skills {
@@ -2375,12 +2412,14 @@ input.sheet-monster_only:checked
     width: 95%;
 }
 
+input.sheet-tab[value="monster"] ~ div.sheet-character .sheet-character-armor,
 input.sheet-monster_only:checked ~ div.sheet-character .sheet-character-armor {
   -height: fit-content;
   grid-column: 1/3;
   grid-row-start: 4;
 }
 
+input.sheet-tab[value="monster"] ~ div.sheet-character .sheet-character-notes,
 input.sheet-monster_only:checked ~ div.sheet-character .sheet-character-notes {
   -height: fit-content;
   grid-column: 1/3;
@@ -2416,13 +2455,25 @@ input.sheet-monster_only:checked
   margin-bottom: 3px;
 } */
 
-input.sheet-monster_only:checked
+input.sheet-tab[value="monster"]
   ~ div.sheet-character
   .sheet-attributes-box8
   input.sheet-biohaz,
 input.sheet-monster_only:checked
   ~ div.sheet-character
+  .sheet-attributes-box8
+  input.sheet-biohaz,
+input.sheet-tab[value="monster"]
+  ~ div.sheet-character
   .sheet-attributes-box12
+  input.sheet-biohaz,
+input.sheet-monster_only:checked
+  ~ div.sheet-character
+  .sheet-attributes-box12
+  input.sheet-biohaz,
+input.sheet-tab[value="monster"]
+  ~ div.sheet-character
+  .sheet-attributes-box16
   input.sheet-biohaz,
 input.sheet-monster_only:checked
   ~ div.sheet-character
@@ -2432,6 +2483,7 @@ input.sheet-monster_only:checked
 
 }
 
+input.sheet-tab[value="monster"] ~ div.sheet-character .sheet-monster-stat1,
 input.sheet-monster_only:checked ~ div.sheet-character .sheet-monster-stat1 {
   -display: grid;
   display: flex;
@@ -2460,7 +2512,7 @@ input.sheet-monster_only:checked ~ div.sheet-character .sheet-monster-stat1 {
   width: 100%
 }
 
-.sheet-monster-stats-box2 {
+/* .sheet-monster-stats-box2 {
   grid-column-start: 1;
   grid-row-start: 1;
 }
@@ -2557,7 +2609,7 @@ input.sheet-monster_only:checked ~ div.sheet-character .sheet-monster-stat1 {
 .sheet-monster-stats-box19 {
   grid-column-start: 9;
   grid-row-start: 2;
-}
+} */
 
 /* ---------------------------------- Monster Attacks */
 
@@ -2577,6 +2629,9 @@ input[type="checkbox"].sheet-counted:checked + span::before {
   color: #000;
 }
 
+input.sheet-tab[value="monster"]
+~ div.sheet-character
+.sheet-monster-attacks-grid,
 input.sheet-monster_only:checked
   ~ div.sheet-character
   .sheet-monster-attacks-grid {
@@ -3557,6 +3612,9 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   grid-column: 3;
   padding-top: 1.75em;
 }
+.sheet-character-talents select.sheet-talents-box2 {
+  padding-top: 0;
+}
 .sheet-character-talents .sheet-talents-box3 {
   display: none;
 }
@@ -3638,6 +3696,7 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   -padding-left: 0.8em;
 }
 
+input.sheet-tab[value="monster"] ~ div.sheet-character .sheet-skills-grid button,
 input.sheet-monster_only:checked ~ div.sheet-character .sheet-skills-grid button {
   padding-left: 2px;
 }
@@ -4558,6 +4617,7 @@ span.sheet-armor-box3.sheet-header {
   column-gap: 4px;
   row-gap: 3px;
   grid-template-columns: 15rem auto;
+  padding-bottom: 5px;
 }
 
 .sheet-notes-grid > .sheet-notes-box3,

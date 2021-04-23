@@ -3432,9 +3432,9 @@
   /* beautify preserve:start */
 
   "use strict";
-    
+      
   let race_att_names;
-
+  
   /* START RACE TYPE UPDATES */
   
     //object reference for Race specific attribute names
@@ -3517,7 +3517,7 @@
                         sense_emotion: getTranslationByKey("question"),
                         manipulate: getTranslationByKey("interact"),
                         heal: getTranslationByKey("repair") },
-
+  
             "Human":{   strength: getTranslationByKey("strength"),
                         agility: getTranslationByKey("agility"),
                         wits: getTranslationByKey("wits"),
@@ -3586,7 +3586,81 @@
   
   /* END RACE TYPE UPDATES */
   
-
+  
+  
+  /* Attributre damage const */
+  const damages = {
+      // an Object Literal: damages['strength'] returns 'damage', damages['empathy'] returns 'doubt', etc
+      strength: "damage",
+      agility: "fatigue",
+      wits: "confusion",
+      empathy: "doubt",
+    };
+  
+  /* Skill attributes, misc and gear */
+  const skills = {
+      // a javascript Object Literal, containing each skill, and its corresponding attribute
+      endure: "strength_total",
+      force: "strength_total",
+      fight: "strength_total",
+      sneak: "agility_total",
+      Move: "agility_total",
+      shoot: "agility_total",
+      scout: "wits_total",
+      comprehend: "wits_total",
+      know_the_zone: "wits_total",
+      sense_emotion: "empathy_total",
+      manipulate: "empathy_total",
+      heal: "empathy_total",
+    },
+    misc = {
+      // a javascript Object Literal, containing each skill, and its corresponding skill modification
+      endure: "endure_skill_misc",
+      force: "force_skill_misc",
+      fight: "fight_skill_misc",
+      sneak: "sneak_skill_misc",
+      Move: "move_skill_misc",
+      shoot: "shoot_skill_misc",
+      scout: "scout_skill_misc",
+      comprehend: "comprehend_skill_misc",
+      know_the_zone: "know_the_zone_skill_misc",
+      sense_emotion: "sense_emotion_skill_misc",
+      manipulate: "manipulate_skill_misc",
+      heal: "heal_skill_misc",
+    },
+    miscGear = {
+      // a javascript Object Literal, containing each skill, and its corresponding gear modification
+      endure: "endure_gear_misc",
+      force: "force_gear_misc",
+      fight: "fight_gear_misc",
+      sneak: "sneak_gear_misc",
+      Move: "move_gear_misc",
+      shoot: "shoot_gear_misc",
+      scout: "scout_gear_misc",
+      comprehend: "comprehend_gear_misc",
+      know_the_zone: "know_the_zone_gear_misc",
+      sense_emotion: "sense_emotion_gear_misc",
+      manipulate: "manipulate_gear_misc",
+      heal: "heal_gear_misc",
+    }
+  
+  /* Monster constant */  
+  const monster_skills = {
+      "endure monster": "endure_monster",
+      "fight monster": "fight_monster",
+      "force monster": "force_monster",
+    }, 
+    monster_misc = {
+      "endure monster": "endure_skill_misc_monster",
+      "fight monster": "fight_skill_misc_monster",
+      "force monster": "force_skill_misc_monster",
+    },
+    monster_miscGear = {
+      "endure monster": "endure_gear_misc_monster",
+      "fight monster": "fight_gear_misc_monster",
+      "force monster": "force_gear_misc_monster",
+    };
+  
   /* Switch between tabs. From version 1.12, using buttons.*/
   [`character`, `ark`, `monster`, `zonelog`, 'npc', 'settings'].forEach(attr => {
       on(`clicked:tab_${attr}`, () => {
@@ -3594,7 +3668,7 @@
       });
   });
   
-
+  
   /* number and log handling */
   const int = (score, on_error = 0) => parseInt(score) || on_error;
   const float = (score, on_error = 0) => parseFloat(score) || on_error;
@@ -3649,7 +3723,7 @@
   };
   //add updates here
   
-  /*rename misspelled attributes
+  /*rename misspelled items
   const update_to_1_71 = (old_version) => {
     getAttrs(["armor1_equiped", "armor2_equiped", "shield1_equiped", "stockpile_vegatables"], (v) => {
       const setter = {};
@@ -3671,18 +3745,19 @@
       setter.version = current_version;
   
       setAttrs(setter, { silent: true }, versionator(current_version));
-      clog("updating misspelled attributes");
+      clog("updating misspelled items");
     });
   };*/
-
+  
   /* Upgrade to 2.01 version from previous version */
   const update_to_2_01 = (old_version) => {
     // Upgrade attributes and damage
+  
     
     // Upgrade skills
-
+  
     // Upgrade apprearance
-
+  
     // Upgrade armor to repeating section
     GetAttrs(["armor1_ar", "armor1_bonus", "armor1_damage", "armor1_name"], function(values) {
       var newrowid = generateRowID();
@@ -3713,12 +3788,12 @@
       SetAttrs(newrowattrs);
     });
     // Upgrade gear and consumables
-
+  
     // Upgrade relationships etc
-
+  
     // Upgrade Ark sheet 
-
-
+  
+  
   };
   
   on("sheet:opened", () => {
@@ -3787,7 +3862,7 @@
   /* total encumbrance */
   on("sheet:opened change:gear_encumbrance change:vehiclegear_encumbrance change:weapons_encumbrance change:armor_encumbrance change:food change:water change:bullets", function () {
     getAttrs(["gear_encumbrance", "vehiclegear_encumbrance", "weapons_encumbrance", "armor_encumbrance", "food", "water", "bullets"], function (values) {      clog("Change Detected: Character Encumbrance");
-
+  
       const gear_encumbrance = float(values["gear_encumbrance"]),
         vehiclegear_encumbrance = float(values["vehiclegear_encumbrance"]),
         weapons_encumbrance = float(values["weapons_encumbrance"]),
@@ -3809,7 +3884,7 @@
       });
     });
   });
- 
+  
   /* total vehicle encumbrance */
   on("sheet:opened change:vehicle_advancedencumbrance change:vehiclegear_encumbrance change:vehicle_occupants change:vehicle_seats change:vehicle_fuel change:vehicle_fuel_cap change:vehicle_maxload", function () { 
    getAttrs(["vehicle_advancedencumbrance", "vehiclegear_total", "vehicle_carry", "vehiclegear_encumbrance", "vehicle_occupants", "vehicle_occupants_weight", "vehicle_seats", "vehicle_fuel", "vehicle_fuel_cap", "vehicle_fuel_weight", "vehicle_maxload", "vehicle_overencumbered"], function (values) {
@@ -3886,13 +3961,6 @@
   });
   
   /* ability damage calcs */
-  const damages = {
-    // an Object Literal: damages['strength'] returns 'damage', damages['empathy'] returns 'doubt', etc
-    strength: "damage",
-    agility: "fatigue",
-    wits: "confusion",
-    empathy: "doubt",
-  };
   Object.keys(damages).forEach((stat) => {
     // creates a sheet worker for each stat in damages - first stat = 'strength', then stat = 'agility', etc
     // in each worker, stat = the stat (strength, agility, etc) and damages[stat] = the associated damage ('damage'. 'fatigue', etc)
@@ -3912,71 +3980,26 @@
   
   /*** UPDATE ***/
   /* skill total calcs */
-  const attributes = {
-      // a javascript Object Literal, containing each skill, and its corresponding attribute
-      endure: "strength_total",
-      force: "strength_total",
-      fight: "strength_total",
-      sneak: "agility_total",
-      Move: "agility_total",
-      shoot: "agility_total",
-      scout: "wits_total",
-      comprehend: "wits_total",
-      know_the_zone: "wits_total",
-      sense_emotion: "empathy_total",
-      manipulate: "empathy_total",
-      heal: "empathy_total",
-    },
-    misc = {
-      // a javascript Object Literal, containing each skill, and its corresponding skill modification
-      endure: "endure_skill_misc",
-      force: "force_skill_misc",
-      fight: "fight_skill_misc",
-      sneak: "sneak_skill_misc",
-      Move: "move_skill_misc",
-      shoot: "shoot_skill_misc",
-      scout: "scout_skill_misc",
-      comprehend: "comprehend_skill_misc",
-      know_the_zone: "know_the_zone_skill_misc",
-      sense_emotion: "sense_emotion_skill_misc",
-      manipulate: "manipulate_skill_misc",
-      heal: "heal_skill_misc",
-    },
-    miscGear = {
-      // a javascript Object Literal, containing each skill, and its corresponding gear modification
-      endure: "endure_gear_misc",
-      force: "force_gear_misc",
-      fight: "fight_gear_misc",
-      sneak: "sneak_gear_misc",
-      Move: "move_gear_misc",
-      shoot: "shoot_gear_misc",
-      scout: "scout_gear_misc",
-      comprehend: "comprehend_gear_misc",
-      know_the_zone: "know_the_zone_gear_misc",
-      sense_emotion: "sense_emotion_gear_misc",
-      manipulate: "manipulate_gear_misc",
-      heal: "heal_gear_misc",
-    },
-    getSkill = (label) => (label.split("-").join("_")).split(" ").join("_").toLowerCase(),
+  const getSkill = (label) => (label.split("-").join("_")).split(" ").join("_").toLowerCase(),
     // a function to change (for example) "Know the Zone" to "know_the_zone"
     // needed for a couple of functions below
   
     getSkillKey = (label) => (label.split("_").join("-")).split(" ").join("-").toLowerCase(),
     // a function to change (for example) "Know the Zone" to "know-the-zone"
     // needed for a couple of functions below
-
+  
     getSkillName = (label) => race_att_names[label];
     // A function to get the name of a skill specific for the selected race/character type.
     // Needed for a couple of functions below
   
-  Object.keys(attributes).forEach((skill_name) => {
-    // creates a sheet worker for each skill in attributes - first skill = 'strength', then stat = 'agility', etc
+  Object.keys(skills).forEach((skill_name) => {
+    // creates a sheet worker for each skill in skills - first skill = 'strength', then stat = 'agility', etc
     // in each worker, stat = the stat (strength, agility, etc) and damages[stat] = the associated damage ('damage'. 'fatigue', etc)
     const skill = getSkill(skill_name);
-    on(`change:${skill} change:${attributes[skill_name]} change:${misc[skill_name]} change:${miscGear[skill_name]}`, function () {
-      clog(`${skill} or ${attributes[skill_name]} or ${misc[skill_name]} or ${miscGear[skill_name]} has changed.`);
-      getAttrs([skill, attributes[skill_name], misc[skill_name], miscGear[skill_name]], function (values) {
-        const stat_score = int(values[attributes[skill_name]]),
+    on(`change:${skill} change:${skills[skill_name]} change:${misc[skill_name]} change:${miscGear[skill_name]}`, function () {
+      clog(`${skill} or ${skills[skill_name]} or ${misc[skill_name]} or ${miscGear[skill_name]} has changed.`);
+      getAttrs([skill, skills[skill_name], misc[skill_name], miscGear[skill_name]], function (values) {
+        const stat_score = int(values[skills[skill_name]]),
           miscSkill_score = int(values[misc[skill_name]]),
           miscGear_score = int(values[miscGear[skill_name]]),
           skillRank_score = int(values[skill]);
@@ -4024,7 +4047,7 @@
       });
     });
   });
-
+  
   /* set repeating armor rating */
   on("change:repeating_armor:armor_bonus change:repeating_armor:armor_bonus_max change:repeating_armor:armor_bonus_misc", function () {
     clog("Change Detected: Repeating Armor Rating - recalculating rating totals");
@@ -4142,28 +4165,12 @@
   });
   
   /* Monster strength-based skill total calcs */
-  const monster_attributes = {
-    "endure monster": "endure_monster",
-    "fight monster": "fight_monster",
-    "force monster": "force_monster",
-  };
-  const monster_misc = {
-      "endure monster": "endure_skill_misc_monster",
-      "fight monster": "fight_skill_misc_monster",
-      "force monster": "force_skill_misc_monster",
-    },
-    monster_miscGear = {
-      "endure monster": "endure_gear_misc_monster",
-      "fight monster": "fight_gear_misc_monster",
-      "force monster": "force_gear_misc_monster",
-    };
-  
-  Object.keys(monster_attributes).forEach((skill_name) => {
+  Object.keys(monster_skills).forEach((skill_name) => {
     const monster_skill = getSkill(skill_name);
-    on(`change:${monster_skill} change:${monster_attributes[skill_name]} change:${monster_misc[skill_name]} change:${monster_miscGear[skill_name]}`, function () {
-      clog(`${monster_skill} or ${monster_attributes[skill_name]} or ${monster_misc[skill_name]} or ${monster_miscGear[skill_name]} has changed.`);
-      getAttrs([monster_skill, monster_attributes[skill_name], monster_misc[skill_name], monster_miscGear[skill_name]], function (values) {
-        const stat_score = int(values[monster_attributes[skill_name]]),
+    on(`change:${monster_skill} change:${monster_skills[skill_name]} change:${monster_misc[skill_name]} change:${monster_miscGear[skill_name]}`, function () {
+      clog(`${monster_skill} or ${monster_skills[skill_name]} or ${monster_misc[skill_name]} or ${monster_miscGear[skill_name]} has changed.`);
+      getAttrs([monster_skill, monster_skills[skill_name], monster_misc[skill_name], monster_miscGear[skill_name]], function (values) {
+        const stat_score = int(values[monster_skills[skill_name]]),
           miscSkill_score = int(values[monster_misc[skill_name]]),
           miscGear_score = int(values[monster_miscGear[skill_name]]);
         setAttrs({
@@ -4218,16 +4225,16 @@
   
   const dicePoolButtons = (which) => {
     clog(`Change Detected: Dice Pool ${which} - button clicked`);
-    getAttrs([attributes[which], misc[which], miscGear[which], getSkill(which), getSkillKey(which), getSkillName(which)], function (
+    getAttrs([skills[which], misc[which], miscGear[which], getSkill(which), getSkillKey(which), getSkillName(which)], function (
       values
     ) {
-      // attributes[which] returns the attribute; e.g attributes['sneak'] gives 'agility_total'
+      // skills[which] returns the attribute; e.g skills['sneak'] gives 'agility_total'
       // getSkill(which) converts the skill name to a valid attribute string: getSkill('Know the zone') gives 'know-the-zone'
       // getSkillName(which) uses label, string or key to return character type specific translated skill name: getSkillName('Know the zone') gives 'Know nature' for Animals
-      const stat = int(values[attributes[which]]),
+      const stat = int(values[skills[which]]),
         miscSkill_score = Math.max(int(values[misc[which]]), -3),
         miscGear_score = int(values[miscGear[which]]),
-        // stat here first gets attributes['sneak'] which will be, say, 'agility' and
+        // stat here first gets skills['sneak'] which will be, say, 'agility' and
         //  then values['ability_total'] gives you the score from the character sheet.
         skill_attribute_selected = stat > 0 ? stat : 0,
         skill_bonus_misc_selected = miscSkill_score,
@@ -4236,7 +4243,7 @@
         skill = getSkill(which),
         skill_name = getSkillName(skill); // used to get the proper translated character type skill
       clog("Found skill button click, Skill key "+JSON.stringify(which)+" calculated to "+skill+" corresponding to character type "+skill_name);
-
+  
       setAttrs({
         attribute: stat > 0 ? stat : 0, // this is a Ternary Operator, it starts with a question (e.g. is stat > 0)
         // and if true, returns the bit after the ? and if false returns the bit after the :
@@ -4255,15 +4262,15 @@
     });
   };
   
-  Object.keys(attributes).forEach((skill) => {
+  Object.keys(skills).forEach((skill) => {
     on(`clicked:dice_pool_${getSkill(skill)}`, () => dicePoolButtons(skill));
   });
   
   /* Monster strength-based skill dice pool */
   const monster_dicePoolButtons = (which) => {
     clog(`Change Detected: Dice Pool ${which} - button clicked`);
-    getAttrs([monster_attributes[which], monster_misc[which], monster_miscGear[which], getSkill(which), getSkillKey(which)], function (values) {
-      const stat = int(values[monster_attributes[which]]),
+    getAttrs([monster_skills[which], monster_misc[which], monster_miscGear[which], getSkill(which), getSkillKey(which)], function (values) {
+      const stat = int(values[monster_skills[which]]),
         miscSkill_score = Math.max(int(values[monster_misc[which]]), -3),
         miscGear_score = int(values[monster_miscGear[which]]);
       let whichKey = getTranslationByKey(getSkillKey(which));
@@ -4277,7 +4284,7 @@
     });
   };
   
-  Object.keys(monster_attributes).forEach((monster_skill) => {
+  Object.keys(monster_skills).forEach((monster_skill) => {
     on(`clicked:dice_pool_${getSkill(monster_skill)}`, () => monster_dicePoolButtons(monster_skill));
   });
   
@@ -4420,8 +4427,8 @@
       });
     });
   });
-
-
+  
+  
   /* set prof skill dice pool */
   on("clicked:repeating_pskills", function () {
     clog("Change Detected: Profession Skill - button clicked");
@@ -4441,7 +4448,7 @@
       });
     });
   });
-
+  
   /* set dice pool for Powers action button - NOT WORKING (buttons are hidden) */
   const powers = ["mutations","modules","animalpowers","contacts"];
   powers.forEach(pow => {
@@ -4465,7 +4472,7 @@
       });
     });
   });
-
+  
   /* set spell dice pool */
   on("clicked:repeating_spells:spell-roll", function () {
     clog("Change Detected: Spell - button clicked");
@@ -4600,7 +4607,7 @@
       });
     });
   });
-  Object.keys(attributes).forEach((stat) => {
+  Object.keys(skills).forEach((stat) => {
     on(`change:${stat}`, function () {
       getAttrs([stat], function (values) {
         const total = int(values[stat]);
@@ -4665,7 +4672,7 @@
     clog("Change Detected: Strength - button clicked");
     getAttrs(["strength_total"], function (values) {
       const strength_total = int(values.strength_total),
-      strength_name = getSkillName("strength_total");
+      strength_name = getSkillName("strength");
       clog(strength_name + " : " + strength_total);
       setAttrs({
         attribute: strength_total,
@@ -4698,7 +4705,7 @@
   on("clicked:wits-roll", function () {
     clog("Change Detected: wits - button clicked");
     getAttrs(["wits_total"], function (values) {
-      const wits = int(values.wits_total),
+      const wits_total = int(values.wits_total),
       wits_name = getSkillName("wits");
       clog(wits_name + " : " + wits_total);
       setAttrs({

@@ -30,7 +30,7 @@
   <button class="tab character" title="Character" name="act_tab_character" type="action">Character</button>
   <button class="tab ark" data-i18n="ark" name="act_tab_ark" title="Ark" type="action">Ark</button>
   <button class="tab zonelog" data-i18n="zone-log" name="act_tab_zonelog" title="Zone Log" type="action">Zone Log</button>
-  <button class="tab npc" data-i18n="npc-monster" name="act_tab_npc" title="NPC" type="action">NPC/Monster</button>
+  <button class="tab monster" data-i18n="monster" name="act_tab_monster" title="Monster" type="action">Monster</button>
   <select class="input-text select-chartype" name="attr_chartype" value="">
       <option value="Character Type" data-i18n="chartype" value="Mutant" selected hidden disabled>Type</option>
       <option class="character-type" value="Mutant" data-i18n="mutant">Mutant</option>
@@ -42,12 +42,12 @@
   <!--img alt="Mutant Year Zero" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/logo.jpg"-->
 </div>
 
-<div class="wrapper tab-content character">
+<div class="wrapper tab-content character character-grid">
 
     
   <div class="character-grid">
 
-    <div class="character-heading box chartype-background-light toggle-dice-only toggle-monster-only ">
+    <div class="character-heading box toggle-pc-only chartype-background-light">
       <div class="heading-grid">
         <div class="heading-box heading-box1">
           <span class="sheet-label" data-i18n="name">Name</span><br>
@@ -99,7 +99,7 @@
         </div>    
         <div class="heading-box heading-box7 char-human char-animal char-mutant">
           <span class="sheet-label" data-i18n="age">Age</span><br>
-          <input type="number" class="input-number" name="attr_age" title="@{age}">
+          <input type="number" class="input-number" name="attr_age" min="0" title="@{age}">
         </div>
         <div class="heading-box heading-box9 char-human">
           <span class="sheet-label" data-i18n="reputation">Reputation</span><br>
@@ -116,20 +116,20 @@
       </div>
     </div>
 
-    <div class="character-attributes chartype-background-dark box toggle-dice-only ">
+    <div class="character-attributes monster-grid chartype-background-dark box">
       <!--Monster Stats-->
       <div class="monster monster-stat1 toggle-monster-only">
         <span class="header monster-stats-box1">
           <input class="input-number header-h1" type="text" name="attr_character_name" value="" title="@{character_name}" data-i18n-placeholder="monster-name" placeholder="Monster's Name/Type" />
         </span>
       </div>
-      <div class="attributes-grid chartype-background-dark">
+      <div class="attributes-grid monster-flex chartype-background-dark">
         <!-- Broken Indicators -->
-        <input class="broken-str" type="hidden" name="attr_strength_total" />
-        <input class="broken-agi" type="hidden" name="attr_agility_total" />
-        <input class="broken-wit" type="hidden" name="attr_wits_total" />
-        <input class="broken-emp" type="hidden" name="attr_empathy_total" />
-        <div class="attributes-box1 toggle-monster-only header">
+        <input class="broken-str" type="hidden" name="attr_strength_total" value="0" />
+        <input class="broken-agi" type="hidden" name="attr_agility_total" value="0" />
+        <input class="broken-wit" type="hidden" name="attr_wits_total" value="0" />
+        <input class="broken-emp" type="hidden" name="attr_empathy_total" value="0" />
+        <div class="attributes-box1 toggle-pc-only header">
             <h1 data-i18n="attributes-u">ATTRIBUTES</h1>
         </div>
         <div class="attributes-box2">
@@ -140,8 +140,8 @@
         <div class="attributes-box3">
           <!-- PC or Monster Strength attr_strength updates pc/monster str depending on sheet tab-->
           <input class="broken-str" type="hidden" name="attr_strength" value="0" />
-          <input class="input-number broken-str monster" type="number" name="attr_strength_monster" value="0" min="0" max="40" title="@{strength_monster}" />
-          <input class="input-number broken-str toggle-monster-only" type="number" name="attr_strength_pc" value="0" min="0" max="6" title="@{strength_pc}" />
+          <input class="input-number broken-str toggle-monster-only" type="number" name="attr_strength_monster" value="0" min="0" max="40" title="@{strength_monster}" />
+          <input class="input-number broken-str toggle-pc-only" type="number" name="attr_strength_pc" value="0" min="0" max="6" title="@{strength_pc}" />
         </div>
         <div class="attributes-box4">
           <input class="broken-str" type="hidden" name="attr_strength" />
@@ -291,7 +291,7 @@
           <span class="input-span broken-emp" name="attr_empathy_total" value="0" title="@{empathy_total}">0</span>
         </div>
       </div>
-      <div class="conditions-grid toggle-monster-only chartype-background-dark">
+      <div class="conditions-grid toggle-pc-only chartype-background-dark">
         <div class="conditions-box2"><input class="input xbox conditions-hungry" type="checkbox" name="attr_hungry" value="1" data-i18n-title="condition-hungry" title="@{hungry}" /><span></span></div>
         <input class="hidden conditions-hungry" type="checkbox" name="attr_hungry" value="1" />
         <div class="conditions-box3">
@@ -315,8 +315,7 @@
       </div>
     </div>
 
-
-    <div class="monster-attacks box monster toggle-dice-only chartype-background-light">
+    <div class="monster-attacks box monster-grid toggle-monster-only chartype-background-light">
       <div class="monster-attacks-grid">
         <div class="monster-attacks-box header">
           <h1 data-i18n="monster-features-u">MONSTER FEATURES</h1>
@@ -363,7 +362,7 @@
       </div>
     </div>
 
-    <div class="character-appearance box chartype-background-light toggle-dice-only toggle-monster-only">
+    <div class="character-appearance box toggle-pc-only chartype-background-light">
       <div class="appearance-grid">
         <div class="appearance-box appearance-box1 header">
           <h1 data-i18n="appearance-u">APPEARANCE</h1>
@@ -410,7 +409,7 @@
       </div>
     </div>
 
-    <div class="character-injuries box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only ">
+    <div class="character-injuries box toggle-pc-only chartype-background-light">
       <div class="injuries-grid">
         <div class="injuries-box1 header">
           <h1 data-i18n="critical-u">CRITICAL INJURIES</h1>
@@ -452,7 +451,7 @@
       </div>
     </div>
 
-    <div class="character-weapons box chartype-background-light toggle-dice-only">
+    <div class="character-weapons box monster chartype-background-light">
       <div class="weapons-grid">
         <div class="weapons-box weapons-box0 header">
           <h1 style="margin-top: -21px;"></h1>
@@ -662,10 +661,10 @@
                   <span data-i18n="weight-abbr">Wt</span>:
                 </div>
                 <select class="weapons-box weapons-box78 input" name="attr_weapon_weight" title="@{repeating_weapons_$X_weapon_weight}">
-                  <option data-i18n="tiny-abbr" data-i18n-title="tiny" title="Tiny" value="0" selected>T</option>
+                  <option data-i18n="tiny-abbr" data-i18n-title="tiny" title="Tiny" value="0">T</option>
                   <option data-i18n="quarter-abbr" data-i18n-title="quarter" title="Quarter" value="0.25">Q</option>
                   <option data-i18n="light-abbr" data-i18n-title="light" title="Light" value="0.5">L</option>
-                  <option data-i18n="normal-abbr" data-i18n-title="normal" title="Normal" value="1">N</option>
+                  <option data-i18n="normal-abbr" data-i18n-title="normal" title="Normal" value="1" selected>N</option>
                   <option data-i18n="heavy-abbr" data-i18n-title="heavy" title="Heavy" value="2">H</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
@@ -688,7 +687,7 @@
       </div>
     </div>
 
-    <div class="character-skill-dice-box box ">
+    <div class="character-skill-dice-box box monster">
       <!--hidden skill attributes to be used as placeholder for currently selected skill-->
       <input type="hidden" name="attr_skill_attribute_selected" value="" readonly />
       <input type="hidden" name="attr_skill_bonus_misc_selected" value="" readonly />
@@ -697,7 +696,7 @@
       <input type="hidden" name="attr_skill_notes_selected" value="" readonly />
 
       <!-- MONSTER DESCRIPTION-->
-      <div class="monster-description box chartype-background-light monster toggle-dice-only">
+      <div class="monster-description box chartype-background-light monster toggle-monster-only">
         <div class="description-grid">
           <div class="description-box description-box1 header">
             <h1 data-i18n="description-u">DESCRIPTION</h1>
@@ -709,14 +708,14 @@
       </div>
 
       <!-- SKILL GRID -->
-      <div class="character-skills box chartype-background-light toggle-dice-only">
+      <div class="character-skills box chartype-background-light">
         <input type="checkbox" class="skill-order-group hidden" name="attr_skill_order_group" value="1" />
         <div class="skills-grid" data-i18n-list="skills-list">
           
           <span class="skills-header-row">
             <div class="skills-box1 header">
               <h1 class="char-mutant char-animal char-human" data-i18n="skill-u" name="attr_skill_name">SKILLS</h1>
-              <h1 class="char-robot" data-i18n="programs-u" name="attr_skill_name">PROGRAMS</h1> <!-- data-i18n="skill-u" -->
+              <h1 class="char-robot" data-i18n="programs-u" name="attr_skill_name">PROGRAMS</h1>
             </div>
             <div class="skills-box-base column-header">
               <span data-i18n="attribute-abbr">Attr</span>
@@ -737,7 +736,7 @@
           
           <span class="skills-row chartype-background-dark" data-i18n-list-item="endure">
             <span class="skill-name" data-i18n="endure" name="attr_endure_name">Endure</span>
-            <span class="small-caps skill-name" name="attr_strength_abbr">Str<!-- &nbsp;<span name="attr_strength_total"></span> --></span>
+            <span class="small-caps skill-name" name="attr_strength_abbr">Str</span>
             <input class="input-number character-skill-level" type="number" name="attr_endure" value="0" min="0" title="@{endure}" />
             <select class="input character-skill-mod" name="attr_endure_skill_misc" title="@{endure_skill_misc}">
               <option value="6">+6</option>
@@ -770,7 +769,7 @@
           
           <span class="skills-row chartype-background-dark" data-i18n-list-item="force">
             <span class="skill-name" data-i18n="force" name="attr_force_name">Force</span>
-            <span class="small-caps skill-name" name="attr_strength_abbr">Str<!-- &nbsp;<span name="attr_strength_total"></span> --></span>
+            <span class="small-caps skill-name" name="attr_strength_abbr">Str</span>
             <input class="input-number" type="number" name="attr_force" value="0" min="0" title="@{force}" />
             <select class="input" name="attr_force_skill_misc" title="@{force_skill_misc}">
               <option value="6">+6</option>
@@ -803,7 +802,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="fight">
             <span class="skill-name" data-i18n="fight-as-skill" name="attr_fight_name">Fight</span>
-            <span class="small-caps skill-name" name="attr_strength_abbr">Str<!-- &nbsp;<span name="attr_strength_total"></span> --></span>
+            <span class="small-caps skill-name" name="attr_strength_abbr">Str</span>
             <input class="input-number character-skill-level" type="number" name="attr_fight" value="0" min="0" title="@{fight}" />
             <select class="input character-skill-mod" name="attr_fight_skill_misc" title="@{fight_skill_misc}">
               <option value="6">+6</option>
@@ -836,7 +835,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="sneak">
             <span class="skill-name" data-i18n="sneak" name="attr_sneak_name">Sneak</span>
-            <span class="small-caps skill-name" name="attr_agility_abbr">Agi<!--&nbsp;<span name="attr_agility_total" title="@{agility_total}"></span>--></span>
+            <span class="small-caps skill-name" name="attr_agility_abbr">Agi</span>
             <input class="input-number character-skill-level" type="number" name="attr_sneak" value="0" min="0" title="@{sneak}" />
             <select class="input character-skill-mod" name="attr_sneak_skill_misc" title="@{sneak_skill_misc}">
               <option value="6">+6</option>
@@ -880,7 +879,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="move">
             <span class="skill-name" data-i18n="move" name="attr_move_name">Move</span>
-            <span class="small-caps skill-name" name="attr_agility_abbr">Agi<!-- &nbsp;<span name="attr_agility_total"></span> --></span>
+            <span class="small-caps skill-name" name="attr_agility_abbr">Agi</span>
             <input class="input-number character-skill-level" type="number" name="attr_move" value="0" min="0" title="@{move}" />
             <select class="input character-skill-mod" name="attr_move_skill_misc" title="@{move_skill_misc}">
               <option value="6">+6</option>
@@ -924,7 +923,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="shoot"> 
             <span class="skill-name" data-i18n="shoot" name="attr_shoot_name">Shoot</span>
-            <span class="small-caps skill-name" name="attr_agility_abbr">Agi<!-- </span>&nbsp;<span name="attr_agility_total"> --></span>
+            <span class="small-caps skill-name" name="attr_agility_abbr">Agi</span>
             <input class="input-number character-skill-level" type="number" name="attr_shoot" value="0" min="0" title="@{shoot}" />
             <select class="input character-skill-mod" name="attr_shoot_skill_misc" title="@{shoot_skill_misc}">
               <option value="6">+6</option>
@@ -968,7 +967,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="scout">
             <span class="skill-name" data-i18n="scout" name="attr_scout_name">Scout</span>
-            <span class="small-caps skill-name" name="attr_wits_abbr">Wit<!-- &nbsp;<span name="attr_wits_total"></span> --></span>
+            <span class="small-caps skill-name" name="attr_wits_abbr">Wit</span>
             <input class="input-number character-skill-level" type="number" name="attr_scout" value="0" min="0" title="@{scout}" />
             <select class="input character-skill-mod" name="attr_scout_skill_misc" title="@{scout_skill_misc}">
               <option value="6">+6</option>
@@ -1011,8 +1010,8 @@
           </span>
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="comprehend">
-            <span class="skill-name" name="attr_comprehend_name">Comprehend</span><!-- data-i18n="comprehend" --> <!-- data-i18n="wits-abbr"-->
-            <span class="small-caps skill-name" name="attr_wits_abbr">Wit<!-- &nbsp;<span class="readonly" name="attr_wits_total"></span> --></span>
+            <span class="skill-name" name="attr_comprehend_name">Comprehend</span>
+            <span class="small-caps skill-name" name="attr_wits_abbr">Wit</span>
             <input class="input-number character-skill-level" type="number" name="attr_comprehend" value="0" min="0" title="@{comprehend}" />
             <select class="input character-skill-mod" name="attr_comprehend_skill_misc" title="@{comprehend_skill_misc}">
               <option value="6">+6</option>
@@ -1056,7 +1055,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="know_the_zone">
             <span class="skill-name" data-i18n="know-the-zone" name="attr_know_the_zone_name">Know the Zone</span>
-            <span class="small-caps skill-name" name="attr_wits_abbr">Wit<!-- &nbsp;<span name="attr_wits_total"></span> --></span>
+            <span class="small-caps skill-name" name="attr_wits_abbr">Wit</span>
             <input class="input-number character-skill-level" type="number" name="attr_know_the_zone" value="0" min="0" title="@{know_the_zone}" />
             <select class="input character-skill-mod" name="attr_know_the_zone_skill_misc" title="@{know_the_zone_skill_misc}">
               <option value="6">+6</option>
@@ -1100,7 +1099,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="sense_emotion">
             <span class="skill-name" data-i18n="sense-emotion" name="attr_sense_emotion_name">Sense emotion</span>
-            <span class="small-caps skill-name" name="attr_empathy_abbr">Emp<!-- &nbsp;<span name="attr_empathy_total"></span> --></span>
+            <span class="small-caps skill-name" name="attr_empathy_abbr">Emp></span>
             <input class="input-number character-skill-level" type="number" name="attr_sense_emotion" value="0" min="0" title="@{sense_emotion}" />
             <select class="input character-skill-mod" name="attr_sense_emotion_skill_misc" title="@{sense_emotion_skill_misc}">
               <option value="6">+6</option>
@@ -1144,7 +1143,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="manipulate">
             <span class="skill-name" data-i18n="manipulate" name="attr_manipulate_name">Manipulate</span>
-            <span class="small-caps skill-name" name="attr_empathy_abbr">Emp<!-- &nbsp;<span name="attr_empathy_total"></span> --></span>
+            <span class="small-caps skill-name" name="attr_empathy_abbr">Emp</span>
             <input class="input-number character-skill-level" type="number" name="attr_manipulate" value="0" min="0" title="@{manipulate}" />
             <select class="input character-skill-mod" name="attr_manipulate_skill_misc" title="@{manipulate_skill_misc}">
               <option value="6">+6</option>
@@ -1188,7 +1187,7 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="heal">
             <span class="skill-name" data-i18n="heal" name="attr_heal_name">Heal</span>
-            <span class="small-caps skill-name" name="attr_empathy_abbr">Emp<!-- &nbsp;<span name="attr_empathy_total"></span> --></span>
+            <span class="small-caps skill-name" name="attr_empathy_abbr">Emp</span>
             <input class="input-number" type="number" name="attr_heal" value="0" min="0" title="@{heal}" />
             <select class="input" name="attr_heal_skill_misc" title="@{heal_skill_misc}">
               <option value="6">+6</option>
@@ -1295,7 +1294,7 @@
       <!-- DICE POOL GRID-->
       <div class="character-dice_pool box chartype-background-light">
         <div class="dice_pool-grid">
-          <div class="dice-header dice_pool-box1 toggle-dice-only header">
+          <div class="dice-header dice_pool-box1 header">
             <h1 data-i18n="dice-pool-u">DICE POOL</h1>
           </div>
           <div class="dice-base">
@@ -1462,7 +1461,7 @@
       </div>
     </div>
 
-    <div class="character-column3 box toggle-dice-only toggle-monster-only ">
+    <div class="character-column3 box monster toggle-pc-only">
       <input type="checkbox" class="hidden force-show-mutations" name="attr_force_show_mutations" value="1" />
       <input type="checkbox" class="hidden force-show-animalpowers" name="attr_force_show_animalpowers" value="1" />
       <input type="checkbox" class="hidden force-show-contacts" name="attr_force_show_contacts" value="1" />
@@ -1471,7 +1470,7 @@
       <input type="checkbox" class="hidden force-show-money" name="attr_force_show_money" value="1" />
       <input type="checkbox" class="hidden force-show-vehicle" name="attr_force_show_vehicle" value="1" />
 
-      <div class="character-experience box sheet-header toggle-dice-only toggle-monster-only toggle-npc-only">
+      <div class="character-experience box toggle-pc-only sheet-header">
         <div class="experience-grid">
           <div class="experience-box1">
             <h1 data-i18n="experience-u">EXPERIENCE</h1>
@@ -1483,7 +1482,7 @@
         </div>
       </div>
 
-      <div class="character-talents sheet-box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
+      <div class="character-talents box toggle-pc-only chartype-background-light">
         <div class="talents-grid">
           <div class="talents-box header">
             <h1 class="char-mutant char-animal char-human" data-i18n="talent-u">TALENTS</h1>
@@ -1515,7 +1514,7 @@
         </div>
       </div>
 
-      <div class="character-mutations sheet-box chartype-background-light char-mutant toggle-dice-only toggle-monster-only toggle-npc-only">
+      <div class="character-mutations box toggle-pc-only chartype-background-light char-mutant">
         <div class="talents-grid">
           <div class="talents-box header">
             <h1 data-i18n="mutation-u">MUTATIONS</h1>
@@ -1562,7 +1561,7 @@
         </div>
       </div>
 
-      <div class="character-modules sheet-box chartype-background-light char-robot toggle-dice-only toggle-monster-only toggle-npc-only">
+      <div class="character-modules box toggle-pc-only chartype-background-light char-robot">
         <div class="talents-grid">
           <div class="talents-box header">
             <h1 data-i18n="modules-u">MODULES</h1>
@@ -1609,7 +1608,7 @@
         </div>
       </div>
 
-      <div class="character-animalpowers sheet-box chartype-background-light char-animal toggle-dice-only toggle-monster-only toggle-npc-only">
+      <div class="character-animalpowers box toggle-pc-only chartype-background-light char-animal">
         <div class="talents-grid">
           <div class="talents-box header">
             <h1 data-i18n="animalpowers-u">ANIMAL POWERS</h1>
@@ -1656,7 +1655,7 @@
         </div>
       </div>
 
-      <div class="character-contacts character sheet-box chartype-background-light char-human toggle-dice-only toggle-monster-only toggle-npc-only">
+      <div class="character-contacts character box toggle-pc-only chartype-background-light char-human">
         <div class="talents-grid">
           <div class="talents-box header">
             <h1 data-i18n="contacts-u">CONTACTS</h1>
@@ -1703,7 +1702,7 @@
         </div>
       </div>
 
-      <div class="character-biomech character sheet-box chartype-background-light char-human toggle-dice-only toggle-monster-only toggle-npc-only">
+      <div class="character-biomech character box toggle-pc-only chartype-background-light char-human">
         <div class="talents-grid">
           <div class="talents-box header">
             <h1 data-i18n="biomechatronics-u">BIOMECHATRONICS</h1>
@@ -1721,7 +1720,7 @@
         </div>
       </div>
 
-      <div class="character-rotpoints sheet-box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only">
+      <div class="character-rotpoints box toggle-pc-only chartype-background-light">
         <div class="talents-grid">
           <div class="talents-box header">
             <h1 data-i18n="rotpoints-u">ROT POINTS</h1>
@@ -1748,7 +1747,7 @@
         </div>
       </div>
 
-      <div class="character-consumables box chartype-background-light toggle-dice-only toggle-monster-only">
+      <div class="character-consumables box toggle-pc-only chartype-background-light">
         <div class="consumables-grid">
           <div class="consumables-box header">
             <h1 data-i18n="consumable-u">CONSUMABLES</h1>
@@ -1803,7 +1802,7 @@
         </div>
       </div>
 
-      <div class="character-money box chartype-background-light char-human toggle-dice-only toggle-monster-only">
+      <div class="character-money box toggle-pc-only chartype-background-light char-human">
         <div class="money-grid">
           <div class="money-box header">
             <h1 data-i18n="money-u">MONEY</h1>
@@ -1853,7 +1852,7 @@
         </div>
       </div> 
 
-      <div class="gear-grid box chartype-background-light">
+      <div class="gear-grid box toggle-pc-only chartype-background-light">
         <div class="gear-box1 header">
           <h1 data-i18n="gea-u">GEAR</h1>
         </div>
@@ -1942,7 +1941,7 @@
         </div>
       </div>
 
-      <div class="vehicle-grid box chartype-background-light char-human-grid char-robot-grid">
+      <div class="vehicle-grid box toggle-pc-only chartype-background-light char-human-grid char-robot-grid">
         <div class="vehicle-box1 header">
           <h1 data-i18n="vehicle-u">VEHICLE</h1>
         </div>
@@ -2072,7 +2071,7 @@
       </div>
     </div>
 
-    <div class="character-armor box chartype-background-light toggle-dice-only">
+    <div class="character-armor box monster chartype-background-light">
       <div class="armor-container">
         <div class="armor-grid">
           <div class="armor-box header">
@@ -2202,7 +2201,7 @@
       </div>
     </div>
 
-    <div class="character-relationships box chartype-background-light toggle-dice-only toggle-monster-only toggle-npc-only ">
+    <div class="character-relationships box toggle-pc-only chartype-background-light">
       <div class="relationships-grid">
         <div class="relationships-box1 header">
           <h1 data-i18n="relationships-u">RELATIONSHIPS</h1>
@@ -2294,7 +2293,7 @@
       </div>
     </div>
 
-    <div class="character-spells box toggle-dice-only toggle-monster-only ">
+    <div class="character-spells box toggle-pc-only">
       <div class="spells-grid">
         <div class="spells-box header">
           <h1 data-i18n="spell-u">SPELLS</h1>
@@ -2349,7 +2348,7 @@
       </div>
     </div>
 
-    <div class="character-notes box chartype-background-light toggle-dice-only ">
+    <div class="character-notes box chartype-background-light">
       <div class="notes-grid">
         <div class="notes-box1 header">
           <h1 data-i18n="notes-u">NOTES</h1>
@@ -2769,8 +2768,8 @@
 <div class="wrapper tab-content settings">
 
   <!--announcements/updates-->
-  <input type="checkbox" class="announcements-show toggle-dice-only toggle-monster-only" name="attr_show_announcements" value="1" data-i18n-title="version-announcements" title="Sheet version and announcements" style="width: 4.5em; height: 2em;">
-  <!--<span class="announcements-show toggle-dice-only toggle-monster-only" name="attr_version">&nbsp;</span>-->
+  <input type="checkbox" class="announcements-show toggle-monster-only" name="attr_show_announcements" value="1" data-i18n-title="version-announcements" title="Sheet version and announcements" style="width: 4.5em; height: 2em;">
+  <!--<span class="announcements-show toggle-monster-only" name="attr_version">&nbsp;</span>-->
   <div class="settings-options">
     <input type="hidden" name="attr_translation_whisper_query" value="whisper-query" />
     <input type="hidden" name="attr_translation_whisper_api_query" value="whisper_api-query" />
@@ -2858,7 +2857,7 @@
       </div>
     </div>
   </div>
-  <div class="announcements toggle-dice-only toggle-monster-only">
+  <div class="announcements toggle-monster-only">
     <h3 data-i18n="latest-announcements">Latest Announcements</h3>
     <span class="footer">05/04/21</span>
     <ol style="margin: 0 2em 0 2em; padding: 0 1em 0 3em;">
@@ -3690,10 +3689,28 @@
       var newrowattrs = {};
       newrowattrs["repeating_armor_" + newrowid + "_name"] = armor1_name;
       newrowattrs["repeating_armor_" + newrowid + "_ar"] = int(armor1_ar);
+      newrowattrs["repeating_armor_" + newrowid + "_carried"] = 1;
       newrowattrs["repeating_armor_" + newrowid + "_equipped"] = 1;
       newrowattrs["repeating_armor_" + newrowid + "_bonus_max"] = int(armor1_bonus);
-      newrowattrs["repeating_armor_" + newrowid + "_weapon_bonus_misc"] = 0;
+      newrowattrs["repeating_armor_" + newrowid + "_bonus_misc"] = 0;
+      newrowattrs["repeating_armor_" + newrowid + "_bonus"] = int(armor1_bonus) - int(armor1_damage);
+      newrowattrs["repeating_armor_" + newrowid + "_weight"] = 1;
+      newrowattrs["repeating_armor_" + newrowid + "_features"] = '';
       setAttrs(newrowattrs);
+    });
+    GetAttrs(["armor2_ar", "armor2_bonus", "armor2_damage", "armor2_name"], function(values) {
+      var newrowid = generateRowID();
+      var newrowattrs = {};
+      newrowattrs["repeating_armor_" + newrowid + "_name"] = armor2_name;
+      newrowattrs["repeating_armor_" + newrowid + "_ar"] = int(armor2_ar);
+      newrowattrs["repeating_armor_" + newrowid + "_carried"] = 1;
+      newrowattrs["repeating_armor_" + newrowid + "_equipped"] = 1;
+      newrowattrs["repeating_armor_" + newrowid + "_bonus_max"] = int(armor2_bonus);
+      newrowattrs["repeating_armor_" + newrowid + "_bonus_misc"] = 0;
+      newrowattrs["repeating_armor_" + newrowid + "_bonus"] = int(armor2_bonus) - int(armor2_damage);
+      newrowattrs["repeating_armor_" + newrowid + "_weight"] = 1;
+      newrowattrs["repeating_armor_" + newrowid + "_features"] = '';
+      SetAttrs(newrowattrs);
     });
     // Upgrade gear and consumables
 
@@ -3839,11 +3856,12 @@
   on("change:tab change:strength_pc change:strength_monster sheet:opened", () => {
     getAttrs(["tab", "strength", "strength_pc", "strength_monster"], (v) => {
       const settings = {},
-        tab = int(v.tab, 1), // sets tab to 1 if not recognized - so goes to pc tab;
+        tab = (v.tab) ? v.tab : 'character', // sets tab to Character if not recognized - so goes to pc tab;
         str = int(v.strength);
       let pc = int(v.strength_pc),
         monster = int(v.strength_monster),
         forceupdate = 0;
+      clog(`Found updated strength max in tab ${tab}, checking pc = ${pc} and monster = ${monster} strengths, max is now = ${str}.`)
   
       // check if character existed before strength_pc or _monster stats were introduced.
       if (str > 0) {
@@ -3858,10 +3876,10 @@
         }
       }
       // if tab is not pc or monster, end the function and leave strength unchanged
-      if (tab !== 1 && tab !== 3 && !forceupdate) return;
+      if (tab !== 'character' && tab !== 'monster' && !forceupdate) return;
   
       // if tab = 1 or 3, set strength to the appropriate value
-      settings.strength = tab === 3 ? monster : pc;
+      settings.strength = tab === 'monster' ? monster : pc;
   
       setAttrs(settings);
     });
@@ -3897,47 +3915,47 @@
   const attributes = {
       // a javascript Object Literal, containing each skill, and its corresponding attribute
       endure: "strength_total",
-      heal: "empathy_total",
-      comprehend: "wits_total",
-      manipulate: "empathy_total",
-      shoot: "agility_total",
-      fight: "strength_total",
       force: "strength_total",
-      Move: "agility_total",
-      sense_emotion: "empathy_total",
-      scout: "wits_total",
-      know_the_zone: "wits_total",
+      fight: "strength_total",
       sneak: "agility_total",
+      Move: "agility_total",
+      shoot: "agility_total",
+      scout: "wits_total",
+      comprehend: "wits_total",
+      know_the_zone: "wits_total",
+      sense_emotion: "empathy_total",
+      manipulate: "empathy_total",
+      heal: "empathy_total",
     },
     misc = {
       // a javascript Object Literal, containing each skill, and its corresponding skill modification
       endure: "endure_skill_misc",
-      heal: "heal_skill_misc",
-      comprehend: "comprehend_skill_misc",
-      manipulate: "manipulate_skill_misc",
-      shoot: "shoot_skill_misc",
-      fight: "fight_skill_misc",
       force: "force_skill_misc",
-      Move: "move_skill_misc",
-      sense_emotion: "sense_emotion_skill_misc",
-      scout: "scout_skill_misc",
-      know_the_zone: "know_the_zone_skill_misc",
+      fight: "fight_skill_misc",
       sneak: "sneak_skill_misc",
+      Move: "move_skill_misc",
+      shoot: "shoot_skill_misc",
+      scout: "scout_skill_misc",
+      comprehend: "comprehend_skill_misc",
+      know_the_zone: "know_the_zone_skill_misc",
+      sense_emotion: "sense_emotion_skill_misc",
+      manipulate: "manipulate_skill_misc",
+      heal: "heal_skill_misc",
     },
     miscGear = {
       // a javascript Object Literal, containing each skill, and its corresponding gear modification
       endure: "endure_gear_misc",
-      heal: "heal_gear_misc",
-      comprehend: "comprehend_gear_misc",
-      manipulate: "manipulate_gear_misc",
-      shoot: "shoot_gear_misc",
-      fight: "fight_gear_misc",
       force: "force_gear_misc",
-      Move: "move_gear_misc",
-      sense_emotion: "sense_emotion_gear_misc",
-      scout: "scout_gear_misc",
-      know_the_zone: "know_the_zone_gear_misc",
+      fight: "fight_gear_misc",
       sneak: "sneak_gear_misc",
+      Move: "move_gear_misc",
+      shoot: "shoot_gear_misc",
+      scout: "scout_gear_misc",
+      comprehend: "comprehend_gear_misc",
+      know_the_zone: "know_the_zone_gear_misc",
+      sense_emotion: "sense_emotion_gear_misc",
+      manipulate: "manipulate_gear_misc",
+      heal: "heal_gear_misc",
     },
     getSkill = (label) => (label.split("-").join("_")).split(" ").join("_").toLowerCase(),
     // a function to change (for example) "Know the Zone" to "know_the_zone"
@@ -4209,7 +4227,7 @@
       const stat = int(values[attributes[which]]),
         miscSkill_score = Math.max(int(values[misc[which]]), -3),
         miscGear_score = int(values[miscGear[which]]),
-        // stat here first gets attributes['sneak'] which will be, say, 'agility_total' and
+        // stat here first gets attributes['sneak'] which will be, say, 'agility' and
         //  then values['ability_total'] gives you the score from the character sheet.
         skill_attribute_selected = stat > 0 ? stat : 0,
         skill_bonus_misc_selected = miscSkill_score,
@@ -4515,7 +4533,7 @@
   });
   
   /* Broken Indicator flags*/
-  // first create am array listing all 4 stats
+  // first create an array listing all 4 stats
   const stats = ["strength", "agility", "wits", "empathy"];
   
   /* Update the Dice Pool indicator */
@@ -4552,7 +4570,7 @@
     setAttrs({
       translation_push_query: getTranslationByKey("push-query"),
       translation_whisper_macro_query: "?{" + getTranslationByKey("whisper-macro") + "|" + getTranslationByKey("no") + ",|" + getTranslationByKey("yes") + ",/w gm |" + "}",
-      translation_whisper_api_macro_query: "?{" + getTranslationByKey("whisper-macro") + "|" + getTranslationByKey("no") + ",!forl |" + getTranslationByKey("yes") + ",!wforl |" + "}",
+      translation_whisper_api_macro_query: "?{" + getTranslationByKey("whisper-macro") + "|" + getTranslationByKey("no") + ",!myz |" + getTranslationByKey("yes") + ",!wmyz |" + "}",
     });
   });
   
@@ -4573,9 +4591,9 @@
       getAttrs([stat, "tab"], function (values) {
         const total = int(values[stat]);
         const tab = int(values.tab);
-        var max = tab === 3 ? 12 : 6;
+        var max = tab === 3 || tab === 'monster' ? 12 : 6;
         // const max attribute = 12 for monsters; 
-        max = tab === 3 && stat === "strength_monster" ? 12 : 40;
+        max = (tab === 3 || tab === 'monster') && stat === "strength_monster" ? 12 : 40;
         // const max strength = 40 for monsters; 
         const settings = checkMax(stat, total, max);
         if (settings) setAttrs(settings);
@@ -4647,13 +4665,13 @@
     clog("Change Detected: Strength - button clicked");
     getAttrs(["strength_total"], function (values) {
       const strength_total = int(values.strength_total),
-      strength = getSkillName("strength");
-      clog(strength + " : " + strength_total);
+      strength_name = getSkillName("strength_total");
+      clog(strength_name + " : " + strength_total);
       setAttrs({
         attribute: strength_total,
         skill: 0,
         gear: 0,
-        current_preset: strength,
+        current_preset: strength_name,
         include_with_roll: "",
       });
     });
@@ -4664,13 +4682,13 @@
     clog("Change Detected: agility - button clicked");
     getAttrs(["agility_total"], function (values) {
       const agility_total = int(values.agility_total),
-      agility = getSkillName("agility");
-      clog(agility + " : " + agility_total);
+      agility_name = getSkillName("agility");
+      clog(agility_name + " : " + agility_total);
       setAttrs({
         attribute: agility_total,
         skill: 0,
         gear: 0,
-        current_preset: agility,
+        current_preset: agility_name,
         include_with_roll: "",
       });
     });
@@ -4680,14 +4698,14 @@
   on("clicked:wits-roll", function () {
     clog("Change Detected: wits - button clicked");
     getAttrs(["wits_total"], function (values) {
-      const wits_total = int(values.wits_total),
-      wits = getSkillName("wits");
-      clog(wits + " : " + wits_total);
+      const wits = int(values.wits_total),
+      wits_name = getSkillName("wits");
+      clog(wits_name + " : " + wits_total);
       setAttrs({
         attribute: wits_total,
         skill: 0,
         gear: 0,
-        current_preset: wits,
+        current_preset: wits_name,
         include_with_roll: "",
       });
     });
@@ -4698,20 +4716,20 @@
     clog("Change Detected: empathy - button clicked");
     getAttrs(["empathy_total"], function (values) {
       const empathy_total = int(values.empathy_total),
-      empathy = getSkillName("empathy");
-      clog(empathy + " : " + empathy_total);
+      empathy_name = getSkillName("empathy");
+      clog(empathy_name + " : " + empathy_total);
       setAttrs({
         attribute: empathy_total,
         skill: 0,
         gear: 0,
-        current_preset: empathy,
+        current_preset: empathy_name,
         include_with_roll: "",
       });
     });
   });
   
   /* delete empty repeating rows w/out having to close/reopen sheet*/
-  on('remove:repeating_injuries remove:repeating_talents remove:repeating_gear remove:repeating_vehiclegear remove:repeating_relationships remove:repeating_spells remove:repeating_beasts remove:repeating_notes remove:repeating_functions remove:repeating_hirelings remove:repeating_monster', function() { 
+  on('remove:repeating_injuries remove:repeating_talents remove:repeating_gear remove:repeating_vehiclegear remove:repeating_relationships remove:repeating_spells remove:repeating_beasts remove:repeating_notes remove:repeating_functions remove:repeating_hirelings remove:repeating_monster remove:repeating_weapons remove:repeating_mutations', function() { 
     const timestamp = Number(new Date())
     setAttrs({ repeat_delete: timestamp });
     clog("repeating row has been removed");

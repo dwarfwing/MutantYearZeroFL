@@ -158,6 +158,16 @@ let race_att_names;
 
 
 /* Attributre damage const */
+const attributes = {
+    // an Object Literal: damages['strength'] returns 'damage', damages['empathy'] returns 'doubt', etc
+    strength: "strength_total",
+    agility: "agility_total",
+    wits: "wits_total",
+    empathy: "empathy_total",
+  };
+
+
+/* Attributre damage const */
 const damages = {
     // an Object Literal: damages['strength'] returns 'damage', damages['empathy'] returns 'doubt', etc
     strength: "damage",
@@ -320,12 +330,82 @@ const update_to_1_71 = (old_version) => {
 
 /* Upgrade to 2.01 version from previous version */
 const update_to_2_01 = (old_version) => {
-  // Upgrade attributes and damage
-
+  // Upgrade attributes, no need to update damages
+  Object.keys(attributes).forEach((attr) => {
+    GetAttrs([attr, attributes[attr], attr+"_max"], (values) => {
+      var setter = {};
+      setter[attr] = values[attr],
+      setter[attr_name] = getSkillName(attr),
+      setter[attr_total] = values[attributes[attr]],
+      setter[attr_max] = values[attr+"_max"];
+      clog(`Upgrading ${setter[attr_name]} from ${setter[attr_name]}_max ${setter[attr_max]} to ${setter[attr_name]}_total ${setter[attr_total]}.`);
+      SetAttrs(setter);
+    });
+  });
+  // Upgrade conditions - no need
+  // Upgrade apprearance - no need
+  // Upgrade injuries - non need
+  // Upgrade rot - no need, aligned
+  // Upgrade experience - no need, same attribute
   
-  // Upgrade skills
+  // Upgrade skills - no need
+  // Upgrade repeating skills - no need, aligned
 
-  // Upgrade apprearance
+  // Talents - no need - aligned
+
+  // Mutations
+  getSectionIDs("repeating_mutantions", function(mutantions) {
+    mutantions.forEach((mutantionsId) => {
+      GetAttrs(["repeating_mutantions_"+mutantionsId+"_mutantion_name", "repeating_mutantions_"+mutantionsId+"_mutantion_description"], (values) => {
+        const name = values["repeating_mutantions_"+mutantionsId+"_mutantion_name"],
+        description = values["repeating_mutantions_"+mutantionsId+"_mutantion_description"],
+        var newrowid = generateRowID();
+        var newmutation = {};
+        newmutation["repeating_mutations_"+newrowid+"_name"] = name;
+        newmutation["repeating_mutations_"+newrowid+"_description"] = description;
+        newmutation["repeating_mutations_"+newrowid+"_rank"] = 1;
+        newmutation["repeating_mutations_"+newrowid+"_powerlevel"] = 1;
+        SetAttrs(newmutation);
+      });
+    });
+  });
+
+  // Upgrade Weapons
+  getSectionIDs("repeating_weapons", function(weapons) {
+    weapons.forEach((weaponId) => {
+      GetAttrs(["repeating_weapon_"+weaponId+"_name", "repeating_weapon_"+weaponId+"_skill", "repeating_weapon_"+weaponId+"_bonus", "repeating_weapon_"+weaponId+"_damage", "repeating_weapon_"+weaponId+"_range", "repeating_weapon_"+weaponId+"_features", "strength_total", "agility_total"], (values) => {
+        const name = values["repeating_weapon_"+weaponId+"_name"],
+        skill = int(values["repeating_weapon_"+weaponId+"_skill"]),
+        bonus = int(values["repeating_weapon_"+weaponId+"_bonus"]),
+        damage = int(values["repeating_weapon_"+weaponId+"_damage"]),
+        range = values["repeating_weapon_"+weaponId+"_range"], 
+        features = values["repeating_weapon_"+weaponId+"_features"],
+        strength = int(values.strength_total),
+        agility = int(values.agility_total),
+        base = skill === 0 ? strength : agility;
+
+        newweapon = {};
+        newweapon["repeating_weapon_"+weaponId+"_name"] = name;
+        newweapon["repeating_weapon_"+weaponId+"_base_total"] = base;
+        newweapon["repeating_weapon_"+weaponId+"_skill"] = skill;
+        newweapon["repeating_weapon_"+weaponId+"_skill_misc"] = 0;
+        newweapon["repeating_weapon_"+weaponId+"_skill_total"] = skill;
+        newweapon["repeating_weapon_"+weaponId+"_bonus"] = bonus;
+        newweapon["repeating_weapon_"+weaponId+"_bonus_max"] = bonus;
+        newweapon["repeating_weapon_"+weaponId+"_bonus_misc"] = 0;
+        newweapon["repeating_weapon_"+weaponId+"_bonus_total"] = bonus;
+        newweapon["repeating_weapon_"+weaponId+"_damage"] = damage;
+        newweapon["repeating_weapon_"+weaponId+"_damage_misc"] = 0
+        newweapon["repeating_weapon_"+weaponId+"_damage_total"] = damage;
+        newweapon["repeating_weapon_"+weaponId+"_grip"] = "1H";
+        newweapon["repeating_weapon_"+weaponId+"_range"] = range;
+        newweapon["repeating_weapon_"+weaponId+"_carried"] = 1;
+        newweapon["repeating_weapon_"+weaponId+"_weight"] = 1;
+        newweapon["repeating_weapon_"+weaponId+"_features"] = features;
+        SetAttrs(newweapon);
+        });
+      });
+    });
 
   // Upgrade armor to repeating section
   GetAttrs(["armor1_ar", "armor1_bonus", "armor1_damage", "armor1_name"], function(values) {
@@ -356,6 +436,7 @@ const update_to_2_01 = (old_version) => {
     newrowattrs["repeating_armor_" + newrowid + "_features"] = '';
     SetAttrs(newrowattrs);
   });
+
   // Upgrade gear and consumables
 
   // Upgrade relationships etc
@@ -428,10 +509,22 @@ on("change:repeating_armor remove:repeating_armor sheet:opened", function () {
   repeatingSum("ar_total", "armor", ["armor_ar", "armor_equipped"]);
 });
 
+/* total rot */
+on("change:rot change:rot_permanent sheet:opened", function () {
+    clog("Change Detected: Rot levels");
+    getAttrs(["rot", "rot_permanent"], (values) => {
+      var rot = int(values.rot),
+      rot_permanent = int(values.rot_permanent);
+      if(rot <= rot_permanent) {
+        setAttrs ({ rot: rot_permanent });
+      }
+    });
+  });
+
 /* total encumbrance */
 on("sheet:opened change:gear_encumbrance change:vehiclegear_encumbrance change:weapons_encumbrance change:armor_encumbrance change:food change:water change:bullets", function () {
-  getAttrs(["gear_encumbrance", "vehiclegear_encumbrance", "weapons_encumbrance", "armor_encumbrance", "food", "water", "bullets"], function (values) {      clog("Change Detected: Character Encumbrance");
-
+  getAttrs(["gear_encumbrance", "vehiclegear_encumbrance", "weapons_encumbrance", "armor_encumbrance", "food", "water", "bullets"], function (values) {
+    clog("Change Detected: Character Encumbrance");
     const gear_encumbrance = float(values["gear_encumbrance"]),
       vehiclegear_encumbrance = float(values["vehiclegear_encumbrance"]),
       weapons_encumbrance = float(values["weapons_encumbrance"]),
@@ -581,36 +674,36 @@ Object.keys(skills).forEach((skill_name) => {
  
   
 /* set profession skill base and skill total FIX courtesy of GiGs*/
-on('sheet:opened change:repeating_pskills:pskill_name change:repeating_pskills:pskill_attr change:repeating_pskills:pskill_level change:repeating_pskills:pskill_misc change:repeating_pskills:pskill_gear change:strength_total change:agility_total change:wits_total change:empathy_total', function () {
+on('sheet:opened change:repeating_skills:name change:repeating_skills:attribute change:repeating_skills:skill change:repeating_skills:misc change:repeating_skills:gear change:strength_total change:agility_total change:wits_total change:empathy_total', function () {
   clog('Change Detected: Profession Skill - recalculating Base & Skill totals');
-  getSectionIDs('repeating_pskills', idarray => {
+  getSectionIDs('repeating_skills', idarray => {
     const fields = [];
     idarray.forEach(id => fields.push(
-      `repeating_pskills_${id}_pskill_name`,
-      `repeating_pskills_${id}_pskill_attr`, 
-      `repeating_pskills_${id}_pskill_base`, 
-      `repeating_pskills_${id}_pskill_level`, 
-      `repeating_pskills_${id}_pskill_misc`, 
-      `repeating_pskills_${id}_pskill_gear`, 
-      `repeating_pskills_${id}_pskill_total`
+      `repeating_skills_${id}_name`,
+      `repeating_skills_${id}_attribute`, 
+      `repeating_skills_${id}_base`, 
+      `repeating_skills_${id}_skill`, 
+      `repeating_skills_${id}_misc`, 
+      `repeating_skills_${id}_gear`, 
+      `repeating_skills_${id}_total`
     ));
     // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
     getAttrs([...fields, 'strength_total', 'agility_total', 'wits_total', 'empathy_total'], function (values) {
       const output = {};
       idarray.forEach(id => {
-        const name = values[`repeating_pskills_${id}_pskill_name`];
-        const attr = values[`repeating_pskills_${id}_pskill_attr`];
-        const pskill_skill = int(values[`repeating_pskills_${id}_pskill_level`]);
-        const pskill_misc = int(values[`repeating_pskills_${id}_pskill_misc`]);
-        const pskill_gear = int(values[`repeating_pskills_${id}_pskill_gear`]);
+        const name = values[`repeating_skills_${id}_name`];
+        const attr = values[`repeating_skills_${id}_attribute`];
+        const skill_skill = int(values[`repeating_skills_${id}_skill`]);
+        const skill_misc = int(values[`repeating_skills_${id}_misc`]);
+        const skill_gear = int(values[`repeating_skills_${id}_gear`]);
         // separate out the basic values read from the sheet from those calculated within the worker. for clarity
-        const pskill_base = values[`${attr}_total`] || 0;
-        const pskill_total = pskill_base + pskill_skill + pskill_misc + pskill_gear;
-        output[`repeating_pskills_${id}_pskill_base`] = pskill_base;
-        output[`repeating_pskills_${id}_pskill_total`] = pskill_total;
-        clog('pskill_name: ' + name);
-        clog('pskill_base: ' + pskill_base);
-        clog('weapon_skill_total: ' + pskill_total);
+        const skill_base = values[`${attr}_total`] || 0;
+        const skill_total = skill_base + skill_skill + skill_misc + skill_gear;
+        output[`repeating_skills_${id}_base`] = skill_base;
+        output[`repeating_skills_${id}_total`] = skill_total;
+        clog('skill_name: ' + name);
+        clog('skill_base: ' + skill_base);
+        clog('skill_total: ' + skill_total);
       });              
     setAttrs(output);
     });
@@ -999,21 +1092,21 @@ on("clicked:repeating_monster:monster-attack-roll", function () {
 
 
 /* set prof skill dice pool */
-on("clicked:repeating_pskills", function () {
+on("clicked:repeating_skills", function () {
   clog("Change Detected: Profession Skill - button clicked");
-  getAttrs(["repeating_pskills_pskill_name", "repeating_pskills_pskill_base", "repeating_pskills_pskill_level", "repeating_pskills_pskill_misc", "repeating_pskills_pskill_gear"], function (values) {
-    const pskill_name = values.repeating_pskills_pskill_name,
-      pskill_base = int(values.repeating_pskills_pskill_base),
-      pskill_level = int(values.repeating_pskills_pskill_level),
-      pskill_misc = int(values.repeating_pskills_pskill_misc),
-      pskill_gear = int(values.repeating_pskills_pskill_gear),
-      pskill_skill = pskill_level + pskill_misc;
+  getAttrs(["repeating_skills_name", "repeating_skills_base", "repeating_skills_skill", "repeating_skills_misc", "repeating_skills_gear"], function (values) {
+    const skill_name = values.repeating_skills_name,
+      skill_base = int(values.repeating_skills_base),
+      skill_level = int(values.repeating_skills_skill),
+      skill_misc = int(values.repeating_skills_misc),
+      skill_gear = int(values.repeating_skills_gear),
+      skill_skill = skill_level + skill_misc;
     setAttrs({
-      attribute: pskill_base,
-      skill: pskill_skill,
-      gear: pskill_gear,
-      current_preset: getTranslationByKey(`skill`) + ` - ${pskill_name}`,
-      include_with_roll: `{{skill-base=${pskill_base}}} {{skill-level=${pskill_level}}} {{skill-bonus-misc=${pskill_misc}}} {{skill-bonus-gear=${pskill_gear}}}`,
+      attribute: skill_base,
+      skill: skill_skill,
+      gear: skill_gear,
+      current_preset: getTranslationByKey(`skill`) + ` - ${skill_name}`,
+      include_with_roll: `{{skill-base=${skill_base}}} {{skill-level=${skill_level}}} {{skill-bonus-misc=${skill_misc}}} {{skill-bonus-gear=${skill_gear}}}`,
     });
   });
 });
@@ -1114,7 +1207,7 @@ const stats = ["strength", "agility", "wits", "empathy"];
 
 /* Update the Dice Pool indicator */
 on(
-  "clicked:repeating_pskills:pskill-roll clicked:dice_pool_crafting_monster clicked:dice_pool_force_monster clicked:dice_pool_endure_monster clicked:dice_pool_fight_monster clicked:dice_pool_sneak clicked:dice_pool_know_the_zone clicked:dice_pool_move clicked:dice_pool_shoot clicked:dice_pool_scout clicked:dice_pool_lore clicked:dice_pool_survival clicked:dice_pool_comprehend clicked:dice_pool_manipulate clicked:dice_pool_sense_emotion clicked:dice_pool_heal clicked:dice_pool_animal_handling clicked:reputation-roll clicked:repeating_weapons:attack-roll clicked:repeating_monster:monster-attack-roll clicked:repeating_spells:spell-roll clicked:armor-roll clicked:shield-roll clicked:shield-shove-roll",
+  "clicked:repeating_skills:skill-roll clicked:dice_pool_crafting_monster clicked:dice_pool_force_monster clicked:dice_pool_endure_monster clicked:dice_pool_fight_monster clicked:dice_pool_sneak clicked:dice_pool_know_the_zone clicked:dice_pool_move clicked:dice_pool_shoot clicked:dice_pool_scout clicked:dice_pool_lore clicked:dice_pool_survival clicked:dice_pool_comprehend clicked:dice_pool_manipulate clicked:dice_pool_sense_emotion clicked:dice_pool_heal clicked:dice_pool_animal_handling clicked:reputation-roll clicked:repeating_weapons:attack-roll clicked:repeating_monster:monster-attack-roll clicked:repeating_spells:spell-roll clicked:armor-roll clicked:shield-roll clicked:shield-shove-roll",
   function () {
     clog("Change Detected: Update Dice Pool");
     getAttrs(["roll_the_dice_flag"], function (values) {

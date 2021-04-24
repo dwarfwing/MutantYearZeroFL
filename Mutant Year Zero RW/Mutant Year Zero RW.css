@@ -615,7 +615,7 @@ input.sheet-broken-emp[value="0"] ~ div .sheet-broken-emp.sheet-input-span {
   box-sizing: border-box;
 }
 
-/* Fake radio using xbox for Experience/Willpower */
+/* Fake radio using xbox for Experience/powerpoint */
 input[type="radio"].sheet-xbox + span::before {
   font-size: 24px;
   line-height: 14px;
@@ -1804,7 +1804,7 @@ div.sheet-vehiclegear-box1,
 div.sheet-consumables-box1,
 div.sheet-money-box,
 div.sheet-experience-grid,
-div.sheet-willpower-box1,
+div.sheet-powerpoint-box1,
 div.sheet-spells-box,
 div.sheet-beasts-box,
 div.sheet-relationships-box1,
@@ -2072,7 +2072,7 @@ input.sheet-dice_only:checked
 }
 
 
-.sheet-character-willpower {
+.sheet-character-powerpoint {
   height: fit-content;
   grid-column-start: 3;
   padding: 0;
@@ -2082,8 +2082,8 @@ input.sheet-dice_only:checked
   overflow: hidden;
 }
 
-.sheet-willpower-grid .sheet-willpower-box2,
-.sheet-willpower-grid .sheet-willpower-box3 {
+.sheet-powerpoint-grid .sheet-powerpoint-box2,
+.sheet-powerpoint-grid .sheet-powerpoint-box3 {
   -padding: 0 0 10px 0;
 }
 
@@ -3513,19 +3513,20 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 
 /* ---------------------------------- Power */
 
-.sheet-willpower-grid {
+.sheet-powerpoint-grid {
   display: grid;
-  grid-template-columns: auto 3em 0;
+  grid-template-columns: auto 3em;
+  overflow: hidden;
   -width: 100%;
 }
 
-.sheet-willpower-box1 {
+.sheet-powerpoint-box1 {
   grid-column: 1/3;
   grid-row-start: 1;
   margin: 0; 
 }
 
-.sheet-willpower-box2 {
+.sheet-powerpoint-box2 {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -3534,7 +3535,18 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   grid-row-start: 2;
 }
 
-.sheet-willpower-box3 {
+.sheet-powerpoint-box2 input[type="radio"] {
+  margin: 4px 5px 3px 2px; 
+  width: 0.95em; 
+  height: 0.95em;
+  align-self: center;
+}
+
+.sheet-powerpoint-box2 input[type="radio"].sheet-xbox-null {
+  margin-left: 8px; 
+}
+
+.sheet-powerpoint-box3 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3543,8 +3555,8 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   grid-row-start: 2;
 }
 
-.sheet-willpower-box3 span {
-  margin: 0 3px 0 3px;
+.sheet-powerpoint-box3 span {
+  -margin: 0 3px 0 3px;
 }
 
 /* ---------------------------------- Talents */
@@ -3590,6 +3602,34 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 
 .sheet-character-biomech .sheet-talents-box1 {
   grid-column: 1/4;
+}
+
+.sheet-character-rotpoints .sheet-talents-box1 {
+  display: flex;
+  gap: 8px;
+  padding: 5px 8px 5px 10px;
+  align-items: center;
+  justify-items: right; 
+  justify-content: flex-end; 
+}
+
+.sheet-character-rotpoints .sheet-powerpoint-box3 button {
+  width: 15px;
+  height: 22px;
+}
+
+/* input[name="attr_rot_permanent"][value="0"] ~ input:nth-of-type(1n+1) + span, */
+input[name="attr_rot_permanent"][value="1"] ~ .sheet-rot1,
+input[name="attr_rot_permanent"][value="2"] ~ .sheet-rot2,
+input[name="attr_rot_permanent"][value="3"] ~ .sheet-rot3,
+input[name="attr_rot_permanent"][value="4"] ~ .sheet-rot4,
+input[name="attr_rot_permanent"][value="5"] ~ .sheet-rot5,
+input[name="attr_rot_permanent"][value="6"] ~ .sheet-rot6,
+input[name="attr_rot_permanent"][value="7"] ~ .sheet-rot7,
+input[name="attr_rot_permanent"][value="8"] ~ .sheet-rot8,
+input[name="attr_rot_permanent"][value="9"] ~ .sheet-rot9,
+input[name="attr_rot_permanent"][value="10"] ~ .sheet-rot10 {
+  content: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/dotx_redx.png');;
 }
 
   /* special handling for Powers boxes WITH Power levels and action buttons
@@ -5167,7 +5207,6 @@ span.sheet-armor-box3.sheet-header {
   max-height: 2.25em !important;
   height: 2.25em !important;
 }
-
 
 /* ---------------------------------- ark Notes */
 

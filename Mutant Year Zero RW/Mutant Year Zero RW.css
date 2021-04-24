@@ -3607,10 +3607,10 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 .sheet-character-rotpoints .sheet-talents-box1 {
   display: flex;
   gap: 8px;
-  padding-top: 3px;
-  padding-bottom: 3px;
+  padding: 5px 8px 5px 10px;
   align-items: center;
-  justify-items: right;  
+  justify-items: right; 
+  justify-content: flex-end; 
 }
 
 .sheet-character-rotpoints .sheet-powerpoint-box3 button {

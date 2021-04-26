@@ -332,14 +332,14 @@ const update_to_1_71 = (old_version) => {
 const update_to_2_01 = (old_version) => {
   // Upgrade attributes, no need to update damages
   Object.keys(attributes).forEach((attr) => {
-    GetAttrs([attr, attributes[attr], attr+"_max"], (values) => {
+    getAttrs([attr, attributes[attr], attr+"_max"], (values) => {
       var setter = {};
       setter[attr] = values[attr],
       setter[attr_name] = getSkillName(attr),
       setter[attr_total] = values[attributes[attr]],
       setter[attr_max] = values[attr+"_max"];
       clog(`Upgrading ${setter[attr_name]} from ${setter[attr_name]}_max ${setter[attr_max]} to ${setter[attr_name]}_total ${setter[attr_total]}.`);
-      SetAttrs(setter);
+      setAttrs(setter);
     });
   });
   // Upgrade conditions - no need
@@ -356,7 +356,7 @@ const update_to_2_01 = (old_version) => {
   // Mutations
   getSectionIDs("repeating_mutantions", function(mutantions) {
     mutantions.forEach((mutantionsId) => {
-      GetAttrs(["repeating_mutantions_"+mutantionsId+"_mutantion_name", "repeating_mutantions_"+mutantionsId+"_mutantion_description"], (values) => {
+      getAttrs(["repeating_mutantions_"+mutantionsId+"_mutantion_name", "repeating_mutantions_"+mutantionsId+"_mutantion_description"], (values) => {
         const name = values["repeating_mutantions_"+mutantionsId+"_mutantion_name"],
         description = values["repeating_mutantions_"+mutantionsId+"_mutantion_description"],
         var newrowid = generateRowID();
@@ -365,7 +365,7 @@ const update_to_2_01 = (old_version) => {
         newmutation["repeating_mutations_"+newrowid+"_description"] = description;
         newmutation["repeating_mutations_"+newrowid+"_rank"] = 1;
         newmutation["repeating_mutations_"+newrowid+"_powerlevel"] = 1;
-        SetAttrs(newmutation);
+        setAttrs(newmutation);
       });
     });
   });
@@ -373,7 +373,7 @@ const update_to_2_01 = (old_version) => {
   // Upgrade Weapons
   getSectionIDs("repeating_weapons", function(weapons) {
     weapons.forEach((weaponId) => {
-      GetAttrs(["repeating_weapon_"+weaponId+"_name", "repeating_weapon_"+weaponId+"_skill", "repeating_weapon_"+weaponId+"_bonus", "repeating_weapon_"+weaponId+"_damage", "repeating_weapon_"+weaponId+"_range", "repeating_weapon_"+weaponId+"_features", "strength_total", "agility_total"], (values) => {
+      getAttrs(["repeating_weapon_"+weaponId+"_name", "repeating_weapon_"+weaponId+"_skill", "repeating_weapon_"+weaponId+"_bonus", "repeating_weapon_"+weaponId+"_damage", "repeating_weapon_"+weaponId+"_range", "repeating_weapon_"+weaponId+"_features", "strength_total", "agility_total"], (values) => {
         const name = values["repeating_weapon_"+weaponId+"_name"],
         skill = int(values["repeating_weapon_"+weaponId+"_skill"]),
         bonus = int(values["repeating_weapon_"+weaponId+"_bonus"]),
@@ -402,13 +402,13 @@ const update_to_2_01 = (old_version) => {
         newweapon["repeating_weapon_"+weaponId+"_carried"] = 1;
         newweapon["repeating_weapon_"+weaponId+"_weight"] = 1;
         newweapon["repeating_weapon_"+weaponId+"_features"] = features;
-        SetAttrs(newweapon);
+        setAttrs(newweapon);
         });
       });
     });
 
   // Upgrade armor to repeating section
-  GetAttrs(["armor1_ar", "armor1_bonus", "armor1_damage", "armor1_name"], function(values) {
+  getAttrs(["armor1_ar", "armor1_bonus", "armor1_damage", "armor1_name"], function(values) {
     var newrowid = generateRowID();
     var newrowattrs = {};
     newrowattrs["repeating_armor_" + newrowid + "_name"] = armor1_name;
@@ -422,7 +422,7 @@ const update_to_2_01 = (old_version) => {
     newrowattrs["repeating_armor_" + newrowid + "_features"] = '';
     setAttrs(newrowattrs);
   });
-  GetAttrs(["armor2_ar", "armor2_bonus", "armor2_damage", "armor2_name"], function(values) {
+  getAttrs(["armor2_ar", "armor2_bonus", "armor2_damage", "armor2_name"], function(values) {
     var newrowid = generateRowID();
     var newrowattrs = {};
     newrowattrs["repeating_armor_" + newrowid + "_name"] = armor2_name;
@@ -434,14 +434,34 @@ const update_to_2_01 = (old_version) => {
     newrowattrs["repeating_armor_" + newrowid + "_bonus"] = int(armor2_bonus) - int(armor2_damage);
     newrowattrs["repeating_armor_" + newrowid + "_weight"] = 1;
     newrowattrs["repeating_armor_" + newrowid + "_features"] = '';
-    SetAttrs(newrowattrs);
+    setAttrs(newrowattrs);
   });
 
-  // Upgrade gear and consumables
+  // Upgrade gear, vehicle and consumables
+    // Gear - no need
+    // Vehicle - aligned
+    // Consumables, aligned
 
-  // Upgrade relationships etc
+  // Upgrade relationships, notes etc
+    // Aligned
 
-  // Upgrade Ark sheet 
+  // Upgrade Ark sheet
+  // Development levels 
+  getAttrs(["ark_food_supply","ark_culture", "ark_technology", "ark_warfare", "ark_dev_food", "ark_dev_cult", "ark_dev_tech", "ark_dev_war"], (values) => {
+    clog("Upgrading ark development levels");
+    const food = int(values.ark_food_supply),
+    culture = int(values.ark_culture),
+    tech = int(values.ark_technology),
+    war = int(values.ark_warfare);
+    setAttrs({
+        ark_dev_food: food,
+        ark_dev_cult: culture,
+        ark_dev_tech: tech,
+        ark_dev_war: war,
+    });
+  });
+  // Ark details
+  // Aligned
 
 
 };
@@ -825,6 +845,27 @@ on("change:strength_total change:agility_total change:fight change:shoot", funct
     });
   });
 });
+
+
+/* set project completion  */
+on("change:repeating_projects:work_points change:repeating_projects:work_points_max", function () {
+    clog("Change Detected: Repeating Project Completion - recalculating completion");
+    // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
+    getAttrs(["repeating_projects_work_points", "repeating_projects_work_points_max", "repeating_projects_complete"], function (values) {
+      var points = int(values.repeating_projects_work_points),
+      points_max = int(values.repeating_projects_work_points_max),
+      complete = int(values.repeating_projects_complete);
+      // separate out the basic values read from the sheet from those calculated within the worker
+      points = Math.min(points,points_max),
+      complete = (points === points_max) ? 1 : 0;
+      const completedStr = (complete === 1) ? "completed" : "not completed";
+      clog("project completion: work points " + points + " < required points " + points_max + " => " + completedStr);
+      setAttrs({
+        repeating_projects_work_points: points,
+        repeating_projects_complete: complete,
+      });
+    });
+  });
 
 /* Monster strength-based skill total calcs */
 Object.keys(monster_skills).forEach((skill_name) => {

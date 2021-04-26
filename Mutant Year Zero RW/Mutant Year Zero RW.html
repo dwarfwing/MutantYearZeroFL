@@ -1736,18 +1736,18 @@
         <div class="powerpoint-grid">
           <div class="powerpoint-box2 chartype-background-dark">
             <input type="hidden" name="attr_rot_permanent" value="0" />
-            <input class="xbox-null" type="radio" name="attr_rot" value="0" data-i18n-title="no-rotpoints" title="No Rot Points" checked />
-            <input class="xbox rot1" type="radio" name="attr_rot" value="1" title="1 @{rotpoints}" /><span></span> 
-            <input class="xbox rot2" type="radio" name="attr_rot" value="2" title="2 @{rotpoints}" /><span></span>
-            <input class="xbox rot3" type="radio" name="attr_rot" value="3" title="3 @{rotpoints}" /><span></span> 
-            <input class="xbox rot4" type="radio" name="attr_rot" value="4" title="4 @{rotpoints}" /><span></span>
-            <input class="xbox rot5" type="radio" name="attr_rot" value="5" title="5 @{rotpoints}" /><span></span> 
-            <input class="xbox rot6" type="radio" name="attr_rot" value="6" title="6 @{rotpoints}" /><span></span>
-            <input class="xbox rot7" type="radio" name="attr_rot" value="7" title="7 @{rotpoints}" /><span></span> 
-            <input class="xbox rot8" type="radio" name="attr_rot" value="8" title="8 @{rotpoints}" /><span></span>
-            <input class="xbox rot9" type="radio" name="attr_rot" value="9" title="9 @{rotpoints}" /><span></span> 
-            <input class="xbox rot10" type="radio" name="attr_rot" value="10" title="10 @{rotpoints}" /><span></span>
-            <input type="hidden" name="attr_rotpoints_max" value="10" />
+            <input class="xbox-null" type="radio" name="attr_rot" value="0" data-i18n-title="no-rot" title="No Rot Points" checked />
+            <input class="xbox rot1" type="radio" name="attr_rot" value="1" title="1 @{rot}" /><span></span> 
+            <input class="xbox rot2" type="radio" name="attr_rot" value="2" title="2 @{rot}" /><span></span>
+            <input class="xbox rot3" type="radio" name="attr_rot" value="3" title="3 @{rot}" /><span></span> 
+            <input class="xbox rot4" type="radio" name="attr_rot" value="4" title="4 @{rot}" /><span></span>
+            <input class="xbox rot5" type="radio" name="attr_rot" value="5" title="5 @{rot}" /><span></span> 
+            <input class="xbox rot6" type="radio" name="attr_rot" value="6" title="6 @{rot}" /><span></span>
+            <input class="xbox rot7" type="radio" name="attr_rot" value="7" title="7 @{rot}" /><span></span> 
+            <input class="xbox rot8" type="radio" name="attr_rot" value="8" title="8 @{rot}" /><span></span>
+            <input class="xbox rot9" type="radio" name="attr_rot" value="9" title="9 @{rot}" /><span></span> 
+            <input class="xbox rot10" type="radio" name="attr_rot" value="10" title="10 @{rot}" /><span></span>
+            <input type="hidden" name="attr_rot_max" value="10" />
           </div>
           <div class="powerpoint-box3 chartype-background-dark">
             <!--span class="input-span" name="attr_rot" title="@{rot}" readonly></span-->
@@ -1771,17 +1771,19 @@
           </div>
           <!--<div class="consumables-box3"><span>&nbsp;</span></div>-->
           <div class="consumables-box4">
-            <span class="header-h1" data-i18n="food">Food</span>
+            <img class="consumables-icon consumables-food" src="" />
+            <span class="header-h1 consumables-label" data-i18n="food">Food</span>
           </div>
           <div class="consumables-box5">
-            <input type="number" class="input-number" name="attr_food" value="0" min="0" title="@{food}"></option>
+            <input type="number" class="input-number" name="attr_grub" value="0" min="0" title="@{grub}"></option>
           </div>
           <div class="consumables-box6">
             <!--<button type="roll" name="roll_food" title="%{food}" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{food}"></button>
             -->
             </div>
           <div class="consumables-box7">
-            <span class="header-h1" data-i18n="water">Water</span>
+            <img class="consumables-icon consumables-water" src="" />
+            <span class="header-h1 consumables-label" data-i18n="water">Water</span>
           </div>
           <div class="consumables-box8">
             <input type="number" class="input-number" name="attr_water" value="0" min="0" title="@{water}"></option>
@@ -1791,7 +1793,8 @@
             -->
             </div>
           <div class="consumables-box10">
-            <span class="header-h1" data-i18n="e-pack">E-pack</span>
+            <img class="consumables-icon consumables-epacks" src="" />
+            <span class="header-h1 consumables-label" data-i18n="e-pack">E-pack</span>
           </div>
           <div class="consumables-box11">
             <input type="number" class="input-number" name="attr_epacks" value="0" min="0" title="@{epacks}"></option>
@@ -1801,7 +1804,8 @@
             -->
           </div>
           <div class="consumables-box13">
-            <span class="header-h1" data-i18n="bullets">Bullets</span>
+            <img class="consumables-icon consumables-bullets" src="" />
+            <span class="header-h1 consumables-label" data-i18n="bullets">Bullets</span>
           </div>
           <div class="consumables-box14">
             <input type="number" class="input-number" name="attr_bullets" value="0" min="0" title="@{bullets}"></option>
@@ -2017,10 +2021,10 @@
               <fieldset class="repeating_vehiclegear">
                 <div class="vehiclegear-grid">
                   <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
-                  <input class="vehiclegear-box1 input" type="text" name="attr_vehiclegear_name" value="" title="@{repeating_vehiclegear_$X_vehiclegear_name}" data-i18n-placeholder="item" placeholder="item" />
-                  <input class="vehiclegear-box2 input-number" type="number" name="attr_vehiclegear_qty" value="1" title="Quantity @{repeating_vehiclegear_$X_vehiclegear_qty}" />
-                  <input class="vehiclegear-box3 input" type="checkbox" name="attr_vehiclegear_carried" value="1" title="@{repeating_vehiclegear_$X_vehiclegear_carried}" checked />
-                  <select class="vehiclegear-box4 input" name="attr_vehiclegear_weight" title="@{repeating_vehiclegear_$X_vehiclegear_weight}">
+                  <input class="vehiclegear-box1 input" type="text" name="attr_vehicle_gear_name" value="" title="@{repeating_vehiclegear_$X_vehicle_gear_name}" data-i18n-placeholder="item" placeholder="item" />
+                  <input class="vehiclegear-box2 input-number" type="number" name="attr_vehicle_gear_qty" value="1" title="Quantity @{repeating_vehiclegear_$X_vehicle_gear_qty}" />
+                  <input class="vehiclegear-box3 input" type="checkbox" name="attr_vehicle_gear_carried" value="1" title="@{repeating_vehiclegear_$X_vehicle_gear_carried}" checked />
+                  <select class="vehiclegear-box4 input" name="attr_vehicle_gear_weight" title="@{repeating_vehiclegear_$X_vehicle_gear_weight}">
                     <option data-i18n="tiny-abbr" data-i18n-title="tiny" title="Tiny" value="0" selected>T</option>
                     <option data-i18n="quarter-abbr" data-i18n-title="quarter" title="Quarter" value="0.25">Q</option>
                     <option data-i18n="light-abbr" data-i18n-title="light" title="Light" value="0.5">L</option>
@@ -2035,7 +2039,7 @@
                     <option value="9">9</option>
                     <option value="10">10</option>
                   </select>
-                  <textarea class="vehiclegear-box5 input-textarea" name="attr_vehiclegear_description" title="@{repeating_vehiclegear_$X_vehiclegear_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+                  <textarea class="vehiclegear-box5 input-textarea" name="attr_vehiclegear_description" title="@{repeating_vehiclegear_$X_vehicle_gear_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
                 </div>
               </fieldset>
             </div>
@@ -2223,7 +2227,7 @@
                 <span data-i18n="hate">Hate: </span>
               </div>
               <div class="relationships-box6">
-                <textarea class="input-textarea" name="attr_relation_hate" title="@{{relation_hate}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
+                <textarea class="input-textarea" name="attr_hate" title="@{hate}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
               </div>
             </div>
         </div>
@@ -2233,7 +2237,7 @@
                 <span data-i18n="protect">Protect: </span>
               </div>
               <div class="relationships-box6">
-                <textarea class="input-textarea" name="attr_relation_protect" title="@{{relation_protect}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
+                <textarea class="input-textarea" name="attr_protect" title="@{protect}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
               </div>
             </div>
         </div>
@@ -2243,7 +2247,7 @@
                 <span data-i18n="dream">Dream: </span>
               </div>
               <div class="relationships-box6">
-                <textarea class="input-textarea" name="attr_relation_dream" title="@{relation_dream}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
+                <textarea class="input-textarea" name="attr_dream" title="@{dream}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
               </div>
             </div>
         </div>
@@ -2261,17 +2265,17 @@
           </div>
         </div>      
         <div class="relationships-box11">
-          <fieldset class="repeating_rpcrelations">
+          <fieldset class="repeating_relationships">
             <div class="relationships-box11">
               <div class="relationships-grid-repeating">
                 <div class="relationships-box3">
-                  <input class="input" type="text" name="attr_rpcrelations_name" value="" title="@{repeating_rpcrealtions_$X_relation_name}" data-i18n-placeholder="rpc-name"   placeholder="RPC's name" />
+                  <input class="input" type="text" name="attr_pc_name" value="" title="@{repeating_relationships_$X_pc_name}" data-i18n-placeholder="rpc-name"   placeholder="RPC's name" />
                 </div>
                 <div class="relationships-box4">
-                  <textarea class="input-textarea" name="attr_rpcrelations_description" title="@{repeating_rpcrealtions_$X_relation_description}" data-i18n-placeholder="relationship-description"   placeholder="Describe the relationship."></textarea>
+                  <textarea class="input-textarea" name="attr_pc_description" title="@{repeating_relationships_$X_pc_description}" data-i18n-placeholder="relationship-description"   placeholder="Describe the relationship."></textarea>
                 </div>
                 <div class="relationships-box5">
-                  <input type="radio" name="attr_rpcrelations_close" title="@{repeating_rpcrealtions_$X_rrelation_close}" data-i18n-placeholder="relationship-description"   placeholder="Describe the relationship."></textarea>
+                  <input type="radio" name="attr_buddy" title="@{repeating_relationships_$X_buddy}" />
                 </div>
               </div>
             </div>
@@ -2601,10 +2605,10 @@
         </div>
 
         <div class="ark-details-box ark-details-box5">
-          <span class="label ark-details-label" data-i18n="location">Location</span>
+          <span class="label ark-details-label" data-i18n="coordinates">Coordinates</span>
         </div>
         <div class="ark-details-box ark-details-box6">
-          <input class="input-text" type="text" name="attr_ark_location" title="@{ark_location}" />
+          <input class="input-text" type="text" name="attr_ark_coordinates" title="@{ark_coordinates}" />
         </div>
 
         <div class="ark-details-box ark-details-box7">
@@ -2632,7 +2636,7 @@
           <span class="label ark-details-label" data-i18n="water-source">Water source</span>
         </div>
         <div class="ark-details-box ark-details-box4">
-          <input class="input-text" type="text" name="attr_ark_watersource" value="" title="@{ark_watersource}" />
+          <input class="input-text" type="text" name="attr_ark_water_source" value="" title="@{ark_water_source}" />
         </div>
 
         <div class="ark-details-box ark-details-box5">
@@ -2663,8 +2667,8 @@
         <div class="ark-bosses-repeating">
           <fieldset class="repeating_bosses">
             <div class="ark-bosses-grid">
-              <input class="ark-bosses-box1 input-textarea" type="text" name="attr_boss_desc" value="" title="@{repeating_bosses_$X_boss_desc}" />
-              <input class="ark-bosses-box2 input-text" type="text" name="attr_boss_type" value="" title="@{repeating_bosses_$X_boss_type}" />
+              <input class="ark-bosses-box1 input-textarea" type="text" name="attr_name" value="" title="@{repeating_bosses_$X_name}" />
+              <input class="ark-bosses-box2 input-text" type="text" name="attr_type" value="" title="@{repeating_bosses_$X_type}" />
             </div>
           </fieldset>
         </div>
@@ -2694,11 +2698,14 @@
         <div class="ark-projects-repeating">
           <fieldset class="repeating_projects">
             <div class="ark-projects-grid">
-              <input class="ark-projects-col ark-projects-box6 input-text" type="text" name="attr_project_desc" title="@{repeating_projects_$X_project_desc}" />
-              <input class="ark-projects-col ark-projects-box7 input-text" type="text" name="attr_project_comment" title="@{repeating_projects_$X_project_comment}" />            
-              <input class="ark-projects-col ark-projects-box8 input-text" type="text" name="attr_project_skills" title="@{repeating_projects_$X_project_skills}" />
-              <input class="ark-projects-col ark-projects-box9 input-number" type="number" name="attr_project_points" title="@{repeating_projects_$X_project_points}" />
-              <input class="ark-projects-col ark-projects-box10 input-checkbox" type="checkbox" name="attr_project_complete" title="@{repeating_projects_$X_project_complete}" />
+              <input class="ark-projects-col ark-projects-box6 input-text" type="text" name="attr_name" title="@{repeating_projects_$X_name}" />
+              <input class="ark-projects-col ark-projects-box7 input-text" type="text" name="attr_comment" title="@{repeating_projects_$X_comment}" />            
+              <input class="ark-projects-col ark-projects-box8 input-text" type="text" name="attr_skills" title="@{repeating_projects_$X_skills}" />
+              <span class="ark-projects-col ark-projects-box9">
+                <input class="input-number" type="number" name="attr_work_points" min="0" title="@{repeating_projects_$X_work_points}" /> /
+                <input class="input-number" type="number" name="attr_work_points_max" min="0" title="@{repeating_projects_$X_work_points_max}" />
+              </span>
+              <input class="ark-projects-col ark-projects-box10 input-checkbox" type="checkbox" name="attr_complete" value="1" title="@{repeating_projects_$X_complete}" />
             </div>
           </fieldset>
         </div>
@@ -2873,6 +2880,13 @@
     <span class="footer">05/04/21</span>
     <ol style="margin: 0 2em 0 2em; padding: 0 1em 0 3em;">
       <span>v1.00</span> <!-- Also need to update the version in Sheet worker code below -->
+      <li>.</li>
+      <li>Published to Roll20.</li>
+      <li>Published to Roll20.</li>
+      <li>Published to Roll20.</li>
+      <li>Published to Roll20.</li>
+      <li>Published to Roll20.</li>
+      <li>Published to Roll20.</li>
       <li>Published to Roll20.</li>
     </ol>
     <br />
@@ -4207,6 +4221,26 @@
       });
     });
   });
+
+  /* set project completion  */
+  on("change:repeating_projects:work_points change:repeating_projects:work_points_max", function () {
+      clog("Change Detected: Repeating Project Completion - recalculating completion");
+      // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
+      getAttrs(["repeating_projects_work_points", "repeating_projects_work_points_max", "repeating_projects_complete"], function (values) {
+        var points = int(values.repeating_projects_work_points),
+        points_max = int(values.repeating_projects_work_points_max),
+        complete = int(values.repeating_projects_complete);
+        // separate out the basic values read from the sheet from those calculated within the worker
+        points = Math.min(points,points_max),
+        complete = (points === points_max) ? 1 : 0;
+        const completedStr = (complete === 1) ? "completed" : "not completed";
+        clog("project completion: work points " + points + " < required points " + points_max + " => " + completedStr);
+        setAttrs({
+          repeating_projects_work_points: points,
+          repeating_projects_complete: complete,
+        });
+      });
+    });
   
   /* Monster strength-based skill total calcs */
   Object.keys(monster_skills).forEach((skill_name) => {

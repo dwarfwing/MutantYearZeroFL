@@ -1745,7 +1745,7 @@ input.sheet-expand:checked ~ .sheet-input-textarea {
 
 
 /* Add Backgrounds to Headers */
-div.sheet-attributes-box1 .sheet-header {
+div.sheet-attributes-box1.sheet-header {
   background-size: cover;
   -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header.jpg");
 }
@@ -4024,6 +4024,36 @@ span.sheet-armor-box3.sheet-header {
   margin-right: 10px;
 }
 
+.sheet-consumables-icon {
+  display: none;
+  height: 30px;
+  width: 30px;
+}
+.sheet-consumables-food {
+  src: url('https://github.com/dwarfwing/MutantYearZeroRW/blob/main/Mutant%20Year%20Zero%20RW/images/grub.png');
+  src: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/grub.png'); 
+}
+.sheet-consumables-water {
+  src: url('https://github.com/dwarfwing/MutantYearZeroRW/blob/main/Mutant%20Year%20Zero%20RW/images/water.png');
+  src: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/water.png');
+}
+.sheet-consumables-epacks {
+  src: url('https://github.com/dwarfwing/MutantYearZeroRW/blob/main/Mutant%20Year%20Zero%20RW/images/battery.png');
+  src: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/battery.png');
+}
+.sheet-consumables-bullets {
+  src: url('https://github.com/dwarfwing/MutantYearZeroRW/blob/main/Mutant%20Year%20Zero%20RW/images/bullet.png');
+  src: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/bullet.png');
+}
+input[name="attr_consumable-icons"][value="1"] .sheet-consumable-icon,
+input[name="attr_consumable-icons"][value="0"] .sheet-consumable-label {
+  display: block;
+}
+input[name="attr_consumable-icons"][value="0"] .sheet-consumable-icon,
+input[name="attr_consumable-icons"][value="1"] .sheet-consumable-label {
+  display: none;
+}
+
 .sheet-consumables-box {
   grid-column: 1/7;
   grid-row-start: 1;
@@ -5038,7 +5068,7 @@ span.sheet-armor-box3.sheet-header {
   flex-direction: column;
   row-gap: 2px;
   column-gap: 10px;
-  grid-template-columns: 1fr 1.5fr 1fr 0.5fr 0.5fr;
+  grid-template-columns: 180px auto 140px 90px 60px;
   width: 100%;
 }
 
@@ -5144,6 +5174,9 @@ span.sheet-armor-box3.sheet-header {
   grid-row-start: 2;
   width: 100%;
   -text-align: right;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
 }
 
 .sheet-ark-projects-box10 {

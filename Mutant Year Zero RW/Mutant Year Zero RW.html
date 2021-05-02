@@ -525,7 +525,6 @@
         <div class="weapons-box-repeating">
           <fieldset class="repeating_weapons">
             <div class="weapons-grid weapons-repeating chartype-background-light">
-              <input type="hidden" name="attr_weapon_damage_misc" value="0" readonly />
               <input class="weapons-box weapons-box30 input" type="text" name="attr_weapon_name" value="" title="@{repeating_weapons_$X_weapon_name}" />
               <select class="weapons-box weapons-box31 input" name="attr_weapon_skill" title="@{repeating_weapons_$X_weapon_skill}">
                 <option value="0" data-i18n="melee" selected>Melee</option>
@@ -552,8 +551,8 @@
               <span class="weapons-box weapons-box35 readonly" name="attr_weapon_skill_total" value="0" data-i18n-title="weapon-skill-total" title="Total Skill dice included with the attack. @{repeating_weapons_$X_weapon_skill_total}">0</span>
               <span class="weapons-box weapons-box37 readonly separator"> | </span>
               <select class="weapons-box weapons-box38 input" name="attr_weapon_bonus" data-i18n-title="weapon-bonus" title="Record the weapon's CURRENT bonus up to MAX (adjusts Gear dice). @{repeating_weapons_$X_weapon_bonus}">
-                <option value="0" selected>+0</option>
-                <option value="1">+1</option>
+                <option value="0">+0</option>
+                <option value="1" selected>+1</option>
                 <option value="2">+2</option>
                 <option value="3">+3</option>
                 <option value="4">+4</option>
@@ -567,8 +566,8 @@
                 <option value="12">+12</option>
               </select>
               <select class="weapons-box weapons-box39 input" name="attr_weapon_bonus_max" data-i18n-title="weapon-bonus-max" title="Record the weapon's UNDAMAGED bonus. @{repeating_weapons_$X_weapon_bonus_max}">
-                <option value="0" selected>0</option>
-                <option value="1">1</option>
+                <option value="0">0</option>
+                <option value="1" selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
@@ -593,8 +592,8 @@
               <span class="weapons-box weapons-box41 readonly" name="attr_weapon_bonus_total" value="0" data-i18n-title="weapon-bonus-total" title="Total GEAR dice included with the attack. @{repeating_weapons_$X_weapon_bonus_total}">0</span>
               <span class="weapons-box weapons-box47 readonly separator"> | </span>
               <select class="weapons-box weapons-box48 input" name="attr_weapon_damage" data-i18n-title="weapon-damage" title="Damage as per weapon tables. @{repeating_weapons_$X_weapon_damage}">
-                <option value="0" selected>0</option>
-                <option value="1">1</option>
+                <option value="0">0</option>
+                <option value="1" selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
@@ -652,15 +651,10 @@
                   <option value="Short" data-i18n="short">Short</option>
                   <option value="Long" data-i18n="long">Long</option>
                   <option value="Distant" data-i18n="distant">Distant</option>
-                </select>
-                <div class="weapons-box weapons-box75">
-                  <span data-i18n="carried-abbr">Carried</span>:
-                </div>
-                <input type="checkbox" class="weapons-box weapons-box76 input" name="attr_weapon_carried" value="1" title="@{repeating_weapons_$X_weapon_carried}" checked />
-                <div class="weapons-box weapons-box77">
+                </select><div class="weapons-box weapons-box75">
                   <span data-i18n="weight-abbr">Wt</span>:
                 </div>
-                <select class="weapons-box weapons-box78 input" name="attr_weapon_weight" title="@{repeating_weapons_$X_weapon_weight}">
+                <select class="weapons-box weapons-box76 input" name="attr_weapon_weight" title="@{repeating_weapons_$X_weapon_weight}">
                   <option data-i18n="tiny-abbr" data-i18n-title="tiny" title="Tiny" value="0">T</option>
                   <option data-i18n="quarter-abbr" data-i18n-title="quarter" title="Quarter" value="0.25">Q</option>
                   <option data-i18n="light-abbr" data-i18n-title="light" title="Light" value="0.5">L</option>
@@ -675,6 +669,11 @@
                   <option value="9">9</option>
                   <option value="10">10</option>
                 </select>
+                
+                <div class="weapons-box weapons-box77">
+                  <span data-i18n="carried-abbr">Carried</span>:
+                </div>
+                <input type="checkbox" class="weapons-box weapons-box78 input" name="attr_weapon_carried" value="1" title="@{repeating_weapons_$X_weapon_carried}" checked />
                 <div class="weapons-box weapons-box79">
                   <span data-i18n="features">Features</span>:
                 </div>
@@ -1233,24 +1232,24 @@
         <div>
           <fieldset class="repeating_skills">
             <div class="skills-row chartype-background-light">
-              <input class="skill-name chartype-background-light" class="input" type="text" name="attr_name" />
+              <input class="skill-name chartype-background-light" class="input" type="text" name="attr_name" title="@{repeating_skills_$X_name}" />
               <span class="small-caps skill-name">
-                <input type="hidden" name="attr_base" value="0" min="0" title="@{skills_$X_base}" readonly />
-                <select class="input character-skill-mod chartype-background-light char-mutant char-human" name="attr_attribute" title="@{skills_$X_attribute}">
+                <input type="hidden" name="attr_base" value="0" min="0" title="@{repeating_skills_$X_base}" readonly />
+                <select class="input character-skill-mod chartype-background-light char-mutant char-human" name="attr_attribute" title="@{repeating_skills_$X_attribute}">
                   <option value="" selected disabled hidden data-i18n="base">Base</option>
                   <option value="strength" data-i18n="strength-abbr">Str</option>
                   <option value="agility" data-i18n="agility-abbr">Agi</option>
                   <option value="wits" data-i18n="wits-abbr" >Wit</option>
                   <option value="empathy" data-i18n="empathy-abbr">Emp</option>
                 </select>
-                <select class="input character-skill-mod chartype-background-light char-animal" name="attr_attribute" title="@{skills_$X_attribute}">
+                <select class="input character-skill-mod chartype-background-light char-animal" name="attr_attribute" title="@{repeating_skills_$X_attribute}">
                   <option value="" selected disabled hidden data-i18n="base">Base</option>
                   <option value="strength" data-i18n="strength-abbr">Str</option>
                   <option value="agility" data-i18n="agility-abbr">Agi</option>
                   <option value="wits" data-i18n="wits-abbr">Wit</option>
                   <option value="empathy" data-i18n="instinct-abbr">Ins</option> 
                 </select>
-                <select class="input character-skill-mod chartype-background-light char-robot" name="attr_attribute" title="@{skills_$X_attribute}">
+                <select class="input character-skill-mod chartype-background-light char-robot" name="attr_attribute" title="@{repeating_skills_$X_attribute}">
                   <option value="" selected disabled hidden data-i18n="base">Base</option>
                   <option value="strength" data-i18n="servos-abbr">Srv</option>
                   <option value="agility" data-i18n="stability-abbr">Stb</option>
@@ -1258,8 +1257,8 @@
                   <option value="empathy" data-i18n="network-abbr">Net</option> 
                 </select>
               </span>
-              <input class="input-number character-skill-level" type="number" name="attr_skill" value="0" min="0" title="@{skills_$X_skill}" />
-              <select class="input character-skill-mod" name="attr_misc" title="@{skills_$X_misc}">
+              <input class="input-number character-skill-level" type="number" name="attr_skill" value="0" min="0" title="@{repeating_skills_$X_skill}" />
+              <select class="input character-skill-mod" name="attr_misc" title="@{repeating_skills_$X_misc}">
                 <option value="6">+6</option>
                 <option value="5">+5</option>
                 <option value="4">+4</option>
@@ -1274,7 +1273,7 @@
                 <option value="-5">-5</option>
                 <option value="-6">-6</option>
               </select>
-              <select class="input character-skill-gear" name="attr_gear" title="@{skills_$X_gear}">
+              <select class="input character-skill-gear" name="attr_gear" title="@{repeating_skills_$X_gear}">
                 <option value="0" selected>+0</option>
                 <option value="1">+1</option>
                 <option value="2">+2</option>
@@ -1284,7 +1283,7 @@
                 <option value="6">+6</option>
               </select>
               <button type="action" name="act_skill-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-                <span class="readonly character-skill-total" name="attr_total" value="0" title="@{skills_$X_total}">0</span>
+                <span class="readonly character-skill-total" name="attr_total" value="0" title="@{repeating_skills_$X_total}">0</span>
               </button>
             </div>
           </fieldset>
@@ -2018,7 +2017,7 @@
               <span data-i18n="weight-abbr">Wt</span>
             </div>
             <div class="vehiclegear-box5">
-              <fieldset class="repeating_vehiclegear">
+              <fieldset class="repeating_vehicle">
                 <div class="vehiclegear-grid">
                   <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
                   <input class="vehiclegear-box1 input" type="text" name="attr_vehicle_gear_name" value="" title="@{repeating_vehiclegear_$X_vehicle_gear_name}" data-i18n-placeholder="item" placeholder="item" />
@@ -2124,10 +2123,10 @@
           <div class="armor-box10">
             <fieldset class="repeating_armor">
               <div class="armor-grid">
-                <input class="armor-box1 input" type="text" name="attr_armor_name" value="" title="@{armor_name}" data-i18n-placeholder="name" placeholder="name" />
-                <input class="armor-box2 input-number" type="number" name="attr_armor_bonus" value="0" min="0" max="@{armor-bonus-max}" data-i18n-title="armor-bonus" title="Record the armor's CURRENT bonus up to MAX (adjusts GEAR dice). @{armor_bonus}" />
-                <input class="armor-box3 input-number" type="number" name="attr_armor_bonus_max" value="0" min="0" data-i18n-title="armor-bonus-max" title="Record the armor's UNDAMAGED bonus. @{armor_bonus_max}" />
-                <select class="armor-box4 input" name="attr_armor_bonus_misc" data-i18n-title="armor-bonus-misc" title="Miscellaneous bonus modifier (adjusts GEAR dice). @{armor_damage}">
+                <input class="armor-box1 input" type="text" name="attr_name" value="" title="@{repeating_armor_$X_name}" data-i18n-placeholder="name" placeholder="name" />
+                <input class="armor-box2 input-number" type="number" name="attr_bonus" value="0" min="0" max="@{bonus_max}" data-i18n-title="armor-bonus" title="Record the armor's CURRENT bonus up to MAX (adjusts GEAR dice). @{repeating_armor_$X_bonus}" />
+                <input class="armor-box3 input-number" type="number" name="attr_bonus_max" value="0" min="0" data-i18n-title="armor-bonus-max" title="Record the armor's UNDAMAGED bonus. @{repeating_armor_$X_bonus_max}" />
+                <select class="armor-box4 input" name="attr_bonus_misc" data-i18n-title="armor-bonus-misc" title="Miscellaneous bonus modifier (adjusts GEAR dice). @{repeating_armor_$X_damage}">
                   <option value="6">+6</option>
                   <option value="5">+5</option>
                   <option value="4">+4</option>
@@ -2142,12 +2141,12 @@
                   <option value="-5">-5</option>
                   <option value="-6">-6</option>
                 </select>
-                <select class="armor-box5 input" name="attr_armor_carried" title="@{armor_carried}">
+                <select class="armor-box5 input" name="attr_carried" title="@{repeating_armor_$X_carried}">
                   <option data-i18n="yes" value="1" selected>Yes</option>
                   <option data-i18n="no" value="0">No</option>
                 </select>
-                <input class="armor-box6 input" type="checkbox" name="attr_armor_equipped" value="1" title="@{armor_equipped}" checked />
-                <select class="armor-box7 input" name="attr_armor_weight" title="@{armor_weight}">
+                <input class="armor-box6 input" type="checkbox" name="attr_equipped" value="1" title="@{repeating_armor_$X_equipped}" checked />
+                <select class="armor-box7 input" name="attr_weight" title="@{repeating_armor_$X_weight}">
                   <option data-i18n="tiny-abbr" data-i18n-title="tiny" title="Tiny" value="0" selected>T</option>
                   <option data-i18n="quarter-abbr" data-i18n-title="quarter" title="Quarter" value="0.25">Q</option>
                   <option data-i18n="light-abbr" data-i18n-title="light" title="Light" value="0.5">L</option>
@@ -2162,8 +2161,8 @@
                   <option value="9">9</option>
                   <option value="10">10</option>
                 </select>
-                <input class="armor-box8 input" type="text" name="attr_armor_features" value="" title="@{armor_features}" />
-                <span class="armor-box9 readonly" name="attr_armor_ar" value="0" data-i18n-title="armor-ar" title="Total GEAR and SKILL dice included for armor. @{armor_ar}" readonly>0</span>
+                <input class="armor-box8 input" type="text" name="attr_features" value="" title="@{repeating_armor_$X_features}" />
+                <span class="armor-box9 readonly" name="attr_rating" value="0" data-i18n-title="armor-rating" title="Total GEAR and SKILL dice included for armor. @{repeating_armor_$X_rating}" readonly>0</span>
                 <!-- expand 2nd row 
                 <input class="expand" type="checkbox" name="attr_expand_armor" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
                 -->
@@ -2173,14 +2172,14 @@
                   <span class="armor-box21">
                     <span data-i18n="carried">Carried</span>
                   </span>
-                  <select class="armor-box22 input" name="attr_armor_carried" title="@{armor_carried}">
+                  <select class="armor-box22 input" name="attr_carried" title="@{repeating_armor_$X_carried}">
                     <option data-i18n="yes" value="1" selected>Yes</option>
                     <option data-i18n="no" value="0">No</option>
                   </select>
                   <span class="armor-box23">
                     <span data-i18n="weight">Weight</span>
                   </span>
-                  <select class="armor-box24 input" name="attr_armor_weight" title="@{armor_weight}">
+                  <select class="armor-box24 input" name="attr_weight" title="@{repeating_armor_$X_weight}">
                     <option data-i18n="tiny-abbr" data-i18n-title="tiny" title="Tiny" value="0" selected>T</option>
                     <option data-i18n="quarter-abbr" data-i18n-title="quarter" title="Quarter" value="0.25">Q</option>
                     <option data-i18n="light-abbr" data-i18n-title="light" title="Light" value="0.5">L</option>
@@ -2196,7 +2195,7 @@
                     <option value="10">10</option>
                   </select>
                   <span class="armor-box25"><span data-i18n="donned">Donned</span></span>
-                  <input class="armor-box26 input" type="checkbox" name="attr_armor_equipped" value="1" title="@{armor_equipped}" checked />
+                  <input class="armor-box26 input" type="checkbox" name="attr_equipped" value="1" title="@{repeating_armor_$X_equipped}" checked />
                 </div>--> 
               </div>       
             </fieldset>
@@ -2705,7 +2704,7 @@
                 <input class="input-number" type="number" name="attr_work_points" min="0" title="@{repeating_projects_$X_work_points}" /> /
                 <input class="input-number" type="number" name="attr_work_points_max" min="0" title="@{repeating_projects_$X_work_points_max}" />
               </span>
-              <input class="ark-projects-col ark-projects-box10 input-checkbox" type="checkbox" name="attr_complete" value="1" title="@{repeating_projects_$X_complete}" />
+              <input class="ark-projects-col ark-projects-box10 input-checkbox" type="checkbox" name="attr_complete" title="@{repeating_projects_$X_complete}" />
             </div>
           </fieldset>
         </div>
@@ -2724,13 +2723,13 @@
           <span data-i18n="note">Note</span>
         </div>
         <div class="ark-notes-repeating">
-          <fieldset class="repeating_arknotes">
+          <fieldset class="repeating_ark-notes">
             <div class="ark-notes-grid">
               <div class="ark_notes-box3">                
-                <input type="text" class="input-text" name="attr_ark_notes_title" title="@{repeating_arknotes_$X_ark_notes_title}" />
+                <input type="text" class="input-text" name="attr_notes_title" title="@{repeating_ark-notes_$X_notes_title}" />
               </div>
               <div class="ark_notes-box4">
-                <textarea class="input-textarea" name="attr_ark_notes_note" title="@{repeating_arknotes_$X_ark_notes_note}"></textarea>
+                <textarea class="input-textarea" name="attr_notes" title="@{repeating_ark-notes_$X_notes}"></textarea>
               </div>
             </div>
           </fieldset>
@@ -2787,7 +2786,7 @@
 
   <!--announcements/updates-->
   <input type="checkbox" class="announcements-show toggle-monster-only" name="attr_show_announcements" value="1" data-i18n-title="version-announcements" title="Sheet version and announcements" style="width: 4.5em; height: 2em;">
-  <!--<span class="announcements-show toggle-monster-only" name="attr_version">&nbsp;</span>-->
+  <span class="announcements-show toggle-monster-only" name="attr_version">&nbsp;</span>
   <div class="settings-options">
     <input type="hidden" name="attr_translation_whisper_query" value="whisper-query" />
     <input type="hidden" name="attr_translation_whisper_api_query" value="whisper_api-query" />
@@ -3457,6 +3456,97 @@
   /* beautify preserve:start */
 
   "use strict";
+  
+/* START ASYNC FUNCTIONS
+Function from https://github.com/onyxring/Roll20Async, Many thanks Onyx RIng
+*/
+
+function setActiveCharacterId(charId){
+ var oldAcid=getActiveCharacterId();
+ var ev = new CustomEvent("message");
+ ev.data={"id":"0", "type":"setActiveCharacter", "data":charId};
+ self.dispatchEvent(ev); 
+ return oldAcid;
+}
+/* var _sIn=setInterval;
+setInterval=function(callback, timeout){
+ var acid=getActiveCharacterId();
+ _sIn(
+     function(){
+         var prevAcid=setActiveCharacterId(acid);
+         callback();
+         setActiveCharacterId(prevAcid);
+     }
+ ,timeout);
+}
+var _sto=setTimeout
+setTimeout=function(callback, timeout){
+ var acid=getActiveCharacterId();
+ _sto(
+     function(){
+         var prevAcid=setActiveCharacterId(acid);
+         callback();
+         setActiveCharacterId(prevAcid);
+     }
+ ,timeout);
+} */
+function getAttrsAsync(props){
+ var acid=getActiveCharacterId(); //save the current activeCharacterID in case it has changed when the promise runs 
+ var prevAcid=null;               //local variable defined here, because it needs to be shared across the promise callbacks defined below
+ return new Promise((resolve,reject)=>{
+         prevAcid=setActiveCharacterId(acid);  //in case the activeCharacterId has changed, restore it to what we were expecting and save the current value to restore later
+         try{
+             getAttrs(props,(values)=>{  resolve(values); }); 
+         }
+         catch{ reject(); }
+ }).finally(()=>{
+     setActiveCharacterId(prevAcid); //restore activeCharcterId to what it was when the promise first ran
+ });
+}
+//use the same pattern for each of the following...
+function setAttrsAsync(propObj, options){
+ var acid=getActiveCharacterId(); 
+ var prevAcid=null;               
+ return new Promise((resolve,reject)=>{
+         prevAcid=setActiveCharacterId(acid);  
+         try{
+             setAttrs(propObj,options,(values)=>{ resolve(values); });
+         }
+         catch{ reject(); }
+ }).finally(()=>{
+     setActiveCharacterId(prevAcid); 
+ });
+}
+
+function getSectionIDsAsync(sectionName){
+ var acid=getActiveCharacterId(); 
+ var prevAcid=null;               
+ return new Promise((resolve,reject)=>{
+         prevAcid=setActiveCharacterId(acid);  
+         try{
+             getSectionIDs(sectionName,(values)=>{ resolve(values); });
+         }
+         catch{ reject(); }
+ }).finally(()=>{
+     setActiveCharacterId(prevAcid); 
+ });
+}
+function getSingleAttrAsync(prop){ 
+ var acid=getActiveCharacterId(); 
+ var prevAcid=null;               
+ return new Promise((resolve,reject)=>{
+         prevAcid=setActiveCharacterId(acid);  
+         try{
+             getAttrs([prop],(values)=>{  resolve(values[prop]); }); 
+         }
+         catch{ reject(); }
+ }).finally(()=>{
+     setActiveCharacterId(prevAcid); 
+ });
+}
+/* END ASYNC FUNCTIONS */
+
+
       
   let race_att_names;
   
@@ -3750,6 +3840,10 @@
         clog("updating to version 1.71");
         update_to_1_71(old_version);
         break;*/
+      case old_version < 2.01:
+        clog("updating to version 2.01");
+        update_to_2_01(old_version);
+        break;
       default:
         // if reach this, all codeversion upgrades are complete
         // can run your recalculate function to show announcements
@@ -3758,7 +3852,7 @@
   };
   //add updates here
   
-  /*rename misspelled items
+  /* rename misspelled items
   const update_to_1_71 = (old_version) => {
     getAttrs(["armor1_equiped", "armor2_equiped", "shield1_equiped", "stockpile_vegatables"], (v) => {
       const setter = {};
@@ -3766,17 +3860,20 @@
       const statswaps = {
         armor1_equiped: "armor1_equipped",
         armor2_equiped: "armor2_equipped",
-        shield1_equiped: "shield1_equipped",
-        stockpile_vegatables: "stockpile_vegetables",
+        //shield1_equiped: "shield1_equipped",
+        //stockpile_vegatables: "stockpile_vegetables",
       };
   
       Object.entries(statswaps).forEach(([key, value]) => {
-        if (v[key]) setter[key] = v[value];
+        if (v[key]) {
+          setter[key] = v[value];
+          clog(`Upgrading stat setter[key] ${setter[key]} to v[value] ${v[value]}`);
+        }
       });
   
       // UPDATE THIS /
       // MUST set the version to a specific value here, the one where the sheet was updated like this.  
-      const current_version = 1.00;
+      const current_version = 1.71;
       setter.version = current_version;
   
       setAttrs(setter, { silent: true }, versionator(current_version));
@@ -3786,62 +3883,238 @@
   
   /* Upgrade to 2.01 version from previous version */
   const update_to_2_01 = (old_version) => {
+    clog("** UPDATE TO V2.01 DETECTED **");
+  
+    const setter = {};
+    
+    // On upgrade, set character type to Mutant
+    setAttrs({chartype: "Mutant"});
+    
     // Upgrade attributes, no need to update damages
     Object.keys(attributes).forEach((attr) => {
-      GetAttrs([attr, attributes[attr], attr+"_max"], (values) => {
-        var setter = {};
-        setter[attr] = values[attr],
-        setter[attr_name] = getSkillName(attr),
-        setter[attr_total] = values[attributes[attr]],
-        setter[attr_max] = values[attr+"_max"];
-        clog(`Upgrading ${setter[attr_name]} from ${setter[attr_name]}_max ${setter[attr_max]} to ${setter[attr_name]}_total ${setter[attr_total]}.`);
-        SetAttrs(setter);
+      getAttrs([attr, attributes[attr], damages[attr], attr+"_max"], (values) => {
+        var attrib = {};
+        if (attr == "strength") {
+          // Set strength attributes for PC and Monster to attribute_max value
+          attrib["strength"] = values["strength_max"];
+          attrib["strength_pc"] = values["strength_max"];
+          attrib["strength_monster"] = values["strength_max"];
+          attrib["strength_total"] = int(attrib["strength"]) - int(damages[attr]);
+        } else { 
+          // Set other attributes to the attribute_max value 
+          attrib[attr] = values[attr+"_max"]; 
+          attrib[attr+"_total"] = int(values[attr+"_max"]) - int(damages[attr]);
+        }
+        const attr_name = getSkillName(attr);
+        //attrib[attr_total] = values[attributes[attr]];
+        clog(`Upgrading ${attr_name} from ${attr_name}_max ${values[attr+"_max"]} to ${attr_name} ${setter[attr]} with total ${setter[attr+"_total"]}.`);
+        setAttrs(attrib);
       });
     });
     // Upgrade conditions - no need
     // Upgrade apprearance - no need
     // Upgrade injuries - non need
+    // Upgrade rot - 
+    getAttrs(["rot_permenant"], (values) => {
+      const permanent = int(values.rot_permenant);
+      setAttrs({rot_permanent: permanent})
+    });
+  
+  
+    // Upgrade experience - no need, same attribute
     
-    // Upgrade skills
+    // Upgrade skills - no need
+    // Upgrade repeating skills - no need, aligned
+  
+    // Talents - no need - aligned
+  
+    // Mutations
+    getSectionIDs("repeating_mutantions", function(mutantions) {
+      mutantions.forEach((mutantionsId) => {
+        getAttrs(["repeating_mutantions_"+mutantionsId+"_mutantion_name", "repeating_mutantions_"+mutantionsId+"_mutantion_description"], (values) => {
+          const name = values["repeating_mutantions_"+mutantionsId+"_mutantion_name"],
+          description = values["repeating_mutantions_"+mutantionsId+"_mutantion_description"],
+          newrowid = generateRowID();
+          let newmutation = {};
+          newmutation["repeating_mutations_"+newrowid+"_name"] = name;
+          newmutation["repeating_mutations_"+newrowid+"_description"] = description;
+          newmutation["repeating_mutations_"+newrowid+"_rank"] = 1;
+          newmutation["repeating_mutations_"+newrowid+"_powerlevel"] = 1;
+          setAttrs(newmutation);
+        });
+      });
+    });
+
+    // Mutation points
+    getAttrs(["mutation"], (values) => {
+      const mutation = int(values.mutation);
+      setAttrs({mutationpoints: mutation});
+    });
+
+    // Upgrade Weapons ASYNC
+    getSectionIDs("repeating_weapons", function(weapons) {
+      weapons.forEach( async (weaponId) => {
+        var values = await getAttrsAsync(["repeating_weapons_"+weaponId+"_weapon_name", "repeating_weapons_"+weaponId+"_weapon_skill", "repeating_weapons_"+weaponId+"_weapon_bonus", "repeating_weapons_"+weaponId+"_weapon_damage", "repeating_weapons_"+weaponId+"_weapon_range", "repeating_weapons_"+weaponId+"_weapon_features", "strength_total", "agility_total"]);
+        clog(`Upgrade weapon attributes: Weapon ${values["repeating_weapons_"+weaponId+"_weapon_name"]} with ${int(values["repeating_weapons_"+weaponId+"_weapon_skill"])} bonus ${int(values["repeating_weapons_"+weaponId+"_weapon_bonus"])} and damage ${int(values["repeating_weapons_"+weaponId+"_weapon_damage"])} up to ${values["repeating_weapons_"+weaponId+"_weapon_range"]} distance.`);
+        const name = values["repeating_weapons_"+weaponId+"_weapon_name"],
+        skill = int(values["repeating_weapons_"+weaponId+"_weapon_skill"]),
+        bonus = int(values["repeating_weapons_"+weaponId+"_weapon_bonus"]),
+        damage = int(values["repeating_weapons_"+weaponId+"_weapon_damage"]),
+        range = values["repeating_weapons_"+weaponId+"_weapon_range"], 
+        features = values["repeating_weapons_"+weaponId+"_weapon_features"],
+        strength = int(values.strength_total),
+        agility = int(values.agility_total),
+        base = skill === 0 ? strength : agility;
+        clog(`Upgrade weapon: Weapon ${name} with ${skill} bonus ${bonus} and damage ${damage} up to ${range} distance.`);
+  
+        let weapon = {};
+        weapon["repeating_weapons_"+weaponId+"_weapon_name"] = name;
+        weapon["repeating_weapons_"+weaponId+"_weapon_base_total"] = base;
+        weapon["repeating_weapons_"+weaponId+"_weapon_skill"] = skill;
+        weapon["repeating_weapons_"+weaponId+"_weapon_skill_misc"] = 0;
+        weapon["repeating_weapons_"+weaponId+"_weapon_skill_total"] = skill;
+        weapon["repeating_weapons_"+weaponId+"_weapon_bonus"] = bonus;
+        weapon["repeating_weapons_"+weaponId+"_weapon_bonus_max"] = bonus;
+        weapon["repeating_weapons_"+weaponId+"_weapon_bonus_misc"] = 0;
+        weapon["repeating_weapons_"+weaponId+"_weapon_bonus_total"] = bonus;
+        weapon["repeating_weapons_"+weaponId+"_weapon_damage"] = damage;
+        weapon["repeating_weapons_"+weaponId+"_weapon_damage_misc"] = 0;
+        weapon["repeating_weapons_"+weaponId+"_weapon_damage_total"] = damage;
+        weapon["repeating_weapons_"+weaponId+"_weapon_grip"] = "1H";
+        weapon["repeating_weapons_"+weaponId+"_weapon_range"] = range;
+        weapon["repeating_weapons_"+weaponId+"_weapon_carried"] = 1;
+        weapon["repeating_weapons_"+weaponId+"_weapon_weight"] = 1;
+        weapon["repeating_weapons_"+weaponId+"_weapon_features"] = features;
+        await setAttrsAsync(weapon);
+      });
+    });
+  
+    /*/ Upgrade Weapons
+    getSectionIDs("repeating_weapons", function(weapons) {
+      weapons.forEach((weaponId) => {
+        getAttrs(["repeating_weapons_"+weaponId+"_weapon_name", "repeating_weapons_"+weaponId+"_weapon_skill", "repeating_weapons_"+weaponId+"_weapon_bonus", "repeating_weapons_"+weaponId+"_weapon_damage", "repeating_weapons_"+weaponId+"_weapon_range", "repeating_weapons_"+weaponId+"_weapon_features", "strength_total", "agility_total"], (values) => {
+          clog(`Upgrade weapon attributes: Weapon ${values["repeating_weapons_"+weaponId+"_weapon_name"]} with ${values["repeating_weapons_"+weaponId+"_weapon_skill"]} bonus ${values["repeating_weapons_"+weaponId+"_weapon_bonus"]} and damage ${values["repeating_weapons_"+weaponId+"_weapon_damage"]} up to ${values["repeating_weapons_"+weaponId+"_weapon_range"]} distance.`);
+          const name = values["repeating_weapons_"+weaponId+"_weapon_name"],
+          skill = int(values["repeating_weapons_"+weaponId+"_weapon_skill"]),
+          bonus = int(values["repeating_weapons_"+weaponId+"_weapon_bonus"]),
+          damage = int(values["repeating_weapons_"+weaponId+"_weapon_damage"]),
+          range = values["repeating_weapons_"+weaponId+"_weapon_range"], 
+          features = values["repeating_weapons_"+weaponId+"_weapon_features"],
+          strength = int(values.strength_total),
+          agility = int(values.agility_total),
+          base = skill === 0 ? strength : agility;
+          clog(`Upgrade weapon: Weapon ${name} with ${skill} bonus ${bonus} and damage ${damage} up to ${range} distance.`);
+  
+          let weapon = {};
+          //weapon["repeating_weapons_"+weaponId+"_weapon_name"] = name;
+          weapon["repeating_weapons_"+weaponId+"_weapon_base_total"] = base;
+          //weapon["repeating_weapons_"+weaponId+"_weapon_skill"] = skill;
+          //weapon["repeating_weapons_"+weaponId+"_weapon_skill_misc"] = 0;
+          //weapon["repeating_weapons_"+weaponId+"_weapon_skill_total"] = skill;
+          //weapon["repeating_weapons_"+weaponId+"_weapon_bonus"] = bonus;
+          //weapon["repeating_weapons_"+weaponId+"_weapon_bonus_max"] = bonus;
+          //weapon["repeating_weapons_"+weaponId+"_weapon_bonus_misc"] = 0;
+          //weapon["repeating_weapons_"+weaponId+"_weapon_bonus_total"] = bonus;
+          //weapon["repeating_weapons_"+weaponId+"_weapon_damage"] = damage;
+          //weapon["repeating_weapons_"+weaponId+"_weapon_damage_misc"] = 0;
+          //weapon["repeating_weapons_"+weaponId+"_weapon_damage_total"] = damage;
+          //weapon["repeating_weapons_"+weaponId+"_weapon_grip"] = "1H";
+          //weapon["repeating_weapons_"+weaponId+"_weapon_range"] = range;
+          //weapon["repeating_weapons_"+weaponId+"_weapon_carried"] = 1;
+          //weapon["repeating_weapons_"+weaponId+"_weapon_weight"] = 1;
+          //weapon["repeating_weapons_"+weaponId+"_weapon_features"] = features;
+          clog("weapon upgrade : "+JSON.stringify(weapon));
+          setAttrs(weapon);
+          });
+        });
+      });*/
   
     // Upgrade armor to repeating section
-    GetAttrs(["armor1_ar", "armor1_bonus", "armor1_damage", "armor1_name"], function(values) {
-      var newrowid = generateRowID();
-      var newrowattrs = {};
-      newrowattrs["repeating_armor_" + newrowid + "_name"] = armor1_name;
-      newrowattrs["repeating_armor_" + newrowid + "_ar"] = int(armor1_ar);
-      newrowattrs["repeating_armor_" + newrowid + "_carried"] = 1;
-      newrowattrs["repeating_armor_" + newrowid + "_equipped"] = 1;
-      newrowattrs["repeating_armor_" + newrowid + "_bonus_max"] = int(armor1_bonus);
-      newrowattrs["repeating_armor_" + newrowid + "_bonus_misc"] = 0;
-      newrowattrs["repeating_armor_" + newrowid + "_bonus"] = int(armor1_bonus) - int(armor1_damage);
-      newrowattrs["repeating_armor_" + newrowid + "_weight"] = 1;
-      newrowattrs["repeating_armor_" + newrowid + "_features"] = '';
-      setAttrs(newrowattrs);
+    getAttrs(["armor1_ar", "armor1_bonus", "armor1_damage", "armor1_equiped", "armor1_name", "armor2_ar", "armor2_bonus", "armor2_damage", "armor2_equiped", "armor2_name"], function(values) {
+    
+        var newarmor = {};
+    
+        //clog("Upgrade: Armor1_name  is "+values.armor1_name +" and Armor1_bonus is "+values.armor1_bonus+" with damage "+values.armor1_damage+" and equipped "+values.armor1_equiped);
+        //clog("Upgrade armor1 name: "+(values.armor1_name != null));
+        //clog("Upgrade armor1 bonus: "+(values.armor1_bonus != null));
+        if (values.armor1_name != null || values.armor1_bonus != null) {
+            //clog("Upgrading Armor1 : " + values.armor1_name + " with bonus : "+ values.armor1_bonus +".");
+            const newrowid1 = generateRowID();
+            const bonus1_actual = int(values.armor1_bonus) + int(values.armor1_damage);
+            const rating1 = bonus1_actual * int(values.armor1_equiped);
+            //clog("Armor rating calculated: "+rating1);
+            newarmor["repeating_armor_" + newrowid1 + "_name"] = values.armor1_name;
+            newarmor["repeating_armor_" + newrowid1 + "_rating"] = rating1;
+            newarmor["repeating_armor_" + newrowid1 + "_carried"] = 1;
+            newarmor["repeating_armor_" + newrowid1 + "_equipped"] = values.armor1_equiped || 1;
+            newarmor["repeating_armor_" + newrowid1 + "_bonus"] = bonus1_actual;
+            newarmor["repeating_armor_" + newrowid1 + "_bonus_misc"] = 0;
+            newarmor["repeating_armor_" + newrowid1 + "_bonus_max"] = int(values.armor1_bonus);
+            newarmor["repeating_armor_" + newrowid1 + "_weight"] = 1;
+            newarmor["repeating_armor_" + newrowid1 + "_features"] = '';
+        }
+        setAttrs(newarmor);
+
+        newarmor = {};
+        
+        //clog("Upgrade: Armor2_name  is "+values.armor2_name +" and Armor2_bonus is "+values.armor2_bonus+" with damage "+values.armor2_damage+" and equipped "+values.armor2_equiped);
+        //clog("Upgrade armor2 name: "+(values.armor2_name != ""));
+        //clog("Upgrade armor2 bonus: "+(values.armor2_bonus != ""));
+        if (values.armor2_name != "" || values.armor2_bonus != null) {
+            //clog("Upgrading Armor2 : " + values.armor2_name + " with bonus : "+ values.armor2_bonus +".");
+            const newrowid2 = generateRowID();
+            const bonus2_actual = int(values.armor2_bonus) + int(values.armor2_damage);
+            const rating2 = bonus2_actual * int(values.armor2_equiped);
+            //clog("Armor rating calculated: "+rating2);
+            newarmor["repeating_armor_" + newrowid2 + "_name"] = values.armor2_name;
+            newarmor["repeating_armor_" + newrowid2 + "_rating"] = rating2;
+            newarmor["repeating_armor_" + newrowid2 + "_carried"] = 1;
+            newarmor["repeating_armor_" + newrowid2 + "_equipped"] = values.armor2_equiped || 1;
+            newarmor["repeating_armor_" + newrowid2 + "_bonus"] = bonus2_actual;
+            newarmor["repeating_armor_" + newrowid2 + "_bonus_misc"] = 0;
+            newarmor["repeating_armor_" + newrowid2 + "_bonus_max"] = int(values.armor2_bonus);
+            newarmor["repeating_armor_" + newrowid2 + "_weight"] = 1;
+            newarmor["repeating_armor_" + newrowid2 + "_features"] = '';
+        }
+        setAttrs(newarmor);
+
+        });
+  
+    // Upgrade gear, vehicle and consumables
+      // Gear - no need
+      // Vehicle - aligned
+      // Consumables, aligned
+  
+    // Upgrade relationships, notes etc
+      // Aligned
+  
+    // Upgrade Ark sheet
+    // Development levels 
+    getAttrs(["ark_food_supply","ark_culture", "ark_technology", "ark_warfare", "ark_dev_food", "ark_dev_cult", "ark_dev_tech", "ark_dev_war"], (values) => {
+      //clog("Upgrading ark development levels");
+      const food = int(values.ark_food_supply),
+      culture = int(values.ark_culture),
+      tech = int(values.ark_technology),
+      war = int(values.ark_warfare);
+      setAttrs({
+          ark_dev_food: food,
+          ark_dev_cult: culture,
+          ark_dev_tech: tech,
+          ark_dev_war: war,
+      });
     });
-    GetAttrs(["armor2_ar", "armor2_bonus", "armor2_damage", "armor2_name"], function(values) {
-      var newrowid = generateRowID();
-      var newrowattrs = {};
-      newrowattrs["repeating_armor_" + newrowid + "_name"] = armor2_name;
-      newrowattrs["repeating_armor_" + newrowid + "_ar"] = int(armor2_ar);
-      newrowattrs["repeating_armor_" + newrowid + "_carried"] = 1;
-      newrowattrs["repeating_armor_" + newrowid + "_equipped"] = 1;
-      newrowattrs["repeating_armor_" + newrowid + "_bonus_max"] = int(armor2_bonus);
-      newrowattrs["repeating_armor_" + newrowid + "_bonus_misc"] = 0;
-      newrowattrs["repeating_armor_" + newrowid + "_bonus"] = int(armor2_bonus) - int(armor2_damage);
-      newrowattrs["repeating_armor_" + newrowid + "_weight"] = 1;
-      newrowattrs["repeating_armor_" + newrowid + "_features"] = '';
-      SetAttrs(newrowattrs);
-    });
-    // Upgrade gear and consumables
+    // Ark details
+    // Aligned
   
-    // Upgrade relationships etc
+    // UPDATE THIS /
+    // MUST set the version to a specific value here, the one where the sheet was updated like this.  
+    const current_version = 2.01;
+    setter.version = current_version;
   
-    // Upgrade Ark sheet 
-  
+    setAttrs(setter, { silent: true }, versionator(current_version));
   
   };
-  
+    
   on("sheet:opened", () => {
     getAttrs(["version"], (v) => {
       versionator(float(v.version));
@@ -3857,7 +4130,7 @@
     getSectionIDs(`repeating_${section}`, (idArray) => {
       const attrArray = idArray.reduce((m, id) => [...m, ...fields.map((field) => `repeating_${section}_${id}_${field}`)], []);
       getAttrs(attrArray, (v) => {
-        clog("values of v: " + JSON.stringify(v));
+        //clog("values of v: " + JSON.stringify(v));
         // getValue: if not a number, returns 1 if it is 'on' (checkbox), otherwise returns 0..
         const getValue = (section, id, field) => float(v[`repeating_${section}_${id}_${field}`]) || (v[`repeating_${section}_${id}_${field}`] === "on" ? 1 : 0);
   
@@ -3871,7 +4144,7 @@
   
   /* hireling cost */
   on("change:repeating_hirelings remove:repeating_hirelings sheet:opened", function () {
-    clog("Change Detected: Hirelings");
+    //clog("Change Detected: Hirelings");
     repeatingSum("hirelings_cost", "hirelings", ["hireling_number", "hireling_salary"]);
   });
   
@@ -3896,13 +4169,13 @@
   /* armor encumbrance */
   on("change:repeating_armor remove:repeating_armor sheet:opened", function () {
     clog("Change Detected: Character Armor Encumbrance");
-    repeatingSum("armor_encumbrance", "armor", ["armor_weight", "armor_carried"]);
+    repeatingSum("armor_encumbrance", "armor", ["weight", "carried"]);
   });
   
   /* armor rating */
   on("change:repeating_armor remove:repeating_armor sheet:opened", function () {
     clog("Change Detected: Character Armor Rating");
-    repeatingSum("ar_total", "armor", ["armor_ar", "armor_equipped"]);
+    repeatingSum("ar_total", "armor", ["rating", "equipped"]);
   });
 
   /* Permanent rot */
@@ -3919,7 +4192,8 @@
   
   /* total encumbrance */
   on("sheet:opened change:gear_encumbrance change:vehiclegear_encumbrance change:weapons_encumbrance change:armor_encumbrance change:food change:water change:bullets", function () {
-    getAttrs(["gear_encumbrance", "vehiclegear_encumbrance", "weapons_encumbrance", "armor_encumbrance", "food", "water", "bullets"], function (values) {      clog("Change Detected: Character Encumbrance");
+    getAttrs(["gear_encumbrance", "vehiclegear_encumbrance", "weapons_encumbrance", "armor_encumbrance", "food", "water", "bullets"], function (values) {      
+      clog("Change Detected: Character Encumbrance");
   
       const gear_encumbrance = float(values["gear_encumbrance"]),
         vehiclegear_encumbrance = float(values["vehiclegear_encumbrance"]),
@@ -3994,7 +4268,7 @@
       let pc = int(v.strength_pc),
         monster = int(v.strength_monster),
         forceupdate = 0;
-      clog(`Found updated strength max in tab ${tab}, checking pc = ${pc} and monster = ${monster} strengths, max is now = ${str}.`)
+      //clog(`Found updated strength max in tab ${tab}, checking pc = ${pc} and monster = ${monster} strengths, max is now = ${str}.`)
   
       // check if character existed before strength_pc or _monster stats were introduced.
       if (str > 0) {
@@ -4023,7 +4297,7 @@
     // creates a sheet worker for each stat in damages - first stat = 'strength', then stat = 'agility', etc
     // in each worker, stat = the stat (strength, agility, etc) and damages[stat] = the associated damage ('damage'. 'fatigue', etc)
     on(`change:${stat} change:${damages[stat]}`, function () {
-      clog(`${stat} or ${damages[stat]} has changed.`);
+      //clog(`${stat} or ${damages[stat]} has changed.`);
       getAttrs([stat, damages[stat]], (values) => {
         const stat_score = int(values[stat]),
           damage_score = int(values[damages[stat]]);
@@ -4055,7 +4329,7 @@
     // in each worker, stat = the stat (strength, agility, etc) and damages[stat] = the associated damage ('damage'. 'fatigue', etc)
     const skill = getSkill(skill_name);
     on(`change:${skill} change:${skills[skill_name]} change:${misc[skill_name]} change:${miscGear[skill_name]}`, function () {
-      clog(`${skill} or ${skills[skill_name]} or ${misc[skill_name]} or ${miscGear[skill_name]} has changed.`);
+      //clog(`${skill} or ${skills[skill_name]} or ${misc[skill_name]} or ${miscGear[skill_name]} has changed.`);
       getAttrs([skill, skills[skill_name], misc[skill_name], miscGear[skill_name]], function (values) {
         const stat_score = int(values[skills[skill_name]]),
           miscSkill_score = int(values[misc[skill_name]]),
@@ -4071,7 +4345,7 @@
     
   /* set profession skill base and skill total FIX courtesy of GiGs*/
   on('sheet:opened change:repeating_skills:name change:repeating_skills:attribute change:repeating_skills:skill change:repeating_skills:misc change:repeating_skills:gear change:strength_total change:agility_total change:wits_total change:empathy_total', function () {
-    clog('Change Detected: Profession Skill - recalculating Base & Skill totals');
+    //clog('Change Detected: Profession Skill - recalculating Base & Skill totals');
     getSectionIDs('repeating_skills', idarray => {
       const fields = [];
       idarray.forEach(id => fields.push(
@@ -4097,9 +4371,9 @@
           const skill_total = skill_base + skill_skill + skill_misc + skill_gear;
           output[`repeating_skills_${id}_base`] = skill_base;
           output[`repeating_skills_${id}_total`] = skill_total;
-          clog('skill_name: ' + name);
-          clog('skill_base: ' + skill_base);
-          clog('skill_total: ' + skill_total);
+          //clog('skill_name: ' + name);
+          //clog('skill_base: ' + skill_base);
+          //clog('skill_total: ' + skill_total);
         });              
       setAttrs(output);
       });
@@ -4107,20 +4381,23 @@
   });
   
   /* set repeating armor rating */
-  on("change:repeating_armor:armor_bonus change:repeating_armor:armor_bonus_max change:repeating_armor:armor_bonus_misc", function () {
+  on("change:repeating_armor:bonus change:repeating_armor:bonus_max change:repeating_armor:bonus_misc change:repeating_armor:equipped", function () {
     clog("Change Detected: Repeating Armor Rating - recalculating rating totals");
     // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
-    getAttrs(["repeating_armor_armor_bonus", "repeating_armor_armor_bonus_misc", "repeating_armor_armor_bonus_max", "repeating_armor_armor_ar"], function (values) {
-      const armor_bonus_misc = int(values.repeating_armor_armor_bonus_misc),
-      armor_bonus = int(values.repeating_armor_armor_bonus),
-      armor_bonus_max = int(values.repeating_armor_armor_bonus_max);
+    getAttrs(["repeating_armor_bonus", "repeating_armor_bonus_misc", "repeating_armor_bonus_max", "repeating_armor_rating", "repeating_armor_equipped"], function (values) {
+      const bonus = int(values.repeating_armor_bonus),
+      bonus_misc = int(values.repeating_armor_bonus_misc),
+      bonus_max = int(values.repeating_armor_bonus_max),
+      equipped = int(values.repeating_armor_equipped);
       // separate out the basic values read from the sheet from those calculated within the worker
-      const armor_ar = Math.min(armor_bonus, armor_bonus_max) + armor_bonus_misc;
-      clog("armor calculation: armor_bonus " + armor_bonus + " armor_bonus_misc " + armor_bonus_misc + " = armor_bonus_total " +armor_ar);
+      const bonus_actual = Math.min(bonus, bonus_max);
+      const rating = (bonus_actual + bonus_misc) * equipped;
+      //clog("armor calculation: ( bonus " + bonus + " + bonus_misc " + bonus_misc + " ) * " + equipped + "  = rating " + rating);
       setAttrs({
-        repeating_armor_armor_ar: armor_ar,
+        repeating_armor_bonus: bonus_actual,
+        repeating_armor_rating: rating,
       });
-      clog("armor_rating: " + armor_ar);
+      //clog("Armor rating: " + rating);
     });
   });
   
@@ -4146,13 +4423,13 @@
         repeating_weapons_weapon_skill_value: weapon_skill_value,
         repeating_weapons_weapon_skill_total: weapon_skill_total,
       });
-      clog("weapon_base_total: " + weapon_base_total);
-      clog("weapon_skill_value: " + weapon_skill_value);
-      clog("weapon_skill_total: " + weapon_skill_total);
+      clog(">>>> weapon_base_total: " + weapon_base_total);
+      clog(">>>> weapon_skill_value: " + weapon_skill_value);
+      clog(">>>> weapon_skill_total: " + weapon_skill_total);
     });
   });
   
-  /* set weapon bonus_total */  
+  /* set weapon bonus_total and max */  
   on("repeating_weapons:weapon_name change:repeating_weapons:weapon_bonus change:repeating_weapons:weapon_bonus_misc  change:repeating_weapons:weapon_bonus_max", function () {
     clog("Change Detected: Weapon Attacks - recalculating Bonus totals");
     // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
@@ -4161,11 +4438,16 @@
         weapon_bonus = int(values.repeating_weapons_weapon_bonus),
         weapon_bonus_max = int(values.repeating_weapons_weapon_bonus_max);
       // separate out the basic values read from the sheet from those calculated within the worker
+      //If weapon bonus max is 0, then set it to the value of the weapon bonus
+      if (weapon_bonus_max === 0) {
+        clog("setting weapon bonus max to value of weapon bonus (since no max detected). New max value = "+weapon_bonus);
+        setAttrs({repeating_weapons_weapon_bonus_max: weapon_bonus});
+      }
       const weapon_bonus_total = Math.min(weapon_bonus, weapon_bonus_max) + weapon_bonus_misc;
       setAttrs({
         repeating_weapons_weapon_bonus_total: weapon_bonus_total,
       });
-      clog("weapon_bonus_total: " + weapon_bonus_total);
+      clog(">>>> weapon_bonus_total: " + weapon_bonus_total);
     });
   });
   
@@ -4246,7 +4528,7 @@
   Object.keys(monster_skills).forEach((skill_name) => {
     const monster_skill = getSkill(skill_name);
     on(`change:${monster_skill} change:${monster_skills[skill_name]} change:${monster_misc[skill_name]} change:${monster_miscGear[skill_name]}`, function () {
-      clog(`${monster_skill} or ${monster_skills[skill_name]} or ${monster_misc[skill_name]} or ${monster_miscGear[skill_name]} has changed.`);
+      //clog(`${monster_skill} or ${monster_skills[skill_name]} or ${monster_misc[skill_name]} or ${monster_miscGear[skill_name]} has changed.`);
       getAttrs([monster_skill, monster_skills[skill_name], monster_misc[skill_name], monster_miscGear[skill_name]], function (values) {
         const stat_score = int(values[monster_skills[skill_name]]),
           miscSkill_score = int(values[monster_misc[skill_name]]),
@@ -4531,7 +4813,7 @@
   const powers = ["mutations","modules","animalpowers","contacts"];
   powers.forEach(pow => {
     on(`clicked:repeating_${pow}:powerroll`, (eventInfo) => {
-      clog(JSON.stringify(eventInfo.sourceAttribute));
+      //clog(JSON.stringify(eventInfo.sourceAttribute));
       var getAttrsString = [`repeating_${pow}_name`,`repeating_${pow}_powerlevel`];
       getAttrs(getAttrsString, function(values) {
         const name = values[`repeating_${pow}_name`],
@@ -4543,9 +4825,9 @@
             current_preset: getTranslationByKey(`power`) + ` - ${name}`,
             include_with_roll: ``,
           };
-          clog(name);
-          clog(level);
-          clog(JSON.stringify(setAttrObj));
+          //clog(name);
+          //clog(level);
+          //clog(JSON.stringify(setAttrObj));
         SetAttrs(setAttrObj);/**/
       });
     });
@@ -4668,7 +4950,7 @@
   
   /* translate query text */
   on("sheet:opened", function () {
-    clog("Translation of query text complete.");
+    //clog("Translation of query text complete.");
     setAttrs({
       translation_push_query: getTranslationByKey("push-query"),
       translation_whisper_macro_query: "?{" + getTranslationByKey("whisper-macro") + "|" + getTranslationByKey("no") + ",|" + getTranslationByKey("yes") + ",/w gm |" + "}",
@@ -4715,7 +4997,7 @@
   
   /* Update attributes total max */
   on("sheet:opened change:strength_total", function () {
-    clog("Change Detected: strength_total has changed");
+    //clog("Change Detected: strength_total has changed");
     getAttrs(["strength", "strength_total"], function (values) {
       const strength = int(values.strength),
         strength_total = int(values.strength_total);
@@ -4727,7 +5009,7 @@
   });
   
   on("sheet:opened change:agility_total", function () {
-    clog("Change Detected: agility_total has changed");
+    //clog("Change Detected: agility_total has changed");
     getAttrs(["agility", "agility_total"], function (values) {
       const agility = int(values.agility),
         agility_total = int(values.agility_total);
@@ -4739,7 +5021,7 @@
   });
   
   on("sheet:opened change:wits_total", function () {
-    clog("Change Detected: wits_total has changed");
+    //clog("Change Detected: wits_total has changed");
     getAttrs(["wits", "wits_total"], function (values) {
       const wits = int(values.wits),
         wits_total = int(values.wits_total);
@@ -4768,7 +5050,7 @@
     getAttrs(["strength_total"], function (values) {
       const strength_total = int(values.strength_total),
       strength_name = getSkillName("strength_total");
-      clog(strength_name + " : " + strength_total);
+      //clog(strength_name + " : " + strength_total);
       setAttrs({
         attribute: strength_total,
         skill: 0,
@@ -4785,7 +5067,7 @@
     getAttrs(["agility_total"], function (values) {
       const agility_total = int(values.agility_total),
       agility_name = getSkillName("agility");
-      clog(agility_name + " : " + agility_total);
+      //clog(agility_name + " : " + agility_total);
       setAttrs({
         attribute: agility_total,
         skill: 0,
@@ -4802,7 +5084,7 @@
     getAttrs(["wits_total"], function (values) {
       const wits_total = int(values.wits_total),
       wits_name = getSkillName("wits");
-      clog(wits_name + " : " + wits_total);
+      //clog(wits_name + " : " + wits_total);
       setAttrs({
         attribute: wits_total,
         skill: 0,
@@ -4819,7 +5101,7 @@
     getAttrs(["empathy_total"], function (values) {
       const empathy_total = int(values.empathy_total),
       empathy_name = getSkillName("empathy");
-      clog(empathy_name + " : " + empathy_total);
+      //clog(empathy_name + " : " + empathy_total);
       setAttrs({
         attribute: empathy_total,
         skill: 0,
@@ -4831,7 +5113,7 @@
   });
   
   /* delete empty repeating rows w/out having to close/reopen sheet*/
-  on('remove:repeating_injuries remove:repeating_talents remove:repeating_gear remove:repeating_vehiclegear remove:repeating_relationships remove:repeating_spells remove:repeating_beasts remove:repeating_notes remove:repeating_functions remove:repeating_hirelings remove:repeating_monster remove:repeating_weapons remove:repeating_mutations', function() { 
+  on('remove:repeating_injuries remove:repeating_weapons remove:repeating_skills remove:repeating_gear remove:repeating_vehiclegear remove:repeating_relationships remove:repeating_spells remove:repeating_beasts remove:repeating_notes remove:repeating_ark-notes remove:repeating_log remove:repeating_monster remove:repeating_mutations remove:repeating_armor remove:repeating_biomechs remove:repeating_contacts remove:repeating_animalpowers remove:repeating_modules remove:repeating_talents', function() { 
     const timestamp = Number(new Date())
     setAttrs({ repeat_delete: timestamp });
     clog("repeating row has been removed");

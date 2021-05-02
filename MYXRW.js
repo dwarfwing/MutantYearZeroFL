@@ -1,7 +1,97 @@
 /* beautify preserve:start */
 
 "use strict";
-    
+
+/* START ASYNC FUNCTIONS
+   Function from https://github.com/onyxring/Roll20Async, Many thanks Onyx RIng
+*/
+   
+function setActiveCharacterId(charId){
+    var oldAcid=getActiveCharacterId();
+    var ev = new CustomEvent("message");
+    ev.data={"id":"0", "type":"setActiveCharacter", "data":charId};
+    self.dispatchEvent(ev); 
+    return oldAcid;
+}
+var _sIn=setInterval;
+setInterval=function(callback, timeout){
+    var acid=getActiveCharacterId();
+    _sIn(
+        function(){
+            var prevAcid=setActiveCharacterId(acid);
+            callback();
+            setActiveCharacterId(prevAcid);
+        }
+    ,timeout);
+}
+var _sto=setTimeout;
+setTimeout=function(callback, timeout){
+    var acid=getActiveCharacterId();
+    _sto(
+        function(){
+            var prevAcid=setActiveCharacterId(acid);
+            callback();
+            setActiveCharacterId(prevAcid);
+        }
+    ,timeout);
+}
+function getAttrsAsync(props){
+    var acid=getActiveCharacterId(); //save the current activeCharacterID in case it has changed when the promise runs 
+    var prevAcid=null;               //local variable defined here, because it needs to be shared across the promise callbacks defined below
+    return new Promise((resolve,reject)=>{
+            prevAcid=setActiveCharacterId(acid);  //in case the activeCharacterId has changed, restore it to what we were expecting and save the current value to restore later
+            try{
+                getAttrs(props,(values)=>{  resolve(values); }); 
+            }
+            catch{ reject(); }
+    }).finally(()=>{
+        setActiveCharacterId(prevAcid); //restore activeCharcterId to what it was when the promise first ran
+    });
+}
+//use the same pattern for each of the following...
+function setAttrsAsync(propObj, options){
+    var acid=getActiveCharacterId(); 
+    var prevAcid=null;               
+    return new Promise((resolve,reject)=>{
+            prevAcid=setActiveCharacterId(acid);  
+            try{
+                setAttrs(propObj,options,(values)=>{ resolve(values); });
+            }
+            catch{ reject(); }
+    }).finally(()=>{
+        setActiveCharacterId(prevAcid); 
+    });
+}
+
+function getSectionIDsAsync(sectionName){
+    var acid=getActiveCharacterId(); 
+    var prevAcid=null;               
+    return new Promise((resolve,reject)=>{
+            prevAcid=setActiveCharacterId(acid);  
+            try{
+                getSectionIDs(sectionName,(values)=>{ resolve(values); });
+            }
+            catch{ reject(); }
+    }).finally(()=>{
+        setActiveCharacterId(prevAcid); 
+    });
+}
+function getSingleAttrAsync(prop){ 
+    var acid=getActiveCharacterId(); 
+    var prevAcid=null;               
+    return new Promise((resolve,reject)=>{
+            prevAcid=setActiveCharacterId(acid);  
+            try{
+                getAttrs([prop],(values)=>{  resolve(values[prop]); }); 
+            }
+            catch{ reject(); }
+    }).finally(()=>{
+        setActiveCharacterId(prevAcid); 
+    });
+}
+/* END ASYNC FUNCTIONS */
+
+
 let race_att_names;
 
 /* START RACE TYPE UPDATES */
@@ -157,9 +247,9 @@ let race_att_names;
 
 
 
-/* Attributre damage const */
+/* Attributre const */
 const attributes = {
-    // an Object Literal: damages['strength'] returns 'damage', damages['empathy'] returns 'doubt', etc
+    // an Object Literal: attributes['strength'] returns 'strength_total', attributes['strength_pc'] returns 'strength_pc', etc
     strength: "strength_total",
     agility: "agility_total",
     wits: "wits_total",
@@ -282,189 +372,253 @@ const newAnnouncement = (old_version, new_version, show_announcement) => {
 };
 
 const versionator = (old_version) => {
-  // set the sheet version you are upgrading sheet to, 
-  // and set show_announcement to 1 if you want to force an announcement to be shown.
-  // don't set a code_version; we use the switch below for that.
-  let new_version = 2.01;
-  let show_announcement = 1;
-  if (!old_version) old_version = 0;
-  switch (true) {
-    //add checks for updates here
-    /*case old_version < 1.71:
-      clog("updating to version 1.71");
-      update_to_1_71(old_version);
-      break;*/
-    default:
-      // if reach this, all codeversion upgrades are complete
-      // can run your recalculate function to show announcements
-      newAnnouncement(old_version, new_version, show_announcement);
-  }
-};
-//add updates here
-
-/*rename misspelled items
-const update_to_1_71 = (old_version) => {
-  getAttrs(["armor1_equiped", "armor2_equiped", "shield1_equiped", "stockpile_vegatables"], (v) => {
-    const setter = {};
-
-    const statswaps = {
-      armor1_equiped: "armor1_equipped",
-      armor2_equiped: "armor2_equipped",
-      shield1_equiped: "shield1_equipped",
-      stockpile_vegatables: "stockpile_vegetables",
-    };
-
-    Object.entries(statswaps).forEach(([key, value]) => {
-      if (v[key]) setter[key] = v[value];
-    });
-
-    // UPDATE THIS /
-    // MUST set the version to a specific value here, the one where the sheet was updated like this.  
-    const current_version = 1.00;
-    setter.version = current_version;
-
-    setAttrs(setter, { silent: true }, versionator(current_version));
-    clog("updating misspelled items");
-  });
-};*/
-
-/* Upgrade to 2.01 version from previous version */
-const update_to_2_01 = (old_version) => {
-  // Upgrade attributes, no need to update damages
-  Object.keys(attributes).forEach((attr) => {
-    getAttrs([attr, attributes[attr], attr+"_max"], (values) => {
-      var setter = {};
-      setter[attr] = values[attr],
-      setter[attr_name] = getSkillName(attr),
-      setter[attr_total] = values[attributes[attr]],
-      setter[attr_max] = values[attr+"_max"];
-      clog(`Upgrading ${setter[attr_name]} from ${setter[attr_name]}_max ${setter[attr_max]} to ${setter[attr_name]}_total ${setter[attr_total]}.`);
-      setAttrs(setter);
-    });
-  });
-  // Upgrade conditions - no need
-  // Upgrade apprearance - no need
-  // Upgrade injuries - non need
-  // Upgrade rot - no need, aligned
-  // Upgrade experience - no need, same attribute
+    // set the sheet version you are upgrading sheet to, 
+    // and set show_announcement to 1 if you want to force an announcement to be shown.
+    // don't set a code_version; we use the switch below for that.
+    let new_version = 2.01;
+    let show_announcement = 1;
+    if (!old_version) old_version = 0;
+    switch (true) {
+      //add checks for updates here
+      /*case old_version < 1.71:
+        clog("updating to version 1.71");
+        update_to_1_71(old_version);
+        break;*/
+      case old_version < 2.01:
+        clog("updating to version 2.01");
+        update_to_2_01(old_version);
+        break;
+      default:
+        // if reach this, all codeversion upgrades are complete
+        // can run your recalculate function to show announcements
+        newAnnouncement(old_version, new_version, show_announcement);
+    }
+  };
+  //add updates here
   
-  // Upgrade skills - no need
-  // Upgrade repeating skills - no need, aligned
+  /* rename misspelled items
+  const update_to_1_71 = (old_version) => {
+    getAttrs(["armor1_equiped", "armor2_equiped", "shield1_equiped", "stockpile_vegatables"], (v) => {
+      const setter = {};
+  
+      const statswaps = {
+        armor1_equiped: "armor1_equipped",
+        armor2_equiped: "armor2_equipped",
+        //shield1_equiped: "shield1_equipped",
+        //stockpile_vegatables: "stockpile_vegetables",
+      };
+  
+      Object.entries(statswaps).forEach(([key, value]) => {
+        if (v[key]) {
+          setter[key] = v[value];
+          clog(`Upgrading stat setter[key] ${setter[key]} to v[value] ${v[value]}`);
+        }
+      });
+  
+      // UPDATE THIS /
+      // MUST set the version to a specific value here, the one where the sheet was updated like this.  
+      const current_version = 1.71;
+      setter.version = current_version;
+  
+      setAttrs(setter, { silent: true }, versionator(current_version));
+      clog("updating misspelled items");
+    });
+  };*/
 
-  // Talents - no need - aligned
-
-  // Mutations
-  getSectionIDs("repeating_mutantions", function(mutantions) {
-    mutantions.forEach((mutantionsId) => {
-      getAttrs(["repeating_mutantions_"+mutantionsId+"_mutantion_name", "repeating_mutantions_"+mutantionsId+"_mutantion_description"], (values) => {
-        const name = values["repeating_mutantions_"+mutantionsId+"_mutantion_name"],
-        description = values["repeating_mutantions_"+mutantionsId+"_mutantion_description"],
-        var newrowid = generateRowID();
-        var newmutation = {};
-        newmutation["repeating_mutations_"+newrowid+"_name"] = name;
-        newmutation["repeating_mutations_"+newrowid+"_description"] = description;
-        newmutation["repeating_mutations_"+newrowid+"_rank"] = 1;
-        newmutation["repeating_mutations_"+newrowid+"_powerlevel"] = 1;
-        setAttrs(newmutation);
+  /* Upgrade to 2.01 version from previous version */
+  const update_to_2_01 = (old_version) => {
+    clog("** UPDATE TO V2.01 DETECTED **");
+  
+    const setter = {};
+    
+    // On upgrade, set character type to Mutant
+    setAttrs({chartype: "Mutant"});
+    
+    // Upgrade attributes, no need to update damages
+    Object.keys(attributes).forEach((attr) => {
+      getAttrs([attr, attributes[attr], damages[attr], attr+"_max"], (values) => {
+        var attrib = {};
+        if (attr == "strength") {
+          // Set strength attributes for PC and Monster to attribute_max value
+          attrib["strength"] = values["strength_max"];
+          attrib["strength_pc"] = values["strength_max"];
+          attrib["strength_monster"] = values["strength_max"];
+          attrib["strength_total"] = int(attrib["strength"]) - int(damages[attr]);
+        } else { 
+          // Set other attributes to the attribute_max value 
+          attrib[attr] = values[attr+"_max"]; 
+          attrib[attr+"_total"] = int(values[attr+"_max"]) - int(damages[attr]);
+        }
+        const attr_name = getSkillName(attr);
+        //attrib[attr_total] = values[attributes[attr]];
+        clog(`Upgrading ${attr_name} from ${attr_name}_max ${values[attr+"_max"]} to ${attr_name} ${setter[attr]} with total ${setter[attr+"_total"]}.`);
+        setAttrs(attrib);
       });
     });
-  });
-
-  // Upgrade Weapons
-  getSectionIDs("repeating_weapons", function(weapons) {
-    weapons.forEach((weaponId) => {
-      getAttrs(["repeating_weapon_"+weaponId+"_name", "repeating_weapon_"+weaponId+"_skill", "repeating_weapon_"+weaponId+"_bonus", "repeating_weapon_"+weaponId+"_damage", "repeating_weapon_"+weaponId+"_range", "repeating_weapon_"+weaponId+"_features", "strength_total", "agility_total"], (values) => {
-        const name = values["repeating_weapon_"+weaponId+"_name"],
-        skill = int(values["repeating_weapon_"+weaponId+"_skill"]),
-        bonus = int(values["repeating_weapon_"+weaponId+"_bonus"]),
-        damage = int(values["repeating_weapon_"+weaponId+"_damage"]),
-        range = values["repeating_weapon_"+weaponId+"_range"], 
-        features = values["repeating_weapon_"+weaponId+"_features"],
-        strength = int(values.strength_total),
-        agility = int(values.agility_total),
-        base = skill === 0 ? strength : agility;
-
-        newweapon = {};
-        newweapon["repeating_weapon_"+weaponId+"_name"] = name;
-        newweapon["repeating_weapon_"+weaponId+"_base_total"] = base;
-        newweapon["repeating_weapon_"+weaponId+"_skill"] = skill;
-        newweapon["repeating_weapon_"+weaponId+"_skill_misc"] = 0;
-        newweapon["repeating_weapon_"+weaponId+"_skill_total"] = skill;
-        newweapon["repeating_weapon_"+weaponId+"_bonus"] = bonus;
-        newweapon["repeating_weapon_"+weaponId+"_bonus_max"] = bonus;
-        newweapon["repeating_weapon_"+weaponId+"_bonus_misc"] = 0;
-        newweapon["repeating_weapon_"+weaponId+"_bonus_total"] = bonus;
-        newweapon["repeating_weapon_"+weaponId+"_damage"] = damage;
-        newweapon["repeating_weapon_"+weaponId+"_damage_misc"] = 0
-        newweapon["repeating_weapon_"+weaponId+"_damage_total"] = damage;
-        newweapon["repeating_weapon_"+weaponId+"_grip"] = "1H";
-        newweapon["repeating_weapon_"+weaponId+"_range"] = range;
-        newweapon["repeating_weapon_"+weaponId+"_carried"] = 1;
-        newweapon["repeating_weapon_"+weaponId+"_weight"] = 1;
-        newweapon["repeating_weapon_"+weaponId+"_features"] = features;
-        setAttrs(newweapon);
+    // Upgrade conditions - no need
+    // Upgrade apprearance - no need
+    // Upgrade injuries - non need
+    // Upgrade rot - 
+    getAttrs(["rot_permenant"], (values) => {
+      const permanent = int(values.rot_permenant);
+      setAttrs({rot_permanent: permanent})
+    });
+  
+  
+    // Upgrade experience - no need, same attribute
+    
+    // Upgrade skills - no need
+    // Upgrade repeating skills - no need, aligned
+  
+    // Talents - no need - aligned
+  
+    // Mutations
+    getSectionIDs("repeating_mutantions", function(mutantions) {
+      mutantions.forEach((mutantionsId) => {
+        getAttrs(["repeating_mutantions_"+mutantionsId+"_mutantion_name", "repeating_mutantions_"+mutantionsId+"_mutantion_description"], (values) => {
+          const name = values["repeating_mutantions_"+mutantionsId+"_mutantion_name"],
+          description = values["repeating_mutantions_"+mutantionsId+"_mutantion_description"],
+          newrowid = generateRowID();
+          let newmutation = {};
+          newmutation["repeating_mutations_"+newrowid+"_name"] = name;
+          newmutation["repeating_mutations_"+newrowid+"_description"] = description;
+          newmutation["repeating_mutations_"+newrowid+"_rank"] = 1;
+          newmutation["repeating_mutations_"+newrowid+"_powerlevel"] = 1;
+          setAttrs(newmutation);
         });
       });
     });
 
-  // Upgrade armor to repeating section
-  getAttrs(["armor1_ar", "armor1_bonus", "armor1_damage", "armor1_name"], function(values) {
-    var newrowid = generateRowID();
-    var newrowattrs = {};
-    newrowattrs["repeating_armor_" + newrowid + "_name"] = armor1_name;
-    newrowattrs["repeating_armor_" + newrowid + "_ar"] = int(armor1_ar);
-    newrowattrs["repeating_armor_" + newrowid + "_carried"] = 1;
-    newrowattrs["repeating_armor_" + newrowid + "_equipped"] = 1;
-    newrowattrs["repeating_armor_" + newrowid + "_bonus_max"] = int(armor1_bonus);
-    newrowattrs["repeating_armor_" + newrowid + "_bonus_misc"] = 0;
-    newrowattrs["repeating_armor_" + newrowid + "_bonus"] = int(armor1_bonus) - int(armor1_damage);
-    newrowattrs["repeating_armor_" + newrowid + "_weight"] = 1;
-    newrowattrs["repeating_armor_" + newrowid + "_features"] = '';
-    setAttrs(newrowattrs);
-  });
-  getAttrs(["armor2_ar", "armor2_bonus", "armor2_damage", "armor2_name"], function(values) {
-    var newrowid = generateRowID();
-    var newrowattrs = {};
-    newrowattrs["repeating_armor_" + newrowid + "_name"] = armor2_name;
-    newrowattrs["repeating_armor_" + newrowid + "_ar"] = int(armor2_ar);
-    newrowattrs["repeating_armor_" + newrowid + "_carried"] = 1;
-    newrowattrs["repeating_armor_" + newrowid + "_equipped"] = 1;
-    newrowattrs["repeating_armor_" + newrowid + "_bonus_max"] = int(armor2_bonus);
-    newrowattrs["repeating_armor_" + newrowid + "_bonus_misc"] = 0;
-    newrowattrs["repeating_armor_" + newrowid + "_bonus"] = int(armor2_bonus) - int(armor2_damage);
-    newrowattrs["repeating_armor_" + newrowid + "_weight"] = 1;
-    newrowattrs["repeating_armor_" + newrowid + "_features"] = '';
-    setAttrs(newrowattrs);
-  });
-
-  // Upgrade gear, vehicle and consumables
-    // Gear - no need
-    // Vehicle - aligned
-    // Consumables, aligned
-
-  // Upgrade relationships, notes etc
-    // Aligned
-
-  // Upgrade Ark sheet
-  // Development levels 
-  getAttrs(["ark_food_supply","ark_culture", "ark_technology", "ark_warfare", "ark_dev_food", "ark_dev_cult", "ark_dev_tech", "ark_dev_war"], (values) => {
-    clog("Upgrading ark development levels");
-    const food = int(values.ark_food_supply),
-    culture = int(values.ark_culture),
-    tech = int(values.ark_technology),
-    war = int(values.ark_warfare);
-    setAttrs({
-        ark_dev_food: food,
-        ark_dev_cult: culture,
-        ark_dev_tech: tech,
-        ark_dev_war: war,
+    // Mutation points
+    getAttrs(["mutation"], (values) => {
+      const mutation = int(values.mutation);
+      setAttrs({mutationpoints: mutation});
     });
-  });
-  // Ark details
-  // Aligned
+  
+    // Upgrade Weapons
+    getSectionIDsAsync("repeating_weapons", function(weapons) {
+      weapons.forEach( async (weaponId) => {
+        var values = await getAttrsAsync(["repeating_weapons_"+weaponId+"_weapon_name", "repeating_weapons_"+weaponId+"_weapon_skill", "repeating_weapons_"+weaponId+"_weapon_bonus", "repeating_weapons_"+weaponId+"_weapon_damage", "repeating_weapons_"+weaponId+"_weapon_range", "repeating_weapons_"+weaponId+"_weapon_features", "strength_total", "agility_total"]);
+        clog(`Upgrade weapon attributes: Weapon ${values["repeating_weapons_"+weaponId+"_weapon_name"]} with ${int(values["repeating_weapons_"+weaponId+"_weapon_skill"])} bonus ${int(values["repeating_weapons_"+weaponId+"_weapon_bonus"])} and damage ${int(values["repeating_weapons_"+weaponId+"_weapon_damage"])} up to ${values["repeating_weapons_"+weaponId+"_weapon_range"]} distance.`);
+        const name = values["repeating_weapons_"+weaponId+"_weapon_name"],
+        skill = int(values["repeating_weapons_"+weaponId+"_weapon_skill"]),
+        bonus = int(values["repeating_weapons_"+weaponId+"_weapon_bonus"]),
+        damage = int(values["repeating_weapons_"+weaponId+"_weapon_damage"]),
+        range = values["repeating_weapons_"+weaponId+"_weapon_range"], 
+        features = values["repeating_weapons_"+weaponId+"_weapon_features"],
+        strength = int(values.strength_total),
+        agility = int(values.agility_total),
+        base = skill === 0 ? strength : agility;
+        clog(`Upgrade weapon: Weapon ${name} with ${skill} bonus ${bonus} and damage ${damage} up to ${range} distance.`);
+  
+        let weapon = {};
+        weapon["repeating_weapons_"+weaponId+"_weapon_name"] = name;
+        weapon["repeating_weapons_"+weaponId+"_weapon_base_total"] = base;
+        weapon["repeating_weapons_"+weaponId+"_weapon_skill"] = skill;
+        weapon["repeating_weapons_"+weaponId+"_weapon_skill_misc"] = 0;
+        weapon["repeating_weapons_"+weaponId+"_weapon_skill_total"] = skill;
+        weapon["repeating_weapons_"+weaponId+"_weapon_bonus"] = bonus;
+        weapon["repeating_weapons_"+weaponId+"_weapon_bonus_max"] = bonus;
+        weapon["repeating_weapons_"+weaponId+"_weapon_bonus_misc"] = 0;
+        weapon["repeating_weapons_"+weaponId+"_weapon_bonus_total"] = bonus;
+        weapon["repeating_weapons_"+weaponId+"_weapon_damage"] = damage;
+        weapon["repeating_weapons_"+weaponId+"_weapon_damage_misc"] = 0;
+        weapon["repeating_weapons_"+weaponId+"_weapon_damage_total"] = damage;
+        weapon["repeating_weapons_"+weaponId+"_weapon_grip"] = "1H";
+        weapon["repeating_weapons_"+weaponId+"_weapon_range"] = range;
+        weapon["repeating_weapons_"+weaponId+"_weapon_carried"] = 1;
+        weapon["repeating_weapons_"+weaponId+"_weapon_weight"] = 1;
+        weapon["repeating_weapons_"+weaponId+"_weapon_features"] = features;
+        await setAttrsAsync(weapon);
+      });
+    });
+  
+    // Upgrade armor to repeating section
+    getAttrs(["armor1_ar", "armor1_bonus", "armor1_damage", "armor1_equiped", "armor1_name", "armor2_ar", "armor2_bonus", "armor2_damage", "armor2_equiped", "armor2_name"], function(values) {
+    
+        var newarmor = {};
+    
+        clog("Upgrade: Armor1_name  is "+values.armor1_name +" and Armor1_bonus is "+values.armor1_bonus+" with damage "+values.armor1_damage+" and equipped "+values.armor1_equiped);
+        clog("Upgrade armor1 name: "+(values.armor1_name != null));
+        clog("Upgrade armor1 bonus: "+(values.armor1_bonus != null));
+        if (values.armor1_name != null || values.armor1_bonus != null) {
+            clog("Upgrading Armor1 : " + values.armor1_name + " with bonus : "+ values.armor1_bonus +".");
+            const newrowid1 = generateRowID();
+            const bonus1_actual = int(values.armor1_bonus) + int(values.armor1_damage);
+            const rating1 = bonus1_actual * int(values.armor1_equiped);
+            clog("Armor rating calculated: "+rating1);
+            newarmor["repeating_armor_" + newrowid1 + "_name"] = values.armor1_name;
+            newarmor["repeating_armor_" + newrowid1 + "_rating"] = rating1;
+            newarmor["repeating_armor_" + newrowid1 + "_carried"] = 1;
+            newarmor["repeating_armor_" + newrowid1 + "_equipped"] = values.armor1_equiped || 1;
+            newarmor["repeating_armor_" + newrowid1 + "_bonus"] = bonus1_actual;
+            newarmor["repeating_armor_" + newrowid1 + "_bonus_misc"] = 0;
+            newarmor["repeating_armor_" + newrowid1 + "_bonus_max"] = int(values.armor1_bonus);
+            newarmor["repeating_armor_" + newrowid1 + "_weight"] = 1;
+            newarmor["repeating_armor_" + newrowid1 + "_features"] = '';
+        }
+        setAttrs(newarmor);
 
+        newarmor = {};
+        
+        clog("Upgrade: Armor2_name  is "+values.armor2_name +" and Armor2_bonus is "+values.armor2_bonus+" with damage "+values.armor2_damage+" and equipped "+values.armor2_equiped);
+        clog("Upgrade armor2 name: "+(values.armor2_name != ""));
+        clog("Upgrade armor2 bonus: "+(values.armor2_bonus != ""));
+        if (values.armor2_name != "" || values.armor2_bonus != null) {
+            clog("Upgrading Armor2 : " + values.armor2_name + " with bonus : "+ values.armor2_bonus +".");
+            const newrowid2 = generateRowID();
+            const bonus2_actual = int(values.armor2_bonus) + int(values.armor2_damage);
+            const rating2 = bonus2_actual * int(values.armor2_equiped);
+            clog("Armor rating calculated: "+rating2);
+            newarmor["repeating_armor_" + newrowid2 + "_name"] = values.armor2_name;
+            newarmor["repeating_armor_" + newrowid2 + "_rating"] = rating2;
+            newarmor["repeating_armor_" + newrowid2 + "_carried"] = 1;
+            newarmor["repeating_armor_" + newrowid2 + "_equipped"] = values.armor2_equiped || 1;
+            newarmor["repeating_armor_" + newrowid2 + "_bonus"] = bonus2_actual;
+            newarmor["repeating_armor_" + newrowid2 + "_bonus_misc"] = 0;
+            newarmor["repeating_armor_" + newrowid2 + "_bonus_max"] = int(values.armor2_bonus);
+            newarmor["repeating_armor_" + newrowid2 + "_weight"] = 1;
+            newarmor["repeating_armor_" + newrowid2 + "_features"] = '';
+        }
+        setAttrs(newarmor);
 
-};
+        });
+  
+    // Upgrade gear, vehicle and consumables
+      // Gear - no need
+      // Vehicle - aligned
+      // Consumables, aligned
+  
+    // Upgrade relationships, notes etc
+      // Aligned
+  
+    // Upgrade Ark sheet
+    // Development levels 
+    getAttrs(["ark_food_supply","ark_culture", "ark_technology", "ark_warfare", "ark_dev_food", "ark_dev_cult", "ark_dev_tech", "ark_dev_war"], (values) => {
+      clog("Upgrading ark development levels");
+      const food = int(values.ark_food_supply),
+      culture = int(values.ark_culture),
+      tech = int(values.ark_technology),
+      war = int(values.ark_warfare);
+      setAttrs({
+          ark_dev_food: food,
+          ark_dev_cult: culture,
+          ark_dev_tech: tech,
+          ark_dev_war: war,
+      });
+    });
+    // Ark details
+    // Aligned
+  
+    // UPDATE THIS /
+    // MUST set the version to a specific value here, the one where the sheet was updated like this.  
+    const current_version = 2.01;
+    setter.version = current_version;
+  
+    setAttrs(setter, { silent: true }, versionator(current_version));
+  
+  };
+
 
 on("sheet:opened", () => {
   getAttrs(["version"], (v) => {
@@ -729,24 +883,27 @@ on('sheet:opened change:repeating_skills:name change:repeating_skills:attribute 
     });
   });
 });
-
-/* set repeating armor rating */
-on("change:repeating_armor:armor_bonus change:repeating_armor:armor_bonus_max change:repeating_armor:armor_bonus_misc", function () {
-  clog("Change Detected: Repeating Armor Rating - recalculating rating totals");
-  // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
-  getAttrs(["repeating_armor_armor_bonus", "repeating_armor_armor_bonus_misc", "repeating_armor_armor_bonus_max", "repeating_armor_armor_ar"], function (values) {
-    const armor_bonus_misc = int(values.repeating_armor_armor_bonus_misc),
-    armor_bonus = int(values.repeating_armor_armor_bonus),
-    armor_bonus_max = int(values.repeating_armor_armor_bonus_max);
-    // separate out the basic values read from the sheet from those calculated within the worker
-    const armor_ar = Math.min(armor_bonus, armor_bonus_max) + armor_bonus_misc;
-    clog("armor calculation: armor_bonus " + armor_bonus + " armor_bonus_misc " + armor_bonus_misc + " = armor_bonus_total " +armor_ar);
-    setAttrs({
-      repeating_armor_armor_ar: armor_ar,
+  
+  /* set repeating armor rating */
+  on("change:repeating_armor:bonus change:repeating_armor:bonus_max change:repeating_armor:bonus_misc change:repeating_armor:equipped", function () {
+    clog("Change Detected: Repeating Armor Rating - recalculating rating totals");
+    // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
+    getAttrs(["repeating_armor_bonus", "repeating_armor_bonus_misc", "repeating_armor_bonus_max", "repeating_armor_rating", "repeating_armor_equipped"], function (values) {
+      const bonus = int(values.repeating_armor_bonus),
+      bonus_misc = int(values.repeating_armor_bonus_misc),
+      bonus_max = int(values.repeating_armor_bonus_max),
+      equipped = int(values.repeating_armor_equipped);
+      // separate out the basic values read from the sheet from those calculated within the worker
+      const bonus_actual = Math.min(bonus, bonus_max);
+      const rating = (bonus_actual + bonus_misc) * equipped;
+      clog("armor calculation: ( bonus " + bonus + " + bonus_misc " + bonus_misc + " ) * " + equipped + "  = rating " + rating);
+      setAttrs({
+        repeating_armor_bonus: bonus_actual,
+        repeating_armor_rating: rating,
+      });
+      clog("Armor rating: " + rating);
     });
-    clog("armor_rating: " + armor_ar);
   });
-});
 
 /* set weapon base_total and skill_total */
 on("change:repeating_weapons:weapon_name change:repeating_weapons:weapon_skill change:repeating_weapons:weapon_skill_misc", function () {
@@ -778,19 +935,25 @@ on("change:repeating_weapons:weapon_name change:repeating_weapons:weapon_skill c
 
 /* set weapon bonus_total */  
 on("repeating_weapons:weapon_name change:repeating_weapons:weapon_bonus change:repeating_weapons:weapon_bonus_misc  change:repeating_weapons:weapon_bonus_max", function () {
-  clog("Change Detected: Weapon Attacks - recalculating Bonus totals");
-  // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
-  getAttrs(["repeating_weapons_weapon_bonus", "repeating_weapons_weapon_bonus_misc", "repeating_weapons_weapon_bonus_max"], function (values) {
+clog("Change Detected: Weapon Attacks - recalculating Bonus totals");
+// made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
+getAttrs(["repeating_weapons_weapon_bonus", "repeating_weapons_weapon_bonus_misc", "repeating_weapons_weapon_bonus_max"], function (values) {
     const weapon_bonus_misc = int(values.repeating_weapons_weapon_bonus_misc),
-      weapon_bonus = int(values.repeating_weapons_weapon_bonus),
-      weapon_bonus_max = int(values.repeating_weapons_weapon_bonus_max);
+    weapon_bonus = int(values.repeating_weapons_weapon_bonus),
+    weapon_bonus_max = int(values.repeating_weapons_weapon_bonus_max);
     // separate out the basic values read from the sheet from those calculated within the worker
+    //If weapon bonus max is 0, then set it to the value of the weapon bonus
+    if (weapon_bonus_max === 0) {
+      weapon_bonus_max = weapon_bonus;
+      clog("setting weapon bonus max to value of weapon bonus (since no max detected). New max value = "+weapon_bonus_max);
+      setAttrs({repeating_weapons_weapon_bonus_max: weapon_bonus_max});
+    }
     const weapon_bonus_total = Math.min(weapon_bonus, weapon_bonus_max) + weapon_bonus_misc;
     setAttrs({
-      repeating_weapons_weapon_bonus_total: weapon_bonus_total,
+    repeating_weapons_weapon_bonus_total: weapon_bonus_total,
     });
-    clog("weapon_bonus_total: " + weapon_bonus_total);
-  });
+    clog(">>>> weapon_bonus_total: " + weapon_bonus_total);
+});
 });
 
 /* set weapon damage totals */
@@ -848,7 +1011,7 @@ on("change:strength_total change:agility_total change:fight change:shoot", funct
 
 
 /* set project completion  */
-on("change:repeating_projects:work_points change:repeating_projects:work_points_max", function () {
+on("change:repeating_projects:work_points change:repeating_projects:work_points_max ", function () {
     clog("Change Detected: Repeating Project Completion - recalculating completion");
     // made the change event specific, so its only fired when needed, and likewise reduced the getAttrs to those only needed
     getAttrs(["repeating_projects_work_points", "repeating_projects_work_points_max", "repeating_projects_complete"], function (values) {
@@ -1321,7 +1484,7 @@ Object.keys(attributes).forEach((stat) => {
   });
 });
 
-/* Update attributes total max */
+/* Update attributes total */
 on("sheet:opened change:strength_total", function () {
   clog("Change Detected: strength_total has changed");
   getAttrs(["strength", "strength_total"], function (values) {
@@ -1439,7 +1602,7 @@ on("clicked:empathy-roll", function () {
 });
 
 /* delete empty repeating rows w/out having to close/reopen sheet*/
-on('remove:repeating_injuries remove:repeating_talents remove:repeating_gear remove:repeating_vehiclegear remove:repeating_relationships remove:repeating_spells remove:repeating_beasts remove:repeating_notes remove:repeating_functions remove:repeating_hirelings remove:repeating_monster remove:repeating_weapons remove:repeating_mutations', function() { 
+on('remove:repeating_injuries remove:repeating_weapons remove:repeating_skills remove:repeating_gear remove:repeating_vehiclegear remove:repeating_relationships remove:repeating_spells remove:repeating_beasts remove:repeating_notes remove:repeating_ark-notes remove:repeating_log remove:repeating_monster remove:repeating_mutations remove:repeating_armor remove:repeating_biomechs remove:repeating_contacts remove:repeating_animalpowers remove:repeating_modules remove:repeating_talents', function() { 
   const timestamp = Number(new Date())
   setAttrs({ repeat_delete: timestamp });
   clog("repeating row has been removed");

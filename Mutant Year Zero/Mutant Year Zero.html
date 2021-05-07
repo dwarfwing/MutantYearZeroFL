@@ -4,6 +4,7 @@
 <input class="hidden" name="attr_recalc1" type="checkbox" />
 <input class="tab" type="hidden" name="attr_tab" value="character">
 <input class="hidden attr-chartype-selected" name="attr_chartype" value="(@{chartype})" type="hidden" hidden readonly />
+<input class="hidden header-bgimg" type="checkbox" name="attr_header-bgimg" value="1" hidden readonly />
 
 <!-- LOGO -->
 <div class="logo" title="MUTANT YEAR ZERO" data-i18n-title="logo-myz">
@@ -38,7 +39,7 @@
       <option class="character-type" value="Robot" data-i18n="robot">Robot</option>
       <option class="character-type" value="Human" data-i18n="human">Human</option>
 </select>
-  <button class="tab settings" data-i18n-title="settings" name="act_tab_settings" title="Settings" type="action" value="5">y</button>
+  <button class="tab settings" data-i18n-title="settings" name="act_tab_settings" title="Settings" type="action" value="5"></button>
   <!--img alt="Mutant Year Zero" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/logo.jpg"-->
 </div>
 
@@ -124,14 +125,13 @@
         </span>
       </div>
       <div class="attributes-grid monster-flex chartype-background-dark">
-        <!-- Broken Indicators -->
+        <div class="attributes-box1 toggle-pc-only header">
+            <h1 data-i18n="attributes-u">ATTRIBUTES</h1>
+        </div>        <!-- Broken Indicators -->
         <input class="broken-str" type="hidden" name="attr_strength_total" value="0" />
         <input class="broken-agi" type="hidden" name="attr_agility_total" value="0" />
         <input class="broken-wit" type="hidden" name="attr_wits_total" value="0" />
         <input class="broken-emp" type="hidden" name="attr_empathy_total" value="0" />
-        <div class="attributes-box1 toggle-pc-only header">
-            <h1 data-i18n="attributes-u">ATTRIBUTES</h1>
-        </div>
         <div class="attributes-box2">
           <button type="action" name="act_strength-roll" value="" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
             <span class="label broken-str" data-i18n="strength" name="attr_strength_name">Strength</span>
@@ -139,9 +139,9 @@
         </div>
         <div class="attributes-box3">
           <!-- PC or Monster Strength attr_strength updates pc/monster str depending on sheet tab-->
-          <input class="broken-str" type="hidden" name="attr_strength" value="0" />
-          <input class="input-number broken-str toggle-monster-only" type="number" name="attr_strength_monster" value="0" min="0" max="40" title="@{strength_monster}" />
-          <input class="input-number broken-str toggle-pc-only" type="number" name="attr_strength_pc" value="0" min="0" max="6" title="@{strength_pc}" />
+          <input class="broken-str" type="hidden" name="attr_strength" value="1" />
+          <input class="input-number broken-str toggle-monster-only" type="number" name="attr_strength_monster" value="1" min="0" max="40" title="@{strength_monster}" />
+          <input class="input-number broken-str toggle-pc-only" type="number" name="attr_strength_pc" value="1" min="0" max="6" title="@{strength_pc}" />
         </div>
         <div class="attributes-box4">
           <input class="broken-str" type="hidden" name="attr_strength" />
@@ -198,7 +198,7 @@
           <input class="skull biohaz monster extra-damage-show" type="radio" name="attr_damage" value="40" title="40 @{damage}" /><span>&#x2623;</span>
         </div>
         <div class="attributes-box5">
-          <span class="input-span broken-str" name="attr_strength_total" value="0" title="@{strength_total}">0</span>
+          <span class="input-span broken-str" name="attr_strength_total" value="1" title="@{strength_total}">1</span>
         </div>
         <div class="attributes-box6">
           <button type="action" name="act_agility-roll" value="" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
@@ -206,7 +206,7 @@
           </button>
         </div>
         <div class="attributes-box7">
-          <input class="input-number broken-agi" type="number" name="attr_agility" value="0" min="0" title="@{agility}" />
+          <input class="input-number broken-agi" type="number" name="attr_agility" value="1" min="0" title="@{agility}" />
         </div>
         <div class="attributes-box8">
           <input class="broken-agi" type="hidden" name="attr_agility" />
@@ -228,7 +228,7 @@
           <input class="skull biohaz monster" type="radio" name="attr_fatigue" value="12" title="12 @{fatigue}" /><span>&#x2623;</span>
         </div>
         <div class="attributes-box9">
-          <span class="input-span broken-agi" name="attr_agility_total" value="0" title="@{agility_total}">0</span>
+          <span class="input-span broken-agi" name="attr_agility_total" value="1" title="@{agility_total}">1</span>
         </div>
         <div class="attributes-box10">
           <button type="action" name="act_wits-roll" value="" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
@@ -236,7 +236,7 @@
           </button>
         </div>
         <div class="attributes-box11">
-          <input class="input-number broken-wit" type="number" name="attr_wits" value="0" min="0" title="@{wits}" />
+          <input class="input-number broken-wit" type="number" name="attr_wits" value="1" min="0" title="@{wits}" />
         </div>
         <div class="attributes-box12">
           <input class="broken-wit" type="hidden" name="attr_wits" />
@@ -258,7 +258,7 @@
           <input class="skull biohaz monster" type="radio" name="attr_confusion" value="12" title="12 @{confusion}" /><span>&#x2623;</span>
         </div>
         <div class="attributes-box13">
-          <span class="input-span broken-wit" name="attr_wits_total" value="0" title="@{wits_total}">0</span>
+          <span class="input-span broken-wit" name="attr_wits_total" value="1" title="@{wits_total}">1</span>
         </div>
         <div class="attributes-box14">
           <button type="action" name="act_empathy-roll" value="" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
@@ -266,7 +266,7 @@
           </button>
         </div>
         <div class="attributes-box15">
-          <input class="input-number broken-emp" type="number" name="attr_empathy" value="0" min="0" title="@{empathy}" />
+          <input class="input-number broken-emp" type="number" name="attr_empathy" value="1" min="0" title="@{empathy}" />
         </div>
         <div class="attributes-box16">
           <input class="broken-emp" type="hidden" name="attr_empathy" />
@@ -288,7 +288,7 @@
           <input class="skull biohaz monster" type="radio" name="attr_doubt" value="12" title="12 @{doubt}" /><span>&#x2623;</span>
         </div>
         <div class="attributes-box17">
-          <span class="input-span broken-emp" name="attr_empathy_total" value="0" title="@{empathy_total}">0</span>
+          <span class="input-span broken-emp" name="attr_empathy_total" value="1" title="@{empathy_total}">1</span>
         </div>
       </div>
       <div class="conditions-grid toggle-pc-only chartype-background-dark">
@@ -711,8 +711,8 @@
         <input type="checkbox" class="skill-order-group hidden" name="attr_skill_order_group" value="1" />
         <div class="skills-grid" data-i18n-list="skills-list">
           
-          <span class="skills-header-row">
-            <div class="skills-box1 header">
+          <span class="skills-header-row header">
+            <div class="skills-box1">
               <h1 class="char-mutant char-animal char-human" data-i18n="skill-u" name="attr_skill_name">SKILLS</h1>
               <h1 class="char-robot" data-i18n="programs-u" name="attr_skill_name">PROGRAMS</h1>
             </div>
@@ -1235,7 +1235,7 @@
               <input class="skill-name chartype-background-light" class="input" type="text" name="attr_name" title="@{repeating_skills_$X_name}" />
               <span class="small-caps skill-name">
                 <input type="hidden" name="attr_base" value="0" min="0" title="@{repeating_skills_$X_base}" readonly />
-                <select class="input character-skill-mod chartype-background-light char-mutant char-human" name="attr_attribute" title="@{repeating_skills_$X_attribute}">
+                <select class="input character-skill-mod input-skills-base-attr chartype-background-light char-mutant char-human" name="attr_attribute" title="@{repeating_skills_$X_attribute}">
                   <option value="" selected disabled hidden data-i18n="base">Base</option>
                   <option value="strength" data-i18n="strength-abbr">Str</option>
                   <option value="agility" data-i18n="agility-abbr">Agi</option>
@@ -1768,6 +1768,7 @@
           <div class="consumables-box2 column-header">
             <span data-i18n="quantity">Amount</span>
           </div>
+          <input class="hidden consumables-img" type="checkbox" name="attr_consumables-icons" value="1" hidden readonly />
           <!--<div class="consumables-box3"><span>&nbsp;</span></div>-->
           <div class="consumables-box4">
             <img class="consumables-icon consumables-food" src="" />
@@ -1781,8 +1782,8 @@
             -->
             </div>
           <div class="consumables-box7">
-            <img class="consumables-icon consumables-water" src="" />
-            <span class="header-h1 consumables-label" data-i18n="water">Water</span>
+            <img class="consumables-icon consumables-bullets" src="" />
+            <span class="header-h1 consumables-label" data-i18n="bullets">Bullets</span>
           </div>
           <div class="consumables-box8">
             <input type="number" class="input-number" name="attr_water" value="0" min="0" title="@{water}"></option>
@@ -1792,8 +1793,8 @@
             -->
             </div>
           <div class="consumables-box10">
-            <img class="consumables-icon consumables-epacks" src="" />
-            <span class="header-h1 consumables-label" data-i18n="e-pack">E-pack</span>
+            <img class="consumables-icon consumables-water" src="" />
+            <span class="header-h1 consumables-label" data-i18n="water">Water</span>
           </div>
           <div class="consumables-box11">
             <input type="number" class="input-number" name="attr_epacks" value="0" min="0" title="@{epacks}"></option>
@@ -1803,8 +1804,8 @@
             -->
           </div>
           <div class="consumables-box13">
-            <img class="consumables-icon consumables-bullets" src="" />
-            <span class="header-h1 consumables-label" data-i18n="bullets">Bullets</span>
+            <img class="consumables-icon consumables-epacks" src="" />
+            <span class="header-h1 consumables-label" data-i18n="e-pack">E-pack</span>
           </div>
           <div class="consumables-box14">
             <input type="number" class="input-number" name="attr_bullets" value="0" min="0" title="@{bullets}"></option>
@@ -2743,8 +2744,6 @@
   <div class="box">
       <div class="grid log-grid log-grid-header chartype-background-darkest"> 
           <h1 class="header" data-i18n="zone-log-u">Zone Log</h1>
-      </div>
-      <div class="grid log-grid log-grid-column-header chartype-background-darkest">
           <h2 class="column-header log-box log-column1" data-i18n="coordinates">Coordinates</h2>
           <h2 class="column-header log-box log-column2" data-i18n="terrain">Terrain</h2>
           <h2 class="column-header log-box log-column3" data-i18n="rot-level">Rot Level</h2>
@@ -2752,7 +2751,10 @@
           <h2 class="column-header log-box log-column5" data-i18n="threat-notes">Threat Notes</h2>
           <h2 class="column-header log-box log-column6-13" data-i18n="resources-found">Resources Found</h2>
       </div>
-      <div class="repeating-log-grid">
+      <!--<div class="grid log-grid log-grid-column-header chartype-background-darkest">
+          
+      </div>-->
+      <div class="repeating-log-grid chartype-background-light">
           <fieldset class="repeating_log">
                <div class="grid log-grid chartype-background-light">
                   <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
@@ -2785,8 +2787,8 @@
 <div class="wrapper tab-content settings">
 
   <!--announcements/updates-->
-  <input type="checkbox" class="announcements-show toggle-monster-only" name="attr_show_announcements" value="1" data-i18n-title="version-announcements" title="Sheet version and announcements" style="width: 4.5em; height: 2em;">
-  <span class="announcements-show toggle-monster-only" name="attr_version">&nbsp;</span>
+  <input type="checkbox" class="announcements-show" name="attr_show_announcements" value="1" data-i18n-title="version-announcements" title="Sheet version and announcements" style="width: 4.5em; height: 2em;">
+  <span class="announcements-show" name="attr_version">&nbsp;</span>
   <div class="settings-options">
     <input type="hidden" name="attr_translation_whisper_query" value="whisper-query" />
     <input type="hidden" name="attr_translation_whisper_api_query" value="whisper_api-query" />
@@ -2824,6 +2826,19 @@
       <span data-i18n="adv-vehicleencumbrance">Advanced vehicle encumbrance</span>:
       <input type="checkbox" name="attr_vehicle_advancedencumbrance" value="1" title="@{vehicle_advancedencumbrance}" style="vertical-align: center;"  />
     </div>
+    <div>
+      <span data-i18n="adv-modifiers">Additional modifiers for rolls in lists</span>:
+      <input type="checkbox" name="attr_adv-modifiers" value="1" title="@{adv-modifiers}" style="vertical-align: center;"  />
+    </div>
+    <div>
+      <span data-i18n="adv-headebgimg">Show header background images (mutant only)</span>:
+      <input type="checkbox" name="attr_header-bgimg" value="1" title="@{header-bgimg}" style="vertical-align: center;"  />
+    </div>
+    <div>
+      <span data-i18n="adv-consumables-icons">Show consumables as icons</span>:
+      <input type="checkbox" name="attr_consumables-icons" value="1" title="@{consumables-icons}" style="vertical-align: center;"  />
+    </div>
+    <div>&nbsp;</div>
     <div>
       <div><span data-i18n="traits-visibility">Force visibility of character traits</span>:</div>
       <div class="traits-vis-grid">
@@ -2874,7 +2889,7 @@
       </div>
     </div>
   </div>
-  <div class="announcements toggle-monster-only">
+  <div class="announcements">
     <h3 data-i18n="latest-announcements">Latest Announcements</h3>
     <span class="footer">05/04/21</span>
     <ol style="margin: 0 2em 0 2em; padding: 0 1em 0 3em;">
@@ -3836,6 +3851,8 @@ function getSingleAttrAsync(prop){
     if (!old_version) old_version = 0;
     switch (true) {
       //add checks for updates here
+      case old_version === 0:
+        break;
       /*case old_version < 1.71:
         clog("updating to version 1.71");
         update_to_1_71(old_version);

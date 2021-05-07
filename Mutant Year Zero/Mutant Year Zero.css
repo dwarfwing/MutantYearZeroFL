@@ -194,8 +194,6 @@ h1 {
 }
 
 .sheet-header-h1 {
-  -font-family: "IM Fell English", "Times New Roman", Times, serif;
-  -font-family: "Oswald", Helvetica, Arial, sans-serif;
   font-family: 'Oswald', sans-serif;
   font-size: 1.2em;
   font-weight: bold;
@@ -233,8 +231,7 @@ hr.sheet-horizontal-rule::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.75em;
-  -margin: 0 -5px 0 -5px;
+  min-height: 3em;
   margin: 0 0 0 0;
   color: #fff;
   background-color: #000;
@@ -851,6 +848,7 @@ input.sheet-hidden.sheet-api-toggle-show:checked button.sheet-dice-footer-api {
   padding: 0 1px 3px 1px;
   box-shadow: none;
   color: transparent;
+  text-shadow: none;
 }
 
 .repcontrol_move {
@@ -868,6 +866,7 @@ button.btn.repcontrol_edit:after {
 
 .repcontainer.ui-sortable.editmode ~ .repcontrol button.btn.repcontrol_edit:after {
   margin: 0 0 0 -28px;
+  content: ')';
 }
 
 button.btn.repcontrol_add:after {
@@ -895,22 +894,22 @@ button.btn.btn-danger.pictos.repcontrol_del:hover {
 /* ------------------- CHARACTER TYPE VISIBILITY */
 
 input[name="attr_chartype"][value="Mutant"] ~ div .sheet-header,
-input[name="attr_chartype"][value="Mutant"] ~ div .sheet-column-header,
+/* input[name="attr_chartype"][value="Mutant"] ~ div .sheet-column-header, */
 input[name="attr_chartype"][value="Mutant"] ~ div .sheet-chartype-background-darkest {
   background-color: #764621; 
 }
 input[name="attr_chartype"][value="Animal"] ~ div .sheet-header,
-input[name="attr_chartype"][value="Animal"] ~ div .sheet-column-header,
+/* input[name="attr_chartype"][value="Animal"] ~ div .sheet-column-header, */
 input[name="attr_chartype"][value="Animal"] ~ div .sheet-chartype-background-darkest {
   background-color: #687569; 
 }
 input[name="attr_chartype"][value="Robot"] ~ div .sheet-header,
-input[name="attr_chartype"][value="Robot"] ~ div .sheet-column-header,
+/* input[name="attr_chartype"][value="Robot"] ~ div .sheet-column-header, */
 input[name="attr_chartype"][value="Robot"] ~ div .sheet-chartype-background-darkest {
   background-color: #035974; 
 }
 input[name="attr_chartype"][value="Human"] ~ div .sheet-header,
-input[name="attr_chartype"][value="Human"] ~ div .sheet-column-header,
+/* input[name="attr_chartype"][value="Human"] ~ div .sheet-column-header, */
 input[name="attr_chartype"][value="Human"] ~ div .sheet-chartype-background-darkest {
   background-color: #1b6764; 
 }
@@ -1235,13 +1234,11 @@ button.sheet-tab.sheet-settings  {
   -margin-left: -2px;
   -z-index: 0;
 }
-/* 
-input.sheet-tab.sheet-settings::before {
+/* */
+button.sheet-tab.sheet-settings::before {
   font-family: "pictos";
-  width: 24px;
   content: "y";
-  -margin: 0 0 0 2px;
-} */
+} 
 
 /* Hover tab */
 button.sheet-tab.sheet-character:hover,
@@ -1360,9 +1357,6 @@ input.sheet-tab.sheet-settings:checked::after {
 /* SHEEET *********************/
 
 .sheet-wrapper {
-  -font-family: "IM Fell English", "Times New Roman", Times, serif;
-  -font-family: Helvetica, Verdana, Arial, sans-serif;
-  -font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
   overflow: hidden;
   box-sizing: border-box;
@@ -1374,11 +1368,6 @@ input.sheet-tab.sheet-settings:checked::after {
   -border: 2px solid #000;
   border-top: 1px solid #CCC;
   border-bottom: 4px solid #000;
-  -border-image-source: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Forbidden_Lands/images/FBL%20wrapper%20border.png);
-  -border-image-slice: 67 0 70 0;
-  -border-image-width: 67px 0 60px 0;
-  -border-image-outset: 0 10 0 10;
-  -border-image-repeat: stretch;
   background-color: inherit;
 }
 
@@ -1396,8 +1385,7 @@ input.sheet-tab.sheet-settings:checked::after {
 }
 
 span.sheet-logo-image {
-  background-image: url(https://github.com/dwarfwing/MutantYearZeroRW/blob/main/Mutant%20Year%20Zero%20RW/images/MYZ-logo.png?raw=true);
-  /*background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero%20RW/images/MYZ-logo.png);*/
+  background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/logo.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position:right;
@@ -1411,9 +1399,7 @@ span.sheet-logo-image {
 }
 
 span.sheet-logo-image.lang-sv {
-  
-  background-image: url(https://github.com/dwarfwing/MutantYearZeroRW/blob/main/Mutant%20Year%20Zero%20RW/images/MYZ-logo.png?raw=true);
-  /*background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero%20RW/images/MYZ-logo.png);*/
+  background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/logo.png);
 }
 
 input {
@@ -1736,7 +1722,7 @@ input.sheet-expand:checked ~ .sheet-input-textarea {
 
 .sheet-box {
   padding: 0;
-  margin-bottom: 5px;
+  -margin-bottom: 5px;
   text-align: left;
   border: 2px solid #000;
   border-radius: 4px;
@@ -1744,117 +1730,134 @@ input.sheet-expand:checked ~ .sheet-input-textarea {
 }
 
 
-/* Add Backgrounds to Headers */
-div.sheet-attributes-box1.sheet-header {
+/* Add Backgrounds to Headers
+div
+*/
+
+input.sheet-header-bgimg:checked ~ div .sheet-attributes-box1.sheet-header {
   background-size: cover;
-  -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header.jpg");
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header.jpg");
 }
 
-div.sheet-appearance-box1.sheet-header {
+input.sheet-header-bgimg:checked ~ div .sheet-ark-development-grid .sheet-header {
   background-size: cover;
-  -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header7.jpg");
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header7.jpg");
 }
 
-div.sheet-injuries-box1.sheet-header {
+input.sheet-header-bgimg:checked ~ div .sheet-ark-details div.sheet-header,
+input.sheet-header-bgimg:checked ~ div .sheet-character-weapons div.sheet-header {
   background-size: cover;
-  -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header2.jpg");
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header2.jpg");
 }
 
-div.sheet-skills-box1.sheet-header {
+input.sheet-header-bgimg:checked ~ div .sheet-skills-header-row {
   background-size: cover;
-  -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header3.jpg");
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header3.jpg");
 }
 
-div.sheet-dice_pool-box1 {
+input.sheet-header-bgimg:checked ~ div .sheet-dice_pool-box1 {
   background-size: cover;
-  -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header.jpg");
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header.jpg");
 }
 
-div.sheet-talents-box {
+input.sheet-header-bgimg:checked ~ div .sheet-talents-box {
   background-size: cover;
-  -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header9.jpg");
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header9.jpg");
 }
 
-div.sheet-mutant-box {
+input.sheet-header-bgimg:checked ~ div .sheet-ark-other div.sheet-header,
+input.sheet-header-bgimg:checked ~ div .sheet-mutant-box {
   background-size: cover;
-  -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header10.jpg");
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header10.jpg");
 }
 
-div.sheet-shield-box.sheet-header {
+input.sheet-header-bgimg:checked ~ div .sheet-character-rotpoints .sheet-talents-box,
+input.sheet-header-bgimg:checked ~ div .sheet-ark-bosses div.sheet-header,
+input.sheet-header-bgimg:checked ~ div .sheet-shield-box.sheet-header {
   background-size: cover;
-  -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header3.jpg");
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header3.jpg");
+}
+/* horizontal flip */
+input.sheet-header-bgimg:checked ~ div .sheet-talents-box {
+  background-size: cover;
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header1.jpg");
 }
 
-div.sheet-dice_pool-box1 {
-  background-size: cover;
-  -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header.jpg");
+input.sheet-header-bgimg:checked ~ div .sheet-character-talents .sheet-talents-box {
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header12.jpg");
 }
 
-div.sheet-talents-box {
+input.sheet-header-bgimg:checked ~ div .sheet-dice_pool-box1 {
   background-size: cover;
-  -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header9.jpg");
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header.jpg");
 }
 
-div.sheet-character-weapons div.sheet-header,
-div.sheet-gear-box1,
-div.sheet-gear-box6,
-div.sheet-money-box .sheet-header,
-div.sheet-vehicle-box1,
-div.sheet-vehiclegear-box1,
-div.sheet-consumables-box1,
-div.sheet-money-box,
-div.sheet-experience-grid,
-div.sheet-powerpoint-box1,
-div.sheet-spells-box,
-div.sheet-beasts-box,
-div.sheet-relationships-box1,
-div.sheet-notes-box1 .sheet-header,
-div.sheet-ark-notes .sheet-header,
-div.sheet-nec-grid div.sheet-header  {
+input.sheet-header-bgimg:checked ~ div .sheet-character-experience {
   background-size: cover;
-  -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header13.jpg");
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header9.jpg");
 }
 
-div.sheet-relationships-header,
-div.sheet-ark h1[data-i18n="ark"],
-div.sheet-log-grid-header {
+input.sheet-header-bgimg:checked ~  div .sheet-relationships-grid .sheet-header,
+input.sheet-header-bgimg:checked ~ div .sheet-gear-grid div.sheet-header,
+/* input.sheet-header-bgimg:checked ~ div .sheet-gear-box6, */
+input.sheet-header-bgimg:checked ~ div .sheet-character-money .sheet-header,
+/* input.sheet-header-bgimg:checked ~ div .sheet-vehiclegear-box1, */
+input.sheet-header-bgimg:checked ~  div .sheet-consumables-grid .sheet-header,
+input.sheet-header-bgimg:checked ~  div .sheet-powerpoint-box1,
+
+input.sheet-header-bgimg:checked ~ div .sheet-ark-notes .sheet-header,
+input.sheet-header-bgimg:checked ~ div .sheet-npc-grid div.sheet-header  {
   background-size: cover;
-  -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header15.jpg");
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header13.jpg");
 }
 
-div.sheet-rot-box {
+input.sheet-header-bgimg:checked ~ div .sheet-appearance-box1.sheet-header,
+input.sheet-header-bgimg:checked ~  div .sheet-ark h1[data-i18n="ark"] {
   background-size: cover;
-  -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header12.jpg");
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header15.jpg");
 }
 
-div.sheet-armor-box,
-div.sheet-ark-development-grid h1 {
+input.sheet-header-bgimg:checked ~ div .sheet-rot-box {
   background-size: cover;
-  -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header12.jpg");
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header12b.jpg");
 }
 
-div.sheet-experience-grid,
-div.sheet-vehiclegear-box6.sheet-header ,
-div.sheet-vehiclegear-box6.sheet-column-header  {
+input.sheet-header-bgimg:checked ~  div .sheet-ark-projects-grid .sheet-header,
+input.sheet-header-bgimg:checked ~  div .sheet-armor-grid .sheet-header,
+input.sheet-header-bgimg:checked ~ div .sheet-injuries-box1.sheet-header {
   background-size: cover;
-  -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header6.jpg");
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header12b.jpg");
 }
 
-div.sheet-ark-notes-grid h1,
-div.sheet-ark-bosses-header,
-div.sheet-vehiclegear-box1 {
+/* input.sheet-header-bgimg:checked ~ div .sheet-experience-grid */
+input.sheet-header-bgimg:checked ~  div .sheet-spells-box,
+input.sheet-header-bgimg:checked ~  div .sheet-beasts-box,
+input.sheet-header-bgimg:checked ~ div .sheet-notes-grid .sheet-header
+ {
   background-size: cover;
-  -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header18.jpg");
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header6.jpg");
 }
 
-div.sheet-ark-projects-header {
+input.sheet-header-bgimg:checked ~ div .sheet-vehicle-box1.sheet-header,
+input.sheet-header-bgimg:checked ~ div .sheet-ark-notes-grid h1,
+input.sheet-header-bgimg:checked ~ div .sheet-ark-bosses-header {
   background-size: cover;
-  -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header17.jpg");
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header18.jpg");
 }
 
-div.sheet-ark-other-grid h1 {
+input.sheet-header-bgimg:checked ~ div .sheet-ark-projects-header {
   background-size: cover;
-  -background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header19.jpg");
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header17.jpg");
+}
+
+input.sheet-header-bgimg:checked ~ div .sheet-ark-other-grid h1 {
+  background-size: cover;
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header19.jpg");
+}
+
+input.sheet-header-bgimg:checked ~  div .sheet-log-grid-header {
+  background-size: cover;
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header17.jpg");
 }
 
 /* CHARACTER SHEET LAYOUT */
@@ -1931,7 +1934,7 @@ input.sheet-monster_only:checked
 .sheet-ark-stockpile,
 .sheet-ark-notes {
   padding: 0;
-  margin: 0 0 5px 0;
+  -margin: 0 0 5px 0;
   -border: 7px solid #000;
   border: 2px solid #000;
   overflow: hidden;
@@ -1975,7 +1978,7 @@ input.sheet-monster_only:checked
 
 .sheet-character-skills,
 .sheet-character-dice_pool {
-  padding: 0 0px 0 0px;
+  padding: 0;
   -margin: -2px 0px 0 0px;
   border: 3px solid #000;
   overflow: hidden;
@@ -2025,6 +2028,9 @@ input.sheet-dice_only:checked
   border: none;
   overflow: hidden;
   -display: flex;
+}
+.sheet-character-column3 .sheet-box {
+  margin-bottom: 4px;
 }
 
 .sheet-character-talents,
@@ -2258,7 +2264,7 @@ input[name="attr_chartype"][value="Robot"] ~ div.sheet-character-grid .sheet-hea
 
 .sheet-attributes-box1 {
   width: 104%;
-  margin: -2px -5px 0 -5px;
+  -margin: -2px -5px 0 -5px;
   overflow: hidden;
 }
 
@@ -3461,18 +3467,10 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   margin: 0 0 2px 0;
   grid-area: sheet-dice-footer-api;
 }
+
 .sheet-api-toggle-show:checked .sheet-dice-footer-api {
   background: #a60100; 
 }
-
-
-/*----------------------------------- Column 3 */
-
-.sheet-character-column3 ~ div {
-  margin-bottom: 5px;
-
-}
-
 
 /* ---------------------------------- Experience */
 
@@ -3480,6 +3478,7 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   display: grid;
   margin-right: -1px;
   grid-template-columns: 4.25fr 2.2em 1fr;
+  background: transparent;
 }
 
 .sheet-experience-box1 {
@@ -3587,6 +3586,8 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
   grid-column-start: 2;
   grid-row-start: 1;
   justify-self: center;
+  line-height: unset;
+  padding-bottom: 0;
 }
 
 .sheet-talents-box3 {
@@ -3663,7 +3664,17 @@ input[name="attr_rot_permanent"][value="10"] ~ .sheet-rot10 {
 /* ---------------------------------- Skills */
 .sheet-skills-row {
   margin: 0;
-  
+  padding: 2px 0 2px 0;  
+}
+
+.sheet-skills-header-row {
+  margin: 0;
+  justify-content: unset !important;
+  background-color: transparent;
+}
+
+.sheet-skills-header-row .sheet-column-header {
+  margin-top: 20px;
 }
 
 .sheet-skills-row select.sheet-input, .sheet-skills-row input.sheet-input-number {
@@ -3746,7 +3757,7 @@ input.sheet-monster_only:checked ~ div.sheet-character .sheet-skills-grid button
   grid-column: 1/6;
   grid-row-start: 1;
   grid-template-columns: auto 2em 2em 2em 2em 2em;
-  background-color: #000;
+  -background-color: #000;
 }
 
 .sheet-skills-box-base {
@@ -3797,6 +3808,9 @@ div.sheet-repeating-skill-grid button {
     display: flex;
     justify-content: center;
     padding: 0;
+}
+div.sheet-repeating_skills .sheet-input-skills-base-attr {
+  border: 0;
 }
 
 .sheet-skills-row .sheet-skills-row2 {
@@ -3921,11 +3935,6 @@ div.sheet-repeating-skill-grid button {
   padding: 0 2px 0 0;
 }
 
-span.sheet-armor-box3.sheet-header {
-  justify-self: normal;
-  height: 36px;
-}
-
 .sheet-armor-box4 {
   grid-column-start: 4;
   grid-row-start: 1;
@@ -4026,32 +4035,32 @@ span.sheet-armor-box3.sheet-header {
 }
 
 .sheet-consumables-icon {
-  display: none;
+  -display: none;
   height: 30px;
   width: 30px;
 }
 .sheet-consumables-food {
-  src: url('https://github.com/dwarfwing/MutantYearZeroRW/blob/main/Mutant%20Year%20Zero%20RW/images/grub.png');
-  src: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/grub.png'); 
+  content: url('https://github.com/dwarfwing/MutantYearZeroRW/blob/main/Mutant%20Year%20Zero/images/grub-blk.png');
+  content: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/grub-blk.png'); 
 }
 .sheet-consumables-water {
-  src: url('https://github.com/dwarfwing/MutantYearZeroRW/blob/main/Mutant%20Year%20Zero%20RW/images/water.png');
-  src: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/water.png');
+  content: url('https://github.com/dwarfwing/MutantYearZeroRW/blob/main/Mutant%20Year%20Zero/images/water-blk.png');
+  content: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/water-blk.png');
 }
 .sheet-consumables-epacks {
-  src: url('https://github.com/dwarfwing/MutantYearZeroRW/blob/main/Mutant%20Year%20Zero%20RW/images/battery.png');
-  src: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/battery.png');
+  content: url('https://github.com/dwarfwing/MutantYearZeroRW/blob/main/Mutant%20Year%20Zero/images/battery-blk.png');
+  content: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/battery-blk.png');
 }
 .sheet-consumables-bullets {
-  src: url('https://github.com/dwarfwing/MutantYearZeroRW/blob/main/Mutant%20Year%20Zero%20RW/images/bullet.png');
-  src: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/bullet.png');
+  content: url('https://github.com/dwarfwing/MutantYearZeroRW/blob/main/Mutant%20Year%20Zero/images/bullet-blk.png');
+  content: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/bullet-blk.png');
 }
-input[name="attr_consumable-icons"][value="1"] .sheet-consumable-icon,
-input[name="attr_consumable-icons"][value="0"] .sheet-consumable-label {
+input[name="attr_consumables-icons"]:checked ~ div .sheet-consumables-icon,
+input[name="attr_consumables-icons"]:not(:checked) ~ div .sheet-consumables-label {
   display: block;
 }
-input[name="attr_consumable-icons"][value="0"] .sheet-consumable-icon,
-input[name="attr_consumable-icons"][value="1"] .sheet-consumable-label {
+input[name="attr_consumables-icons"]:not(:checked) ~ div .sheet-consumables-icon,
+input[name="attr_consumables-icons"]:checked ~ div .sheet-consumables-label {
   display: none;
 }
 
@@ -4139,16 +4148,6 @@ input[name="attr_consumable-icons"][value="1"] .sheet-consumable-label {
 .sheet-consumables-box15 {
   grid-column-start: 6;
   grid-row-start: 3;
-}
-
-
-
-.sheet-consumables-grid div:nth-child(even) > span.sheet-header-h1 {
-  -margin-left: -25px;
-}
-
-.sheet-consumables-grid div:nth-child(odd) > span.sheet-header-h1 {
-  -margin-right: -25px;
 }
 
 /* ---------------------------------- money */
@@ -5304,33 +5303,33 @@ input[name="attr_consumable-icons"][value="1"] .sheet-consumable-label {
 div.sheet-log-grid {
   display: grid;
   grid-template-columns: 80px 180px 60px 40px auto 50px 50px 50px 50px;
-  -row-gap: 5px;
   column-gap: 3px;
   padding: 3px;
+  -width: 100%;
+  -overflow: hidden;
 }
 
 div.sheet-log-grid-header {
-  -height: 4em;
+  height: 50px;
   -width: 100%;
   -font-size  : 2em;
   text-align : center;
-  justify-content: center;
   justify-items: center;
 }
 .sheet-log-grid-header h1 {
   grid-column: 1 / 10;
+  margin-top: -70px;
+  background-color: transparent !important;
 }
 
 div.sheet-log-grid-header,
-div.sheet-log-grid-column-header  {
+div.sheet-log-grid .sheet-column-header  {
   grid-row: 1;
 }
 
-div.sheet-log-grid-column-header h2 {
-  -color     : #CCC;
-  -font-size : 0.9em;
-  margin   : 0 0 4px 0px;
-  -text-align: center
+div.sheet-log-grid-header .sheet-column-header {
+  margin   : 35px 0 4px 0px;
+  padding-bottom: 4px;
 }
 
 .sheet-log-box {

@@ -380,6 +380,8 @@ const versionator = (old_version) => {
     if (!old_version) old_version = 0;
     switch (true) {
       //add checks for updates here
+      case old_version === 0:
+        break;
       /*case old_version < 1.71:
         clog("updating to version 1.71");
         update_to_1_71(old_version);
@@ -1485,7 +1487,7 @@ Object.keys(attributes).forEach((stat) => {
 });
 
 /* Update attributes total */
-on("sheet:opened change:strength_total", function () {
+on("sheet:opened change:strength change:strength_total", function () {
   clog("Change Detected: strength_total has changed");
   getAttrs(["strength", "strength_total"], function (values) {
     const strength = int(values.strength),
@@ -1497,7 +1499,7 @@ on("sheet:opened change:strength_total", function () {
   });
 });
 
-on("sheet:opened change:agility_total", function () {
+on("sheet:opened change:agility change:agility_total", function () {
   clog("Change Detected: agility_total has changed");
   getAttrs(["agility", "agility_total"], function (values) {
     const agility = int(values.agility),
@@ -1509,7 +1511,7 @@ on("sheet:opened change:agility_total", function () {
   });
 });
 
-on("sheet:opened change:wits_total", function () {
+on("sheet:opened change:wits change:wits_total", function () {
   clog("Change Detected: wits_total has changed");
   getAttrs(["wits", "wits_total"], function (values) {
     const wits = int(values.wits),
@@ -1521,7 +1523,7 @@ on("sheet:opened change:wits_total", function () {
   });
 });
 
-on("sheet:opened change:empathy_total", function () {
+on("sheet:opened change:empathy change:empathy_total", function () {
   clog("Change Detected: empathy_total has changed");
   getAttrs(["empathy", "empathy_total"], function (values) {
     const empathy = int(values.empathy),

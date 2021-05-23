@@ -5,6 +5,7 @@
 <input class="tab" type="hidden" name="attr_tab" value="character">
 <input class="hidden attr-chartype-selected" name="attr_chartype" value="(@{chartype})" type="hidden" hidden readonly />
 <input class="hidden header-bgimg" type="checkbox" name="attr_header-bgimg" value="1" hidden readonly />
+<input class="hidden adv-modifiers" type="checkbox" name="attr_adv-modifiers" value="1" hidden readonly />
 
 <!-- LOGO -->
 <div class="logo" title="MUTANT YEAR ZERO" data-i18n-title="logo-myz">
@@ -28,12 +29,12 @@
 
 <!--tabs-->
 <div class="grid-tabs">
-  <button class="tab character" title="Character" name="act_tab_character" type="action">Character</button>
+  <button class="tab character" data-i18n="character" title="Character" name="act_tab_character" type="action">Character</button>
   <button class="tab ark" data-i18n="ark" name="act_tab_ark" title="Ark" type="action">Ark</button>
   <button class="tab zonelog" data-i18n="zone-log" name="act_tab_zonelog" title="Zone Log" type="action">Zone Log</button>
   <button class="tab monster" data-i18n="monster" name="act_tab_monster" title="Monster" type="action">Monster</button>
   <select class="input-text select-chartype" name="attr_chartype" value="">
-      <option value="Character Type" data-i18n="chartype" value="Mutant" selected hidden disabled>Type</option>
+      <option class="character-type" value="Mutant" data-i18n="chartype" selected hidden disabled style="background-color: rgb(160, 14, 14);">Type</option>
       <option class="character-type" value="Mutant" data-i18n="mutant">Mutant</option>
       <option class="character-type" value="Animal" data-i18n="animal">Animal</option>
       <option class="character-type" value="Robot" data-i18n="robot">Robot</option>
@@ -475,43 +476,45 @@
           <span data-i18n="type">Type</span>
         </div>
         <div class="weapons-box weapons-box5 column-header">
-          <span data-i18n="attr-abbr">Attr</span>
+          <span data-i18n="base-dice-abbr" data-i18n-title="base-dice">Base</span>
         </div>
         <div class="weapons-box weapons-box6 column-header separator">
           <span>|</span>
         </div>
-        <div class="weapons-box weapons-box7 column-header">
-          <span data-i18n="modifier-abbr">Mod</span>
+        <div class="weapons-box weapons-box7 column-header modifiers-toggled-on">
+          <span data-i18n="modifier-abbr" class="modifiers-toggled-on">Mod</span>
         </div>
         <div class="weapons-box weapons-box8 column-header">
-          <span data-i18n="skill-abbr">Skill</span>
+          <span data-i18n="skill-level-abbr" data-i18n-title="skill-level" class="modifiers-toggled-off">Skill</span>
+          <span data-i18n="total-abbr" class="modifiers-toggled-on">Tot</span>
         </div>
         <div class="weapons-box weapons-box9 column-header separator">
           <span> | </span>
         </div>
         <div class="weapons-box weapons-box11 column-header">
-          <span data-i18n="bonus-abbr">Bonus</span>
+          <span data-i18n="gear-bonus-abbr" data-i18n-title="gear-bonus" class="modifiers-toggled-off">Gear</span>
+          <span data-i18n="bonus-abbr" class="modifiers-toggled-on">Bonus</span>
         </div>
         <div class="weapons-box weapons-box12 column-header">
           <span data-i18n="max-abbr">Max</span>
         </div>
-        <div class="weapons-box weapons-box13 column-header">
-          <span data-i18n="modifier-abbr">Mod</span>
+        <div class="weapons-box weapons-box13 column-header modifiers-toggled-on">
+          <span data-i18n="modifier-abbr" data-i18n-title="modifier" class="modifiers-toggled-on">Mod</span>
         </div>
-        <div class="weapons-box weapons-box14 column-header">
-          <span data-i18n="total-abbr">Sum</span>
+        <div class="weapons-box weapons-box14 column-header modifiers-toggled-on">
+          <span data-i18n="total-abbr" data-i18n-title="total" class="modifiers-toggled-on">Sum</span>
         </div>
         <div class="weapons-box weapons-box16 column-header separator">
           <span>|</span>
         </div>
         <div class="weapons-box weapons-box17 column-header">
-          <span data-i18n="base">Base</span>
+          <span data-i18n="damage-abbr" data-i18n-title="damage">Dmg</span>
         </div>
-        <div class="weapons-box weapons-box18 column-header">
-          <span data-i18n="modifier-abbr">Mod</span>
+        <div class="weapons-box weapons-box18 column-header modifiers-toggled-on">
+          <span data-i18n="modifier-abbr" data-i18n-title="modifier" class="modifiers-toggled-on">Mod</span>
         </div>
-        <div class="weapons-box weapons-box19 column-header">
-          <span data-i18n="damage-abbr">Dmg</span>
+        <div class="weapons-box weapons-box19 column-header modifiers-toggled-on">
+          <span data-i18n="total-abbr" data-i18n-title="total" class="modifiers-toggled-on">Sum</span>
         </div>
         <div class="weapons-box weapons-box20 column-header separator">
           <span>|</span>
@@ -520,7 +523,7 @@
           <span data-i18n="parry">Parry</span>
         </div>
         <div class="weapons-box weapons-box1 column-header">
-          <span data-i18n="attack-abbrv">Attk</span>
+          <span data-i18n="attack-abbr" data-i18n-title="attack">Attk</span>
         </div>
         <div class="weapons-box-repeating">
           <fieldset class="repeating_weapons">
@@ -533,7 +536,7 @@
               <span class="weapons-box weapons-box32 readonly" name="attr_weapon_base_total" value="0" data-i18n-title="weapon-type-base" title="BASE dice as per weapon/skill type. @{repeating_weapons_$X_weapon_base_total}">0</span>
               <span class="weapons-box weapons-box33 readonly separator"> | </span>
               <!--<span class="weapons-box34 readonly" name="attr_weapon_skill_value" value="0" data-i18n-title="weapon-type-skill" title="SKILL dice as per weapon/skill type. @{repeating_weapons_$X_weapon_skill_value}">0</span>-->
-              <select class="weapons-box weapons-box34 input" name="attr_weapon_skill_misc" data-i18n-title="weapon-skill-misc" title="Miscellaneous attack modifier (adjusts SKILL dice). @{repeating_weapons_$X_weapon_skill_misc}">
+              <select class="weapons-box weapons-box34 input modifiers-toggled-on" name="attr_weapon_skill_misc" data-i18n-title="weapon-skill-misc" title="Miscellaneous attack modifier (adjusts SKILL dice). @{repeating_weapons_$X_weapon_skill_misc}">
                 <option value="6">+6</option>
                 <option value="5">+5</option>
                 <option value="4">+4</option>
@@ -580,7 +583,7 @@
                 <option value="11">11</option>
                 <option value="12">12</option>
               </select>
-              <select class="weapons-box weapons-box40 input" name="attr_weapon_bonus_misc" data-i18n-title="weapon-bonus-misc" title="Miscellaneous bonus modifier (adjusts Gear dice). @{repeating_weapons_$X_weapon_bonus_misc}">
+              <select class="weapons-box weapons-box40 input modifiers-toggled-on" name="attr_weapon_bonus_misc" data-i18n-title="weapon-bonus-misc" title="Miscellaneous bonus modifier (adjusts Gear dice). @{repeating_weapons_$X_weapon_bonus_misc}">
                 <option value="0" selected>+0</option>
                 <option value="1">+1</option>
                 <option value="2">+2</option>
@@ -589,7 +592,7 @@
                 <option value="5">+5</option>
                 <option value="6">+6</option>
               </select>
-              <span class="weapons-box weapons-box41 readonly" name="attr_weapon_bonus_total" value="0" data-i18n-title="weapon-bonus-total" title="Total GEAR dice included with the attack. @{repeating_weapons_$X_weapon_bonus_total}">0</span>
+              <span class="weapons-box weapons-box41 readonly modifiers-toggled-on" name="attr_weapon_bonus_total" value="0" data-i18n-title="weapon-bonus-total" title="Total GEAR dice included with the attack. @{repeating_weapons_$X_weapon_bonus_total}">0</span>
               <span class="weapons-box weapons-box47 readonly separator"> | </span>
               <select class="weapons-box weapons-box48 input" name="attr_weapon_damage" data-i18n-title="weapon-damage" title="Damage as per weapon tables. @{repeating_weapons_$X_weapon_damage}">
                 <option value="0">0</option>
@@ -606,7 +609,7 @@
                 <option value="11">11</option>
                 <option value="12">12</option>
               </select>
-              <select class="weapons-box weapons-box49 input" name="attr_weapon_damage_misc" data-i18n-title="modifier-damage-abbr" title="Miscellaneous damage modifier. @{repeating_weapons_$X_weapon_damage_misc}">
+              <select class="weapons-box weapons-box49 input modifiers-toggled-on" name="attr_weapon_damage_misc" data-i18n-title="modifier-damage-abbr" title="Miscellaneous damage modifier. @{repeating_weapons_$X_weapon_damage_misc}">
                 <option value="6">+6</option>
                 <option value="5">+5</option>
                 <option value="4">+4</option>
@@ -621,7 +624,7 @@
                 <option value="-5">-5</option>
                 <option value="-6">-6</option>
               </select>
-              <span class="weapons-box weapons-box50 readonly" name="attr_weapon_damage_total" value="0" data-i18n-title="weapon-damage-total" title="Total damage included with the attack. @{repeating_weapons_$X_weapon_damage_total}">0</span>
+              <span class="weapons-box weapons-box50 readonly modifiers-toggled-on" name="attr_weapon_damage_total" value="0" data-i18n-title="weapon-damage-total" title="Total damage included with the attack. @{repeating_weapons_$X_weapon_damage_total}">0</span>
               <span class="weapons-box weapons-box59 readonly separator"> | </span>
               <button class="weapons-box weapons-box60 roll-button" type="action" name="act_attack-parry-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
                 t
@@ -711,33 +714,33 @@
         <input type="checkbox" class="skill-order-group hidden" name="attr_skill_order_group" value="1" />
         <div class="skills-grid" data-i18n-list="skills-list">
           
-          <span class="skills-header-row header">
-            <div class="skills-box1">
-              <h1 class="char-mutant char-animal char-human" data-i18n="skill-u" name="attr_skill_name">SKILLS</h1>
-              <h1 class="char-robot" data-i18n="programs-u" name="attr_skill_name">PROGRAMS</h1>
+          <span class="skills-header-row skills-row header">
+            <div class="skills-header-box skills-box1">
+              <h1 class="char-mutant-flex char-animal-flex char-human-flex" data-i18n="skill-u" name="attr_skill_name">SKILLS</h1>
+              <h1 class="char-robot-flex" data-i18n="programs-u" name="attr_skill_name">PROGRAMS</h1>
             </div>
-            <div class="skills-box-base column-header">
-              <span data-i18n="attribute-abbr">Attr</span>
+            <div class="skills-box skills-box-base column-header">
+              <span data-i18n="attribute-abbr" data-i18n-title="attribute">Attr</span>
             </div>
-            <div class="skills-box2 column-header">
-              <span data-i18n="lvl-abbr">Lvl</span>
+            <div class="skills-box skills-box2 column-header">
+              <span data-i18n="skill-level-abbr" data-i18n-title="skill-level">Lvl</span>
             </div>
-            <div class="skills-box3 column-header">
-              <span data-i18n="misc-skill-abbr">Mod</span>
+            <div class="skills-box skills-box3 column-header modifiers-toggled-on">
+              <span data-i18n="misc-skill-abbr" data-i18n-title="misc-skill">Mod</span>
             </div>
-            <div class="skills-box4 column-header">
-              <span data-i18n="misc-gear-abbr">Gear</span>
+            <div class="skills-box skills-box4 column-header modifiers-toggled-on">
+              <span data-i18n="misc-gear-abbr" data-i18n-title="misc-gear">Gear</span>
             </div>
-            <div class="skills-box5 column-header">
-              <span data-i18n="sum-abbr">Sum</span>
+            <div class="skills-box skills-box5 column-header">
+              <span data-i18n="total-abbr" data-i18n-title="total">Total</span>
             </div>
           </span>
           
           <span class="skills-row chartype-background-dark" data-i18n-list-item="endure">
             <span class="skill-name" data-i18n="endure" name="attr_endure_name">Endure</span>
-            <span class="small-caps skill-name" name="attr_strength_abbr">Str</span>
+            <span class="small-caps skill-attribute" name="attr_strength_abbr">Str</span>
             <input class="input-number character-skill-level" type="number" name="attr_endure" value="0" min="0" title="@{endure}" />
-            <select class="input character-skill-mod" name="attr_endure_skill_misc" title="@{endure_skill_misc}">
+            <select class="input character-skill-mod modifiers-toggled-on" name="attr_endure_skill_misc" title="@{endure_skill_misc}">
               <option value="6">+6</option>
               <option value="5">+5</option>
               <option value="4">+4</option>
@@ -752,7 +755,7 @@
               <option value="-5">-5</option>
               <option value="-6">-6</option>
             </select>
-            <select class="input character-skill-gear" name="attr_endure_gear_misc" title="@{endure_gear_misc}">
+            <select class="input character-skill-gear modifiers-toggled-on" name="attr_endure_gear_misc" title="@{endure_gear_misc}">
               <option value="0" selected>+0</option>
                 <option value="1">+1</option>
                 <option value="2">+2</option>
@@ -768,9 +771,9 @@
           
           <span class="skills-row chartype-background-dark" data-i18n-list-item="force">
             <span class="skill-name" data-i18n="force" name="attr_force_name">Force</span>
-            <span class="small-caps skill-name" name="attr_strength_abbr">Str</span>
+            <span class="small-caps skill-attribute" name="attr_strength_abbr">Str</span>
             <input class="input-number" type="number" name="attr_force" value="0" min="0" title="@{force}" />
-            <select class="input" name="attr_force_skill_misc" title="@{force_skill_misc}">
+            <select class="input character-skill-mod modifiers-toggled-on" name="attr_force_skill_misc" title="@{force_skill_misc}">
               <option value="6">+6</option>
               <option value="5">+5</option>
               <option value="4">+4</option>
@@ -785,7 +788,7 @@
               <option value="-5">-5</option>
               <option value="-6">-6</option>
             </select>
-            <select class="input" name="attr_force_gear_misc" title="@{force_gear_misc}">
+            <select class="input character-skill-gear modifiers-toggled-on" name="attr_force_gear_misc" title="@{force_gear_misc}">
               <option value="0" selected>+0</option>
                 <option value="1">+1</option>
                 <option value="2">+2</option>
@@ -801,9 +804,9 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="fight">
             <span class="skill-name" data-i18n="fight-as-skill" name="attr_fight_name">Fight</span>
-            <span class="small-caps skill-name" name="attr_strength_abbr">Str</span>
+            <span class="small-caps skill-attribute" name="attr_strength_abbr">Str</span>
             <input class="input-number character-skill-level" type="number" name="attr_fight" value="0" min="0" title="@{fight}" />
-            <select class="input character-skill-mod" name="attr_fight_skill_misc" title="@{fight_skill_misc}">
+            <select class="input character-skill-mod modifiers-toggled-on" name="attr_fight_skill_misc" title="@{fight_skill_misc}">
               <option value="6">+6</option>
               <option value="5">+5</option>
               <option value="4">+4</option>
@@ -818,7 +821,7 @@
               <option value="-5">-5</option>
               <option value="-6">-6</option>
             </select>
-            <select class="input character-skill-gear" name="attr_fight_gear_misc" title="@{fight_gear_misc}">
+            <select class="input character-skill-gear modifiers-toggled-on" name="attr_fight_gear_misc" title="@{fight_gear_misc}">
               <option value="0" selected>+0</option>
                 <option value="1">+1</option>
                 <option value="2">+2</option>
@@ -834,9 +837,9 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="sneak">
             <span class="skill-name" data-i18n="sneak" name="attr_sneak_name">Sneak</span>
-            <span class="small-caps skill-name" name="attr_agility_abbr">Agi</span>
+            <span class="small-caps skill-attribute" name="attr_agility_abbr">Agi</span>
             <input class="input-number character-skill-level" type="number" name="attr_sneak" value="0" min="0" title="@{sneak}" />
-            <select class="input character-skill-mod" name="attr_sneak_skill_misc" title="@{sneak_skill_misc}">
+            <select class="input character-skill-mod modifiers-toggled-on" name="attr_sneak_skill_misc" title="@{sneak_skill_misc}">
               <option value="6">+6</option>
               <option value="5">+5</option>
               <option value="4">+4</option>
@@ -851,7 +854,7 @@
               <option value="-5">-5</option>
               <option value="-6">-6</option>
             </select>
-            <select class="input character-skill-gear" name="attr_sneak_gear_misc" title="@{sneak_gear_misc}">
+            <select class="input character-skill-gear modifiers-toggled-on" name="attr_sneak_gear_misc" title="@{sneak_gear_misc}">
               <option value="0" selected>+0</option>
                 <option value="1">+1</option>
                 <option value="2">+2</option>
@@ -878,9 +881,9 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="move">
             <span class="skill-name" data-i18n="move" name="attr_move_name">Move</span>
-            <span class="small-caps skill-name" name="attr_agility_abbr">Agi</span>
+            <span class="small-caps skill-attribute" name="attr_agility_abbr">Agi</span>
             <input class="input-number character-skill-level" type="number" name="attr_move" value="0" min="0" title="@{move}" />
-            <select class="input character-skill-mod" name="attr_move_skill_misc" title="@{move_skill_misc}">
+            <select class="input character-skill-mod modifiers-toggled-on" name="attr_move_skill_misc" title="@{move_skill_misc}">
               <option value="6">+6</option>
               <option value="5">+5</option>
               <option value="4">+4</option>
@@ -895,7 +898,7 @@
               <option value="-5">-5</option>
               <option value="-6">-6</option>
             </select>
-            <select class="input character-skill-gear" name="attr_move_gear_misc" title="@{move_gear_misc}">
+            <select class="input character-skill-gear modifiers-toggled-on" name="attr_move_gear_misc" title="@{move_gear_misc}">
               <option value="0" selected>+0</option>
                 <option value="1">+1</option>
                 <option value="2">+2</option>
@@ -922,9 +925,9 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="shoot"> 
             <span class="skill-name" data-i18n="shoot" name="attr_shoot_name">Shoot</span>
-            <span class="small-caps skill-name" name="attr_agility_abbr">Agi</span>
+            <span class="small-caps skill-attribute" name="attr_agility_abbr">Agi</span>
             <input class="input-number character-skill-level" type="number" name="attr_shoot" value="0" min="0" title="@{shoot}" />
-            <select class="input character-skill-mod" name="attr_shoot_skill_misc" title="@{shoot_skill_misc}">
+            <select class="input character-skill-mod modifiers-toggled-on" name="attr_shoot_skill_misc" title="@{shoot_skill_misc}">
               <option value="6">+6</option>
               <option value="5">+5</option>
               <option value="4">+4</option>
@@ -939,7 +942,7 @@
               <option value="-5">-5</option>
               <option value="-6">-6</option>
             </select>
-            <select class="input character-skill-gear" name="attr_shoot_gear_misc" title="@{shoot_gear_misc}">
+            <select class="input character-skill-gear modifiers-toggled-on" name="attr_shoot_gear_misc" title="@{shoot_gear_misc}">
               <option value="0" selected>+0</option>
                 <option value="1">+1</option>
                 <option value="2">+2</option>
@@ -966,9 +969,9 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="scout">
             <span class="skill-name" data-i18n="scout" name="attr_scout_name">Scout</span>
-            <span class="small-caps skill-name" name="attr_wits_abbr">Wit</span>
+            <span class="small-caps skill-attribute" name="attr_wits_abbr">Wit</span>
             <input class="input-number character-skill-level" type="number" name="attr_scout" value="0" min="0" title="@{scout}" />
-            <select class="input character-skill-mod" name="attr_scout_skill_misc" title="@{scout_skill_misc}">
+            <select class="input character-skill-mod modifiers-toggled-on" name="attr_scout_skill_misc" title="@{scout_skill_misc}">
               <option value="6">+6</option>
               <option value="5">+5</option>
               <option value="4">+4</option>
@@ -983,7 +986,7 @@
               <option value="-5">-5</option>
               <option value="-6">-6</option>
             </select>
-            <select class="input character-skill-gear" name="attr_scout_gear_misc" title="@{scout_gear_misc}">
+            <select class="input character-skill-gear modifiers-toggled-on" name="attr_scout_gear_misc" title="@{scout_gear_misc}">
               <option value="0" selected>+0</option>
                 <option value="1">+1</option>
                 <option value="2">+2</option>
@@ -1010,9 +1013,9 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="comprehend">
             <span class="skill-name" name="attr_comprehend_name">Comprehend</span>
-            <span class="small-caps skill-name" name="attr_wits_abbr">Wit</span>
+            <span class="small-caps skill-attribute" name="attr_wits_abbr">Wit</span>
             <input class="input-number character-skill-level" type="number" name="attr_comprehend" value="0" min="0" title="@{comprehend}" />
-            <select class="input character-skill-mod" name="attr_comprehend_skill_misc" title="@{comprehend_skill_misc}">
+            <select class="input character-skill-mod modifiers-toggled-on" name="attr_comprehend_skill_misc" title="@{comprehend_skill_misc}">
               <option value="6">+6</option>
               <option value="5">+5</option>
               <option value="4">+4</option>
@@ -1027,7 +1030,7 @@
               <option value="-5">-5</option>
               <option value="-6">-6</option>
             </select>
-            <select class="input character-skill-gear" name="attr_comprehend_gear_misc" title="@{comprehend_gear_misc}">
+            <select class="input character-skill-gear modifiers-toggled-on" name="attr_comprehend_gear_misc" title="@{comprehend_gear_misc}">
               <option value="0" selected>+0</option>
                 <option value="1">+1</option>
                 <option value="2">+2</option>
@@ -1054,9 +1057,9 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="know_the_zone">
             <span class="skill-name" data-i18n="know-the-zone" name="attr_know_the_zone_name">Know the Zone</span>
-            <span class="small-caps skill-name" name="attr_wits_abbr">Wit</span>
+            <span class="small-caps skill-attribute" name="attr_wits_abbr">Wit</span>
             <input class="input-number character-skill-level" type="number" name="attr_know_the_zone" value="0" min="0" title="@{know_the_zone}" />
-            <select class="input character-skill-mod" name="attr_know_the_zone_skill_misc" title="@{know_the_zone_skill_misc}">
+            <select class="input character-skill-mod modifiers-toggled-on" name="attr_know_the_zone_skill_misc" title="@{know_the_zone_skill_misc}">
               <option value="6">+6</option>
               <option value="5">+5</option>
               <option value="4">+4</option>
@@ -1071,7 +1074,7 @@
               <option value="-5">-5</option>
               <option value="-6">-6</option>
             </select>
-            <select class="input character-skill-gear" name="attr_know_the_zone_gear_misc" title="@{know_the_zone_gear_misc}">
+            <select class="input character-skill-gear modifiers-toggled-on" name="attr_know_the_zone_gear_misc" title="@{know_the_zone_gear_misc}">
               <option value="0" selected>+0</option>
                 <option value="1">+1</option>
                 <option value="2">+2</option>
@@ -1098,9 +1101,9 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="sense_emotion">
             <span class="skill-name" data-i18n="sense-emotion" name="attr_sense_emotion_name">Sense emotion</span>
-            <span class="small-caps skill-name" name="attr_empathy_abbr">Emp></span>
+            <span class="small-caps skill-attribute" name="attr_empathy_abbr">Emp></span>
             <input class="input-number character-skill-level" type="number" name="attr_sense_emotion" value="0" min="0" title="@{sense_emotion}" />
-            <select class="input character-skill-mod" name="attr_sense_emotion_skill_misc" title="@{sense_emotion_skill_misc}">
+            <select class="input character-skill-mod modifiers-toggled-on" name="attr_sense_emotion_skill_misc" title="@{sense_emotion_skill_misc}">
               <option value="6">+6</option>
               <option value="5">+5</option>
               <option value="4">+4</option>
@@ -1115,7 +1118,7 @@
               <option value="-5">-5</option>
               <option value="-6">-6</option>
             </select>
-            <select class="input character-skill-gear" name="attr_sense_emotion_gear_misc" title="@{sense_emotion_gear_misc}">
+            <select class="input character-skill-gear modifiers-toggled-on" name="attr_sense_emotion_gear_misc" title="@{sense_emotion_gear_misc}">
               <option value="0" selected>+0</option>
                 <option value="1">+1</option>
                 <option value="2">+2</option>
@@ -1142,9 +1145,9 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="manipulate">
             <span class="skill-name" data-i18n="manipulate" name="attr_manipulate_name">Manipulate</span>
-            <span class="small-caps skill-name" name="attr_empathy_abbr">Emp</span>
+            <span class="small-caps skill-attribute" name="attr_empathy_abbr">Emp</span>
             <input class="input-number character-skill-level" type="number" name="attr_manipulate" value="0" min="0" title="@{manipulate}" />
-            <select class="input character-skill-mod" name="attr_manipulate_skill_misc" title="@{manipulate_skill_misc}">
+            <select class="input character-skill-mod modifiers-toggled-on" name="attr_manipulate_skill_misc" title="@{manipulate_skill_misc}">
               <option value="6">+6</option>
               <option value="5">+5</option>
               <option value="4">+4</option>
@@ -1159,7 +1162,7 @@
               <option value="-5">-5</option>
               <option value="-6">-6</option>
             </select>
-            <select class="input character-skill-gear" name="attr_manipulate_gear_misc" title="@{manipulate_gear_misc}">
+            <select class="input character-skill-gear modifiers-toggled-on" name="attr_manipulate_gear_misc" title="@{manipulate_gear_misc}">
               <option value="0" selected>+0</option>
                 <option value="1">+1</option>
                 <option value="2">+2</option>
@@ -1186,9 +1189,9 @@
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="heal">
             <span class="skill-name" data-i18n="heal" name="attr_heal_name">Heal</span>
-            <span class="small-caps skill-name" name="attr_empathy_abbr">Emp</span>
+            <span class="small-caps skill-attribute" name="attr_empathy_abbr">Emp</span>
             <input class="input-number" type="number" name="attr_heal" value="0" min="0" title="@{heal}" />
-            <select class="input" name="attr_heal_skill_misc" title="@{heal_skill_misc}">
+            <select class="input character-skill-mod modifiers-toggled-on" name="attr_heal_skill_misc" title="@{heal_skill_misc}">
               <option value="6">+6</option>
               <option value="5">+5</option>
               <option value="4">+4</option>
@@ -1203,7 +1206,7 @@
               <option value="-5">-5</option>
               <option value="-6">-6</option>
             </select>
-            <select class="input" name="attr_heal_gear_misc" title="@{heal_gear_misc}">
+            <select class="input character-skill-gear modifiers-toggled-on" name="attr_heal_gear_misc" title="@{heal_gear_misc}">
               <option value="0" selected>+0</option>
                 <option value="1">+1</option>
                 <option value="2">+2</option>
@@ -1231,9 +1234,9 @@
         </div>
         <div>
           <fieldset class="repeating_skills">
-            <div class="skills-row chartype-background-light">
+            <div class="skills-row repeating-skills-row chartype-background-light">
               <input class="skill-name chartype-background-light" class="input" type="text" name="attr_name" title="@{repeating_skills_$X_name}" />
-              <span class="small-caps skill-name">
+              <span class="small-caps skill-attribute">
                 <input type="hidden" name="attr_base" value="0" min="0" title="@{repeating_skills_$X_base}" readonly />
                 <select class="input character-skill-mod input-skills-base-attr chartype-background-light char-mutant char-human" name="attr_attribute" title="@{repeating_skills_$X_attribute}">
                   <option value="" selected disabled hidden data-i18n="base">Base</option>
@@ -1258,7 +1261,7 @@
                 </select>
               </span>
               <input class="input-number character-skill-level" type="number" name="attr_skill" value="0" min="0" title="@{repeating_skills_$X_skill}" />
-              <select class="input character-skill-mod" name="attr_misc" title="@{repeating_skills_$X_misc}">
+              <select class="input character-skill-mod modifiers-toggled-on" name="attr_misc" title="@{repeating_skills_$X_misc}">
                 <option value="6">+6</option>
                 <option value="5">+5</option>
                 <option value="4">+4</option>
@@ -1273,7 +1276,7 @@
                 <option value="-5">-5</option>
                 <option value="-6">-6</option>
               </select>
-              <select class="input character-skill-gear" name="attr_gear" title="@{repeating_skills_$X_gear}">
+              <select class="input character-skill-gear modifiers-toggled-on" name="attr_gear" title="@{repeating_skills_$X_gear}">
                 <option value="0" selected>+0</option>
                 <option value="1">+1</option>
                 <option value="2">+2</option>
@@ -1786,7 +1789,7 @@
             <span class="header-h1 consumables-label" data-i18n="bullets">Bullets</span>
           </div>
           <div class="consumables-box8">
-            <input type="number" class="input-number" name="attr_water" value="0" min="0" title="@{water}"></option>
+            <input type="number" class="input-number" name="attr_bullets" value="0" min="0" title="@{bullets}"></option>
           </div>
           <div class="consumables-box9">
             <!--<button type="roll" name="roll_water" title="%{water}" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{water}"></button>
@@ -1797,7 +1800,7 @@
             <span class="header-h1 consumables-label" data-i18n="water">Water</span>
           </div>
           <div class="consumables-box11">
-            <input type="number" class="input-number" name="attr_epacks" value="0" min="0" title="@{epacks}"></option>
+            <input type="number" class="input-number" name="attr_water" value="0" min="0" title="@{water}"></option>
           </div>
           <div class="consumables-box12">
             <!--<button type="roll" name="roll_arrows" title="%{arrows}" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{arrows}"></button>
@@ -1808,7 +1811,7 @@
             <span class="header-h1 consumables-label" data-i18n="e-pack">E-pack</span>
           </div>
           <div class="consumables-box14">
-            <input type="number" class="input-number" name="attr_bullets" value="0" min="0" title="@{bullets}"></option>
+            <input type="number" class="input-number" name="attr_epacks" value="0" min="0" title="@{epacks}"></option>
           </div>
           <div class="consumables-box15">
             <!--<button type="roll" name="roll_torches" title="%{torches}" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{torches}"></button>
@@ -1869,7 +1872,7 @@
 
       <div class="gear-grid box toggle-pc-only chartype-background-light">
         <div class="gear-box1 header">
-          <h1 data-i18n="gea-u">GEAR</h1>
+          <h1 data-i18n="gear-u">GEAR</h1>
         </div>
         <div class="gear-box2 column-header">
           <span data-i18n="quantity-abbr">Qty</span>
@@ -2021,10 +2024,10 @@
               <fieldset class="repeating_vehicle">
                 <div class="vehiclegear-grid">
                   <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" /><span></span>
-                  <input class="vehiclegear-box1 input" type="text" name="attr_vehicle_gear_name" value="" title="@{repeating_vehiclegear_$X_vehicle_gear_name}" data-i18n-placeholder="item" placeholder="item" />
-                  <input class="vehiclegear-box2 input-number" type="number" name="attr_vehicle_gear_qty" value="1" title="Quantity @{repeating_vehiclegear_$X_vehicle_gear_qty}" />
-                  <input class="vehiclegear-box3 input" type="checkbox" name="attr_vehicle_gear_carried" value="1" title="@{repeating_vehiclegear_$X_vehicle_gear_carried}" checked />
-                  <select class="vehiclegear-box4 input" name="attr_vehicle_gear_weight" title="@{repeating_vehiclegear_$X_vehicle_gear_weight}">
+                  <input class="vehiclegear-box1 input" type="text" name="attr_vehiclegear_name" value="" title="@{repeating_vehicle_$X_vehiclegear_name}" data-i18n-placeholder="item" placeholder="item" />
+                  <input class="vehiclegear-box2 input-number" type="number" name="attr_vehiclegear_qty" value="1" title="Quantity @{repeating_vehicle_$X_vehiclegear_qty}" />
+                  <input class="vehiclegear-box3 input" type="checkbox" name="attr_vehiclegear_carried" value="1" title="@{repeating_vehicle_$X_vehiclegear_carried}" checked />
+                  <select class="vehiclegear-box4 input" name="attr_vehiclegear_weight" title="@{repeating_vehicle_$X_vehiclegear_weight}">
                     <option data-i18n="tiny-abbr" data-i18n-title="tiny" title="Tiny" value="0" selected>T</option>
                     <option data-i18n="quarter-abbr" data-i18n-title="quarter" title="Quarter" value="0.25">Q</option>
                     <option data-i18n="light-abbr" data-i18n-title="light" title="Light" value="0.5">L</option>
@@ -2039,7 +2042,7 @@
                     <option value="9">9</option>
                     <option value="10">10</option>
                   </select>
-                  <textarea class="vehiclegear-box5 input-textarea" name="attr_vehiclegear_description" title="@{repeating_vehiclegear_$X_vehicle_gear_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
+                  <textarea class="vehiclegear-box5 input-textarea" name="attr_vehiclegear_description" title="@{repeating_vehicle_$X_vehiclegear_description}" data-i18n-placeholder="description" placeholder="description"></textarea>
                 </div>
               </fieldset>
             </div>
@@ -2447,11 +2450,11 @@
           </h1>
         </div>
         <div class="ark-influence-subheaderrow">
-          <span class="ark-influence ark-influence-subheader ark-influence-subheader1 column-header" data-i18n="sector">Sector</span>
-          <span class="ark-influence ark-influence-subheader ark-influence-subheader2 column-header" data-i18n="warburg">Warburg</span>
-          <span class="ark-influence ark-influence-subheader ark-influence-subheader3 column-header" data-i18n="fortescue">Fortescue</span>
-          <span class="ark-influence ark-influence-subheader ark-influence-subheader4 column-header" data-i18n="kilgore">Kilgore</span>
-          <span class="ark-influence ark-influence-subheader ark-influence-subheader5 column-header" data-i18n="morningstar">Morningstar</span>
+          <span class="ark-influence ark-influence-subheader ark-influence-subheader1 column-header chartype-background-darkest" data-i18n="sector">Sector</span>
+          <span class="ark-influence ark-influence-subheader ark-influence-subheader2 column-header chartype-background-darkest" data-i18n="warburg">Warburg</span>
+          <span class="ark-influence ark-influence-subheader ark-influence-subheader3 column-header chartype-background-darkest" data-i18n="fortescue">Fortescue</span>
+          <span class="ark-influence ark-influence-subheader ark-influence-subheader4 column-header chartype-background-darkest" data-i18n="kilgore">Kilgore</span>
+          <span class="ark-influence ark-influence-subheader ark-influence-subheader5 column-header chartype-background-darkest" data-i18n="morningstar">Morningstar</span>
         </div>
         <div class="ark-influence-row">
           <span class="ark-influence ark-influence-col ark-influence-col1 chartype-background-dark" data-i18n="nova-paloma">Nova Paloma</span>
@@ -2510,11 +2513,11 @@
           </h1>
         </div>
         <div class="ark-influence-subheaderrow">
-          <span class="ark-influence ark-influence-subheader ark-influence-subheader1 column-header" data-i18n="sector">Sector</span>
-          <span class="ark-influence ark-influence-subheader ark-influence-subheader2 column-header" data-i18n="warburg">Warburg</span>
-          <span class="ark-influence ark-influence-subheader ark-influence-subheader3 column-header" data-i18n="fortescue">Fortescue</span>
-          <span class="ark-influence ark-influence-subheader ark-influence-subheader4 column-header" data-i18n="kilgore">Kilgore</span>
-          <span class="ark-influence ark-influence-subheader ark-influence-subheader5 column-header" data-i18n="morningstar">Morningstar</span>
+          <span class="ark-influence ark-influence-subheader ark-influence-subheader1 column-header chartype-background-darkest" data-i18n="sector">Sector</span>
+          <span class="ark-influence ark-influence-subheader ark-influence-subheader2 column-header chartype-background-darkest" data-i18n="warburg">Warburg</span>
+          <span class="ark-influence ark-influence-subheader ark-influence-subheader3 column-header chartype-background-darkest" data-i18n="fortescue">Fortescue</span>
+          <span class="ark-influence ark-influence-subheader ark-influence-subheader4 column-header chartype-background-darkest" data-i18n="kilgore">Kilgore</span>
+          <span class="ark-influence ark-influence-subheader ark-influence-subheader5 column-header chartype-background-darkest" data-i18n="morningstar">Morningstar</span>
         </div>
         <div class="ark-influence-row">
           <span class="ark-influence ark-influence-col ark-influence-col1 chartype-background-dark" data-i18n="mosel">Mosel</span>
@@ -2563,11 +2566,11 @@
           </h1>
         </div>
         <div class="ark-influence-subheaderrow">
-          <span class="ark-influence ark-influence-subheader ark-influence-subheader1 column-header">&nbsp;</span>
-          <span class="ark-influence ark-influence-subheader ark-influence-subheader2 column-header" data-i18n="warburg">Warburg</span>
-          <span class="ark-influence ark-influence-subheader ark-influence-subheader3 column-header" data-i18n="fortescue">Fortescue</span>
-          <span class="ark-influence ark-influence-subheader ark-influence-subheader4 column-header" data-i18n="kilgore">Kilgore</span>
-          <span class="ark-influence ark-influence-subheader ark-influence-subheader5 column-header" data-i18n="morningstar">Morningstar</span>
+          <span class="ark-influence ark-influence-subheader ark-influence-subheader1 column-header chartype-background-darkest">&nbsp;</span>
+          <span class="ark-influence ark-influence-subheader ark-influence-subheader2 column-header chartype-background-darkest" data-i18n="warburg">Warburg</span>
+          <span class="ark-influence ark-influence-subheader ark-influence-subheader3 column-header chartype-background-darkest" data-i18n="fortescue">Fortescue</span>
+          <span class="ark-influence ark-influence-subheader ark-influence-subheader4 column-header chartype-background-darkest" data-i18n="kilgore">Kilgore</span>
+          <span class="ark-influence ark-influence-subheader ark-influence-subheader5 column-header chartype-background-darkest" data-i18n="morningstar">Morningstar</span>
         </div>
         <div class="ark-influence-row">
           <span class="ark-influence ark-influence-col ark-influence-col1">&nbsp;</span>
@@ -2827,17 +2830,17 @@
       <input type="checkbox" name="attr_vehicle_advancedencumbrance" value="1" title="@{vehicle_advancedencumbrance}" style="vertical-align: center;"  />
     </div>
     <div>
-      <span data-i18n="adv-modifiers">Additional modifiers for rolls in lists</span>:
+      <span data-i18n="adv-modifiers">Show attribute, skill and gear modifiers in lists</span>:
       <input type="checkbox" name="attr_adv-modifiers" value="1" title="@{adv-modifiers}" style="vertical-align: center;"  />
     </div>
     <div>
       <span data-i18n="adv-headebgimg">Show header background images (mutant only)</span>:
       <input type="checkbox" name="attr_header-bgimg" value="1" title="@{header-bgimg}" style="vertical-align: center;"  />
     </div>
-    <div>
+    <!--div>
       <span data-i18n="adv-consumables-icons">Show consumables as icons</span>:
       <input type="checkbox" name="attr_consumables-icons" value="1" title="@{consumables-icons}" style="vertical-align: center;"  />
-    </div>
+    </div-->
     <div>&nbsp;</div>
     <div>
       <div><span data-i18n="traits-visibility">Force visibility of character traits</span>:</div>
@@ -2893,22 +2896,18 @@
     <h3 data-i18n="latest-announcements">Latest Announcements</h3>
     <span class="footer">05/04/21</span>
     <ol style="margin: 0 2em 0 2em; padding: 0 1em 0 3em;">
-      <span>v1.00</span> <!-- Also need to update the version in Sheet worker code below -->
-      <li>.</li>
-      <li>Published to Roll20.</li>
-      <li>Published to Roll20.</li>
-      <li>Published to Roll20.</li>
-      <li>Published to Roll20.</li>
-      <li>Published to Roll20.</li>
-      <li>Published to Roll20.</li>
-      <li>Published to Roll20.</li>
+      <span>v2.0</span> <!-- Also need to update the version in Sheet worker code below -->
+      <li>Upgradeable from the version 1.12, using sheet worker versioning.</li>
+      <li>Fixing Dice pool issues in previous version.</li>
+      <li>Adding additional graphics.</li>
+      <li>Published to Roll20, for full list of updates and fixes see pre-v2.0 announcement below.</li>
     </ol>
     <br />
     <input type="checkbox" class="announcements-older-show" name="attr_show_announcements_old" value="1" data-i18n-title="old-announcements" />
     <span data-i18n-title="old-announcements">&nbsp;</span>
     <span class="announcements-older-show">
       <ol>
-        <span>v0.01</span>
+        <span>pre-v2.0</span>
         <li>Updated the sheet with the offical Mutant Year Zero logo.</li>
         <li>Updated version. </li>
         <li>Added a selection for Character Type a la MYZ Alternative sheet, in a dropdown integrated in the tabs. The chosen character type determines what is included in the sheet as well as the color scheme.</li>
@@ -2916,36 +2915,30 @@
         <li>Updated API roll macro to use the Mutant Year Zero macro (!myz). </li>
         <li>Made Armor a repeatable section with one row per armor item, with encumberance and total Armor Rating as a button to use for Armor Rolls. </li>
         <li>Added item weight Quarter, to allow assigning 0.25 weight units to items (if wanted). Also added titles to weight dropdowns.</li>
-        <li>Modified consumables for MYZ rules. </li>
+        <li>Modified consumables for MYZ rules and added E-packs. </li>
         <li>Added Money section for Elysium and Currency project. </li>
-        <li>Added Mutations, Animal Powers, Modules, Biomech and Contacts traits for the different character types.  </li>
-        <li>Added Rot points. Please note there is no functionality for Permanent rot points nor Rot rolls.</li>
+        <li>Added Animal Powers, Modules, Biomech and Contacts traits for the different character types.  </li>
+        <li>Updated Rot points to display properly and moved into third column. Please note there is no functionality for Rot rolls.</li>
         <li>Made it possible to force display of the different traits, e.g. in case Biomechatroid animals, mutated humans, etc.   </li>
         <li>Default sheet settings have been added. Make default changes from the campaign Settings page. These defaults 
             will apply to all new sheets. To apply these changes to all existing sheets as well, you must also use the 
             "Apply Default Settings" button found at the bottom of the sidebar's "My Settings" page. 
-            Currently, Advanced vehicle encumbrance is the only seeting available this way.</li>
-        <li>The range of each d66 dice to allow for custom rolls 0-100(normally, each d6 allows 1-6). 
-            While this does not effect the d66 roll on the sheet, it does allow more flexibility for custom macros if desired.
-            <br /><b>d100 Roll macro example;</b> <br /><textarea style="height: auto;"> @{selected|whisper_option} &amp;{template:mutantyearzero} 
-            {{character_name=@{selected|character_name}}} {{character_id=@{selected|character_id}}} {{name=D100 Roll}} {{d66-die-one=[[ 1 ]] }} {{d66-roll-one=[[ 1d10-1 ]] }} {{d66-die-two=[[ 1 ]] }} {{d66-roll-two=[[ 1d10-1 ]] }}</textarea></li>
+            Currently, Advanced vehicle encumbrance and Add Modifiers are the only seetings available this way.</li>
         <li>Skills, weapons, and armor have additional Modifiers for to make updating the Dice pool easier.</li>
         <li>Profession specific skills added as a repeating section at the bottom of skill list, with same columns in the list as the normal skills. 
             The skill attribute is selecteable through a dropdown. </li>
         <li>All Attributes are rollable, using the Dice pool.</li>
-        <li>Added option to configure one Vehicle, including advanced vehicle information such as Resilience, Armor, Fuel, Occupants. </li>
-        <li>Added option to include gear on/in the vehicle. </li>
-        <li>Option in Settings: Enable the advanced encymberance for vehicles, thus including the occupants and fuel in the encumberance calculation. </li>
-        <li>Repeating row text "+Add" and "Modify" with simple icons.</li>
-        <li>Swedish translations have been added. </li>
+        <li>Added option to configure one Vehicle, including advanced vehicle information such as Resilience, Armor, Fuel, Occupants. 
+            Encumberance can either be straight up based on Gear, or calculated using occupants, fuel, and gear.</li>
+        <li>Repeating row text "+Add" and "Modify" replaced with simple icons.</li>
+        <li>Full Swedish translations have been added. </li>
         <li>Biohazards used to indicate the damage on Attributes. </li>
         <li>Removed toggleable 2nd row to each skill.</li>
-        <li>Added Ark page, which dependent on the character type will display the relevant items such as Projects, Development levels, Influence and Sectors.</li>
+        <li>Added Ark page, which dependent on the character type will display the relevant items such as Projects, Development levels, Influence and Sectors.</li>        
+        <li>Added setting to display Ark page component Projects, Development levels, and Ark details for any character type.</li>
         <li>Updated Monster page to align with updated lists and displayed boxes, as well as the MYZ monster features.</li>
-        <li>Added Appearance box at top of the sheet. </li>
-        <li>Added Relationship section at the bottom of the character sheet. </li>
+        <li>Updated and expanded Relationship section at the bottom of the character sheet. </li>
         <li>Added fonts Oswald and Didact Gothic to make similar to paper sheet. </li>
-        <li>Added Swedish translation. </li>
         <li>Fixed Profession skill dice pool calculation bug (Thanks GiGs).</li>
       </ol>
     </span>
@@ -3682,6 +3675,7 @@ function getSingleAttrAsync(prop){
             } 
             else {
               race_att_names = character_types["Mutant"];
+              setAttrs({chartype: "Mutant"});
             }
             setAttrs({strength_name: race_att_names.strength});
             setAttrs({agility_name: race_att_names.agility});
@@ -3708,10 +3702,6 @@ function getSingleAttrAsync(prop){
             setAttrs({manipulate_name: race_att_names.manipulate});
             setAttrs({heal_name: race_att_names.heal});
         });
-  
-        //getAttrs(["chartype","CharacterType"], function(values) {
-        //  setAttrs("CharacterType"="chartype");
-        //});
     });
   
   /* END RACE TYPE UPDATES */
@@ -3846,20 +3836,20 @@ function getSingleAttrAsync(prop){
     // set the sheet version you are upgrading sheet to, 
     // and set show_announcement to 1 if you want to force an announcement to be shown.
     // don't set a code_version; we use the switch below for that.
-    let new_version = 2.01;
+    let new_version = 2.0;
     let show_announcement = 1;
-    if (!old_version) old_version = 0;
+    if (!old_version) old_version = 0; // New sheet
     switch (true) {
       //add checks for updates here
-      case old_version === 0:
-        break;
-      /*case old_version < 1.71:
-        clog("updating to version 1.71");
-        update_to_1_71(old_version);
+      //case old_version === 0:
+      //  break;
+      /*case old_version < 1.12: // Handled in upgrade to 2.0
+        clog("updating to version 1.12");
+        update_to_1_12(old_version);
         break;*/
-      case old_version < 2.01:
-        clog("updating to version 2.01");
-        update_to_2_01(old_version);
+      case old_version < 2.0:
+        clog("updating to version 2.0");
+        update_to_2_0(old_version);
         break;
       default:
         // if reach this, all codeversion upgrades are complete
@@ -3870,15 +3860,13 @@ function getSingleAttrAsync(prop){
   //add updates here
   
   /* rename misspelled items
-  const update_to_1_71 = (old_version) => {
+  const update_to_1_12 = (old_version) => {
     getAttrs(["armor1_equiped", "armor2_equiped", "shield1_equiped", "stockpile_vegatables"], (v) => {
       const setter = {};
   
       const statswaps = {
         armor1_equiped: "armor1_equipped",
         armor2_equiped: "armor2_equipped",
-        //shield1_equiped: "shield1_equipped",
-        //stockpile_vegatables: "stockpile_vegetables",
       };
   
       Object.entries(statswaps).forEach(([key, value]) => {
@@ -3890,7 +3878,7 @@ function getSingleAttrAsync(prop){
   
       // UPDATE THIS /
       // MUST set the version to a specific value here, the one where the sheet was updated like this.  
-      const current_version = 1.71;
+      const current_version = 1.12;
       setter.version = current_version;
   
       setAttrs(setter, { silent: true }, versionator(current_version));
@@ -3898,19 +3886,37 @@ function getSingleAttrAsync(prop){
     });
   };*/
   
-  /* Upgrade to 2.01 version from previous version */
-  const update_to_2_01 = (old_version) => {
-    clog("** UPDATE TO V2.01 DETECTED **");
+  /* Upgrade to 2.0 version from previous version */
+  const update_to_2_0 = async (old_version) => {
   
     const setter = {};
+    const charname = await getAttrsAsync(["character_name"]);
+    
+    clog(`** UPDATE OF "${charname.character_name}" TO V2.0 FROM ${old_version} DETECTED **`);
     
     // On upgrade, set character type to Mutant
+    clog(`Upgrade ${charname.character_name}: Setting character type Mutant.`);
     setAttrs({chartype: "Mutant"});
+    //const chartypeStr = "Mutant";
+    //setter.chartype = chartypeStr;
+    
+    // On upgrade, turn off modifiers
+    clog(`Upgrade ${charname.character_name}: Turning off modifiers.`);
+    setAttrs({"adv-modifiers": 0});
+    //const modifiersTgl = 0;
+    //setter["adv-modifiers"] = modifiersTgl;
+    
+    // On upgrade, turn on Mutant headers
+    clog(`Upgrade ${charname.character_name}: using image header backgrounds.`);
+    setAttrs({"header-bgimg": 1});
+    //const bgimgTgl = 1;
+    //setter["header-bgimg"] = bgimgTgl;  
     
     // Upgrade attributes, no need to update damages
     Object.keys(attributes).forEach((attr) => {
-      getAttrs([attr, attributes[attr], damages[attr], attr+"_max"], (values) => {
+      getAttrs([attr, attributes[attr], damages[attr], attr+"_max", "character_name"], (values) => {
         var attrib = {};
+        const charname = values.character_name;
         if (attr == "strength") {
           // Set strength attributes for PC and Monster to attribute_max value
           attrib["strength"] = values["strength_max"];
@@ -3924,16 +3930,18 @@ function getSingleAttrAsync(prop){
         }
         const attr_name = getSkillName(attr);
         //attrib[attr_total] = values[attributes[attr]];
-        clog(`Upgrading ${attr_name} from ${attr_name}_max ${values[attr+"_max"]} to ${attr_name} ${setter[attr]} with total ${setter[attr+"_total"]}.`);
+        clog(`Upgrade ${attr_name} from ${attr_name}_max ${values[attr+"_max"]} to ${attr_name} ${setter[attr]} with total ${setter[attr+"_total"]}.`);
         setAttrs(attrib);
       });
     });
+
     // Upgrade conditions - no need
     // Upgrade apprearance - no need
     // Upgrade injuries - non need
     // Upgrade rot - 
     getAttrs(["rot_permenant"], (values) => {
       const permanent = int(values.rot_permenant);
+      clog(`Upgrade ${charname.character_name} permanent rot points ${permanent}`);
       setAttrs({rot_permanent: permanent})
     });
   
@@ -3948,10 +3956,12 @@ function getSingleAttrAsync(prop){
     // Mutations
     getSectionIDs("repeating_mutantions", function(mutantions) {
       mutantions.forEach((mutantionsId) => {
-        getAttrs(["repeating_mutantions_"+mutantionsId+"_mutantion_name", "repeating_mutantions_"+mutantionsId+"_mutantion_description"], (values) => {
+        getAttrs(["repeating_mutantions_"+mutantionsId+"_mutantion_name", "repeating_mutantions_"+mutantionsId+"_mutantion_description", "character_name"], (values) => {
           const name = values["repeating_mutantions_"+mutantionsId+"_mutantion_name"],
           description = values["repeating_mutantions_"+mutantionsId+"_mutantion_description"],
-          newrowid = generateRowID();
+          newrowid = generateRowID(),
+          charname = values.character_name;
+          clog(`Upgrade ${charname}'s mutation ${name}.`);
           let newmutation = {};
           newmutation["repeating_mutations_"+newrowid+"_name"] = name;
           newmutation["repeating_mutations_"+newrowid+"_description"] = description;
@@ -3963,16 +3973,18 @@ function getSingleAttrAsync(prop){
     });
 
     // Mutation points
-    getAttrs(["mutation"], (values) => {
-      const mutation = int(values.mutation);
+    getAttrs(["mutation", "character_name"], (values) => {
+      const mutation = int(values.mutation),
+      charname = values.character_name;
+      clog(`Upgrade ${charname} mutation points ${mutation}`);
       setAttrs({mutationpoints: mutation});
     });
 
     // Upgrade Weapons ASYNC
     getSectionIDs("repeating_weapons", function(weapons) {
       weapons.forEach( async (weaponId) => {
-        var values = await getAttrsAsync(["repeating_weapons_"+weaponId+"_weapon_name", "repeating_weapons_"+weaponId+"_weapon_skill", "repeating_weapons_"+weaponId+"_weapon_bonus", "repeating_weapons_"+weaponId+"_weapon_damage", "repeating_weapons_"+weaponId+"_weapon_range", "repeating_weapons_"+weaponId+"_weapon_features", "strength_total", "agility_total"]);
-        clog(`Upgrade weapon attributes: Weapon ${values["repeating_weapons_"+weaponId+"_weapon_name"]} with ${int(values["repeating_weapons_"+weaponId+"_weapon_skill"])} bonus ${int(values["repeating_weapons_"+weaponId+"_weapon_bonus"])} and damage ${int(values["repeating_weapons_"+weaponId+"_weapon_damage"])} up to ${values["repeating_weapons_"+weaponId+"_weapon_range"]} distance.`);
+        var values = await getAttrsAsync(["repeating_weapons_"+weaponId+"_weapon_name", "repeating_weapons_"+weaponId+"_weapon_skill", "repeating_weapons_"+weaponId+"_weapon_bonus", "repeating_weapons_"+weaponId+"_weapon_damage", "repeating_weapons_"+weaponId+"_weapon_range", "repeating_weapons_"+weaponId+"_weapon_features", "strength_total", "agility_total", "character_name"]);
+        //clog(`Upgrade weapon attributes: Weapon ${values["repeating_weapons_"+weaponId+"_weapon_name"]} with ${int(values["repeating_weapons_"+weaponId+"_weapon_skill"])} bonus ${int(values["repeating_weapons_"+weaponId+"_weapon_bonus"])} and damage ${int(values["repeating_weapons_"+weaponId+"_weapon_damage"])} up to ${values["repeating_weapons_"+weaponId+"_weapon_range"]} distance.`);
         const name = values["repeating_weapons_"+weaponId+"_weapon_name"],
         skill = int(values["repeating_weapons_"+weaponId+"_weapon_skill"]),
         bonus = int(values["repeating_weapons_"+weaponId+"_weapon_bonus"]),
@@ -3981,8 +3993,9 @@ function getSingleAttrAsync(prop){
         features = values["repeating_weapons_"+weaponId+"_weapon_features"],
         strength = int(values.strength_total),
         agility = int(values.agility_total),
-        base = skill === 0 ? strength : agility;
-        clog(`Upgrade weapon: Weapon ${name} with ${skill} bonus ${bonus} and damage ${damage} up to ${range} distance.`);
+        base = skill === 0 ? strength : agility,
+        charname = values.character_name;
+        clog(`Upgrade ${charname}'s weapon Weapon ${name} with ${base} base, bonus ${bonus} and damage ${damage} up to ${range} distance.`);
   
         let weapon = {};
         weapon["repeating_weapons_"+weaponId+"_weapon_name"] = name;
@@ -4006,11 +4019,11 @@ function getSingleAttrAsync(prop){
       });
     });
   
-    /*/ Upgrade Weapons
+    /* Upgrade Weapons
     getSectionIDs("repeating_weapons", function(weapons) {
       weapons.forEach((weaponId) => {
-        getAttrs(["repeating_weapons_"+weaponId+"_weapon_name", "repeating_weapons_"+weaponId+"_weapon_skill", "repeating_weapons_"+weaponId+"_weapon_bonus", "repeating_weapons_"+weaponId+"_weapon_damage", "repeating_weapons_"+weaponId+"_weapon_range", "repeating_weapons_"+weaponId+"_weapon_features", "strength_total", "agility_total"], (values) => {
-          clog(`Upgrade weapon attributes: Weapon ${values["repeating_weapons_"+weaponId+"_weapon_name"]} with ${values["repeating_weapons_"+weaponId+"_weapon_skill"]} bonus ${values["repeating_weapons_"+weaponId+"_weapon_bonus"]} and damage ${values["repeating_weapons_"+weaponId+"_weapon_damage"]} up to ${values["repeating_weapons_"+weaponId+"_weapon_range"]} distance.`);
+        getAttrs(["repeating_weapons_"+weaponId+"_weapon_name", "repeating_weapons_"+weaponId+"_weapon_skill", "repeating_weapons_"+weaponId+"_weapon_bonus", "repeating_weapons_"+weaponId+"_weapon_damage", "repeating_weapons_"+weaponId+"_weapon_range", "repeating_weapons_"+weaponId+"_weapon_features", "strength_total", "agility_total", "character_name"], (values) => {
+          //clog(`Upgrade weapon attributes: Weapon ${values["repeating_weapons_"+weaponId+"_weapon_name"]} with ${values["repeating_weapons_"+weaponId+"_weapon_skill"]} bonus ${values["repeating_weapons_"+weaponId+"_weapon_bonus"]} and damage ${values["repeating_weapons_"+weaponId+"_weapon_damage"]} up to ${values["repeating_weapons_"+weaponId+"_weapon_range"]} distance.`);
           const name = values["repeating_weapons_"+weaponId+"_weapon_name"],
           skill = int(values["repeating_weapons_"+weaponId+"_weapon_skill"]),
           bonus = int(values["repeating_weapons_"+weaponId+"_weapon_bonus"]),
@@ -4019,8 +4032,9 @@ function getSingleAttrAsync(prop){
           features = values["repeating_weapons_"+weaponId+"_weapon_features"],
           strength = int(values.strength_total),
           agility = int(values.agility_total),
-          base = skill === 0 ? strength : agility;
-          clog(`Upgrade weapon: Weapon ${name} with ${skill} bonus ${bonus} and damage ${damage} up to ${range} distance.`);
+          base = skill === 0 ? strength : agility,
+          charname = values.character_name;
+          clog(`Upgrade ${charname}'s weapon Weapon ${name} with ${base} base, bonus ${bonus} and damage ${damage} up to ${range} distance.`);
   
           let weapon = {};
           //weapon["repeating_weapons_"+weaponId+"_weapon_name"] = name;
@@ -4040,62 +4054,65 @@ function getSingleAttrAsync(prop){
           //weapon["repeating_weapons_"+weaponId+"_weapon_carried"] = 1;
           //weapon["repeating_weapons_"+weaponId+"_weapon_weight"] = 1;
           //weapon["repeating_weapons_"+weaponId+"_weapon_features"] = features;
-          clog("weapon upgrade : "+JSON.stringify(weapon));
+          //clog("weapon upgrade : "+JSON.stringify(weapon));
           setAttrs(weapon);
           });
         });
       });*/
   
-    // Upgrade armor to repeating section
-    getAttrs(["armor1_ar", "armor1_bonus", "armor1_damage", "armor1_equiped", "armor1_name", "armor2_ar", "armor2_bonus", "armor2_damage", "armor2_equiped", "armor2_name"], function(values) {
-    
-        var newarmor = {};
-    
-        //clog("Upgrade: Armor1_name  is "+values.armor1_name +" and Armor1_bonus is "+values.armor1_bonus+" with damage "+values.armor1_damage+" and equipped "+values.armor1_equiped);
+      // Upgrade armor to repeating section
+      getAttrs(["armor1_ar", "armor1_bonus", "armor1_damage", "armor1_equiped", "armor1_name", "armor2_ar", "armor2_bonus", "armor2_damage", "armor2_equiped", "armor2_name", "character_name"], function(values) {
+        const charname = values.character_name;
+  
+        var newarmor1 = {};
+
+        clog(`Upgrade ${charname}'s Armor1 ${values.armor1_name} with bonus ${values.armor1_bonus} and damage ${values.armor1_damage}, equipped ${values.armor1_equiped}`);
         //clog("Upgrade armor1 name: "+(values.armor1_name != null));
         //clog("Upgrade armor1 bonus: "+(values.armor1_bonus != null));
-        if (values.armor1_name != null || values.armor1_bonus != null) {
-            //clog("Upgrading Armor1 : " + values.armor1_name + " with bonus : "+ values.armor1_bonus +".");
+  
+        if (values.armor1_name != null && values.armor1_bonus != null) {
+            clog("Upgrading Armor1 : " + values.armor1_name + " with bonus : "+ values.armor1_bonus +".");
             const newrowid1 = generateRowID();
             const bonus1_actual = int(values.armor1_bonus) + int(values.armor1_damage);
-            const rating1 = bonus1_actual * int(values.armor1_equiped);
-            //clog("Armor rating calculated: "+rating1);
-            newarmor["repeating_armor_" + newrowid1 + "_name"] = values.armor1_name;
-            newarmor["repeating_armor_" + newrowid1 + "_rating"] = rating1;
-            newarmor["repeating_armor_" + newrowid1 + "_carried"] = 1;
-            newarmor["repeating_armor_" + newrowid1 + "_equipped"] = values.armor1_equiped || 1;
-            newarmor["repeating_armor_" + newrowid1 + "_bonus"] = bonus1_actual;
-            newarmor["repeating_armor_" + newrowid1 + "_bonus_misc"] = 0;
-            newarmor["repeating_armor_" + newrowid1 + "_bonus_max"] = int(values.armor1_bonus);
-            newarmor["repeating_armor_" + newrowid1 + "_weight"] = 1;
-            newarmor["repeating_armor_" + newrowid1 + "_features"] = '';
+            const rating1 = bonus1_actual * (values.armor1_equiped == 0 ? 0 : 1);
+            clog("Armor rating calculated: "+rating1);
+            newarmor1["repeating_armor_" + newrowid1 + "_name"] = values.armor1_name;
+            newarmor1["repeating_armor_" + newrowid1 + "_rating"] = rating1;
+            newarmor1["repeating_armor_" + newrowid1 + "_carried"] = 1;
+            newarmor1["repeating_armor_" + newrowid1 + "_equipped"] = values.armor1_equiped || 1;
+            newarmor1["repeating_armor_" + newrowid1 + "_bonus"] = bonus1_actual;
+            newarmor1["repeating_armor_" + newrowid1 + "_bonus_misc"] = 0;
+            newarmor1["repeating_armor_" + newrowid1 + "_bonus_max"] = int(values.armor1_bonus);
+            newarmor1["repeating_armor_" + newrowid1 + "_weight"] = 1;
+            newarmor1["repeating_armor_" + newrowid1 + "_features"] = '';
         }
-        setAttrs(newarmor);
+        setAttrs(newarmor1);
+  
+        var newarmor2 = {};
 
-        newarmor = {};
-        
-        //clog("Upgrade: Armor2_name  is "+values.armor2_name +" and Armor2_bonus is "+values.armor2_bonus+" with damage "+values.armor2_damage+" and equipped "+values.armor2_equiped);
-        //clog("Upgrade armor2 name: "+(values.armor2_name != ""));
-        //clog("Upgrade armor2 bonus: "+(values.armor2_bonus != ""));
-        if (values.armor2_name != "" || values.armor2_bonus != null) {
-            //clog("Upgrading Armor2 : " + values.armor2_name + " with bonus : "+ values.armor2_bonus +".");
+        clog(`Upgrade ${charname}'s Armor2 ${values.armor2_name} with bonus ${values.armor2_bonus} and damage ${values.armor2_damage}, equipped ${values.armor2_equiped}`);
+        //clog("Upgrade armor2 name: "+(values.armor2_name != null));
+        //clog("Upgrade armor2 bonus: "+(values.armor2_bonus != null));
+
+        if (values.armor2_bonus != null && values.armor2_name != null) {
+            clog("Upgrading Armor2 : " + values.armor2_name + " with bonus : "+ values.armor2_bonus +".");
             const newrowid2 = generateRowID();
             const bonus2_actual = int(values.armor2_bonus) + int(values.armor2_damage);
-            const rating2 = bonus2_actual * int(values.armor2_equiped);
-            //clog("Armor rating calculated: "+rating2);
-            newarmor["repeating_armor_" + newrowid2 + "_name"] = values.armor2_name;
-            newarmor["repeating_armor_" + newrowid2 + "_rating"] = rating2;
-            newarmor["repeating_armor_" + newrowid2 + "_carried"] = 1;
-            newarmor["repeating_armor_" + newrowid2 + "_equipped"] = values.armor2_equiped || 1;
-            newarmor["repeating_armor_" + newrowid2 + "_bonus"] = bonus2_actual;
-            newarmor["repeating_armor_" + newrowid2 + "_bonus_misc"] = 0;
-            newarmor["repeating_armor_" + newrowid2 + "_bonus_max"] = int(values.armor2_bonus);
-            newarmor["repeating_armor_" + newrowid2 + "_weight"] = 1;
-            newarmor["repeating_armor_" + newrowid2 + "_features"] = '';
+            const rating2 = bonus2_actual * (values.armor2_equiped == 0 ? 0 : 1);
+            clog("Armor rating calculated: "+rating2);
+            newarmor2["repeating_armor_" + newrowid2 + "_name"] = values.armor2_name;
+            newarmor2["repeating_armor_" + newrowid2 + "_rating"] = rating2;
+            newarmor2["repeating_armor_" + newrowid2 + "_carried"] = 1;
+            newarmor2["repeating_armor_" + newrowid2 + "_equipped"] = values.armor2_equiped || 1;
+            newarmor2["repeating_armor_" + newrowid2 + "_bonus"] = bonus2_actual;
+            newarmor2["repeating_armor_" + newrowid2 + "_bonus_misc"] = 0;
+            newarmor2["repeating_armor_" + newrowid2 + "_bonus_max"] = int(values.armor2_bonus);
+            newarmor2["repeating_armor_" + newrowid2 + "_weight"] = 1;
+            newarmor2["repeating_armor_" + newrowid2 + "_features"] = '';
         }
-        setAttrs(newarmor);
-
-        });
+        setAttrs(newarmor2);
+  
+      });
   
     // Upgrade gear, vehicle and consumables
       // Gear - no need
@@ -4107,12 +4124,13 @@ function getSingleAttrAsync(prop){
   
     // Upgrade Ark sheet
     // Development levels 
-    getAttrs(["ark_food_supply","ark_culture", "ark_technology", "ark_warfare", "ark_dev_food", "ark_dev_cult", "ark_dev_tech", "ark_dev_war"], (values) => {
-      //clog("Upgrading ark development levels");
+    getAttrs(["ark_food_supply","ark_culture", "ark_technology", "ark_warfare", "ark_dev_food", "ark_dev_cult", "ark_dev_tech", "ark_dev_war", "character_name"], (values) => {
       const food = int(values.ark_food_supply),
-      culture = int(values.ark_culture),
-      tech = int(values.ark_technology),
-      war = int(values.ark_warfare);
+        culture = int(values.ark_culture),
+        tech = int(values.ark_technology),
+        war = int(values.ark_warfare),
+        charname = values.character_name;
+      clog(`Upgrade ${charname}'s ark development levels: food ${food}, culture ${culture}, technology ${tech}, and warfare ${war}.`);
       setAttrs({
           ark_dev_food: food,
           ark_dev_cult: culture,
@@ -4125,7 +4143,7 @@ function getSingleAttrAsync(prop){
   
     // UPDATE THIS /
     // MUST set the version to a specific value here, the one where the sheet was updated like this.  
-    const current_version = 2.01;
+    const current_version = 2.0;
     setter.version = current_version;
   
     setAttrs(setter, { silent: true }, versionator(current_version));
@@ -4159,12 +4177,6 @@ function getSingleAttrAsync(prop){
     });
   };
   
-  /* hireling cost */
-  on("change:repeating_hirelings remove:repeating_hirelings sheet:opened", function () {
-    //clog("Change Detected: Hirelings");
-    repeatingSum("hirelings_cost", "hirelings", ["hireling_number", "hireling_salary"]);
-  });
-  
   /* character encumbrance */
   on("change:repeating_gear remove:repeating_gear sheet:opened", function () {
     clog("Change Detected: Character Gear Encumbrance");
@@ -4172,9 +4184,9 @@ function getSingleAttrAsync(prop){
   });
   
   /* vehicle encumbrance */
-  on("change:repeating_vehiclegear remove:repeating_vehiclegear sheet:opened", function () {
+  on("change:repeating_vehicle remove:repeating_vehicle sheet:opened", function () {
     clog("Change Detected: Vehicle Gear Encumbrance");
-    repeatingSum("vehiclegear_encumbrance", "vehiclegear", ["vehiclegear_weight", "vehiclegear_qty", "vehiclegear_carried"]);
+    repeatingSum("vehiclegear_encumbrance", "vehicle", ["vehiclegear_weight", "vehiclegear_qty", "vehiclegear_carried"]);
   });
   
   /* weapons encumbrance */
@@ -4384,7 +4396,7 @@ function getSingleAttrAsync(prop){
           const skill_misc = int(values[`repeating_skills_${id}_misc`]);
           const skill_gear = int(values[`repeating_skills_${id}_gear`]);
           // separate out the basic values read from the sheet from those calculated within the worker. for clarity
-          const skill_base = values[`${attr}_total`] || 0;
+          const skill_base = int(values[`${attr}_total`] || 0);
           const skill_total = skill_base + skill_skill + skill_misc + skill_gear;
           output[`repeating_skills_${id}_base`] = skill_base;
           output[`repeating_skills_${id}_total`] = skill_total;
@@ -5066,8 +5078,8 @@ function getSingleAttrAsync(prop){
     clog("Change Detected: Strength - button clicked");
     getAttrs(["strength_total"], function (values) {
       const strength_total = int(values.strength_total),
-      strength_name = getSkillName("strength_total");
-      //clog(strength_name + " : " + strength_total);
+      strength_name = getSkillName("strength");
+      //clog(strength_name + " : " + strength);
       setAttrs({
         attribute: strength_total,
         skill: 0,
@@ -5130,7 +5142,7 @@ function getSingleAttrAsync(prop){
   });
   
   /* delete empty repeating rows w/out having to close/reopen sheet*/
-  on('remove:repeating_injuries remove:repeating_weapons remove:repeating_skills remove:repeating_gear remove:repeating_vehiclegear remove:repeating_relationships remove:repeating_spells remove:repeating_beasts remove:repeating_notes remove:repeating_ark-notes remove:repeating_log remove:repeating_monster remove:repeating_mutations remove:repeating_armor remove:repeating_biomechs remove:repeating_contacts remove:repeating_animalpowers remove:repeating_modules remove:repeating_talents', function() { 
+  on('remove:repeating_injuries remove:repeating_weapons remove:repeating_skills remove:repeating_gear remove:repeating_vehicle remove:repeating_relationships remove:repeating_spells remove:repeating_beasts remove:repeating_notes remove:repeating_ark-notes remove:repeating_log remove:repeating_monster remove:repeating_mutations remove:repeating_armor remove:repeating_biomechs remove:repeating_contacts remove:repeating_animalpowers remove:repeating_modules remove:repeating_talents', function() { 
     const timestamp = Number(new Date())
     setAttrs({ repeat_delete: timestamp });
     clog("repeating row has been removed");

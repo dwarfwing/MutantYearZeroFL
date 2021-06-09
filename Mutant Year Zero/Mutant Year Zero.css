@@ -738,6 +738,7 @@ button.sheet-roll-button-textonly span {
   transition: opacity 0.5s;
   border-radius: 4px;
   box-shadow: 0 2px 15px transparent;
+  max-height: 24px;
 }
 
 .sheet-box-indicator::after {

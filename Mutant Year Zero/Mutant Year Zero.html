@@ -1762,7 +1762,7 @@
           </div>
           <div class="powerpoint-box3 chartype-background-dark">
             <!--span class="input-span" name="attr_rot" title="@{rot}" readonly></span-->
-            <button type="action" class="rot-button" name="act_rot-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+            <button type="action" class="rot-button" name="act_rot_roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
               <span class="readonly character-skill-total rot-button" name="attr_rot" value="0" title="Rotpoints" data-i18n-title="rotpoints" disabled>0</span>
             </button>
           </div>
@@ -4921,7 +4921,7 @@ function getSingleAttrAsync(prop){
   });
   
   /* set rot dice pool */
-  on("clicked:rot-roll", function () {
+  on("clicked:rot_roll", function () {
     clog("Change Detected: Rot - button clicked");
     getAttrs(["rot", "rot_permanent"], function (values) {
         const rot = int(values.rot),
@@ -4930,7 +4930,7 @@ function getSingleAttrAsync(prop){
           attribute: rot,
           gear: 0,
           skill: 0,
-          current_preset: getTranslationByKey(`rot-roll`),
+          current_preset: getTranslationByKey(`rot_roll`),
           include_with_roll: `{{rot-level=[[ ${rot} ]]}} {{rot-permanent=[[ ${rot_permanent} ]]}}`,
         });
       }
@@ -4971,7 +4971,7 @@ function getSingleAttrAsync(prop){
   
   /* Update the Dice Pool indicator */
   on(
-    "clicked:dice_pool_clear clicked:strength_roll clicked:agility_roll cliecked:wits_roll clicked:empathy_roll clicked:repeating_skills:skill-roll clicked:dice_pool_force_monster clicked:dice_pool_endure_monster clicked:dice_pool_fight_monster clicked:dice_pool_force clicked:dice_pool_endure clicked:dice_pool_fight clicked:dice_pool_sneak clicked:dice_pool_know_the_zone clicked:dice_pool_move clicked:dice_pool_shoot clicked:dice_pool_scout clicked:dice_pool_comprehend clicked:dice_pool_manipulate clicked:dice_pool_sense_emotion clicked:dice_pool_heal clicked:reputation-roll clicked:repeating_weapons:attack-roll clicked:repeating_weapons:attack-parry-roll clicked:repeating_monster:monster-features-roll clicked:repeating_spells:spell-roll clicked:armor-roll",
+    "clicked:dice_pool_clear clicked:strength_roll clicked:agility_roll cliecked:wits_roll clicked:empathy_roll clicked:rot_roll clicked:repeating_skills:skill-roll clicked:dice_pool_force_monster clicked:dice_pool_endure_monster clicked:dice_pool_fight_monster clicked:dice_pool_force clicked:dice_pool_endure clicked:dice_pool_fight clicked:dice_pool_sneak clicked:dice_pool_know_the_zone clicked:dice_pool_move clicked:dice_pool_shoot clicked:dice_pool_scout clicked:dice_pool_comprehend clicked:dice_pool_manipulate clicked:dice_pool_sense_emotion clicked:dice_pool_heal clicked:reputation-roll clicked:repeating_weapons:attack-roll clicked:repeating_weapons:attack-parry-roll clicked:repeating_monster:monster-features-roll clicked:repeating_spells:spell-roll clicked:armor-roll",
     function () {
       clog("Change Detected: Update Dice Pool");
       getAttrs(["roll_the_dice_flag"], function (values) {

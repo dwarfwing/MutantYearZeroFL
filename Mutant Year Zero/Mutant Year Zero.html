@@ -104,7 +104,7 @@
           <input type="number" class="input-number" name="attr_age" min="0" title="@{age}">
         </div>
         <div class="heading-box heading-box9 char-human">
-          <span class="sheet-label" data-i18n="reputation">Reputation</span><br>
+          <span class="sheet-label" data-i18n-title="reputation-title" data-i18n="reputation">Reputation</span><br>
           <input type="number" class="input-number" name="attr_reputation" title="@{reputation}" />
         </div>
         <div class="heading-box heading-box9 char-robot">
@@ -134,7 +134,7 @@
         <input class="broken-wit" type="hidden" name="attr_wits_total" value="0" />
         <input class="broken-emp" type="hidden" name="attr_empathy_total" value="0" />
         <div class="attributes-box2">
-          <button type="action" name="act_strength-roll" value="" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+          <button type="action" name="act_strength_roll" value="" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
             <span class="label broken-str" data-i18n="strength" name="attr_strength_name">Strength</span>
           </button>
         </div>
@@ -202,7 +202,7 @@
           <span class="input-span broken-str" name="attr_strength_total" value="1" title="@{strength_total}">1</span>
         </div>
         <div class="attributes-box6">
-          <button type="action" name="act_agility-roll" value="" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+          <button type="action" name="act_agility_roll" value="" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
             <span class="label broken-agi" data-i18n="agility" name="attr_agility_name">Agility</span>
           </button>
         </div>
@@ -232,7 +232,7 @@
           <span class="input-span broken-agi" name="attr_agility_total" value="1" title="@{agility_total}">1</span>
         </div>
         <div class="attributes-box10">
-          <button type="action" name="act_wits-roll" value="" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+          <button type="action" name="act_wits_roll" value="" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
             <span class="label broken-wit" data-i18n="wits" name="attr_wits_name">Wits</span>
           </button>
         </div>
@@ -262,7 +262,7 @@
           <span class="input-span broken-wit" name="attr_wits_total" value="1" title="@{wits_total}">1</span>
         </div>
         <div class="attributes-box14">
-          <button type="action" name="act_empathy-roll" value="" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+          <button type="action" name="act_empathy_roll" value="" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
             <span class="label broken-emp" data-i18n="empathy" name="attr_empathy_name">Empathy</span>
           </button>
         </div>
@@ -293,59 +293,59 @@
         </div>
       </div>
       <div class="conditions-grid toggle-pc-only chartype-background-dark">
-        <div class="conditions-box2"><input class="input xbox conditions-hungry" type="checkbox" name="attr_hungry" value="1" data-i18n-title="condition-hungry" title="@{hungry}" /><span></span></div>
         <input class="hidden conditions-hungry" type="checkbox" name="attr_hungry" value="1" />
-        <div class="conditions-box3">
-          <span class="header-h1 conditions-hungry" data-i18n="hungry-condition">Hungry</span>
+        <div class="conditions-box conditions-box2 conditions-hungry"><input class="input xbox conditions-hungry" type="checkbox" name="attr_hungry" value="1" data-i18n-title="condition-hungry" title="Hungry" /><span></span></div>
+        <div class="conditions-box conditions-box3 conditions-hungry">
+          <span class="header-h1 conditions-hungry" data-i18n="hungry-condition">Starving</span>
         </div>
-        <div class="conditions-box4"><input class="input xbox conditions-sleepy" type="checkbox" name="attr_sleepy" value="1" data-i18n-title="condition-sleepy" title="@{sleepy}" /><span></span></div>
         <input class="hidden conditions-sleepy" type="checkbox" name="attr_sleepy" value="1" />
-        <div class="conditions-box5">
-          <span class="header-h1 conditions-sleepy" data-i18n="sleepy-condition">Sleepy</span>
+        <div class="conditions-box conditions-box4 conditions-sleepy"><input class="input xbox conditions-sleepy" type="checkbox" name="attr_sleepy" value="1" data-i18n-title="condition-sleepy" title="Sleepy" /><span></span></div>
+        <div class="conditions-box conditions-box5 conditions-sleepy">
+          <span class="header-h1 conditions-sleepy" data-i18n="sleepy-condition">Sleepless</span>
         </div>
-        <div class="conditions-box6"><input class="input xbox conditions-thirsty" type="checkbox" name="attr_thirsty" value="1" data-i18n-title="condition-thirsty" title="@{thirsty}" /><span></span></div>
         <input class="hidden conditions-thirsty" type="checkbox" name="attr_thirsty" value="1" />
-        <div class="conditions-box7">
-          <span class="header-h1 conditions-thirsty" data-i18n="thirsty-condition">Thirsty</span>
+        <div class="conditions-box conditions-box6 conditions-thirsty"><input class="input xbox conditions-thirsty" type="checkbox" name="attr_thirsty" value="1" data-i18n-title="condition-thirsty" title="Thirsty" /><span></span></div>
+        <div class="conditions-box conditions-box7 conditions-thirsty">
+          <span class="header-h1 conditions-thirsty" data-i18n="thirsty-condition">Dehydrated</span>
         </div>
-        <div class="conditions-box8"><input class="input xbox conditions-cold" type="checkbox" name="attr_cold" value="1" data-i18n-title="condition-cold" title="@{cold}" /><span></span></div>
         <input class="hidden conditions-cold" type="checkbox" name="attr_cold" value="1" />
-        <div class="conditions-box9">
-          <span class="header-h1 conditions-cold" data-i18n="cold-condition">Cold</span>
+        <div class="conditions-box conditions-box8 conditions-cold"><input class="input xbox conditions-cold" type="checkbox" name="attr_cold" value="1" data-i18n-title="condition-cold" title="Cold" /><span></span></div>
+        <div class="conditions-box conditions-box9 conditions-cold">
+          <span class="header-h1 conditions-cold" data-i18n="cold-condition">Hypothermic</span>
         </div>
       </div>
     </div>
 
-    <div class="monster-attacks box monster-grid toggle-monster-only chartype-background-light">
-      <div class="monster-attacks-grid">
-        <div class="monster-attacks-box header">
+    <div class="monster-features box toggle-monster-only chartype-background-light">
+      <div class="monster-features-grid">
+        <div class="monster-features-box header">
           <h1 data-i18n="monster-features-u">MONSTER FEATURES</h1>
         </div>
-        <div class="monster-attacks-box1 column-header">
+        <div class="monster-features-box1 column-header">
           <span data-i18n="name">Name</span>
         </div>
-        <div class="monster-attacks-box2 column-header">
+        <div class="monster-features-box2 column-header">
           <span data-i18n="features">Features</span>
         </div>
-        <div class="monster-attacks-box3 column-header">
+        <div class="monster-features-box3 column-header">
           <span data-i18n="dice">Dice</span>
         </div>
-        <div class="monster-attacks-box4 column-header">
+        <div class="monster-features-box4 column-header">
           <span data-i18n="damage-abbr">Dmg</span>
         </div>
-        <div class="monster-attacks-box5 column-header">
+        <div class="monster-features-box5 column-header">
           <span data-i18n="range">Range</span>
         </div>
-        <div class="monster-attacks-box6 column-header"></div>
-        <div class="monster-attacks-box8 repeating-fields">
+        <div class="monster-features-box6 column-header"></div>
+        <div class="monster-features-box8 repeating-fields">
           <fieldset class="repeating_monster">
-            <div class="monster-attacks-grid">
+            <div class="monster-features-grid">
               <input class="expand" type="checkbox" name="attr_expand" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
-              <input class="monster-attacks-box1 input" type="text" name="attr_attack_name" value="" title="@{repeating_monster_$X_attack_name}" data-i18n-placeholder="name" placeholder="Name" />
-              <input class="monster-attacks-box2 input-text" type="text" name="attr_attack_features" value="" title="@{repeating_monster_$X_attack_features}" />
-              <input class="monster-attacks-box3 input-number" type="number" name="attr_attack_dice" value="0" title="@{repeating_monster_$X_attack_dice}" />
-              <input class="monster-attacks-box4 input-number" type="number" name="attr_attack_damage" value="0" title="@{repeating_monster_$X_attack_damage}" />
-              <select class="monster-attacks-box5 input" name="attr_attack_range" title="@{repeating_monster_$X_attack_range}">
+              <input class="monster-features-box1 input" type="text" name="attr_attack_name" value="" title="@{repeating_monster_$X_attack_name}" data-i18n-placeholder="name" placeholder="Name" />
+              <input class="monster-features-box2 input-text" type="text" name="attr_attack_features" value="" title="@{repeating_monster_$X_attack_features}" />
+              <input class="monster-features-box3 input-number" type="number" name="attr_attack_dice" value="0" title="@{repeating_monster_$X_attack_dice}" />
+              <input class="monster-features-box4 input-number" type="number" name="attr_attack_damage" value="0" title="@{repeating_monster_$X_attack_damage}" />
+              <select class="monster-features-box5 input" name="attr_attack_range" title="@{repeating_monster_$X_attack_range}">
                 <option value="n/a" data-i18n="not-applicable-abbr">n/a</option>
                 <option value="Arm" data-i18n="arms-length-abbr" selected>Arm's L.</option>
                 <option value="Near" data-i18n="near">Near</option>
@@ -353,10 +353,10 @@
                 <option value="Long" data-i18n="long">Long</option>
                 <option value="Distant" data-i18n="distant">Distant</option>
               </select>
-              <button class="monster-attacks-box6 roll-button" type="action" name="act_monster-attack-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
+              <button class="monster-features-box6 roll-button" type="action" name="act_monster-features-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
                 t
               </button>
-              <textarea class="monster-attacks-box8 input-textarea" name="attr_attack_description" title="@{repeating_monster_$X_attack_description}" data-i18n-placeholder="description" placeholder="description"></textarea>              
+              <textarea class="monster-features-box8 input-textarea" name="attr_attack_description" title="@{repeating_monster_$X_attack_description}" data-i18n-placeholder="description" placeholder="description"></textarea>              
             </div>
           </fieldset>
         </div>
@@ -437,7 +437,7 @@
               <select class="injuries-box9 input" name="attr_injury_lethal" title="@{repeating_injuries_$X_injury_lethal}">
                 <option value="no" data-i18n="no" selected>No</option>
                 <option value="yes" data-i18n="yes">Yes</option>
-                <option value="yes -1" data-i18n="yes-1">Yes,-1</option>
+                <option value="yes -1" data-i18n="yes-1">Yes, -1</option>
                 <option value="n/a" data-i18n="not-applicable-abbr">n/a</option>
               </select>
               <input type="text" class="injuries-box10 input" name="attr_injury_time_limit" value="n/a" title="@{repeating_injuries_$X_injury_time_limit}" />
@@ -458,7 +458,7 @@
           <h1 style="margin-top: -21px;"></h1>
         </div>
         <div class="weapons-box weapons-box-header header">
-          <h1 data-i18n="weapon-u" style="margin-top: -21px;">WEAPONS</h1>
+          <h1 data-i18n="weapons-u" style="margin-top: -21px;">WEAPONS</h1>
         </div>
         <div class="weapons-box weapons-box-skill column-header">
           <h1 data-i18n="skill" style="margin-top: -21px;">SKILL</h1>
@@ -496,7 +496,7 @@
           <span data-i18n="bonus-abbr" class="modifiers-toggled-on">Bonus</span>
         </div>
         <div class="weapons-box weapons-box12 column-header">
-          <span data-i18n="max-abbr">Max</span>
+          <span data-i18n="maximum-abbr">Max</span>
         </div>
         <div class="weapons-box weapons-box13 column-header modifiers-toggled-on">
           <span data-i18n="modifier-abbr" data-i18n-title="modifier" class="modifiers-toggled-on">Mod</span>
@@ -716,7 +716,7 @@
           
           <span class="skills-header-row skills-row header">
             <div class="skills-header-box skills-box1">
-              <h1 class="char-mutant-flex char-animal-flex char-human-flex" data-i18n="skill-u" name="attr_skill_name">SKILLS</h1>
+              <h1 class="char-mutant-flex char-animal-flex char-human-flex" data-i18n="skills-u" name="attr_skill_name">SKILLS</h1>
               <h1 class="char-robot-flex" data-i18n="programs-u" name="attr_skill_name">PROGRAMS</h1>
             </div>
             <div class="skills-box skills-box-base column-header">
@@ -803,7 +803,7 @@
           </span>
 
           <span class="skills-row chartype-background-dark" data-i18n-list-item="fight">
-            <span class="skill-name" data-i18n="fight-as-skill" name="attr_fight_name">Fight</span>
+            <span class="skill-name" data-i18n="fight" name="attr_fight_name">Fight</span>
             <span class="small-caps skill-attribute" name="attr_strength_abbr">Str</span>
             <input class="input-number character-skill-level" type="number" name="attr_fight" value="0" min="0" title="@{fight}" />
             <select class="input character-skill-mod modifiers-toggled-on" name="attr_fight_skill_misc" title="@{fight_skill_misc}">
@@ -1055,7 +1055,7 @@
             </div>-->
           </span>
 
-          <span class="skills-row chartype-background-dark" data-i18n-list-item="know_the_zone">
+          <span class="skills-row chartype-background-dark" data-i18n-list-item="know-the-zone">
             <span class="skill-name" data-i18n="know-the-zone" name="attr_know_the_zone_name">Know the Zone</span>
             <span class="small-caps skill-attribute" name="attr_wits_abbr">Wit</span>
             <input class="input-number character-skill-level" type="number" name="attr_know_the_zone" value="0" min="0" title="@{know_the_zone}" />
@@ -1099,7 +1099,7 @@
             </div>-->
           </span>
 
-          <span class="skills-row chartype-background-dark" data-i18n-list-item="sense_emotion">
+          <span class="skills-row chartype-background-dark" data-i18n-list-item="sense-emotion">
             <span class="skill-name" data-i18n="sense-emotion" name="attr_sense_emotion_name">Sense emotion</span>
             <span class="small-caps skill-attribute" name="attr_empathy_abbr">Emp></span>
             <input class="input-number character-skill-level" type="number" name="attr_sense_emotion" value="0" min="0" title="@{sense_emotion}" />
@@ -1403,42 +1403,51 @@
             </div>
           </div>
           <div class="dice-rolls">
-            <input class="hidden api-toggle-show" type="checkbox" name="attr_api_toggle" value="1" />
-            <input class="hidden" name="attr_api_dice_command" value="@{whisper_option_api} [[(@{skill})d6]] [[(@{attribute})d6]] [[(@{gear})d6]] --Character|@{character_name} --Roll|@{current_preset}" hidden readonly />
-            <div class="template-roll dice-rolls-roll">
-              <input class="hidden roll-indicator" type="checkbox" name="attr_roll_the_dice_flag" value="1" readonly />
-              <span class="box-indicator">
-                <button class="dice-pool" type="roll" name="roll_the_dice" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{dice-pool}}} {{subtitle=@{current_preset}}} {{free-text}} {{footer}} {{attribute-die-one=[[ @{attribute_die_one}]] }} {{attribute-roll-one=[[1d6]] }} {{attribute-die-two=[[ @{attribute_die_two}]] }} {{attribute-roll-two=[[1d6]] }} {{attribute-die-three=[[ @{attribute_die_three}]] }} {{attribute-roll-three=[[1d6]] }} {{attribute-die-four=[[ @{attribute_die_four}]] }} {{attribute-roll-four=[[1d6]] }} {{attribute-die-five=[[ @{attribute_die_five}]] }} {{attribute-roll-five=[[1d6]] }} {{attribute-die-six=[[ @{attribute_die_six}]] }} {{attribute-roll-six=[[1d6]] }} {{attribute-die-seven=[[ @{attribute_die_seven}]] }} {{attribute-roll-seven=[[1d6]] }} {{attribute-die-eight=[[ @{attribute_die_eight}]] }} {{attribute-roll-eight=[[1d6]] }} {{attribute-die-nine=[[ @{attribute_die_nine}]] }} {{attribute-roll-nine=[[1d6]] }} {{attribute-die-ten=[[ @{attribute_die_ten}]] }} {{attribute-roll-ten=[[1d6]] }} {{attribute-die-eleven=[[ @{attribute_die_eleven}]] }} {{attribute-roll-eleven=[[1d6]] }} {{attribute-die-twelve=[[ @{attribute_die_twelve}]] }} {{attribute-roll-twelve=[[1d6]] }} {{skill-die-one=[[ @{skill_die_one}]] }} {{skill-roll-one=[[1d6]] }} {{skill-die-two=[[ @{skill_die_two}]] }} {{skill-roll-two=[[1d6]] }} {{skill-die-three=[[ @{skill_die_three}]] }} {{skill-roll-three=[[1d6]] }} {{skill-die-four=[[ @{skill_die_four}]] }} {{skill-roll-four=[[1d6]] }} {{skill-die-five=[[ @{skill_die_five}]] }} {{skill-roll-five=[[1d6]] }} {{skill-die-six=[[ @{skill_die_six}]] }} {{skill-roll-six=[[1d6]] }} {{skill-die-seven=[[ @{skill_die_seven}]] }} {{skill-roll-seven=[[1d6]] }} {{skill-die-eight=[[ @{skill_die_eight}]] }} {{skill-roll-eight=[[1d6]] }} {{skill-die-nine=[[ @{skill_die_nine}]] }} {{skill-roll-nine=[[1d6]] }} {{skill-die-ten=[[ @{skill_die_ten}]] }} {{skill-roll-ten=[[1d6]] }} {{negative-die-one=[[ @{negative_die_one}]] }} {{negative-roll-one=[[1d6]] }} {{negative-die-two=[[ @{negative_die_two}]] }} {{negative-roll-two=[[1d6]] }} {{negative-die-three=[[ @{negative_die_three}]] }} {{negative-roll-three=[[1d6]] }} {{gear-die-one=[[ @{gear_die_one}]] }} {{gear-roll-one=[[1d6]] }} {{gear-die-two=[[ @{gear_die_two}]] }} {{gear-roll-two=[[1d6]] }} {{gear-die-three=[[ @{gear_die_three}]] }} {{gear-roll-three=[[1d6]] }} {{gear-die-four=[[ @{gear_die_four}]] }} {{gear-roll-four=[[1d6]] }} {{gear-die-five=[[ @{gear_die_five}]] }} {{gear-roll-five=[[1d6]] }} {{gear-die-six=[[ @{gear_die_six}]] }} {{gear-roll-six=[[1d6]] }} {{gear-die-seven=[[ @{gear_die_seven}]] }} {{gear-roll-seven=[[1d6]] }} {{gear-die-eight=[[ @{gear_die_eight}]] }} {{gear-roll-eight=[[1d6]] }} {{gear-die-nine=[[ @{gear_die_nine}]] }} {{gear-roll-nine=[[1d6]] }} {{gear-die-ten=[[ @{gear_die_ten}]] }} {{gear-roll-ten=[[1d6]] }} {{gear-die-eleven=[[ @{gear_die_eleven}]] }} {{gear-roll-eleven=[[1d6]] }} {{gear-die-twelve=[[ @{gear_die_twelve}]] }} {{gear-roll-twelve=[[1d6]] }} @{include_with_roll}" data-i18n-title="roll-dice" title="Roll the Dice!">
-                  &nbsp;<span data-i18n="roll">Roll</span>&nbsp;
+            <div class="dice-rolls1">
+              <input class="hidden api-toggle-show" type="checkbox" name="attr_api_toggle" value="1" />
+              <input class="hidden" name="attr_api_dice_command" value="@{whisper_option_api} [[(@{skill})d6]] [[(@{attribute})d6]] [[(@{gear})d6]] --Character|@{character_name} --Roll|@{current_preset}" hidden readonly />
+              <div class="template-roll dice-rolls-roll">
+                <input class="hidden roll-indicator" type="checkbox" name="attr_roll_the_dice_flag" value="1" readonly />
+                <span class="box-indicator">
+                  <button class="dice-pool" type="roll" name="roll_the_dice" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{dice-pool}}} {{subtitle=@{current_preset}}} {{free-text}} {{footer}} {{attribute-die-one=[[ @{attribute_die_one}]] }} {{attribute-roll-one=[[1d6]] }} {{attribute-die-two=[[ @{attribute_die_two}]] }} {{attribute-roll-two=[[1d6]] }} {{attribute-die-three=[[ @{attribute_die_three}]] }} {{attribute-roll-three=[[1d6]] }} {{attribute-die-four=[[ @{attribute_die_four}]] }} {{attribute-roll-four=[[1d6]] }} {{attribute-die-five=[[ @{attribute_die_five}]] }} {{attribute-roll-five=[[1d6]] }} {{attribute-die-six=[[ @{attribute_die_six}]] }} {{attribute-roll-six=[[1d6]] }} {{attribute-die-seven=[[ @{attribute_die_seven}]] }} {{attribute-roll-seven=[[1d6]] }} {{attribute-die-eight=[[ @{attribute_die_eight}]] }} {{attribute-roll-eight=[[1d6]] }} {{attribute-die-nine=[[ @{attribute_die_nine}]] }} {{attribute-roll-nine=[[1d6]] }} {{attribute-die-ten=[[ @{attribute_die_ten}]] }} {{attribute-roll-ten=[[1d6]] }} {{attribute-die-eleven=[[ @{attribute_die_eleven}]] }} {{attribute-roll-eleven=[[1d6]] }} {{attribute-die-twelve=[[ @{attribute_die_twelve}]] }} {{attribute-roll-twelve=[[1d6]] }} {{skill-die-one=[[ @{skill_die_one}]] }} {{skill-roll-one=[[1d6]] }} {{skill-die-two=[[ @{skill_die_two}]] }} {{skill-roll-two=[[1d6]] }} {{skill-die-three=[[ @{skill_die_three}]] }} {{skill-roll-three=[[1d6]] }} {{skill-die-four=[[ @{skill_die_four}]] }} {{skill-roll-four=[[1d6]] }} {{skill-die-five=[[ @{skill_die_five}]] }} {{skill-roll-five=[[1d6]] }} {{skill-die-six=[[ @{skill_die_six}]] }} {{skill-roll-six=[[1d6]] }} {{skill-die-seven=[[ @{skill_die_seven}]] }} {{skill-roll-seven=[[1d6]] }} {{skill-die-eight=[[ @{skill_die_eight}]] }} {{skill-roll-eight=[[1d6]] }} {{skill-die-nine=[[ @{skill_die_nine}]] }} {{skill-roll-nine=[[1d6]] }} {{skill-die-ten=[[ @{skill_die_ten}]] }} {{skill-roll-ten=[[1d6]] }} {{negative-die-one=[[ @{negative_die_one}]] }} {{negative-roll-one=[[1d6]] }} {{negative-die-two=[[ @{negative_die_two}]] }} {{negative-roll-two=[[1d6]] }} {{negative-die-three=[[ @{negative_die_three}]] }} {{negative-roll-three=[[1d6]] }} {{gear-die-one=[[ @{gear_die_one}]] }} {{gear-roll-one=[[1d6]] }} {{gear-die-two=[[ @{gear_die_two}]] }} {{gear-roll-two=[[1d6]] }} {{gear-die-three=[[ @{gear_die_three}]] }} {{gear-roll-three=[[1d6]] }} {{gear-die-four=[[ @{gear_die_four}]] }} {{gear-roll-four=[[1d6]] }} {{gear-die-five=[[ @{gear_die_five}]] }} {{gear-roll-five=[[1d6]] }} {{gear-die-six=[[ @{gear_die_six}]] }} {{gear-roll-six=[[1d6]] }} {{gear-die-seven=[[ @{gear_die_seven}]] }} {{gear-roll-seven=[[1d6]] }} {{gear-die-eight=[[ @{gear_die_eight}]] }} {{gear-roll-eight=[[1d6]] }} {{gear-die-nine=[[ @{gear_die_nine}]] }} {{gear-roll-nine=[[1d6]] }} {{gear-die-ten=[[ @{gear_die_ten}]] }} {{gear-roll-ten=[[1d6]] }} {{gear-die-eleven=[[ @{gear_die_eleven}]] }} {{gear-roll-eleven=[[1d6]] }} {{gear-die-twelve=[[ @{gear_die_twelve}]] }} {{gear-roll-twelve=[[1d6]] }} @{include_with_roll}" data-i18n-title="roll-dice" title="Roll the Dice!">
+                    &nbsp;<span data-i18n="roll">Roll</span>&nbsp;
+                  </button>
+                </span>
+              </div>
+              <div class="api-roll dice-rolls-roll">
+                <input class="hidden roll-indicator" type="checkbox" name="attr_roll_the_dice_flag" value="1" readonly />
+                <span class="box-api-indicator">
+                  <button class="dice-pool" type="roll" name="roll_the_dice_api" value="@{whisper_option_api} [[(@{skill})d6]] [[(@{attribute})d6]] [[(@{gear})d6]] --Character|@{character_name} --Roll|@{current_preset}" data-i18n-title="roll-dice-api" title="Roll API Dice!">
+                    &nbsp;<span data-i18n="roll">Roll</span>&nbsp;
+                  </button>
+                </span>
+              </div>
+              <!-- Needs to be handled in dice pool and clear dice pool
+              <div class="api-button dice-rolls-copy hidden">
+                <input type="checkbox" class="dice-pool dice-rolls-copy-button" name="attr_command_toggle" value="@{whisper_option_api} [[(@{skill})d6]] [[(@{attribute})d6]] [[(@{gear})d6]] --Character|@{character_name} --Roll|@{current_preset}" title="Copy macro">
+                  &nbsp;<span>&#12283;</span>&nbsp;
                 </button>
-              </span>
-            </div>
-            <div class="grid-item api-roll">
-              <input class="hidden roll-indicator" type="checkbox" name="attr_roll_the_dice_flag" value="1" readonly />
-              <span class="box-api-indicator">
-                <button class="dice-pool" type="roll" name="roll_the_dice_api" value="@{whisper_option_api} [[(@{skill})d6]] [[(@{attribute})d6]] [[(@{gear})d6]] --Character|@{character_name} --Roll|@{current_preset}" data-i18n-title="roll-dice-api" title="Roll API Dice!">
-                  &nbsp;<span data-i18n="roll">Roll</span>&nbsp;
+              </div>-->
+              <div class="template-roll dice-rolls-push">
+                <button class="dice-pool" type="roll" name="roll_a_push" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{pushes-the-roll}}} {{subtitle=@{current_preset}}} {{free-text}} {{footer}} {{attribute-die-one=[[ @{attribute_die_one}]] }} {{attribute-roll-one=[[1d6]] }} {{attribute-die-two=[[ @{attribute_die_two}]] }} {{attribute-roll-two=[[1d6]] }} {{attribute-die-three=[[ @{attribute_die_three}]] }} {{attribute-roll-three=[[1d6]] }} {{attribute-die-four=[[ @{attribute_die_four}]] }} {{attribute-roll-four=[[1d6]] }} {{attribute-die-five=[[ @{attribute_die_five}]] }} {{attribute-roll-five=[[1d6]] }} {{attribute-die-six=[[ @{attribute_die_six}]] }} {{attribute-roll-six=[[1d6]] }} {{attribute-die-seven=[[ @{attribute_die_seven}]] }} {{attribute-roll-seven=[[1d6]] }} {{attribute-die-eight=[[ @{attribute_die_eight}]] }} {{attribute-roll-eight=[[1d6]] }} {{attribute-die-nine=[[ @{attribute_die_nine}]] }} {{attribute-roll-nine=[[1d6]] }} {{attribute-die-ten=[[ @{attribute_die_ten}]] }} {{attribute-roll-ten=[[1d6]] }} {{attribute-die-eleven=[[ @{attribute_die_eleven}]] }} {{attribute-roll-eleven=[[1d6]] }} {{attribute-die-twelve=[[ @{attribute_die_twelve}]] }} {{attribute-roll-twelve=[[1d6]] }} {{skill-die-one=[[ @{skill_die_one}]] }} {{skill-roll-one=[[1d6]] }} {{skill-die-two=[[ @{skill_die_two}]] }} {{skill-roll-two=[[1d6]] }} {{skill-die-three=[[ @{skill_die_three}]] }} {{skill-roll-three=[[1d6]] }} {{skill-die-four=[[ @{skill_die_four}]] }} {{skill-roll-four=[[1d6]] }} {{skill-die-five=[[ @{skill_die_five}]] }} {{skill-roll-five=[[1d6]] }} {{skill-die-six=[[ @{skill_die_six}]] }} {{skill-roll-six=[[1d6]] }} {{skill-die-seven=[[ @{skill_die_seven}]] }} {{skill-roll-seven=[[1d6]] }} {{skill-die-eight=[[ @{skill_die_eight}]] }} {{skill-roll-eight=[[1d6]] }} {{skill-die-nine=[[ @{skill_die_nine}]] }} {{skill-roll-nine=[[1d6]] }} {{skill-die-ten=[[ @{skill_die_ten}]] }} {{skill-roll-ten=[[1d6]] }} {{negative-die-one=[[ @{negative_die_one}]] }} {{negative-roll-one=[[1d6]] }} {{negative-die-two=[[ @{negative_die_two}]] }} {{negative-roll-two=[[1d6]] }} {{negative-die-three=[[ @{negative_die_three}]] }} {{negative-roll-three=[[1d6]] }} {{gear-die-one=[[ @{gear_die_one}]] }} {{gear-roll-one=[[1d6]] }} {{gear-die-two=[[ @{gear_die_two}]] }} {{gear-roll-two=[[1d6]] }} {{gear-die-three=[[ @{gear_die_three}]] }} {{gear-roll-three=[[1d6]] }} {{gear-die-four=[[ @{gear_die_four}]] }} {{gear-roll-four=[[1d6]] }} {{gear-die-five=[[ @{gear_die_five}]] }} {{gear-roll-five=[[1d6]] }} {{gear-die-six=[[ @{gear_die_six}]] }} {{gear-roll-six=[[1d6]] }} {{gear-die-seven=[[ @{gear_die_seven}]] }} {{gear-roll-seven=[[1d6]] }} {{gear-die-eight=[[ @{gear_die_eight}]] }} {{gear-roll-eight=[[1d6]] }} {{gear-die-nine=[[ @{gear_die_nine}]] }} {{gear-roll-nine=[[1d6]] }} {{gear-die-ten=[[ @{gear_die_ten}]] }} {{gear-roll-ten=[[1d6]] }} {{gear-die-eleven=[[ @{gear_die_eleven}]] }} {{gear-roll-eleven=[[1d6]] }} {{gear-die-twelve=[[ @{gear_die_twelve}]] }} {{gear-roll-twelve=[[1d6]] }} {{push-query=?{@{translation_push_query}} }} @{include_with_roll}" data-i18n-title="push-dice" title="Push the Dice!">
+                  &nbsp;<span data-i18n="push">Push</span>&nbsp;
                 </button>
-              </span>
+                <input type="hidden" name="attr_translation_push_query" value="push-query" />
+              </div>
             </div>
-            <div class="template-roll dice-rolls-push">
-              <button class="dice-pool" type="roll" name="roll_a_push" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{pushes-the-roll}}} {{subtitle=@{current_preset}}} {{free-text}} {{footer}} {{attribute-die-one=[[ @{attribute_die_one}]] }} {{attribute-roll-one=[[1d6]] }} {{attribute-die-two=[[ @{attribute_die_two}]] }} {{attribute-roll-two=[[1d6]] }} {{attribute-die-three=[[ @{attribute_die_three}]] }} {{attribute-roll-three=[[1d6]] }} {{attribute-die-four=[[ @{attribute_die_four}]] }} {{attribute-roll-four=[[1d6]] }} {{attribute-die-five=[[ @{attribute_die_five}]] }} {{attribute-roll-five=[[1d6]] }} {{attribute-die-six=[[ @{attribute_die_six}]] }} {{attribute-roll-six=[[1d6]] }} {{attribute-die-seven=[[ @{attribute_die_seven}]] }} {{attribute-roll-seven=[[1d6]] }} {{attribute-die-eight=[[ @{attribute_die_eight}]] }} {{attribute-roll-eight=[[1d6]] }} {{attribute-die-nine=[[ @{attribute_die_nine}]] }} {{attribute-roll-nine=[[1d6]] }} {{attribute-die-ten=[[ @{attribute_die_ten}]] }} {{attribute-roll-ten=[[1d6]] }} {{attribute-die-eleven=[[ @{attribute_die_eleven}]] }} {{attribute-roll-eleven=[[1d6]] }} {{attribute-die-twelve=[[ @{attribute_die_twelve}]] }} {{attribute-roll-twelve=[[1d6]] }} {{skill-die-one=[[ @{skill_die_one}]] }} {{skill-roll-one=[[1d6]] }} {{skill-die-two=[[ @{skill_die_two}]] }} {{skill-roll-two=[[1d6]] }} {{skill-die-three=[[ @{skill_die_three}]] }} {{skill-roll-three=[[1d6]] }} {{skill-die-four=[[ @{skill_die_four}]] }} {{skill-roll-four=[[1d6]] }} {{skill-die-five=[[ @{skill_die_five}]] }} {{skill-roll-five=[[1d6]] }} {{skill-die-six=[[ @{skill_die_six}]] }} {{skill-roll-six=[[1d6]] }} {{skill-die-seven=[[ @{skill_die_seven}]] }} {{skill-roll-seven=[[1d6]] }} {{skill-die-eight=[[ @{skill_die_eight}]] }} {{skill-roll-eight=[[1d6]] }} {{skill-die-nine=[[ @{skill_die_nine}]] }} {{skill-roll-nine=[[1d6]] }} {{skill-die-ten=[[ @{skill_die_ten}]] }} {{skill-roll-ten=[[1d6]] }} {{negative-die-one=[[ @{negative_die_one}]] }} {{negative-roll-one=[[1d6]] }} {{negative-die-two=[[ @{negative_die_two}]] }} {{negative-roll-two=[[1d6]] }} {{negative-die-three=[[ @{negative_die_three}]] }} {{negative-roll-three=[[1d6]] }} {{gear-die-one=[[ @{gear_die_one}]] }} {{gear-roll-one=[[1d6]] }} {{gear-die-two=[[ @{gear_die_two}]] }} {{gear-roll-two=[[1d6]] }} {{gear-die-three=[[ @{gear_die_three}]] }} {{gear-roll-three=[[1d6]] }} {{gear-die-four=[[ @{gear_die_four}]] }} {{gear-roll-four=[[1d6]] }} {{gear-die-five=[[ @{gear_die_five}]] }} {{gear-roll-five=[[1d6]] }} {{gear-die-six=[[ @{gear_die_six}]] }} {{gear-roll-six=[[1d6]] }} {{gear-die-seven=[[ @{gear_die_seven}]] }} {{gear-roll-seven=[[1d6]] }} {{gear-die-eight=[[ @{gear_die_eight}]] }} {{gear-roll-eight=[[1d6]] }} {{gear-die-nine=[[ @{gear_die_nine}]] }} {{gear-roll-nine=[[1d6]] }} {{gear-die-ten=[[ @{gear_die_ten}]] }} {{gear-roll-ten=[[1d6]] }} {{gear-die-eleven=[[ @{gear_die_eleven}]] }} {{gear-roll-eleven=[[1d6]] }} {{gear-die-twelve=[[ @{gear_die_twelve}]] }} {{gear-roll-twelve=[[1d6]] }} {{push-query=?{@{translation_push_query}} }} @{include_with_roll}" data-i18n-title="push-dice" title="Push the Dice!">
-                &nbsp;<span data-i18n="push">Push</span>&nbsp;
-              </button>
-              <input type="hidden" name="attr_translation_push_query" value="push-query" />
+            <div class="dice-rolls2">
+              <div class="dice-rolls-d66">
+                <button class="dice-pool" type="roll" name="roll_d66" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{d66-roll}}} {{subtitle}} {{free-text}}  {{d66-die-one=[[ 1 ]] }} {{d66-roll-one=[[ 1d6 ]] }} {{d66-die-two=[[ 1 ]] }} {{d66-roll-two=[[ 1d6 ]] }} {{footer}}" data-i18n-title="roll-dice-66" title="Roll d66!">
+                  &nbsp;<span class="small-caps" data-i18n="die-66-u">D66</span>&nbsp;
+                </button>
+              </div>
+              <div class="dice-rolls-init">
+                <button class="dice-pool" data-i18n="initiative" data-i18n-title="initiative" type="roll" name="roll_init" value="&{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=Initiative}} {{free-text}} {{roll-initiative=[[1d6]]}} {{footer}}" title="Initiative">Initiative</button>
+              </div>
             </div>
-            <!-- Needs to be handled in dice pool and clear dice pool
-            <div class="api-button dice-rolls-copy hidden">
-              <input type="checkbox" class="dice-pool dice-rolls-copy-button" name="attr_command_toggle" value="@{whisper_option_api} [[(@{skill})d6]] [[(@{attribute})d6]] [[(@{gear})d6]] --Character|@{character_name} --Roll|@{current_preset}" title="Copy macro">
-                &nbsp;<span>&#12283;</span>&nbsp;
-              </button>
-            </div>-->
-            <div class="dice-rolls-d66">
-              <button class="dice-pool" type="roll" name="roll_d66" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{d66-roll}}} {{subtitle}} {{free-text}}  {{d66-die-one=[[ 1 ]] }} {{d66-roll-one=[[ 1d6 ]] }} {{d66-die-two=[[ 1 ]] }} {{d66-roll-two=[[ 1d6 ]] }} {{footer}}" data-i18n-title="roll-dice-66" title="Roll d66!">
-                &nbsp;<span class="small-caps" data-i18n="die-66-u">D66</span>&nbsp;
-              </button>
-            </div>
-          </div>
+          </div>       
+          
+          
           <div class="dice-preset">
             <input type="hidden" class="input" name="attr_current_preset" value="" readonly />
             <input type="hidden" name="attr_include_with_roll" value="" readonly />
@@ -1494,7 +1503,7 @@
             <span data-i18n="type">Type</span>
           </div>
           <div class="talents-box3 column-header">
-            <span data-i18n="rank">Roll</span>
+            <span data-i18n="roll">Roll</span>
           </div>
           <div class="talents-box4">
             <fieldset class="repeating_talents">
@@ -1560,7 +1569,7 @@
             <input type="hidden" name="attr_mutationpoints_max" value="10" />
           </div>
           <div class="powerpoint-box3 chartype-background-dark">
-            <span class="input-span" name="attr_mutationpoints" title="@{mutationpoints}" readonly></span>
+            <span class="input-span" name="attr_mutationpoints" title="Mutation points" data-i18n-title="mutation-points" readonly></span>
           </div>
         </div>
       </div>
@@ -1607,7 +1616,7 @@
             <input type="hidden" name="attr_energypoints_max" value="10" />
           </div>
           <div class="powerpoint-box3 chartype-background-dark">
-            <span class="input-span" name="attr_energypoints" title="@{energypoints}" readonly></span>
+            <span class="input-span" name="attr_energypoints" title="@Energy points" data-i18n-title="energypoints" readonly></span>
           </div>
         </div>
       </div>
@@ -1654,7 +1663,7 @@
             <input type="hidden" name="attr_feralpoints_max" value="10" />
           </div>
           <div class="powerpoint-box3 chartype-background-dark">
-            <span class="input-span" name="attr_feralpoints" title="@{feralpoints}" readonly></span>
+            <span class="input-span" name="attr_feralpoints" title="Feral points" data-i18n-title="feral-points" readonly></span>
           </div>
         </div>
       </div>
@@ -1701,7 +1710,7 @@
             <input type="hidden" name="attr_influencepoints_max" value="10" />
           </div>
           <div class="powerpoint-box3 chartype-background-dark">
-            <span class="input-span" name="attr_influencepoints" title="@{influencepoints} readonly"></span>
+            <span class="input-span" name="attr_influencepoints" title="influence-points" readonly></span>
           </div>
         </div>
       </div>
@@ -1754,7 +1763,7 @@
           <div class="powerpoint-box3 chartype-background-dark">
             <!--span class="input-span" name="attr_rot" title="@{rot}" readonly></span-->
             <button type="action" class="rot-button" name="act_rot-roll" data-i18n-title="update-dice-pool" title="Update the dice pool. Use the 'Roll' button to roll the dice.">
-              <span class="readonly character-skill-total rot-button" name="attr_rot" value="0" title="@{rot}" disabled>0</span>
+              <span class="readonly character-skill-total rot-button" name="attr_rot" value="0" title="Rotpoints" data-i18n-title="rotpoints" disabled>0</span>
             </button>
           </div>
         </div>
@@ -1763,7 +1772,7 @@
       <div class="character-consumables box toggle-pc-only chartype-background-light">
         <div class="consumables-grid">
           <div class="consumables-box header">
-            <h1 data-i18n="consumable-u">CONSUMABLES</h1>
+            <h1 data-i18n="consumables-u">CONSUMABLES</h1>
           </div>
           <div class="consumables-box1 column-header">
             <span data-i18n="quantity">Amount</span>
@@ -1781,8 +1790,6 @@
             <input type="number" class="input-number" name="attr_grub" value="0" min="0" title="@{grub}"></option>
           </div>
           <div class="consumables-box6">
-            <!--<button type="roll" name="roll_food" title="%{food}" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{food}"></button>
-            -->
             </div>
           <div class="consumables-box7">
             <img class="consumables-icon consumables-bullets" src="" />
@@ -1792,8 +1799,6 @@
             <input type="number" class="input-number" name="attr_bullets" value="0" min="0" title="@{bullets}"></option>
           </div>
           <div class="consumables-box9">
-            <!--<button type="roll" name="roll_water" title="%{water}" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{water}"></button>
-            -->
             </div>
           <div class="consumables-box10">
             <img class="consumables-icon consumables-water" src="" />
@@ -1803,8 +1808,6 @@
             <input type="number" class="input-number" name="attr_water" value="0" min="0" title="@{water}"></option>
           </div>
           <div class="consumables-box12">
-            <!--<button type="roll" name="roll_arrows" title="%{arrows}" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{arrows}"></button>
-            -->
           </div>
           <div class="consumables-box13">
             <img class="consumables-icon consumables-epacks" src="" />
@@ -1814,8 +1817,6 @@
             <input type="number" class="input-number" name="attr_epacks" value="0" min="0" title="@{epacks}"></option>
           </div>
           <div class="consumables-box15">
-            <!--<button type="roll" name="roll_torches" title="%{torches}" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{consumable}}} {{footer=^{consumable-note}}} @{torches}"></button>
-            -->
           </div>
         </div>
       </div>
@@ -2104,7 +2105,7 @@
             <span data-i18n="armor-rating-abbr">AR</span>
           </div>
           <div class="armor-box3 column-header">
-            <span data-i18n="max-abbr">Max</span>
+            <span data-i18n="maximum-abbr">Max</span>
           </div>
           <div class="armor-box4 column-header">
             <span data-i18n="modifier-abbr">Mod</span>
@@ -2227,7 +2228,7 @@
         <div class="relationships-box1">
             <div class="relationships-grid">
               <div class="relationships-box3">
-                <span data-i18n="hate">Hate: </span>
+                <span data-i18n="i-hate">Hate: </span>
               </div>
               <div class="relationships-box6">
                 <textarea class="input-textarea" name="attr_hate" title="@{hate}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
@@ -2237,7 +2238,7 @@
         <div class="relationships-box1">
             <div class="relationships-grid">
               <div class="relationships-box3">
-                <span data-i18n="protect">Protect: </span>
+                <span data-i18n="i-protect">Protect: </span>
               </div>
               <div class="relationships-box6">
                 <textarea class="input-textarea" name="attr_protect" title="@{protect}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
@@ -2247,7 +2248,7 @@
         <div class="relationships-box1">
             <div class="relationships-grid">
               <div class="relationships-box3">
-                <span data-i18n="dream">Dream: </span>
+                <span data-i18n="i-dream">Dream: </span>
               </div>
               <div class="relationships-box6">
                 <textarea class="input-textarea" name="attr_dream" title="@{dream}" data-i18n-placeholder="relationship-description" placeholder="Describe the relationship."></textarea>
@@ -2615,6 +2616,13 @@
         </div>
 
         <div class="ark-details-box ark-details-box7">
+          <span class="label ark-details-label" data-i18n="battle-level">Battle level</span>
+        </div>
+        <div class="ark-details-box ark-details-box8 ark-details-number">
+          <input class="input-number" type="text" name="attr_ark_battle_level" title="battle-level" readonly />
+        </div>
+
+        <div class="ark-details-box ark-details-box9">
           <span class="label ark-description-label" data-i18n="description" style="margin: 0 5px 0 0;">Description</span>
           <textarea class="input-textarea" name="attr_ark_description" title="@{ark_description}"></textarea>
         </div>
@@ -2649,7 +2657,7 @@
           <input class="input-text" type="text" name="attr_ark_season" title="@{ark_season}"/>
         </div>
 
-        <div class="ark-details-box ark-details-box7">
+        <div class="ark-details-box ark-details-box9">
           <span class="label ark-description-label " data-i18n="notable-inhabitants">Notable inhabitants</span>
           <textarea class="input-textarea" name="attr_ark_notableinhabitants" title="@{ark_notableinhabitants}"></textarea>
         </div>
@@ -2767,16 +2775,16 @@
                   <input class="input log-box log-column4" name="attr_threat" title="@{repeating_log_$X_threat}" type="checkbox" /><span></span>
                   <input class="input-text log-box log-column5" name="attr_threat_notes" title="@{repeating_log_$X_threat_notes}" type="text" value="" />
                   <div class="log-box log-column6">
-                    <label class="log-resources" title="artifacts" data-i18n-title="artifacts" data-i18n="a">A</label><input class="input log-resources log-box log-column7 center" name="attr_artifacts" title="@{repeating_log_$X_artifacts}" type="checkbox" />
+                    <label class="log-resources" title="artifacts" data-i18n-title="artifacts" data-i18n="artifacts-abbr">A</label><input class="input log-resources log-box log-column7 center" name="attr_artifacts" title="@{repeating_log_$X_artifacts}" type="checkbox" />
                   </div>
                   <div class="log-box log-column7">
-                    <label class="log-resources" title="bullets" data-i18n-title="bullets" data-i18n="b">B</label><input class="input log-resources log-box log-column9 center" name="attr_bullets" title="@{repeating_log_$X_bullets}" type="checkbox" />
+                    <label class="log-resources" title="bullets" data-i18n-title="bullets" data-i18n="bullets-abbr">B</label><input class="input log-resources log-box log-column9 center" name="attr_bullets" title="@{repeating_log_$X_bullets}" type="checkbox" />
                   </div>
                   <div class="log-box log-column8">
-                    <label class="log-resources" title="grub" data-i18n-title="grub" data-i18n="g">G</label><input class="input log-resources log-box log-column11 center" name="attr_grub" title="@{repeating_log_$X_grub}" type="checkbox" />
+                    <label class="log-resources" title="grub" data-i18n-title="grub" data-i18n="grub-abbr">G</label><input class="input log-resources log-box log-column11 center" name="attr_grub" title="@{repeating_log_$X_grub}" type="checkbox" />
                   </div>
                   <div class="log-box log-column9">
-                    <label class="log-resources" title="water" data-i18n-title="water" data-i18n="w">W</label><input class="input log-resources log-box log-column13 center" name="attr_water" title="@{repeating_log_$X_water}" type="checkbox" />
+                    <label class="log-resources" title="water" data-i18n-title="water" data-i18n="water-abbr">W</label><input class="input log-resources log-box log-column13 center" name="attr_water" title="@{repeating_log_$X_water}" type="checkbox" />
                   </div>
                   <textarea class="input-textarea log-box log-comments" data-i18n-placeholder="comment" name="attr_comment" placholder="Comment" title="@{repeating_log_$X_comment}" value="" ></textarea>
               </div>
@@ -2834,7 +2842,7 @@
       <input type="checkbox" name="attr_adv-modifiers" value="1" title="@{adv-modifiers}" style="vertical-align: center;"  />
     </div>
     <div>
-      <span data-i18n="adv-headebgimg">Show header background images (mutant only)</span>:
+      <span data-i18n="adv-headerbgimg">Show header background images (mutant only)</span>:
       <input type="checkbox" name="attr_header-bgimg" value="1" title="@{header-bgimg}" style="vertical-align: center;"  />
     </div>
     <!--div>
@@ -3343,6 +3351,14 @@
       </div>
       {{/rollTotal() d66-die-two 1}}
 
+      <!--- Initiative -->
+      
+      {{#roll-initiative}}
+      <div class="template-grid-item template-span-three template-dice template-green-dice">
+        {{roll-initiative}} 
+      </div>
+      {{/roll-initiative}}
+
       <!--- dice pool column labels in footer-->
       {{#attribute-die-one}}
       <div class="template-grid-item template-span-left">
@@ -3445,16 +3461,6 @@
       {{#footer}}
       <div class="template-grid-item template-span-six template-footer">{{footer}}</div>
       {{/footer}}
-      <!--
-      {{#allprops() character_name name character_id name_link subtitle free-text footer attribute-die-one attribute-die-two attribute-die-three attribute-die-four attribute-die-five attribute-die-six attribute-die-seven attribute-die-eight attribute-die-nine attribute-die-ten attribute-die-eleven attribute-die-twelve skill-die-one skill-die-two skill-die-three skill-die-four skill-die-five skill-die-six skill-die-seven skill-die-eight skill-die-nine skill-die-ten negative-die-one negative-die-two negative-die-three gear-die-one gear-die-two gear-die-three gear-die-four gear-die-five gear-die-six gear-die-seven gear-die-eight gear-die-nine gear-die-ten gear-die-eleven gear-die-twelve artifact-die-eight artifact-die-ocho artifact-die-ten artifact-die-twelve attribute-roll-one attribute-roll-two attribute-roll-three attribute-roll-four attribute-roll-five attribute-roll-six attribute-roll-seven attribute-roll-eight attribute-roll-nine attribute-roll-ten attribute-roll-eleven attribute-roll-twelve skill-roll-one skill-roll-two skill-roll-three skill-roll-four skill-roll-five skill-roll-six skill-roll-seven skill-roll-eight skill-roll-nine skill-roll-ten negative-roll-one negative-roll-two negative-roll-three gear-roll-one gear-roll-two gear-roll-three gear-roll-four gear-roll-five gear-roll-six gear-roll-seven gear-roll-eight gear-roll-nine gear-roll-ten gear-roll-eleven gear-roll-twelve artifact-roll-eight artifact-roll-ocho artifact-roll-ten artifact-roll-twelve consumable-die-six consumable-die-eight d66-die-one d66-roll-one d66-die-two d66-roll-two consumable-die-ten consumable-die-twelve consumable-roll-six consumable-roll-eight consumable-roll-ten consumable-roll-twelve push-query weapon-bonus weapon-bonus-max weapon-bonus-misc weapon-damage weapon-damage-misc attack-features weapon-range weapon-features attack-description spell-rank spell-powerpoint spell-range spell-duration spell-ingredients spell-description powerpoint-total armor1-equipped armor1-name armor1-rating armor1-rating-max armor1-rating-total armor1-rating-misc armor2-equipped armor2-name armor2-rating armor2-rating-max armor2-rating-misc armor2-rating-total armor3-equipped armor3-name armor3-rating armor3-rating-max armor3-rating-misc armor3-rating-total armor4-equipped armor4-name armor4-rating armor4-rating-max armor4-rating-misc armor4-rating-total shield1-name shield1-base shield1-skill shield1-bonus shield1-bonus-max shield1-bonus-misc skill-base skill-skill skill-bonus-misc-skill skill-bonus-misc-gear skill-notes}}
-      <div class="template-grid-item template-span-half template-footer">
-        <span class="allprops allprops-key">**{{key}}**:</span>
-      </div>
-      <div class="template-grid-item template-span-2nd-half template-footer">
-        <span class="allprops allprops-value">{{value}}</span>
-      </div>
-      {{/allprops() character_name name character_id name_link subtitle free-text footer attribute-die-one attribute-die-two attribute-die-three attribute-die-four attribute-die-five attribute-die-six attribute-die-seven attribute-die-eight attribute-die-nine attribute-die-ten attribute-die-eleven attribute-die-twelve skill-die-one skill-die-two skill-die-three skill-die-four skill-die-five skill-die-six skill-die-seven skill-die-eight skill-die-nine skill-die-ten negative-die-one negative-die-two negative-die-three gear-die-one gear-die-two gear-die-three gear-die-four gear-die-five gear-die-six gear-die-seven gear-die-eight gear-die-nine gear-die-ten gear-die-eleven gear-die-twelve artifact-die-eight artifact-die-ocho artifact-die-ten artifact-die-twelve attribute-roll-one attribute-roll-two attribute-roll-three attribute-roll-four attribute-roll-five attribute-roll-six attribute-roll-seven attribute-roll-eight attribute-roll-nine attribute-roll-ten attribute-roll-eleven attribute-roll-twelve skill-roll-one skill-roll-two skill-roll-three skill-roll-four skill-roll-five skill-roll-six skill-roll-seven skill-roll-eight skill-roll-nine skill-roll-ten negative-roll-one negative-roll-two negative-roll-three gear-roll-one gear-roll-two gear-roll-three gear-roll-four gear-roll-five gear-roll-six gear-roll-seven gear-roll-eight gear-roll-nine gear-roll-ten gear-roll-eleven gear-roll-twelve artifact-roll-eight artifact-roll-ocho artifact-roll-ten artifact-roll-twelve consumable-die-six consumable-die-eight d66-die-one d66-roll-one d66-die-two d66-roll-two consumable-die-ten consumable-die-twelve consumable-roll-six consumable-roll-eight consumable-roll-ten consumable-roll-twelve push-query weapon-bonus weapon-bonus-max weapon-bonus-misc weapon-damage weapon-damage-misc attack-features weapon-range weapon-features attack-description spell-rank spell-powerpoint spell-range spell-duration spell-ingredients spell-description powerpoint-total armor1-equipped armor1-name armor1-rating armor1-rating-max armor1-rating-total armor1-rating-misc armor2-equipped armor2-name armor2-rating armor2-rating-max armor2-rating-misc armor2-rating-total armor3-equipped armor3-name armor3-rating armor3-rating-max armor3-rating-misc armor3-rating-total armor4-equipped armor4-name armor4-rating armor4-rating-max armor4-rating-misc armor4-rating-total shield1-name shield1-base shield1-skill shield1-bonus shield1-bonus-max shield1-bonus-misc skill-base skill-skill skill-bonus-misc-skill skill-bonus-misc-gear skill-notes}}
-      -->
     </div>
   </div>
 </rolltemplate>
@@ -3838,7 +3844,7 @@ function getSingleAttrAsync(prop){
     // don't set a code_version; we use the switch below for that.
     let new_version = 2.0;
     let show_announcement = 1;
-    if (!old_version) old_version = 0; // New sheet
+    if (!old_version) old_version = 2.0; // New sheet
     switch (true) {
       //add checks for updates here
       //case old_version === 0:
@@ -4287,6 +4293,18 @@ function getSingleAttrAsync(prop){
       });
     });
   });
+
+  //Battle Level
+  on("change:ark_dev_war", () => {
+    getAttrs(["ark_dev_war"], (values) => {
+      //clog(JSON.stringify(values));
+      //clog(`Battle level at ${int(values.ark_dev_war) || 1}`);
+      const warfare = Math.ceil(float(values.ark_dev_war) / 10) || 1;
+      setAttrs({
+        ark_battle_level: warfare,
+      });
+    });
+  });
   
   /* Monster or PC Strength handling. updates attr_strength depending on sheet tab*/
   on("change:tab change:strength_pc change:strength_monster sheet:opened", () => {
@@ -4352,6 +4370,8 @@ function getSingleAttrAsync(prop){
     getSkillName = (label) => race_att_names[label];
     // A function to get the name of a skill specific for the selected race/character type.
     // Needed for a couple of functions below
+    // Note, this is joint for all sheets for one logged on user
+
   
   Object.keys(skills).forEach((skill_name) => {
     // creates a sheet worker for each skill in skills - first skill = 'strength', then stat = 'agility', etc
@@ -4797,7 +4817,7 @@ function getSingleAttrAsync(prop){
   });
   
   /* Monster attacks dice pool */
-  on("clicked:repeating_monster:monster-attack-roll", function () {
+  on("clicked:repeating_monster:monster-features-roll", function () {
     clog("Change Detected: Monster Attack - button clicked");
     getAttrs(["repeating_monster_attack_name", "repeating_monster_attack_dice", "repeating_monster_attack_damage", "repeating_monster_attack_features", "repeating_monster_attack_range", "repeating_monster_attack_description"], function (values) {
       const monster_attack_name = values.repeating_monster_attack_name,
@@ -4951,7 +4971,7 @@ function getSingleAttrAsync(prop){
   
   /* Update the Dice Pool indicator */
   on(
-    "clicked:repeating_skills:skill-roll clicked:dice_pool_crafting_monster clicked:dice_pool_force_monster clicked:dice_pool_endure_monster clicked:dice_pool_fight_monster clicked:dice_pool_sneak clicked:dice_pool_know_the_zone clicked:dice_pool_move clicked:dice_pool_shoot clicked:dice_pool_scout clicked:dice_pool_lore clicked:dice_pool_survival clicked:dice_pool_comprehend clicked:dice_pool_manipulate clicked:dice_pool_sense_emotion clicked:dice_pool_heal clicked:dice_pool_animal_handling clicked:reputation-roll clicked:repeating_weapons:attack-roll clicked:repeating_monster:monster-attack-roll clicked:repeating_spells:spell-roll clicked:armor-roll clicked:shield-roll clicked:shield-shove-roll",
+    "clicked:dice_pool_clear clicked:strength_roll clicked:agility_roll cliecked:wits_roll clicked:empathy_roll clicked:repeating_skills:skill-roll clicked:dice_pool_force_monster clicked:dice_pool_endure_monster clicked:dice_pool_fight_monster clicked:dice_pool_force clicked:dice_pool_endure clicked:dice_pool_fight clicked:dice_pool_sneak clicked:dice_pool_know_the_zone clicked:dice_pool_move clicked:dice_pool_shoot clicked:dice_pool_scout clicked:dice_pool_comprehend clicked:dice_pool_manipulate clicked:dice_pool_sense_emotion clicked:dice_pool_heal clicked:reputation-roll clicked:repeating_weapons:attack-roll clicked:repeating_weapons:attack-parry-roll clicked:repeating_monster:monster-features-roll clicked:repeating_spells:spell-roll clicked:armor-roll",
     function () {
       clog("Change Detected: Update Dice Pool");
       getAttrs(["roll_the_dice_flag"], function (values) {
@@ -5074,11 +5094,11 @@ function getSingleAttrAsync(prop){
   });
   
   /* set strength dice pool */
-  on("clicked:strength-roll", function () {
+  on("clicked:strength_roll", function () {
     clog("Change Detected: Strength - button clicked");
-    getAttrs(["strength_total"], function (values) {
+    getAttrs(["strength_total", "strength_name"], function (values) {
       const strength_total = int(values.strength_total),
-      strength_name = getSkillName("strength");
+      strength_name = values.strength_name;
       //clog(strength_name + " : " + strength);
       setAttrs({
         attribute: strength_total,
@@ -5091,11 +5111,11 @@ function getSingleAttrAsync(prop){
   });
   
   /* set agility dice pool */
-  on("clicked:agility-roll", function () {
+  on("clicked:agility_roll", function () {
     clog("Change Detected: agility - button clicked");
-    getAttrs(["agility_total"], function (values) {
+    getAttrs(["agility_total", "agility_name"], function (values) {
       const agility_total = int(values.agility_total),
-      agility_name = getSkillName("agility");
+      agility_name = values.agility_name;
       //clog(agility_name + " : " + agility_total);
       setAttrs({
         attribute: agility_total,
@@ -5108,11 +5128,11 @@ function getSingleAttrAsync(prop){
   });
   
   /* set wits dice pool */
-  on("clicked:wits-roll", function () {
+  on("clicked:wits_roll", function () {
     clog("Change Detected: wits - button clicked");
-    getAttrs(["wits_total"], function (values) {
+    getAttrs(["wits_total","wits_name"], function (values) {
       const wits_total = int(values.wits_total),
-      wits_name = getSkillName("wits");
+      wits_name = values.wits_name;
       //clog(wits_name + " : " + wits_total);
       setAttrs({
         attribute: wits_total,
@@ -5125,11 +5145,11 @@ function getSingleAttrAsync(prop){
   });
   
   /* set empathy dice pool */
-  on("clicked:empathy-roll", function () {
+  on("clicked:empathy_roll", function () {
     clog("Change Detected: empathy - button clicked");
-    getAttrs(["empathy_total"], function (values) {
+    getAttrs(["empathy_total", "empathy_name"], function (values) {
       const empathy_total = int(values.empathy_total),
-      empathy_name = getSkillName("empathy");
+      empathy_name = values.empathy_name;
       //clog(empathy_name + " : " + empathy_total);
       setAttrs({
         attribute: empathy_total,

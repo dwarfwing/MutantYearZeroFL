@@ -752,6 +752,7 @@ button.sheet-roll-button-textonly span {
   border-radius: 4px;
   background-color: transparent;
   box-shadow: 0 2px 10px 5px #a60100;
+  max-height: 20px;
 }
 
 .sheet-box-api-indicator::after {
@@ -785,7 +786,7 @@ input[type="checkbox"].sheet-hidden,
   display: none;
 }
 
-input.sheet-hidden.sheet-api-toggle-show:checked ~ .sheet-template-roll {
+input.sheet-hidden.sheet-api-toggle-show:checked ~ div.sheet-template-roll {
   display: none;
 }
 
@@ -797,17 +798,17 @@ input.sheet-hidden.sheet-api-toggle-show:not(:checked) ~ .sheet-dice-rolls-copy 
   content: "" !important; 
 }
 
-div.sheet-grid-item.sheet-api-roll {
+div.sheet-api-roll {
   display: none;
 }
 
 input.sheet-hidden.sheet-api-toggle-show:checked
-  ~ div.sheet-grid-item.sheet-api-roll {
+  ~ div.sheet-api-roll {
   display: block;
 }
 
 input.sheet-hidden.sheet-api-toggle-show:checked
-  ~ div.sheet-grid-item.sheet-api-roll
+  ~ div.sheet-api-roll
   button::after {
   margin-right: 2px;
   content: "(API)";
@@ -1652,7 +1653,7 @@ input.sheet-expand:checked + span::before {
 }
 
 .repitem .sheet-weapons-grid:hover input.sheet-expand+span::before,
-.repitem .sheet-monster-attacks-grid:hover input.sheet-expand+span::before,
+.repitem .sheet-monster-features-grid:hover input.sheet-expand+span::before,
 .repitem .sheet-talents-grid:hover input.sheet-expand+span::before,
 .sheet-armor-box10:hover input.sheet-expand+span::before,
 .sheet-armor-box10-2:hover input.sheet-expand+span::before,
@@ -1950,7 +1951,7 @@ input.sheet-monster_only:checked
   -border: 7px solid #000;
   border: 2px solid #000;
   overflow: hidden;
-  height: fit-content;
+  -height: fit-content;
 }
 
 .sheet-character-injuries,
@@ -2361,8 +2362,8 @@ input.sheet-monster_only:checked ~ div.sheet-character div.sheet-attributes-box1
     display: none;
 }
 
-input.sheet-tab[value="monster"] ~ div.sheet-character .sheet-monster-attacks,
-input.sheet-monster_only:checked ~ div.sheet-character .sheet-monster-attacks {
+input.sheet-tab[value="monster"] ~ div.sheet-character .sheet-monster-features,
+input.sheet-monster_only:checked ~ div.sheet-character .sheet-monster-features {
   grid-column: 1/3;
   grid-row-start: 2;
 }
@@ -2386,6 +2387,7 @@ input.sheet-monster_only:checked
   grid-column-start: 3;
   grid-row-end: span 10;
   grid-row-start: 1;
+  grid-row-gap: 4px;
   grid-template-columns: auto;
   grid-template-rows: auto auto;
 }
@@ -2649,10 +2651,10 @@ input[type="checkbox"].sheet-counted:checked + span::before {
 
 input.sheet-tab[value="monster"]
 ~ div.sheet-character
-.sheet-monster-attacks-grid,
+.sheet-monster-features-grid,
 input.sheet-monster_only:checked
   ~ div.sheet-character
-  .sheet-monster-attacks-grid {
+  .sheet-monster-features-grid {
   display: grid;
   column-gap: 1px;
   row-gap: 2px;
@@ -2660,48 +2662,48 @@ input.sheet-monster_only:checked
   
 }
 
-.sheet-monster-attacks-box {
+.sheet-monster-features-box {
   grid-column: 1/7;
   grid-row-start: 1;
 }
 
-.sheet-monster-attacks-box1 {
+.sheet-monster-features-box1 {
   grid-column-start: 1;
   grid-row-start: 1;
 }
 
-.sheet-monster-attacks-box2 {
+.sheet-monster-features-box2 {
   grid-column-start: 2;
   grid-row-start: 1;
   width: 98%
 }
 
-.sheet-monster-attacks-box3 {
+.sheet-monster-features-box3 {
   grid-column-start: 3;
   grid-row-start: 1;
 }
 
-.sheet-monster-attacks-box4 {
+.sheet-monster-features-box4 {
   grid-column-start: 4;
   grid-row-start: 1;
 }
 
-.sheet-monster-attacks-box5 {
+.sheet-monster-features-box5 {
   grid-column-start: 5;
   grid-row-start: 1;
 }
 
-.sheet-monster-attacks-box6 {
+.sheet-monster-features-box6 {
   grid-column-start: 6;
   grid-row-start: 1;
 }
 
-.sheet-monster-attacks-box7 {
+.sheet-monster-features-box7 {
   grid-column-start: 7;
   grid-row-start: 1;
 }
 
-.sheet-monster-attacks-box8 {
+.sheet-monster-features-box8 {
   grid-column: 1/7;
   grid-row-start: 2;
   margin-left: 5px;
@@ -2957,67 +2959,92 @@ input.sheet-npc_only:checked ~ div.sheet-character .sheet-character-column3 {
 .sheet-conditions-grid > div {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  width: 100%;
+}
+
+.sheet-conditions-grid > div input.sheet-xbox {
+  transform: none;
 }
 
 .sheet-conditions-box2 {
   grid-column-start: 1;
   grid-row-start: 2;
-  justify-self: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .sheet-conditions-box3 {
   grid-column-start: 1;
   grid-row-start: 3;
   font-size: 0.8em;
-  justify-self: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding-bottom: 3px;
 }
 
 .sheet-conditions-box4 {
   grid-column-start: 2;
   grid-row-start: 2;
-  justify-self: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .sheet-conditions-box5 {
   grid-column-start: 2;
   grid-row-start: 3;
   font-size: 0.8em;
-  justify-self: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding-bottom: 3px;
 }
 
 .sheet-conditions-box6 {
   grid-column-start: 3;
   grid-row-start: 2;
-  justify-self: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .sheet-conditions-box7 {
   grid-column-start: 3;
   grid-row-start: 3;
   font-size: 0.8em;
-  justify-self: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding-bottom: 3px;
 }
 
 .sheet-conditions-box8 {
   grid-column-start: 4;
   grid-row-start: 2;
-  justify-self: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .sheet-conditions-box9 {
   grid-column-start: 4;
   grid-row-start: 3;
   font-size: 0.8em;
-  justify-self: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding-bottom: 3px;
 }
 
 input.sheet-conditions-hungry:checked ~ div > span.sheet-conditions-hungry,
 input.sheet-conditions-sleepy:checked ~ div > span.sheet-conditions-sleepy,
 input.sheet-conditions-thirsty:checked ~ div > span.sheet-conditions-thirsty,
 input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
-  font-weight: bold;
-  color: #a60100;
+  -font-weight: bold;
+  -color: #a60100;
+  color: #eee;
+}
+
+input.sheet-conditions-hungry:checked ~ div.sheet-conditions-hungry,
+input.sheet-conditions-sleepy:checked ~ div.sheet-conditions-sleepy,
+input.sheet-conditions-thirsty:checked ~ div.sheet-conditions-thirsty,
+input.sheet-conditions-cold:checked ~ div.sheet-conditions-cold {
+  background-color: #a60100;
 }
 
 /* ---------------------------------- Critical Injuries */
@@ -3210,7 +3237,7 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 
 .sheet-dice_pool-grid {
   display: grid;
-  grid-template-areas: "sheet-dice-header sheet-dice-header sheet-dice-header" "sheet-dice-base sheet-dice-skill sheet-dice-gear" "sheet-dice-artifact sheet-dice-artifact sheet-dice-artifact" "sheet-dice-rolls sheet-dice-rolls sheet-dice-rolls" "sheet-dice-preset sheet-dice-preset sheet-dice-preset" "sheet-dice-footer sheet-dice-footer sheet-dice-footer";
+  grid-template-areas: "sheet-dice-header sheet-dice-header sheet-dice-header" "sheet-dice-base sheet-dice-skill sheet-dice-gear" "sheet-dice-rolls sheet-dice-rolls sheet-dice-rolls" "sheet-dice-preset sheet-dice-preset sheet-dice-preset" "sheet-dice-footer sheet-dice-footer sheet-dice-footer";
   grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -3339,30 +3366,66 @@ input.sheet-conditions-cold:checked ~ div > span.sheet-conditions-cold {
 }
 
 .sheet-dice-rolls {
+  display: grid;
+  justify-content: space-between;
+  -margin-top: 10px;
+  padding: 10px;
+  grid-area: sheet-dice-rolls; 
+  grid-template-areas: "sheet-dice-rolls1 sheet-dice-rolls2";
+  grid-template-columns: 1fr 1fr;
+}
+
+.sheet-dice-rolls1 {
   display: flex;
   flex-flow: row;
-  justify-content: space-evenly;
-  margin-top: 20px;
-  grid-area: sheet-dice-rolls;
-  grid-template-areas: "sheet-dice-rolls-roll sheet-dice-rolls-push sheet-dice-rolls-d66";
-  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  -margin-top: 10px;
+  -padding: 10px;
+  grid-area: sheet-dice-rolls1; 
+  grid-template-areas: "sheet-dice-rolls-roll sheet-dice-rolls-push";
+}
+.sheet-dice-rolls button {
+  max-height: 20px; 
+}
+.sheet-dice-rolls2 {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  -margin-top: 10px;
+  -padding: 10px;
+  grid-area: sheet-dice-rolls2;
+  grid-template-areas: "sheet-dice-rolls-d66" "sheet-dice-rolls-init";
 }
 
 .sheet-dice-rolls-roll {
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 10px;
   grid-area: sheet-dice-rolls-roll;
 }
 
 .sheet-dice-rolls-push {
+  display: flex;
+  justify-content: flex-start;
   grid-area: sheet-dice-rolls-push;
 }
 
+.sheet-dice-rolls-init {
+  display: flex;
+  justify-content: flex-end;
+  grid-area: sheet-dice-rolls-init;
+}
+
 .sheet-dice-rolls-d66 {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 10px;
   grid-area: sheet-dice-rolls-d66;
 }
 
 .sheet-dice-preset {
   display: grid;
-  margin-top: 10px;
+  -margin-top: 10px;
   grid-area: sheet-dice-preset;
   grid-template-areas: "sheet-dice-preset-header" "sheet-dice-preset-preset";
   justify-items: center;
@@ -4895,7 +4958,17 @@ input[name="attr_consumables-icons"]:checked ~ div .sheet-consumables-label {
   -display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 100%;
+  -width: 100%;
+}
+
+.sheet-ark-details-grid > span.sheet-ark-details-label {
+  justify-self: flex-end;
+  padding-right: 5px;
+}
+
+.sheet-ark-details-grid > div.sheet-ark-details-number {
+  justify-self: flex-start;
+  padding-left: 5px;
 }
 
 .sheet-ark-details-header {
@@ -4907,17 +4980,14 @@ input[name="attr_consumables-icons"]:checked ~ div .sheet-consumables-label {
 
 .sheet-ark-details-box {
   padding: 3px;
+  display: flex;
 }
+
 
 .sheet-ark-details-box1 {
   grid-column-start: 1;
   grid-row-start: 2;
   width: 100%;
-}
-
-.sheet-ark-details-grid .sheet-ark-details-box2 {
-  justify-content: flex-end;
-  -margin-right: 18%;
 }
 
 .sheet-ark-details-box2 {
@@ -4947,11 +5017,22 @@ input[name="attr_consumables-icons"]:checked ~ div .sheet-consumables-label {
 .sheet-ark-details-box6 {
   grid-column-start: 2;
   grid-row-start: 4;
+  -margin: 2.5em 0 0 0;
 }
 
 .sheet-ark-details-box7 {
-  grid-column: 1/3;
+  grid-column-start: 1;
   grid-row-start: 5;
+}
+
+.sheet-ark-details-box8 {
+  grid-column-start: 2;
+  grid-row-start: 5;
+}
+
+.sheet-ark-details-box9 {
+  grid-column: 1/3;
+  grid-row-start: 6;
   padding: 10px;
   margin: 0 1px 0 0 ;
 

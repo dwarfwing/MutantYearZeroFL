@@ -375,7 +375,7 @@ function getSingleAttrAsync(prop){
     // don't set a code_version; we use the switch below for that.
     let new_version = 2.0;
     let show_announcement = 1;
-    if (!old_version) old_version = 0;
+    if (!old_version) old_version = 2.0;
     switch (true) {
       //add checks for updates here
       //case old_version === 0:
@@ -821,6 +821,18 @@ function getSingleAttrAsync(prop){
         sum_credits = credits + credits_vehicle + credits_stash;
       setAttrs({
         credits_total: sum_credits,
+      });
+    });
+  });
+
+  //Battle Level
+  on("change:ark_dev_war", () => {
+    getAttrs(["ark_dev_war"], (values) => {
+      clog(JSON.stringify(values));
+      clog(`Battle level at ${int(values.ark_dev_war) || 1}`);
+      const warfare = Math.ceil(float(values.ark_dev_war) / 10) || 1;
+      setAttrs({
+        ark_battle_level: warfare,
       });
     });
   });
@@ -1488,7 +1500,7 @@ function getSingleAttrAsync(prop){
   
   /* Update the Dice Pool indicator */
   on(
-    "clicked:repeating_skills:skill-roll clicked:dice_pool_crafting_monster clicked:dice_pool_force_monster clicked:dice_pool_endure_monster clicked:dice_pool_fight_monster clicked:dice_pool_sneak clicked:dice_pool_know_the_zone clicked:dice_pool_move clicked:dice_pool_shoot clicked:dice_pool_scout clicked:dice_pool_lore clicked:dice_pool_survival clicked:dice_pool_comprehend clicked:dice_pool_manipulate clicked:dice_pool_sense_emotion clicked:dice_pool_heal clicked:dice_pool_animal_handling clicked:reputation-roll clicked:repeating_weapons:attack-roll clicked:repeating_monster:monster-attack-roll clicked:repeating_spells:spell-roll clicked:armor-roll clicked:shield-roll clicked:shield-shove-roll",
+    "clicked:dice_pool_clear clicked:strength-roll clicked:agility-roll cliecked:wits-roll clicked:empathy-roll clicked:repeating_skills:skill-roll clicked:dice_pool_force_monster clicked:dice_pool_endure_monster clicked:dice_pool_fight_monster clicked:dice_pool_force clicked:dice_pool_endure clicked:dice_pool_fight clicked:dice_pool_sneak clicked:dice_pool_know_the_zone clicked:dice_pool_move clicked:dice_pool_shoot clicked:dice_pool_scout clicked:dice_pool_comprehend clicked:dice_pool_manipulate clicked:dice_pool_sense_emotion clicked:dice_pool_heal clicked:reputation-roll clicked:repeating_weapons:attack-roll clicked:repeating_weapons:attack-parry-roll clicked:repeating_monster:monster-features-roll clicked:repeating_spells:spell-roll clicked:armor-roll",
     function () {
       clog("Change Detected: Update Dice Pool");
       getAttrs(["roll_the_dice_flag"], function (values) {

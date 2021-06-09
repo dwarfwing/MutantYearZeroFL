@@ -2014,7 +2014,7 @@ input.sheet-monster_only:checked
 }
 
 .sheet-character-dice_pool {
-  min-width: 17em;
+  min-width: 19em;
   width: 50%;
   -max-width: 21em;
   -background-color: #ffffea;
@@ -5631,7 +5631,7 @@ input.sheet-adv-modifiers:not(:checked) ~ div .sheet-weapons-box1 {  grid-row-st
 /** Toggle modifiers for skills */
 
 input.sheet-adv-modifiers:checked ~ div .sheet-character-skills {
-  min-width: 24em;
+  min-width: 22em;
 }
 
 input.sheet-adv-modifiers:not(:checked) ~ div .sheet-skills-row {

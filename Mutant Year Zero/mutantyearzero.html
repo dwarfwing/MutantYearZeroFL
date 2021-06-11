@@ -2904,16 +2904,23 @@
     <h3 data-i18n="latest-announcements">Latest Announcements</h3>
     <span class="footer">05/04/21</span>
     <ol style="margin: 0 2em 0 2em; padding: 0 1em 0 3em;">
-      <span>v2.0</span> <!-- Also need to update the version in Sheet worker code below -->
-      <li>Upgradeable from the version 1.12, using sheet worker versioning.</li>
-      <li>Fixing Dice pool issues in previous version.</li>
-      <li>Adding additional graphics.</li>
-      <li>Published to Roll20, for full list of updates and fixes see pre-v2.0 announcement below.</li>
+      <span>v2.01</span> <!-- Also need to update the version in Sheet worker code below -->
+      <li>Fixed translation issue caused by incomplete merge and build.</li>
+      <li>Added more apparent highlighting of conditions.</li>
+      <li>Fixed the dice pool indicator for the Roll button.</li>
     </ol>
     <br />
     <input type="checkbox" class="announcements-older-show" name="attr_show_announcements_old" value="1" data-i18n-title="old-announcements" />
     <span data-i18n-title="old-announcements">&nbsp;</span>
     <span class="announcements-older-show">
+      <ol style="margin: 0 2em 0 2em; padding: 0 1em 0 3em;">
+        <span>v2.0</span> <!-- Also need to update the version in Sheet worker code below -->
+        <li>Upgradeable from the version 1.12, using sheet worker versioning.</li>
+        <li>Fixing Dice pool issues in previous version.</li>
+        <li>Adding additional graphics.</li>
+        <li>Published to Roll20, for full list of updates and fixes see pre-v2.0 announcement below.</li>
+      </ol>
+      <br />
       <ol>
         <span>pre-v2.0</span>
         <li>Updated the sheet with the offical Mutant Year Zero logo.</li>
@@ -3842,9 +3849,9 @@ function getSingleAttrAsync(prop){
     // set the sheet version you are upgrading sheet to, 
     // and set show_announcement to 1 if you want to force an announcement to be shown.
     // don't set a code_version; we use the switch below for that.
-    let new_version = 2.0;
+    let new_version = 2.01;
     let show_announcement = 1;
-    if (!old_version) old_version = 2.0; // New sheet
+    if (!old_version) old_version = 2.01; // New sheet
     switch (true) {
       //add checks for updates here
       //case old_version === 0:
@@ -4149,7 +4156,7 @@ function getSingleAttrAsync(prop){
   
     // UPDATE THIS /
     // MUST set the version to a specific value here, the one where the sheet was updated like this.  
-    const current_version = 2.0;
+    const current_version = 2.01;
     setter.version = current_version;
   
     setAttrs(setter, { silent: true }, versionator(current_version));
@@ -4930,7 +4937,7 @@ function getSingleAttrAsync(prop){
           attribute: rot,
           gear: 0,
           skill: 0,
-          current_preset: getTranslationByKey(`rot_roll`),
+          current_preset: getTranslationByKey(`rot-roll`),
           include_with_roll: `{{rot-level=[[ ${rot} ]]}} {{rot-permanent=[[ ${rot_permanent} ]]}}`,
         });
       }

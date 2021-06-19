@@ -394,34 +394,25 @@ function getSingleAttrAsync(prop){
         newAnnouncement(old_version, new_version, show_announcement);
     }
   };
+
   //add updates here
-  
-  /* rename misspelled items
-  const update_to_1_12 = (old_version) => {
-    getAttrs(["armor1_equiped", "armor2_equiped", "shield1_equiped", "stockpile_vegatables"], (v) => {
-      const setter = {};
-  
-      const statswaps = {
-        armor1_equiped: "armor1_equipped",
-        armor2_equiped: "armor2_equipped",
-      };
-  
-      Object.entries(statswaps).forEach(([key, value]) => {
-        if (v[key]) {
-          setter[key] = v[value];
-          clog(`Upgrading stat setter[key] ${setter[key]} to v[value] ${v[value]}`);
-        }
-      });
-  
-      // UPDATE THIS /
-      // MUST set the version to a specific value here, the one where the sheet was updated like this.  
-      const current_version = 1.12;
-      setter.version = current_version;
-  
-      setAttrs(setter, { silent: true }, versionator(current_version));
-      clog("updating misspelled items");
-    });
-  };*/
+
+  /* Upgrade to 2.1 version */
+
+  const update_to_2_1 = async (old_version) => {
+    const setter = {};
+    const charname = await getAttrsAsync(["character_name"]);
+    
+    clog(`** UPDATE OF "${charname.character_name}" TO V2.0 FROM ${old_version} DETECTED **`);
+
+    // Handle attributes?
+
+    // Handle NPC info
+      // Change from monster_description to description
+      // Append to description
+
+    
+  }
   
   /* Upgrade to 2.0 version from previous version */
   const update_to_2_0 = async (old_version) => {
@@ -472,23 +463,12 @@ function getSingleAttrAsync(prop){
       });
     });
 
-    // Upgrade conditions - no need
-    // Upgrade apprearance - no need
-    // Upgrade injuries - non need
-    // Upgrade rot - 
+    // Upgrade rot  
     getAttrs(["rot_permenant"], (values) => {
       const permanent = int(values.rot_permenant);
       clog(`Upgrade ${charname.character_name} permanent rot points ${permanent}`);
       setAttrs({rot_permanent: permanent})
     });
-  
-  
-    // Upgrade experience - no need, same attribute
-    
-    // Upgrade skills - no need
-    // Upgrade repeating skills - no need, aligned
-  
-    // Talents - no need - aligned
   
     // Mutations
     getSectionIDs("repeating_mutantions", function(mutantions) {
@@ -651,15 +631,6 @@ function getSingleAttrAsync(prop){
   
       });
   
-    // Upgrade gear, vehicle and consumables
-      // Gear - no need
-      // Vehicle - aligned
-      // Consumables, aligned
-  
-    // Upgrade relationships, notes etc
-      // Aligned
-  
-    // Upgrade Ark sheet
     // Development levels 
     getAttrs(["ark_food_supply","ark_culture", "ark_technology", "ark_warfare", "ark_dev_food", "ark_dev_cult", "ark_dev_tech", "ark_dev_war", "character_name"], (values) => {
       const food = int(values.ark_food_supply),
@@ -675,8 +646,6 @@ function getSingleAttrAsync(prop){
           ark_dev_war: war,
       });
     });
-    // Ark details
-    // Aligned
   
     // UPDATE THIS /
     // MUST set the version to a specific value here, the one where the sheet was updated like this.  
@@ -1575,10 +1544,11 @@ function getSingleAttrAsync(prop){
   
   /* Update attributes total max */
   on("sheet:opened change:strength_total", function () {
-    //clog("Change Detected: strength_total has changed");
+    clog("Change Detected: strength_total has changed");
     getAttrs(["strength", "strength_total"], function (values) {
       const strength = int(values.strength),
         strength_total = int(values.strength_total);
+        clog("Change Detected: strength_total has changed: "+strength_total);
       setAttrs({
         strength: strength,
         strength_total: strength_total,
@@ -1587,10 +1557,11 @@ function getSingleAttrAsync(prop){
   });
   
   on("sheet:opened change:agility_total", function () {
-    //clog("Change Detected: agility_total has changed");
+    clog("Change Detected: agility_total has changed");
     getAttrs(["agility", "agility_total"], function (values) {
       const agility = int(values.agility),
         agility_total = int(values.agility_total);
+        clog("Change Detected: agility_total has changed: "+agility_total);
       setAttrs({
         agility: agility,
         agility_total: agility_total,
@@ -1599,10 +1570,11 @@ function getSingleAttrAsync(prop){
   });
   
   on("sheet:opened change:wits_total", function () {
-    //clog("Change Detected: wits_total has changed");
+    clog("Change Detected: wits_total has changed");
     getAttrs(["wits", "wits_total"], function (values) {
       const wits = int(values.wits),
         wits_total = int(values.wits_total);
+        clog("Change Detected: wits_total has changed: "+wits_total);
       setAttrs({
         wits: wits,
         wits_total: wits_total,
@@ -1615,6 +1587,7 @@ function getSingleAttrAsync(prop){
     getAttrs(["empathy", "empathy_total"], function (values) {
       const empathy = int(values.empathy),
         empathy_total = int(values.empathy_total);
+      clog("Change Detected: empathy_total has changed: "+empathy_total);
       setAttrs({
         empathy: empathy,
         empathy_total: empathy_total,

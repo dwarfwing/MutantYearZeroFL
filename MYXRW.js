@@ -247,7 +247,7 @@ function getSingleAttrAsync(prop){
   
   /* Attributre damage const */
   const attributes = {
-      // an Object Literal: damages['strength'] returns 'damage', damages['empathy'] returns 'doubt', etc
+      // an Object Literal: attributes['strength'] returns 'strength_total', attributes['empathy'] returns 'empathy_total', etc
       strength: "strength_total",
       agility: "agility_total",
       wits: "wits_total",
@@ -843,7 +843,7 @@ function getSingleAttrAsync(prop){
   Object.keys(damages).forEach((stat) => {
     // creates a sheet worker for each stat in damages - first stat = 'strength', then stat = 'agility', etc
     // in each worker, stat = the stat (strength, agility, etc) and damages[stat] = the associated damage ('damage'. 'fatigue', etc)
-    on(`change:${stat} change:${damages[stat]}`, function () {
+    on(`sheet:opened change:${stat} change:${damages[stat]}`, function () {
       //clog(`${stat} or ${damages[stat]} has changed.`);
       getAttrs([stat, damages[stat]], (values) => {
         const stat_score = int(values[stat]),

@@ -5911,11 +5911,13 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   width: 240px;
   margin: 5px 0 5px -20px;
   padding: 5px 0 5px 0;
-  border: 3px solid #000;
+  border: 3px solid #8b3f1f;
   border-radius: 5px;
 
   background: rgb(124,78,8);
   background: linear-gradient(0deg, rgba(124,78,8,1) 0%, rgba(224,184,15,1) 100%);
+  background-image: url('https://s3.amazonaws.com/files.d20.io/images/16289834/HuG1AuH9EWsSI2tLJZubBA/original.png?1455490062');
+  background-size: cover;
 }
 
 .sheet-rolltemplate-mutantyearzero div.sheet-template-header {
@@ -5978,14 +5980,14 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 
 .sheet-rolltemplate-mutantyearzero div.sheet-template-subtitle {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
-  font-size: 1em;
+  font-size: 1.2em;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 -5px 0px -5px;
   padding: 0 2px 0 2px;
-  color: #111;
+  color: black;
 }
 
 /*
@@ -6016,7 +6018,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 .sheet-rolltemplate-mutantyearzero div.sheet-template-footer span,
 .sheet-rolltemplate-mutantyearzero div.sheet-template-footer label  {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
-  color: #111;
+  color: #CCC;
 }
 .sheet-rolltemplate-mutantyearzero div.sheet-template-footer {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;

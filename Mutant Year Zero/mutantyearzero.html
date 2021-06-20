@@ -4008,7 +4008,7 @@ function getSingleAttrAsync(prop){
     getAttrs(["rot_permenant"], (values) => {
       const permanent = int(values.rot_permenant);
       clog(`Upgrade ${charname.character_name} permanent rot points ${permanent}`);
-      setAttrs({rot_permanent: permanent})
+      setAttrs({rot_permanent: permanent});
     });
   
   

@@ -5066,7 +5066,7 @@ function getSingleAttrAsync(prop){
   
   /* Broken Indicator flags*/
   // first create an array listing all 4 stats
-  const stats = ["strength", "agility", "wits", "empathy"];
+  const stats = ["strength_pc", "strength_monster", "agility", "wits", "empathy"];
   
   /* Update the Dice Pool indicator */
   on(
@@ -5122,26 +5122,32 @@ function getSingleAttrAsync(prop){
     on(`change:${stat} change:tab`, function () {
       getAttrs([stat, "tab"], function (values) {
         const total = int(values[stat]);
-        const tab = int(values.tab);
-        var max = tab === 3 || tab === 'monster' ? 12 : 6;
+        const tab = values.tab;
+        clog("Attribute "+stat+" on tab "+tab+" is "+total);
+        clog("tab === 'monster' = "+(tab === 3 || tab === 'monster'));
+        var max = tab === 'monster' ? 12 : 6;
         // const max attribute = 12 for monsters; 
-        max = (tab === 3 || tab === 'monster') && stat === "strength_monster" ? 12 : 40;
+        clog("tab === 'monster' && stat === strength_monster = "+tab === 'monster' && stat === 'strength_monster');
+        max = tab === 'monster' && stat === 'strength_monster' ? 40 : 12;
         // const max strength = 40 for monsters; 
         const settings = checkMax(stat, total, max);
         if (settings) setAttrs(settings);
       });
     });
   });
+
+  /* Duplicate
   Object.keys(attributes).forEach((stat) => {
     on(`change:${stat}`, function () {
       getAttrs([stat], function (values) {
         const total = int(values[stat]);
-        const max = pools.skill.max;
+        const max = pools.attribute.max;
         const settings = checkMax(stat, total, max);
         if (settings) setAttrs(settings);
       });
     });
   });
+  */
   
   /* Update attributes total max */
   on("sheet:opened change:strength_total", function () {

@@ -6,7 +6,6 @@
 <input class="hidden attr-chartype-selected" name="attr_chartype" value="(@{chartype})" type="hidden" hidden readonly />
 <input class="hidden header-bgimg" type="checkbox" name="attr_header-bgimg" value="1" hidden readonly />
 <input class="hidden adv-modifiers" type="checkbox" name="attr_adv-modifiers" value="1" hidden readonly />
-<input class="hidden adv-monsterinfo" type="checkbox" name="attr_force_show_monsterinfo" value="1" hidden readonly />
 
 <!-- LOGO -->
 <div class="logo" title="MUTANT YEAR ZERO" data-i18n-title="logo-myz">
@@ -294,8 +293,8 @@
         </div>
       </div>
       <div class="conditions-grid toggle-pc-only chartype-background-dark">
-        <input class="hidden conditions-hungry" type="checkbox" name="attr_starving" value="1" />
-        <div class="conditions-box conditions-box2 conditions-hungry"><input class="input xbox conditions-hungry" type="checkbox" name="attr_starving" value="1" data-i18n-title="condition-starving" title="Starving" /><span></span></div>
+        <input class="hidden conditions-hungry" type="checkbox" name="attr_hungry" value="1" />
+        <div class="conditions-box conditions-box2 conditions-hungry"><input class="input xbox conditions-hungry" type="checkbox" name="attr_hungry" value="1" data-i18n-title="condition-hungry" title="Hungry" /><span></span></div>
         <div class="conditions-box conditions-box3 conditions-hungry">
           <span class="header-h1 conditions-hungry" data-i18n="hungry-condition">Starving</span>
         </div>
@@ -1438,19 +1437,12 @@
             </div>
             <div class="dice-rolls2">
               <div class="dice-rolls-d66">
-                <button class="dice-pool dice-rolls-smaller" type="roll" name="roll_d66" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{d66-roll}}} {{subtitle}} {{free-text}}  {{d66-die-one=[[ 1 ]] }} {{d66-roll-one=[[ 1d6 ]] }} {{d66-die-two=[[ 1 ]] }} {{d66-roll-two=[[ 1d6 ]] }} {{footer}}" data-i18n-title="roll-dice-66" title="Roll d66!">
-                  D66
-                </button>
-              </div>
-              <div class="dice-rolls-d666">
-                <button class="dice-pool dice-rolls-smaller" type="roll" name="roll_d666" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{d666-roll}}} {{subtitle}} {{free-text}}  {{d666-die-one=[[ 1 ]] }} {{d666-roll-one=[[ 1d6 ]] }} {{d666-die-two=[[ 1 ]] }} {{d666-roll-two=[[ 1d6 ]] }}  {{d666-die-three=[[ 1 ]] }} {{d666-roll-three=[[ 1d6 ]] }} {{footer}}" data-i18n-title="roll-dice-66" title="Roll d66!">
-                  D666
+                <button class="dice-pool" type="roll" name="roll_d66" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{d66-roll}}} {{subtitle}} {{free-text}}  {{d66-die-one=[[ 1 ]] }} {{d66-roll-one=[[ 1d6 ]] }} {{d66-die-two=[[ 1 ]] }} {{d66-roll-two=[[ 1d6 ]] }} {{footer}}" data-i18n-title="roll-dice-66" title="Roll d66!">
+                  &nbsp;<span class="small-caps" data-i18n="die-66-u">D66</span>&nbsp;
                 </button>
               </div>
               <div class="dice-rolls-init">
-                <button class="dice-pool dice-rolls-smaller" data-i18n="initiative" data-i18n-title="initiative" type="roll" name="roll_init" value="&{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=Initiative}} {{free-text}} {{roll-initiative=[[1d6]]}} {{footer}}" title="Initiative">
-                  Initiative
-                </button>
+                <button class="dice-pool" data-i18n="initiative" data-i18n-title="initiative" type="roll" name="roll_init" value="&{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=Initiative}} {{free-text}} {{roll-initiative=[[1d6]]}} {{footer}}" title="Initiative">Initiative</button>
               </div>
             </div>
           </div>       
@@ -1957,7 +1949,7 @@
         </div>
         <div class="gear-subgrid2 chartype-background-light">
           <div class="gear-box12">
-            <span class="label" data-i18n-title="pack-rat-title" data-i18n="pack-rat">Pack Mule Talent?&nbsp;</span>
+            <span class="label" data-i18n-title="pack-rat-title" data-i18n="pack-rat">Pack Rat Talent?&nbsp;</span>
           </div>
           <div class="gear-box13">
             <select class="input" name="attr_pack_rat">
@@ -2175,7 +2167,7 @@
                   <option value="10">10</option>
                 </select>
                 <input class="armor-box8 input" type="text" name="attr_features" value="" title="@{repeating_armor_$X_features}" />
-                <span class="armor-box9 readonly" name="attr_rating" value="0" data-i18n-title="armor-rating-desc" title="Total GEAR and SKILL dice included for armor. @{repeating_armor_$X_rating}" readonly>0</span>
+                <span class="armor-box9 readonly" name="attr_rating" value="0" data-i18n-title="armor-rating" title="Total GEAR and SKILL dice included for armor. @{repeating_armor_$X_rating}" readonly>0</span>
                 <!-- expand 2nd row 
                 <input class="expand" type="checkbox" name="attr_expand_armor" value="1" data-i18n-title="show-hide" title="show/hide" checked /><span></span>
                 -->
@@ -2374,40 +2366,6 @@
         </div>
       </div>
     </div>
-
-      <!-- MONSTER DESCRIPTION-->
-      <div class="monster-information box chartype-background-light monster toggle-monster-only monster-information-toggle">
-        <div class="information-grid">
-          <div class="information-box information-box0 header">
-            <h1 data-i18n="monster-information-u">MONSTER INFORMATION</h1>
-          </div>
-          <div class="heading-box heading-box1">
-            <span class="sheet-label" data-i18n="description">Description</span><br>
-            <textarea class="input-textarea" name="attr_description" title="@{description}"></textarea>
-          </div>
-          <div class="heading-box heading-box1">
-            <span class="sheet-label" data-i18n="skills">Skills</span><br>
-            <textarea class="input-textarea" name="attr_skills" title="@{skills}"></textarea>
-          </div> 
-
-          <div class="heading-box heading-box1">
-            <span class="sheet-label" data-i18n="weapons">Weapons</span><br>
-            <textarea class="input-textarea" name="attr_weapons" title="@{weapons}"></textarea>
-          </div>
-          <div class="heading-box heading-box1">
-            <span class="sheet-label" data-i18n="armor">Armor</span><br>
-            <input class="input" type="text" name="attr_armor" value="" title="@{armor}" />
-          </div> 
-          <div class="monster-abilities">
-            <div class="header chartype-background-dark" data-i18n="abilities">Abilities</div>
-            <fieldset class="repeating_abilities">
-                <div class="monster-abilities-row">
-                  <input name="attr_name" type="text" value="" /><textarea name="attr_description"></textarea>
-                </div>
-            </fieldset>
-          </div>
-        </div>
-      </div>
 
     <div class="character-notes box chartype-background-light">
       <div class="notes-grid">
@@ -2887,10 +2845,6 @@
       <span data-i18n="adv-headerbgimg">Show header background images (mutant only)</span>:
       <input type="checkbox" name="attr_header-bgimg" value="1" title="@{header-bgimg}" style="vertical-align: center;"  />
     </div>
-    <div>
-      <span data-i18n="adv-legacy-monster-info">Display legacy (v1) NPC / Monster information, e.g. Abilities, Skills.</span>:
-      <input type="checkbox" name="attr_force_show_monsterinfo" value="1" title="@{force_show_monsterinfo}" style="vertical-align: center;"  />
-    </div>
     <!--div>
       <span data-i18n="adv-consumables-icons">Show consumables as icons</span>:
       <input type="checkbox" name="attr_consumables-icons" value="1" title="@{consumables-icons}" style="vertical-align: center;"  />
@@ -2948,26 +2902,17 @@
   </div>
   <div class="announcements">
     <h3 data-i18n="latest-announcements">Latest Announcements</h3>
-    <span class="footer">2021-06-20</span>
+    <span class="footer">05/04/21</span>
     <ol style="margin: 0 2em 0 2em; padding: 0 1em 0 3em;">
-      <span>v2.02</span> <!-- Also need to update the version in Sheet worker code below -->
-      <li>Fixed issue with attributes total not setting after upgrade.</li>
-      <li>Fixed issue with attributes max values and monster strength.</li>
-      <li>Fixed translation for pack mule talent and conditions.</li>
-      <li>Fixed legacy (v1) monster informaiton, now optional to display in NPC / Monster tab.</li>
-      <li>Fixed and readded the D666 button which was removed earlier.</li>
+      <span>v2.01</span> <!-- Also need to update the version in Sheet worker code below -->
+      <li>Fixed translation issue caused by incomplete merge and build.</li>
+      <li>Added more apparent highlighting of conditions.</li>
+      <li>Fixed the dice pool indicator for the Roll button.</li>
     </ol>
     <br />
     <input type="checkbox" class="announcements-older-show" name="attr_show_announcements_old" value="1" data-i18n-title="old-announcements" />
     <span data-i18n-title="old-announcements">&nbsp;</span>
     <span class="announcements-older-show">
-      <ol style="margin: 0 2em 0 2em; padding: 0 1em 0 3em;">
-        <span>v2.01 (2021-05-04)</span> <!-- Also need to update the version in Sheet worker code below -->
-        <li>Fixed translation issue caused by incomplete merge and build.</li>
-        <li>Added more apparent highlighting of conditions.</li>
-        <li>Fixed the dice pool indicator for the Roll button.</li>
-      </ol>
-      <br />
       <ol style="margin: 0 2em 0 2em; padding: 0 1em 0 3em;">
         <span>v2.0</span> <!-- Also need to update the version in Sheet worker code below -->
         <li>Upgradeable from the version 1.12, using sheet worker versioning.</li>
@@ -3407,35 +3352,16 @@
       <div class="template-grid-item template-span-three template-dice template-green-dice">
         {{#rollBetween() d66-roll-one 0 100}} {{d66-roll-one}} {{/rollBetween() d66-roll-one 0 100}}
       </div>
-      {{/rollTotal() d66-die-one 1}} 
-      {{#rollTotal() d66-die-two 1}}
+      {{/rollTotal() d66-die-one 1}} {{#rollTotal() d66-die-two 1}}
       <div class="template-grid-item template-span-four template-dice template-green-dice">
         {{#rollBetween() d66-roll-two 0 100}} {{d66-roll-two}} {{/rollBetween() d66-roll-two 0 100}}
       </div>
       {{/rollTotal() d66-die-two 1}}
 
-      <!--- d666 -->
-      <!-- increased range of each d66 dice to allow for custom rolls 0-1000-->
-      {{#rollTotal() d666-die-one 1}}
-      <div class="template-grid-item template-span-three template-dice template-green-dice">
-        {{#rollBetween() d666-roll-one 0 100}} {{d666-roll-one}} {{/rollBetween() d666-roll-one 0 100}}
-      </div>
-      {{/rollTotal() d666-die-one 1}} 
-      {{#rollTotal() d666-die-two 1}}
-      <div class="template-grid-item template-span-four template-dice template-green-dice">
-        {{#rollBetween() d666-roll-two 0 100}} {{d666-roll-two}} {{/rollBetween() d666-roll-two 0 100}}
-      </div>
-      {{/rollTotal() d666-die-two 1}}
-      {{#rollTotal() d666-die-three 1}}
-      <div class="template-grid-item template-span-five template-dice template-green-dice">
-        {{#rollBetween() d666-roll-three 0 100}} {{d666-roll-three}} {{/rollBetween() d666-roll-three 0 100}}
-      </div>
-      {{/rollTotal() d666-die-three 1}}
-
       <!--- Initiative -->
       
       {{#roll-initiative}}
-      <div class="template-grid-item template-span-four template-dice template-green-dice">
+      <div class="template-grid-item template-span-three template-dice template-green-dice">
         {{roll-initiative}} 
       </div>
       {{/roll-initiative}}
@@ -3545,6 +3471,7 @@
     </div>
   </div>
 </rolltemplate>
+
 
 <script type="text/worker">
   /* beautify preserve:start */
@@ -3922,9 +3849,9 @@ function getSingleAttrAsync(prop){
     // set the sheet version you are upgrading sheet to, 
     // and set show_announcement to 1 if you want to force an announcement to be shown.
     // don't set a code_version; we use the switch below for that.
-    let new_version = 2.02;
+    let new_version = 2.01;
     let show_announcement = 1;
-    if (!old_version) old_version = 2.02; // New sheet
+    if (!old_version) old_version = 2.01; // New sheet
     switch (true) {
       //add checks for updates here
       //case old_version === 0:
@@ -3983,14 +3910,20 @@ function getSingleAttrAsync(prop){
     // On upgrade, set character type to Mutant
     clog(`Upgrade ${charname.character_name}: Setting character type Mutant.`);
     setAttrs({chartype: "Mutant"});
+    //const chartypeStr = "Mutant";
+    //setter.chartype = chartypeStr;
     
     // On upgrade, turn off modifiers
     clog(`Upgrade ${charname.character_name}: Turning off modifiers.`);
     setAttrs({"adv-modifiers": 0});
+    //const modifiersTgl = 0;
+    //setter["adv-modifiers"] = modifiersTgl;
     
     // On upgrade, turn on Mutant headers
     clog(`Upgrade ${charname.character_name}: using image header backgrounds.`);
     setAttrs({"header-bgimg": 1});
+    //const bgimgTgl = 1;
+    //setter["header-bgimg"] = bgimgTgl;  
     
     // Upgrade attributes, no need to update damages
     Object.keys(attributes).forEach((attr) => {
@@ -4015,12 +3948,23 @@ function getSingleAttrAsync(prop){
       });
     });
 
-    // Upgrade rot  
+    // Upgrade conditions - no need
+    // Upgrade apprearance - no need
+    // Upgrade injuries - non need
+    // Upgrade rot - 
     getAttrs(["rot_permenant"], (values) => {
       const permanent = int(values.rot_permenant);
       clog(`Upgrade ${charname.character_name} permanent rot points ${permanent}`);
       setAttrs({rot_permanent: permanent})
     });
+  
+  
+    // Upgrade experience - no need, same attribute
+    
+    // Upgrade skills - no need
+    // Upgrade repeating skills - no need, aligned
+  
+    // Talents - no need - aligned
   
     // Mutations
     getSectionIDs("repeating_mutantions", function(mutantions) {
@@ -4183,6 +4127,14 @@ function getSingleAttrAsync(prop){
   
       });
   
+    // Upgrade gear, vehicle and consumables
+      // Gear - no need
+      // Vehicle - aligned
+      // Consumables, aligned
+  
+    // Upgrade relationships, notes etc
+      // Aligned
+  
     // Upgrade Ark sheet
     // Development levels 
     getAttrs(["ark_food_supply","ark_culture", "ark_technology", "ark_warfare", "ark_dev_food", "ark_dev_cult", "ark_dev_tech", "ark_dev_war", "character_name"], (values) => {
@@ -4199,6 +4151,8 @@ function getSingleAttrAsync(prop){
           ark_dev_war: war,
       });
     });
+    // Ark details
+    // Aligned
   
     // UPDATE THIS /
     // MUST set the version to a specific value here, the one where the sheet was updated like this.  
@@ -4368,7 +4322,7 @@ function getSingleAttrAsync(prop){
       let pc = int(v.strength_pc),
         monster = int(v.strength_monster),
         forceupdate = 0;
-      clog(`Found updated strength in tab ${tab}, checking pc = ${pc} and monster = ${monster} strengths, max is now = ${str}.`)
+      //clog(`Found updated strength max in tab ${tab}, checking pc = ${pc} and monster = ${monster} strengths, max is now = ${str}.`)
   
       // check if character existed before strength_pc or _monster stats were introduced.
       if (str > 0) {
@@ -4396,7 +4350,7 @@ function getSingleAttrAsync(prop){
   Object.keys(damages).forEach((stat) => {
     // creates a sheet worker for each stat in damages - first stat = 'strength', then stat = 'agility', etc
     // in each worker, stat = the stat (strength, agility, etc) and damages[stat] = the associated damage ('damage'. 'fatigue', etc)
-    on(`sheet:opened change:${stat} change:${damages[stat]}`, function () {
+    on(`change:${stat} change:${damages[stat]}`, function () {
       //clog(`${stat} or ${damages[stat]} has changed.`);
       getAttrs([stat, damages[stat]], (values) => {
         const stat_score = int(values[stat]),
@@ -4869,7 +4823,7 @@ function getSingleAttrAsync(prop){
     );
   });
   
-  /* Monster attacks/features dice pool */
+  /* Monster attacks dice pool */
   on("clicked:repeating_monster:monster-features-roll", function () {
     clog("Change Detected: Monster Attack - button clicked");
     getAttrs(["repeating_monster_attack_name", "repeating_monster_attack_dice", "repeating_monster_attack_damage", "repeating_monster_attack_features", "repeating_monster_attack_range", "repeating_monster_attack_description"], function (values) {
@@ -5020,7 +4974,7 @@ function getSingleAttrAsync(prop){
   
   /* Broken Indicator flags*/
   // first create an array listing all 4 stats
-  const stats = ["strength_pc", "strength_monster", "agility", "wits", "empathy"];
+  const stats = ["strength", "agility", "wits", "empathy"];
   
   /* Update the Dice Pool indicator */
   on(
@@ -5076,38 +5030,33 @@ function getSingleAttrAsync(prop){
     on(`change:${stat} change:tab`, function () {
       getAttrs([stat, "tab"], function (values) {
         const total = int(values[stat]);
-        const tab = values.tab;
-        clog("Attribute "+stat+" on tab "+tab+" is "+total);
-        clog("tab === 'monster' = "+(tab === 3 || tab === 'monster'));
-        var max = tab === 'monster' ? 12 : 6;
+        const tab = int(values.tab);
+        var max = tab === 3 || tab === 'monster' ? 12 : 6;
         // const max attribute = 12 for monsters; 
-        clog("tab === 'monster' && stat === strength_monster = "+tab === 'monster' && stat === 'strength_monster');
-        max = tab === 'monster' && stat === 'strength_monster' ? 40 : 12;
+        max = (tab === 3 || tab === 'monster') && stat === "strength_monster" ? 12 : 40;
         // const max strength = 40 for monsters; 
         const settings = checkMax(stat, total, max);
         if (settings) setAttrs(settings);
       });
     });
   });
-/* Duplicate to the above, which also take sinto account the tab 
   Object.keys(attributes).forEach((stat) => {
     on(`change:${stat}`, function () {
       getAttrs([stat], function (values) {
         const total = int(values[stat]);
-        var max = pools.attribute.max;
+        const max = pools.skill.max;
         const settings = checkMax(stat, total, max);
         if (settings) setAttrs(settings);
       });
     });
-  }); */
+  });
   
-  /* Update attributes total max 
+  /* Update attributes total max */
   on("sheet:opened change:strength_total", function () {
-    clog("Change Detected: strength_total has changed");
+    //clog("Change Detected: strength_total has changed");
     getAttrs(["strength", "strength_total"], function (values) {
       const strength = int(values.strength),
         strength_total = int(values.strength_total);
-        clog("Change Detected: strength_total has changed: "+strength_total);
       setAttrs({
         strength: strength,
         strength_total: strength_total,
@@ -5116,11 +5065,10 @@ function getSingleAttrAsync(prop){
   });
   
   on("sheet:opened change:agility_total", function () {
-    clog("Change Detected: agility_total has changed");
+    //clog("Change Detected: agility_total has changed");
     getAttrs(["agility", "agility_total"], function (values) {
       const agility = int(values.agility),
         agility_total = int(values.agility_total);
-        clog("Change Detected: agility_total has changed: "+agility_total);
       setAttrs({
         agility: agility,
         agility_total: agility_total,
@@ -5129,11 +5077,10 @@ function getSingleAttrAsync(prop){
   });
   
   on("sheet:opened change:wits_total", function () {
-    clog("Change Detected: wits_total has changed");
+    //clog("Change Detected: wits_total has changed");
     getAttrs(["wits", "wits_total"], function (values) {
       const wits = int(values.wits),
         wits_total = int(values.wits_total);
-        clog("Change Detected: wits_total has changed: "+wits_total);
       setAttrs({
         wits: wits,
         wits_total: wits_total,
@@ -5146,19 +5093,18 @@ function getSingleAttrAsync(prop){
     getAttrs(["empathy", "empathy_total"], function (values) {
       const empathy = int(values.empathy),
         empathy_total = int(values.empathy_total);
-      clog("Change Detected: empathy_total has changed: "+empathy_total);
       setAttrs({
         empathy: empathy,
         empathy_total: empathy_total,
       });
     });
-  });*/
+  });
   
   /* set strength dice pool */
   on("clicked:strength_roll", function () {
     clog("Change Detected: Strength - button clicked");
     getAttrs(["strength_total", "strength_name"], function (values) {
-      const strength_total = int(values.strength_total) > 12 ? 12 : int(values.strength_total),
+      const strength_total = int(values.strength_total),
       strength_name = values.strength_name;
       //clog(strength_name + " : " + strength);
       setAttrs({

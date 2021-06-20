@@ -3854,7 +3854,7 @@ function getSingleAttrAsync(prop){
   
   /* version tracking */
   
-  const newAnnouncement = (old_version, new_version, show_announcement) => {
+  const newAnnouncement = async (old_version, new_version, show_announcement) => {
     const setter = {};
     clog(`Current sheet data version: ${old_version}, Sheet code version: ${new_version}`);
   
@@ -3866,17 +3866,35 @@ function getSingleAttrAsync(prop){
       setter.show_announcements = 1;
     }
     if (setter) {
-      setAttrs(setter, { silent: true });
+      await setAttrsAsync(setter);
     }
   };
   
-  const versionator = (old_version) => {
+  const versionator = async (old_version) => {
     // set the sheet version you are upgrading sheet to, 
     // and set show_announcement to 1 if you want to force an announcement to be shown.
     // don't set a code_version; we use the switch below for that.
     let new_version = 2.01;
     let show_announcement = 1;
-    if (!old_version) old_version = 2.01; // New sheet
+
+    // Testing what major version using v1 attribute
+    var major_version = 2;
+    const values = await getAttrsAsync(["strength_max"]);
+    //clog("strength_max test 3: " + (values.strength_max === undefined) ? 1 : 2);
+    major_version = (values.strength_max === undefined) ? 2 : 1; 
+
+    clog("major_version: "+major_version);
+    clog("old_version: "+ old_version);
+
+    if (!old_version) {
+      if (major_version < 2) { 
+        old_version = 0; // Upgrade sheet
+      } else {
+        old_version = new_version; // New sheet
+      }
+    }
+    clog("Calculated old version: "+ old_version);
+
     switch (true) {
       //add checks for updates here
       //case old_version === 0:
@@ -3890,6 +3908,8 @@ function getSingleAttrAsync(prop){
         update_to_2_0(old_version);
         break;
       default:
+        clog("version is "+new_version);
+        setAttrs({version: new_version});
         // if reach this, all codeversion upgrades are complete
         // can run your recalculate function to show announcements
         newAnnouncement(old_version, new_version, show_announcement);

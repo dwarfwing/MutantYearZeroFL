@@ -3969,6 +3969,14 @@ function getSingleAttrAsync(prop){
     setAttrs({"header-bgimg": 1});
     //const bgimgTgl = 1;
     //setter["header-bgimg"] = bgimgTgl;  
+
+    // On upgrade, update active tab
+    getAttrs(["tab"], (values) => {
+      clog("Tab was "+values.tab);
+      const tab = values.tab === 'npc' ? 'monster' : values.tab === 'log' ? 'zone-log' : values.tab;     
+      clog("Tab update to "+tab);
+      setAttrs({tab: tab});
+    });
     
     // Upgrade attributes, no need to update damages
     Object.keys(attributes).forEach((attr) => {

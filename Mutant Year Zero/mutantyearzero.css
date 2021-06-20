@@ -3395,7 +3395,7 @@ input.sheet-conditions-cold:checked ~ div.sheet-conditions-cold {
   -margin-top: 10px;
   -padding: 10px;
   grid-area: sheet-dice-rolls2;
-  grid-template-areas: "sheet-dice-rolls-d66" "sheet-dice-rolls-init";
+  grid-template-areas: "sheet-dice-rolls-d66" "sheet-dice-rolls-d666" "sheet-dice-rolls-init";
 }
 
 .sheet-dice-rolls-roll {
@@ -3420,8 +3420,20 @@ input.sheet-conditions-cold:checked ~ div.sheet-conditions-cold {
 .sheet-dice-rolls-d66 {
   display: flex;
   justify-content: flex-end;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   grid-area: sheet-dice-rolls-d66;
+}
+
+.sheet-dice-rolls-d666 {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 5px;
+  grid-area: sheet-dice-rolls-d666;
+}
+
+.sheet-dice-rolls-smaller {
+  height: 17px;
+  font-size: 1em !important;
 }
 
 .sheet-dice-preset {

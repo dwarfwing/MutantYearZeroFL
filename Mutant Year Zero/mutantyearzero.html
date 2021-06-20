@@ -1438,12 +1438,19 @@
             </div>
             <div class="dice-rolls2">
               <div class="dice-rolls-d66">
-                <button class="dice-pool" type="roll" name="roll_d66" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{d66-roll}}} {{subtitle}} {{free-text}}  {{d66-die-one=[[ 1 ]] }} {{d66-roll-one=[[ 1d6 ]] }} {{d66-die-two=[[ 1 ]] }} {{d66-roll-two=[[ 1d6 ]] }} {{footer}}" data-i18n-title="roll-dice-66" title="Roll d66!">
-                  &nbsp;<span class="small-caps" data-i18n="die-66-u">D66</span>&nbsp;
+                <button class="dice-pool dice-rolls-smaller" type="roll" name="roll_d66" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{d66-roll}}} {{subtitle}} {{free-text}}  {{d66-die-one=[[ 1 ]] }} {{d66-roll-one=[[ 1d6 ]] }} {{d66-die-two=[[ 1 ]] }} {{d66-roll-two=[[ 1d6 ]] }} {{footer}}" data-i18n-title="roll-dice-66" title="Roll d66!">
+                  D66
+                </button>
+              </div>
+              <div class="dice-rolls-d666">
+                <button class="dice-pool dice-rolls-smaller" type="roll" name="roll_d666" value="@{whisper_option} &{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=^{d666-roll}}} {{subtitle}} {{free-text}}  {{d666-die-one=[[ 1 ]] }} {{d666-roll-one=[[ 1d6 ]] }} {{d666-die-two=[[ 1 ]] }} {{d666-roll-two=[[ 1d6 ]] }}  {{d666-die-three=[[ 1 ]] }} {{d666-roll-three=[[ 1d6 ]] }} {{footer}}" data-i18n-title="roll-dice-66" title="Roll d66!">
+                  D666
                 </button>
               </div>
               <div class="dice-rolls-init">
-                <button class="dice-pool" data-i18n="initiative" data-i18n-title="initiative" type="roll" name="roll_init" value="&{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=Initiative}} {{free-text}} {{roll-initiative=[[1d6]]}} {{footer}}" title="Initiative">Initiative</button>
+                <button class="dice-pool dice-rolls-smaller" data-i18n="initiative" data-i18n-title="initiative" type="roll" name="roll_init" value="&{template:mutantyearzero} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{name=Initiative}} {{free-text}} {{roll-initiative=[[1d6]]}} {{footer}}" title="Initiative">
+                  Initiative
+                </button>
               </div>
             </div>
           </div>       
@@ -3391,16 +3398,35 @@
       <div class="template-grid-item template-span-three template-dice template-green-dice">
         {{#rollBetween() d66-roll-one 0 100}} {{d66-roll-one}} {{/rollBetween() d66-roll-one 0 100}}
       </div>
-      {{/rollTotal() d66-die-one 1}} {{#rollTotal() d66-die-two 1}}
+      {{/rollTotal() d66-die-one 1}} 
+      {{#rollTotal() d66-die-two 1}}
       <div class="template-grid-item template-span-four template-dice template-green-dice">
         {{#rollBetween() d66-roll-two 0 100}} {{d66-roll-two}} {{/rollBetween() d66-roll-two 0 100}}
       </div>
       {{/rollTotal() d66-die-two 1}}
 
+      <!--- d666 -->
+      <!-- increased range of each d66 dice to allow for custom rolls 0-1000-->
+      {{#rollTotal() d666-die-one 1}}
+      <div class="template-grid-item template-span-three template-dice template-green-dice">
+        {{#rollBetween() d666-roll-one 0 100}} {{d666-roll-one}} {{/rollBetween() d666-roll-one 0 100}}
+      </div>
+      {{/rollTotal() d666-die-one 1}} 
+      {{#rollTotal() d666-die-two 1}}
+      <div class="template-grid-item template-span-four template-dice template-green-dice">
+        {{#rollBetween() d666-roll-two 0 100}} {{d666-roll-two}} {{/rollBetween() d666-roll-two 0 100}}
+      </div>
+      {{/rollTotal() d666-die-two 1}}
+      {{#rollTotal() d666-die-three 1}}
+      <div class="template-grid-item template-span-five template-dice template-green-dice">
+        {{#rollBetween() d666-roll-three 0 100}} {{d666-roll-three}} {{/rollBetween() d666-roll-three 0 100}}
+      </div>
+      {{/rollTotal() d666-die-three 1}}
+
       <!--- Initiative -->
       
       {{#roll-initiative}}
-      <div class="template-grid-item template-span-three template-dice template-green-dice">
+      <div class="template-grid-item template-span-four template-dice template-green-dice">
         {{roll-initiative}} 
       </div>
       {{/roll-initiative}}

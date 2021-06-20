@@ -405,13 +405,7 @@ function getSingleAttrAsync(prop){
     
     clog(`** UPDATE OF "${charname.character_name}" TO V2.0 FROM ${old_version} DETECTED **`);
 
-    // Handle attributes?
-
-    // Handle NPC info
-      // Change from monster_description to description
-      // Append to description
-
-    
+   
   }
   
   /* Upgrade to 2.0 version from previous version */
@@ -1465,7 +1459,7 @@ function getSingleAttrAsync(prop){
   
   /* Broken Indicator flags*/
   // first create an array listing all 4 stats
-  const stats = ["strength", "agility", "wits", "empathy"];
+  const stats = ["strength", "strength_monster", "agility", "wits", "empathy"];
   
   /* Update the Dice Pool indicator */
   on(
@@ -1521,10 +1515,13 @@ function getSingleAttrAsync(prop){
     on(`change:${stat} change:tab`, function () {
       getAttrs([stat, "tab"], function (values) {
         const total = int(values[stat]);
-        const tab = int(values.tab);
+        const tab = values.tab;
+        clog("Attribute "+stat+" on tab "+tab+" is "+total);
+        clog("(tab === 3 || tab === 'monster') = "+(tab === 3 || tab === 'monster'));
         var max = tab === 3 || tab === 'monster' ? 12 : 6;
         // const max attribute = 12 for monsters; 
-        max = (tab === 3 || tab === 'monster') && stat === "strength_monster" ? 12 : 40;
+        clog("(tab === 3 || tab === 'monster') && stat === strength_monster = "+((tab === 3 || tab === 'monster') && stat === 'strength_monster'));
+        max = (tab === 3 || tab === 'monster') && stat === "strength_monster" ? 40 : 12;
         // const max strength = 40 for monsters; 
         const settings = checkMax(stat, total, max);
         if (settings) setAttrs(settings);
@@ -1535,7 +1532,8 @@ function getSingleAttrAsync(prop){
     on(`change:${stat}`, function () {
       getAttrs([stat], function (values) {
         const total = int(values[stat]);
-        const max = pools.skill.max;
+        clog("")
+        const max = pools.attribute.max;
         const settings = checkMax(stat, total, max);
         if (settings) setAttrs(settings);
       });
@@ -1599,8 +1597,9 @@ function getSingleAttrAsync(prop){
   on("clicked:strength-roll", function () {
     clog("Change Detected: Strength - button clicked");
     getAttrs(["strength_total"], function (values) {
-      const strength_total = int(values.strength_total),
+      const strength_total = int(values.strength_total) > 12 ? 12 : int(values.strength_total),
       strength_name = getSkillName("strength");
+      
       //clog(strength_name + " : " + strength);
       setAttrs({
         attribute: strength_total,

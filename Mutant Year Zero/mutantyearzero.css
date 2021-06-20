@@ -3395,7 +3395,7 @@ input.sheet-conditions-cold:checked ~ div.sheet-conditions-cold {
   -margin-top: 10px;
   -padding: 10px;
   grid-area: sheet-dice-rolls2;
-  grid-template-areas: "sheet-dice-rolls-d66" "sheet-dice-rolls-init";
+  grid-template-areas: "sheet-dice-rolls-d66" "sheet-dice-rolls-d666" "sheet-dice-rolls-init";
 }
 
 .sheet-dice-rolls-roll {
@@ -3420,8 +3420,20 @@ input.sheet-conditions-cold:checked ~ div.sheet-conditions-cold {
 .sheet-dice-rolls-d66 {
   display: flex;
   justify-content: flex-end;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   grid-area: sheet-dice-rolls-d66;
+}
+
+.sheet-dice-rolls-d666 {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 5px;
+  grid-area: sheet-dice-rolls-d666;
+}
+
+.sheet-dice-rolls-smaller {
+  height: 17px;
+  font-size: 1em !important;
 }
 
 .sheet-dice-preset {
@@ -5932,6 +5944,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 
   background: rgb(124,78,8);
   background: linear-gradient(0deg, rgba(124,78,8,1) 0%, rgba(224,184,15,1) 100%);
+  background-image: url('https://s3.amazonaws.com/files.d20.io/images/16289834/HuG1AuH9EWsSI2tLJZubBA/original.png?1455490062');
 }
 
 .sheet-rolltemplate-mutantyearzero div.sheet-template-header {
@@ -6001,7 +6014,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
   justify-content: center;
   margin: 0 -5px 0px -5px;
   padding: 0 2px 0 2px;
-  color: #111;
+  color: #CCC;
 }
 
 /*
@@ -6032,7 +6045,7 @@ input[type="checkbox"].sheet-legendary:checked + span::before {
 .sheet-rolltemplate-mutantyearzero div.sheet-template-footer span,
 .sheet-rolltemplate-mutantyearzero div.sheet-template-footer label  {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;
-  color: #111;
+  color: #CCC;
 }
 .sheet-rolltemplate-mutantyearzero div.sheet-template-footer {
   font-family: 'Didact Gothic', 'DidactGothic', Verdana, Helvetica, Arial, sans-serif;

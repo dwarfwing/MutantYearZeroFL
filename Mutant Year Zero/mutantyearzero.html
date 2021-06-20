@@ -5027,7 +5027,7 @@ function getSingleAttrAsync(prop){
     return settings;
   };
   stats.forEach((stat) => {
-    on(`change:${stat} change:tab`, function () {
+    on(`sheet:opened change:${stat} change:tab`, function () {
       getAttrs([stat, "tab"], function (values) {
         const total = int(values[stat]);
         const tab = int(values.tab);
@@ -5041,7 +5041,7 @@ function getSingleAttrAsync(prop){
     });
   });
   Object.keys(attributes).forEach((stat) => {
-    on(`change:${stat}`, function () {
+    on(`sheet:opened change:${stat}`, function () {
       getAttrs([stat], function (values) {
         const total = int(values[stat]);
         const max = pools.skill.max;

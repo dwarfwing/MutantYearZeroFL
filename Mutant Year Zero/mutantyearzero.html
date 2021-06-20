@@ -2881,7 +2881,7 @@
       <input type="checkbox" name="attr_header-bgimg" value="1" title="@{header-bgimg}" style="vertical-align: center;"  />
     </div>
     <div>
-      <span data-i18n="adv-legacy-monster-info">Display legacy (v1) NPC / Monster information, e.g. Abilities, Skills, Weapons fields.</span>:
+      <span data-i18n="adv-legacy-monster-info">Display legacy (v1) NPC / Monster information, e.g. Abilities, Skills.</span>:
       <input type="checkbox" name="attr_force_show_monsterinfo" value="1" title="@{force_show_monsterinfo}" style="vertical-align: center;"  />
     </div>
     <!--div>
@@ -2941,17 +2941,26 @@
   </div>
   <div class="announcements">
     <h3 data-i18n="latest-announcements">Latest Announcements</h3>
-    <span class="footer">05/04/21</span>
+    <span class="footer">2021-06-20</span>
     <ol style="margin: 0 2em 0 2em; padding: 0 1em 0 3em;">
-      <span>v2.01</span> <!-- Also need to update the version in Sheet worker code below -->
-      <li>Fixed translation issue caused by incomplete merge and build.</li>
-      <li>Added more apparent highlighting of conditions.</li>
-      <li>Fixed the dice pool indicator for the Roll button.</li>
+      <span>v2.02</span> <!-- Also need to update the version in Sheet worker code below -->
+      <li>Fixed issue with attributes total not setting after upgrade.</li>
+      <li>Fixed issue with attributes max values and monster strength.</li>
+      <li>Fixed translation for pack mule talent and conditions.</li>
+      <li>Fixed legacy (v1) monster informaiton, now optional to display in NPC / Monster tab.</li>
+      <li>Fixed and readded the D666 button which was removed earlier.</li>
     </ol>
     <br />
     <input type="checkbox" class="announcements-older-show" name="attr_show_announcements_old" value="1" data-i18n-title="old-announcements" />
     <span data-i18n-title="old-announcements">&nbsp;</span>
     <span class="announcements-older-show">
+      <ol style="margin: 0 2em 0 2em; padding: 0 1em 0 3em;">
+        <span>v2.01 (2021-05-04)</span> <!-- Also need to update the version in Sheet worker code below -->
+        <li>Fixed translation issue caused by incomplete merge and build.</li>
+        <li>Added more apparent highlighting of conditions.</li>
+        <li>Fixed the dice pool indicator for the Roll button.</li>
+      </ol>
+      <br />
       <ol style="margin: 0 2em 0 2em; padding: 0 1em 0 3em;">
         <span>v2.0</span> <!-- Also need to update the version in Sheet worker code below -->
         <li>Upgradeable from the version 1.12, using sheet worker versioning.</li>
@@ -3887,9 +3896,9 @@ function getSingleAttrAsync(prop){
     // set the sheet version you are upgrading sheet to, 
     // and set show_announcement to 1 if you want to force an announcement to be shown.
     // don't set a code_version; we use the switch below for that.
-    let new_version = 2.01;
+    let new_version = 2.02;
     let show_announcement = 1;
-    if (!old_version) old_version = 2.01; // New sheet
+    if (!old_version) old_version = 2.02; // New sheet
     switch (true) {
       //add checks for updates here
       //case old_version === 0:
@@ -3948,20 +3957,14 @@ function getSingleAttrAsync(prop){
     // On upgrade, set character type to Mutant
     clog(`Upgrade ${charname.character_name}: Setting character type Mutant.`);
     setAttrs({chartype: "Mutant"});
-    //const chartypeStr = "Mutant";
-    //setter.chartype = chartypeStr;
     
     // On upgrade, turn off modifiers
     clog(`Upgrade ${charname.character_name}: Turning off modifiers.`);
     setAttrs({"adv-modifiers": 0});
-    //const modifiersTgl = 0;
-    //setter["adv-modifiers"] = modifiersTgl;
     
     // On upgrade, turn on Mutant headers
     clog(`Upgrade ${charname.character_name}: using image header backgrounds.`);
     setAttrs({"header-bgimg": 1});
-    //const bgimgTgl = 1;
-    //setter["header-bgimg"] = bgimgTgl;  
     
     // Upgrade attributes, no need to update damages
     Object.keys(attributes).forEach((attr) => {

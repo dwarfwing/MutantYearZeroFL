@@ -1746,7 +1746,8 @@ input.sheet-expand:checked ~ .sheet-input-textarea {
 div
 */
 
-input[name="attr_chartype"][value="Mutant"] ~ input.sheet-header-bgimg:checked ~ div .sheet-attributes-box1.sheet-header {
+input[name="attr_chartype"][value="Mutant"] ~ input.sheet-header-bgimg:checked ~ div .sheet-attributes-box1.sheet-header,
+input[name="attr_chartype"][value="Mutant"] ~ input.sheet-header-bgimg:checked ~ div .sheet-monster-stats-box1.sheet-header {
   background-size: cover;
   background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header.jpg");
 }
@@ -1798,7 +1799,8 @@ input[name="attr_chartype"][value="Mutant"] ~ input.sheet-header-bgimg:checked ~
   background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header12.jpg");
 }
 
-input[name="attr_chartype"][value="Mutant"] ~ input.sheet-header-bgimg:checked ~ div .sheet-dice_pool-box1 {
+input[name="attr_chartype"][value="Mutant"] ~ input.sheet-header-bgimg:checked ~ div .sheet-dice_pool-box1,
+input[name="attr_chartype"][value="Mutant"] ~ input.sheet-header-bgimg:checked ~ div .sheet-monster-features-box.sheet-header {
   background-size: cover;
   background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header.jpg");
 }
@@ -1823,12 +1825,14 @@ input[name="attr_chartype"][value="Mutant"] ~ input.sheet-header-bgimg:checked ~
 }
 
 input[name="attr_chartype"][value="Mutant"] ~ input.sheet-header-bgimg:checked ~ div .sheet-appearance-box1.sheet-header,
-input[name="attr_chartype"][value="Mutant"] ~ input.sheet-header-bgimg:checked ~  div .sheet-ark h1[data-i18n="ark"] {
+input[name="attr_chartype"][value="Mutant"] ~ input.sheet-header-bgimg:checked ~  div .sheet-ark h1[data-i18n="ark"],
+input[name="attr_chartype"][value="Mutant"] ~ input.sheet-header-bgimg:checked ~ div .sheet-description-box1.sheet-header {
   background-size: cover;
   background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header15.jpg");
 }
 
-input[name="attr_chartype"][value="Mutant"] ~ input.sheet-header-bgimg:checked ~ div .sheet-rot-box {
+input[name="attr_chartype"][value="Mutant"] ~ input.sheet-header-bgimg:checked ~ div .sheet-rot-box,
+input[name="attr_chartype"][value="Mutant"] ~ input.sheet-header-bgimg:checked ~ div .sheet-information-box0.sheet-header {
   background-size: cover;
   background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Mutant%20Year%20Zero/images/header12b.jpg");
 }
@@ -4760,6 +4764,58 @@ input[name="attr_consumables-icons"]:checked ~ div .sheet-consumables-label {
   vertical-align: top;
 }
 
+	  
+/* ---------------------------------- Monster info */
+.sheet-monster-information {
+  grid-column: 1/3;
+}
+
+.sheet-information-grid {
+  display: grid;
+  column-gap: 4px;
+  row-gap: 3px;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 5px;
+}
+
+.sheet-information-grid .sheet-information-box0,
+.sheet-information-grid .sheet-heading-grid {
+  grid-column: 1/3;
+}
+
+.sheet-information-grid .sheet-heading-box1 {
+  width: 95%;
+}
+
+.sheet-monster-abilities {
+  min-height: 2em;
+  grid-column: 1/3;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sheet-monster-abilities-row {
+  display: flex;
+  align-items:flex-start;
+  align-content: flex-start;
+  justify-items: center;
+  justify-content: space-around;
+  padding: 5px;
+}
+
+.sheet-monster-abilities input {
+  width: 35%;
+  justify-self: left;
+  align-self: flex-start;
+}
+.sheet-monster-abilities textarea {
+  width: 60%; 
+  justify-self: right;
+  align-self: flex-start;
+  height: unset;
+}
+
 
 
 /* ---------------------------------- Spells */
@@ -5698,6 +5754,11 @@ input.sheet-adv-modifiers:not(:checked) ~ div .sheet-armor-box7 { grid-column-st
 input.sheet-adv-modifiers:not(:checked) ~ div .sheet-armor-box8 { grid-column-start: 7; grid-row-start: 1;}
 input.sheet-adv-modifiers:not(:checked) ~ div .sheet-armor-box9 { grid-column-start: 8; grid-row-start: 1;}
 
+/* Toggle display of legacy monster information */
+
+input.sheet-adv-monsterinfo:not(:checked) ~ div .sheet-monster-information-toggle {
+  display:none !important;
+}
 /**** DICE ROLLER STYLING ****/
 
 button[type="action"]:hover,

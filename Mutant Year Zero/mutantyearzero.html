@@ -6,6 +6,7 @@
 <input class="hidden attr-chartype-selected" name="attr_chartype" value="(@{chartype})" type="hidden" hidden readonly />
 <input class="hidden header-bgimg" type="checkbox" name="attr_header-bgimg" value="1" hidden readonly />
 <input class="hidden adv-modifiers" type="checkbox" name="attr_adv-modifiers" value="1" hidden readonly />
+<input class="hidden adv-monsterinfo" type="checkbox" name="attr_force_show_monsterinfo" value="1" hidden readonly />
 
 <!-- LOGO -->
 <div class="logo" title="MUTANT YEAR ZERO" data-i18n-title="logo-myz">
@@ -2374,6 +2375,40 @@
       </div>
     </div>
 
+    <!-- MONSTER DESCRIPTION-->
+    <div class="monster-information box chartype-background-light monster toggle-monster-only monster-information-toggle">
+      <div class="information-grid">
+        <div class="information-box information-box0 header">
+          <h1 data-i18n="monster-information-u">MONSTER INFORMATION</h1>
+        </div>
+        <div class="heading-box heading-box1">
+          <span class="sheet-label" data-i18n="description">Description</span><br>
+          <textarea class="input-textarea" name="attr_description" title="@{description}"></textarea>
+        </div>
+        <div class="heading-box heading-box1">
+          <span class="sheet-label" data-i18n="skills">Skills</span><br>
+          <textarea class="input-textarea" name="attr_skills" title="@{skills}"></textarea>
+        </div> 
+
+        <div class="heading-box heading-box1">
+          <span class="sheet-label" data-i18n="weapons">Weapons</span><br>
+          <textarea class="input-textarea" name="attr_weapons" title="@{weapons}"></textarea>
+        </div>
+        <div class="heading-box heading-box1">
+          <span class="sheet-label" data-i18n="armor">Armor</span><br>
+          <input class="input" type="text" name="attr_armor" value="" title="@{armor}" />
+        </div> 
+        <div class="monster-abilities">
+          <div class="header chartype-background-dark" data-i18n="abilities">Abilities</div>
+          <fieldset class="repeating_abilities">
+              <div class="monster-abilities-row">
+                <input name="attr_name" type="text" value="" /><textarea name="attr_description"></textarea>
+              </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+
     <div class="character-notes box chartype-background-light">
       <div class="notes-grid">
         <div class="notes-box1 header">
@@ -2851,6 +2886,10 @@
     <div>
       <span data-i18n="adv-headerbgimg">Show header background images (mutant only)</span>:
       <input type="checkbox" name="attr_header-bgimg" value="1" title="@{header-bgimg}" style="vertical-align: center;"  />
+    </div>
+    <div>
+      <span data-i18n="adv-legacy-monster-info">Display legacy (v1) NPC / Monster information, e.g. Abilities, Skills, Weapons fields.</span>:
+      <input type="checkbox" name="attr_force_show_monsterinfo" value="1" title="@{force_show_monsterinfo}" style="vertical-align: center;"  />
     </div>
     <!--div>
       <span data-i18n="adv-consumables-icons">Show consumables as icons</span>:

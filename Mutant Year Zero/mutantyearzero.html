@@ -4272,19 +4272,21 @@ function getSingleAttrAsync(prop){
     }
 
     // Mutation points
-    if (old_version < 2) {
-      const mp = await getAttrsAsync(["mutation", "mutationpoints", "character_name"]);
-      const mutation = int(mp.mutation),
-      mutationpoints = int(mp.mutationpoints);
+    const mp = await getAttrsAsync(["mutation", "mutationpoints", "character_name"]);
+    clog(`${charname.character_name} mutation points mutation: ${mp.mutation}`);
+    clog(`${charname.character_name} mutation points mutationpoints: ${mp.mutationpoints}`);
+    clog("Testing mutpoints 0: " + old_version );
+    clog(`Testing mutpoints 1: ${ old_version < float(2.01) } `);
+    clog(`Testing mutpoints 2: ${ int(mp.mutation) != 0 } `);
+    clog(`Testing mutpoints 3: ${ int(mp.mutationpoints) == 0 } `);
+    if (old_version < 2.01 && mp.mutation != 0 && mp.mutationpoints == 0) {      
       //charname = mp.character_name;
-      clog("Mutation points mutation: "+mutation);
-      clog("Mutation points mutationpoints: "+mutationpoints);
       //clog("Mutations ationed: "+muts_actioned);
       //clog("Mutation points upgrade check: "+ (!mutation && !muts_actioned) || !mutationpoints );
-      clog(`Upgrade ${charname.character_name} mutation points using mutantion points ${mutation}`);
-      setAttrs({mutationpoints: mutation});
+      clog(`Upgrade ${charname.character_name} mutation points using mutantion points ${mp.mutation}`);
+      setAttrs({mutationpoints: mp.mutation});
     } else {
-      clog("Mutation points not upgraded in version 2+");
+      clog("Mutation points not upgraded in version 2+, or when mutantion is 0, or mutationpoints is bigger than 0.");
     }
 
 

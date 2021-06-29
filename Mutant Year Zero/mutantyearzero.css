@@ -10,7 +10,8 @@
 /* announcements */
 
 
-.sheet-announcements-show {
+.sheet-announcements-show,
+.sheet-v1-data-show {
   font-size: 0.85em;
   position: relative;
   float: right;
@@ -20,18 +21,28 @@
   border-radius: 5px;
   -background-color: #ffffea;
 }
+.sheet-v1-data-show { border: 0; }
 
-span.sheet-announcements-show::before {
+.sheet-v1-data-show div div {display: flex;flex-direction: row;}
+.sheet-v1-data-show div div div { display: flex;flex-direction: column;}
+.sheet-v1-data-show div div div div { display: flex; flex-direction: row; }
+.sheet-v1-data-show .repcontainer { display: flex; flex-direction: column; }
+.sheet-v1-data-show .repcontainer div { display: flex; flex-direction: row; }
+
+span.sheet-announcements-show::before,
+span.sheet-v1-data-show::before {
   content: "v";
 }
 
-span.sheet-announcements-show::after {
+span.sheet-announcements-show::after,
+span.sheet-v1-data-show::after {
   font-family: pictos;
   padding-left: 4px;
   content: "l";
 }
 
-input.sheet-announcements-show {
+input.sheet-announcements-show,
+input.sheet-v1-data-show {
   z-index: 1;
   width: 4.75em;
   height: 1.75em;
@@ -39,7 +50,8 @@ input.sheet-announcements-show {
   opacity: 0;
 }
 
-.sheet-announcements-exit {
+.sheet-announcements-exit,
+.sheet-v1-data-exit {
   font-family: pictos;
   font-size: 1em;
   position: relative;
@@ -48,6 +60,7 @@ input.sheet-announcements-show {
 }
 
 input.sheet-announcements-show:hover + span,
+input.sheet-v1-data-show:hover + span,
 input.sheet-tab[value="monster"]
 ~ div.sheet-character
 input[type="checkbox"].sheet-extra-damage-show:hover,
@@ -58,28 +71,31 @@ input.sheet-monster_only:checked
   opacity: 1;
 }
 
-input[type="checkbox"].sheet-announcements-older-show {
+input[type="checkbox"].sheet-announcements-older-show,
+input[type="checkbox"].sheet-v1-data-show {
   position: relative;
   z-index: 1;
   float: left;
   width: 1.5em;
   height: 1em;
-  margin: -1.1em 0 0 0;
+  margin: 5px 0 0 15px;
   opacity: 0;
 }
 
 input.sheet-announcements-older-show:hover + span,
+input.sheet-v1-data-show:hover + span,
 input.sheet-armor-show-more:hover + span {
   border-left-color: #a60100;
 }
 
 input.sheet-announcements-older-show + span,
+input.sheet-v1-data-show + span,
 input.sheet-armor-show-more + span {
   position: relative;
   float: left;
   width: 0;
   height: 0;
-  margin: -1em 0 0 0;
+  margin: 5px 0 0 -1.5em;
   content: "";
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -91,19 +107,32 @@ input.sheet-armor-show-more + span {
   border-width: 0.4em 0.6em;
   border-left-color: #c0a748;
 }
+/* 
+input.sheet-v1-data-show + span,
+input[type="checkbox"].sheet-v1-data-show {
+  margin-top: 5px;
+  -margin-left: -15px;
+}
+input.sheet-v1-data-show + span {
+  margin-top: 5px;
+  margin-left: -15px;
+} */
 
 input.sheet-announcements-older-show:checked + span,
+input.sheet-v1-data-show:checked + span,
 input.sheet-armor-show-more:checked + span {
   transform: rotate(90deg);
 }
 
 .sheet-announcements-show:not(:checked) + span + div.sheet-announcements,
 .sheet-announcements-older-show:not(:checked) ~ .sheet-announcements-older-show,
+.sheet-v1-data-show:not(:checked) ~ .sheet-v1-data-show,
 input.sheet-armor-show-more:not(:checked) ~ .sheet-armor-show-more {
   display: none;
 }
 
 .sheet-announcements-older-show:checked + span ~ .sheet-announcements-older-show,
+.sheet-v1-data-show:checked + span ~ .sheet-v1-data-show,
 input.sheet-armor-show-more:checked + span ~ .sheet-armor-show-more {
   display: block;
   box-sizing: border-box;
@@ -113,8 +142,26 @@ input.sheet-armor-show-more:checked + span ~ .sheet-armor-show-more {
   border: 1px solid #000;
   border-radius: 5px;
 }
+.sheet-v1-data-show:checked + span ~ .sheet-v1-data-show { 
+  border: 0;
+  padding-left: 0 !important;
+  margin-left: 0 !important;  
+}
+
+div.sheet-v1-data-show {
+  display: flex;
+  justify-content:center;
+  justify-items:center;
+  width: 80%;
+  margin-bottom: 10px;
+}
+.sheet-v1-data-show .repcontrol {
+  display: none;
+}
+
 
 /* Hide actual checkbox */
+
 input.sheet-tab[value="monster"]
   ~ div.sheet-character
   input[type="checkbox"].sheet-extra-damage-show,

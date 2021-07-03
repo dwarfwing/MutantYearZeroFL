@@ -4530,18 +4530,18 @@ function getSingleAttrAsync(prop){
     });
   
   /* total encumbrance */
-  on("sheet:opened change:gear_encumbrance change:vehiclegear_encumbrance change:weapons_encumbrance change:armor_encumbrance change:food change:water change:bullets", function () {
-    getAttrs(["gear_encumbrance", "vehiclegear_encumbrance", "weapons_encumbrance", "armor_encumbrance", "food", "water", "bullets"], function (values) {      
+  on("sheet:opened change:gear_encumbrance change:vehiclegear_encumbrance change:weapons_encumbrance change:armor_encumbrance change:grub change:water change:bullets", function () {
+    getAttrs(["gear_encumbrance", "vehiclegear_encumbrance", "weapons_encumbrance", "armor_encumbrance", "grub", "water", "bullets"], function (values) {      
       clog("Change Detected: Character Encumbrance");
   
       const gear_encumbrance = float(values["gear_encumbrance"]),
         vehiclegear_encumbrance = float(values["vehiclegear_encumbrance"]),
         weapons_encumbrance = float(values["weapons_encumbrance"]),
         armor_encumbrance = float(values["armor_encumbrance"]),
-        food = float(values["food"]),
+        grub = float(values["grub"]),
         water = float(values["water"]),
         bullets = float(values["bullets"]),
-        consumables_enc = (food * 0.25) + (water * 0.25),
+        consumables_enc = (grub * 0.25) + (water * 0.25),
         bullets_enc = bullets <= 10 ? 0 : (bullets <= 20 ? 0.5 : (bullets <= 40 ? 1 : 2)),
         consumables_encumbrance = consumables_enc + bullets_enc, 
         sum_character_encumbrance = gear_encumbrance + weapons_encumbrance + armor_encumbrance + consumables_encumbrance,
